@@ -1,6 +1,11 @@
 package main.java.model.structure.card.elements.formats;
 
-import main.java.model.structure.card.elements.enums.*;
+import main.java.model.structure.card.elements.enums.ElementColor;
+import main.java.model.structure.card.elements.enums.FontFamily;
+import main.java.model.structure.card.elements.enums.FontWeight;
+
+import java.util.HashSet;
+import java.util.Objects;
 
 public final class TextFormat {
 
@@ -29,7 +34,7 @@ public final class TextFormat {
 
     private static final FontWeight DEFAULT_FONT_WEIGHT = FontWeight.NORMAL;
 
-    private static final boolean DEFAULT_IS_ITALICISED = false;
+    private static final boolean DEFAULT_IS_ITALICIZED = false;
 
     private static final boolean DEFAULT_IS_UNDERLINED = false;
 
@@ -48,13 +53,13 @@ public final class TextFormat {
                        boolean isUnderlined,
                        boolean isCondensed,
                        ElementColor elementColor) {
-        validateArguments(fontFamily,
-                          hasSerif,
-                          fontWeight,
-                          isItalicized,
-                          isUnderlined,
-                          isCondensed,
-                          elementColor);
+        checkArguments(fontFamily,
+                       hasSerif,
+                       fontWeight,
+                       isItalicized,
+                       isUnderlined,
+                       isCondensed,
+                       elementColor);
 
         this.fontFamily = fontFamily;
         this.hasSerif = hasSerif;
@@ -66,22 +71,22 @@ public final class TextFormat {
     }
 
 
-    // VALIDATORS
+    // CHECKING METHODS
 
-    private void validateArguments(FontFamily fontFamily,
-                                   boolean hasSerif,
-                                   FontWeight fontWeight,
-                                   boolean isItalicized,
-                                   boolean isUnderlined,
-                                   boolean isCondensed,
-                                   ElementColor elementColor) {
-        validateNonNull(fontFamily, fontWeight, elementColor);
-        validateFont(fontFamily, hasSerif, fontWeight, isItalicized, isCondensed);
+    private void checkArguments(FontFamily fontFamily,
+                                boolean hasSerif,
+                                FontWeight fontWeight,
+                                boolean isItalicized,
+                                boolean isUnderlined,
+                                boolean isCondensed,
+                                ElementColor elementColor) {
+        checkNonNull(fontFamily, fontWeight, elementColor);
+        checkFont(fontFamily, hasSerif, fontWeight, isItalicized, isCondensed);
     }
 
-    private void validateNonNull(FontFamily fontFamily,
-                                 FontWeight fontWeight,
-                                 ElementColor elementColor) {
+    private void checkNonNull(FontFamily fontFamily,
+                              FontWeight fontWeight,
+                              ElementColor elementColor) {
         // Throws IAE instead of NPE because NPE should never be caught.
         if (fontFamily == null)
             throw new IllegalArgumentException("Illegal fontFamily (cannot be null)");
@@ -91,11 +96,11 @@ public final class TextFormat {
             throw new IllegalArgumentException("Illegal elementColor (cannot be null)");
     }
 
-    private void validateFont(FontFamily fontFamily,
-                              boolean hasSerif,
-                              FontWeight fontWeight,
-                              boolean isItalicized,
-                              boolean isCondensed) {
+    private void checkFont(FontFamily fontFamily,
+                           boolean hasSerif,
+                           FontWeight fontWeight,
+                           boolean isItalicized,
+                           boolean isCondensed) {
         if (isItalicized) if (!fontFamily.supportsItalicStyle())
             throw new IllegalArgumentException(String.format(
                     "Unsupported font (fontFamily %s does not support italic style)",
@@ -108,7 +113,7 @@ public final class TextFormat {
                     fontFamily.toString()
             ));
 
-        if (!isSerifSupported(fontFamily, hasSerif))
+        if (!isHasSerifSupported(fontFamily, hasSerif))
             throw new IllegalArgumentException(String.format(
                     "Unsupported font (fontFamily %s does not support %s style)",
                     fontFamily.toString(),
@@ -127,7 +132,7 @@ public final class TextFormat {
 
     // IS SUPPORTED METHODS
 
-    private boolean isSerifSupported(FontFamily fontFamily, boolean hasSerif) {
+    private boolean isHasSerifSupported(FontFamily fontFamily, boolean hasSerif) {
         return hasSerif ? fontFamily.supportsSerif() : fontFamily.supportsSansSerif();
     }
 
@@ -147,13 +152,13 @@ public final class TextFormat {
     }
 
 
-    // ACCESSORS
+    // ACCESSORS (Instance Variables)
 
     public FontFamily getFontFamily() {
         return fontFamily;
     }
 
-    public boolean isHasSerif() {
+    public boolean hasSerif() {
         return hasSerif;
     }
 
@@ -177,11 +182,14 @@ public final class TextFormat {
         return elementColor;
     }
 
+
+    // ACCESSORS (Default Values)
+
     public static FontFamily getDefaultFontFamily() {
         return DEFAULT_FONT_FAMILY;
     }
 
-    public static boolean isDefaultHasSerif() {
+    public static boolean hasSerifByDefault() {
         return DEFAULT_HAS_SERIF;
     }
 
@@ -189,20 +197,305 @@ public final class TextFormat {
         return DEFAULT_FONT_WEIGHT;
     }
 
-    public static boolean isDefaultIsItalicised() {
-        return DEFAULT_IS_ITALICISED;
+    public static boolean isItalicizedByDefault() {
+        return DEFAULT_IS_ITALICIZED;
     }
 
-    public static boolean isDefaultIsUnderlined() {
+    public static boolean isUnderlinedByDefault() {
         return DEFAULT_IS_UNDERLINED;
     }
 
-    public static boolean isDefaultIsCondensed() {
+    public static boolean isCondensedByDefault() {
         return DEFAULT_IS_CONDENSED;
     }
 
     public static ElementColor getDefaultElementColor() {
         return DEFAULT_ELEMENT_COLOR;
+    }
+
+
+    // COPY METHODS
+
+    public TextFormat withFontFamily(FontFamily newFontFamily) {
+        if (newFontFamily == null)
+            throw new IllegalArgumentException("Illegal newFontFamily (cannot be null)");
+
+        if (newFontFamily == fontFamily) return this;
+
+        final boolean NEW_HAS_SERIF = newHasSerif(newFontFamily);
+        final FontWeight NEW_FONT_WEIGHT = newFontWeight(newFontFamily, NEW_HAS_SERIF);
+        final boolean NEW_IS_ITALICIZED = newIsItalicized(newFontFamily);
+        final boolean NEW_IS_CONDENSED = newIsCondensed(newFontFamily);
+
+        final var BUILDER = new TextFormatBuilder();
+        return BUILDER.fontFamily(newFontFamily)
+                      .hasSerif(NEW_HAS_SERIF)
+                      .fontWeight(NEW_FONT_WEIGHT)
+                      .isItalicized(NEW_IS_ITALICIZED)
+                      .isUnderlined(isUnderlined)
+                      .isCondensed(NEW_IS_CONDENSED)
+                      .elementColor(elementColor)
+                      .build();
+    }
+
+    public TextFormat withHasSerif(boolean newHasSerif) {
+        if (newHasSerif == hasSerif) return this;
+
+        if (!isValidHasSerif(newHasSerif))
+            throw new IllegalArgumentException(String.format(
+                    "Unsupported font (fontFamily %s does not support %s style)",
+                    fontFamily.toString(),
+                    newHasSerif ? "serif" : "sans serif"
+            ));
+
+        final FontWeight NEW_FONT_WEIGHT = newFontWeight(fontFamily, newHasSerif);
+
+        final var BUILDER = new TextFormatBuilder();
+        return BUILDER.fontFamily(fontFamily)
+                      .hasSerif(hasSerif)
+                      .fontWeight(NEW_FONT_WEIGHT)
+                      .isItalicized(isItalicized)
+                      .isUnderlined(isUnderlined)
+                      .isCondensed(isCondensed)
+                      .elementColor(elementColor)
+                      .build();
+    }
+
+    public TextFormat withFontWeight(FontWeight newFontWeight) {
+        if (newFontWeight == null)
+            throw new IllegalArgumentException("Illegal newFontWeight (cannot be null)");
+
+        if (newFontWeight == fontWeight) return this;
+
+        if (!isValidFontWeight(newFontWeight))
+            throw new IllegalArgumentException(String.format(
+                    "Unsupported font (fontFamily %s does not support %s style with fontWeight %s)",
+                    fontFamily.toString(),
+                    hasSerif ? "serif" : "sans serif",
+                    newFontWeight.toString()
+            ));
+
+        final var BUILDER = new TextFormatBuilder();
+        return BUILDER.fontFamily(fontFamily)
+                      .hasSerif(hasSerif)
+                      .fontWeight(newFontWeight)
+                      .isItalicized(isItalicized)
+                      .isUnderlined(isUnderlined)
+                      .isCondensed(isCondensed)
+                      .elementColor(elementColor)
+                      .build();
+    }
+
+    public TextFormat withIsItalicized(boolean newIsItalicized) {
+        if (newIsItalicized == isItalicized) return this;
+
+        if (!isValidIsItalicized(isItalicized)) {
+            throw new IllegalArgumentException(String.format(
+                    "Unsupported font (fontFamily %s does not support italic style)",
+                    fontFamily.toString()
+            ));
+        }
+
+        final var BUILDER = new TextFormatBuilder();
+        return BUILDER.fontFamily(fontFamily)
+                      .hasSerif(hasSerif)
+                      .fontWeight(fontWeight)
+                      .isItalicized(newIsItalicized)
+                      .isUnderlined(isUnderlined)
+                      .isCondensed(isCondensed)
+                      .elementColor(elementColor)
+                      .build();
+    }
+
+    public TextFormat withIsUnderlined(boolean newIsUnderlined) {
+        if (newIsUnderlined == isUnderlined) return this;
+
+        final var BUILDER = new TextFormatBuilder();
+        return BUILDER.fontFamily(fontFamily)
+                      .hasSerif(hasSerif)
+                      .fontWeight(fontWeight)
+                      .isItalicized(isItalicized)
+                      .isUnderlined(newIsUnderlined)
+                      .isCondensed(isCondensed)
+                      .elementColor(elementColor)
+                      .build();
+    }
+
+    public TextFormat withIsCondensed(boolean newIsCondensed) {
+        if (newIsCondensed == isCondensed) return this;
+
+        if (isValidIsCondensed(isCondensed)) {
+            throw new IllegalArgumentException(String.format(
+                    "Unsupported font (fontFamily %s does not support condensed style)",
+                    fontFamily.toString()
+            ));
+        }
+
+        final var BUILDER = new TextFormatBuilder();
+        return BUILDER.fontFamily(fontFamily)
+                      .hasSerif(hasSerif)
+                      .fontWeight(fontWeight)
+                      .isItalicized(isItalicized)
+                      .isUnderlined(isUnderlined)
+                      .isCondensed(newIsCondensed)
+                      .elementColor(elementColor)
+                      .build();
+    }
+
+    public TextFormat withElementColor(ElementColor newElementColor) {
+        if (newElementColor == null)
+            throw new IllegalArgumentException("Illegal newElementColor (cannot be null)");
+
+        if (newElementColor == elementColor) return this;
+
+        final var BUILDER = new TextFormatBuilder();
+        return BUILDER.fontFamily(fontFamily)
+                      .hasSerif(hasSerif)
+                      .fontWeight(fontWeight)
+                      .isItalicized(isItalicized)
+                      .isUnderlined(isUnderlined)
+                      .isCondensed(isCondensed)
+                      .elementColor(newElementColor)
+                      .build();
+    }
+
+
+    // NEW METHODS
+    // (Returns the new values of other variables when one changes, so that the font is supported.)
+
+    private boolean newHasSerif(FontFamily newFontFamily) {
+        if (hasSerif ? !newFontFamily.supportsSerif() : !newFontFamily.supportsSansSerif())
+            return !hasSerif;
+        return hasSerif;
+    }
+
+    private FontWeight newFontWeight(FontFamily newFontFamily, boolean newHasSerif) {
+        switch (fontWeight) {
+            case LIGHT:
+                if (newHasSerif
+                    ? newFontFamily.supportsSerifLightWeight()
+                    : newFontFamily.supportsSansSerifLightWeight()) return fontWeight;
+                break;
+            case NORMAL:
+                if (newHasSerif
+                    ? newFontFamily.supportsSerifNormalWeight()
+                    : newFontFamily.supportsSansSerifNormalWeight()) return fontWeight;
+                break;
+            case SEMI_BOLD:
+                if (newHasSerif
+                    ? newFontFamily.supportsSerifSemiBoldWeight()
+                    : newFontFamily.supportsSansSerifSemiBoldWeight()) return fontWeight;
+                break;
+            case BLACK:
+                if (newHasSerif
+                    ? newFontFamily.supportsSerifBlackWeight()
+                    : newFontFamily.supportsSansSerifBlackWeight()) return fontWeight;
+                break;
+        }
+
+        // TODO: 08/08/2020 Make this method return the closest fontWeight.
+        return FontWeight.NORMAL;
+    }
+
+    private boolean newIsItalicized(FontFamily newFontFamily) {
+        if (!newFontFamily.supportsItalicStyle()) return false;
+        return isItalicized;
+    }
+
+    private boolean newIsCondensed(FontFamily newFontFamily) {
+        if (!newFontFamily.supportsCondensedStyle()) return false;
+        return isCondensed;
+    }
+
+
+    // VALID METHODS
+    // (Returns a possible value(s) for an instance variable based on state of this object.)
+
+    public HashSet<Boolean> validHasSerifSet() {
+        HashSet<Boolean> validHasSerifSet = new HashSet<>();
+
+        if (fontFamily.supportsSerif()) validHasSerifSet.add(true);
+        if (fontFamily.supportsSansSerif()) validHasSerifSet.add(false);
+
+        return validHasSerifSet;
+    }
+
+    public HashSet<FontWeight> validFontWeightSet() {
+        HashSet<FontWeight> validFontWeightSet = new HashSet<>();
+
+        if (hasSerif
+            ? fontFamily.supportsSerifLightWeight()
+            : fontFamily.supportsSansSerifLightWeight())
+            validFontWeightSet.add(FontWeight.LIGHT);
+        if (hasSerif
+            ? fontFamily.supportsSerifNormalWeight()
+            : fontFamily.supportsSansSerifNormalWeight())
+            validFontWeightSet.add(FontWeight.NORMAL);
+        if (hasSerif
+            ? fontFamily.supportsSerifSemiBoldWeight()
+            : fontFamily.supportsSansSerifSemiBoldWeight())
+            validFontWeightSet.add(FontWeight.SEMI_BOLD);
+        if (hasSerif
+            ? fontFamily.supportsSerifBlackWeight()
+            : fontFamily.supportsSansSerifBlackWeight())
+            validFontWeightSet.add(FontWeight.BLACK);
+
+        return validFontWeightSet;
+    }
+
+    public HashSet<Boolean> validIsItalicizedSet() {
+        HashSet<Boolean> validIsItalicizedSet = new HashSet<>();
+
+        validIsItalicizedSet.add(false); // All font families supports non-italic style.
+
+        if (fontFamily.supportsItalicStyle()) validIsItalicizedSet.add(true);
+
+        return validIsItalicizedSet;
+    }
+
+    public HashSet<Boolean> validIsCondensedSet() {
+        HashSet<Boolean> validIsCondensedSet = new HashSet<>();
+
+        validIsCondensedSet.add(false);
+
+        if (fontFamily.supportsCondensedStyle()) validIsCondensedSet.add(true);
+
+        return validIsCondensedSet;
+    }
+
+    // TODO: 08/08/2020 Resolve code repetition with isHasSerifSupported.
+    public boolean isValidHasSerif(boolean hasSerif) {
+        if (hasSerif == this.hasSerif) return true;
+
+        return hasSerif ? fontFamily.supportsSerif() : fontFamily.supportsSansSerif();
+    }
+
+    // TODO: 08/08/2020 Resolve code repetition with isFontWeightSupported
+    public boolean isValidFontWeight(FontWeight fontWeight) {
+        if (fontWeight == this.fontWeight) return true;
+
+        return hasSerif
+               ? fontFamily.supportsSerifLightWeight() && fontWeight == FontWeight.LIGHT
+                 || fontFamily.supportsSerifNormalWeight() && fontWeight == FontWeight.NORMAL
+                 || fontFamily.supportsSerifSemiBoldWeight() && fontWeight == FontWeight.SEMI_BOLD
+                 || fontFamily.supportsSerifBlackWeight() && fontWeight == FontWeight.BLACK
+               : fontFamily.supportsSansSerifLightWeight() && fontWeight == FontWeight.LIGHT
+                 || fontFamily.supportsSansSerifNormalWeight() && fontWeight == FontWeight.NORMAL
+                 || fontFamily.supportsSansSerifSemiBoldWeight()
+                    && fontWeight == FontWeight.SEMI_BOLD
+                 || fontFamily.supportsSansSerifBlackWeight() && fontWeight == FontWeight.BLACK;
+    }
+
+    public boolean isValidIsItalicized(boolean isItalicized) {
+        if (isItalicized == this.isItalicized) return true;
+
+        return !isItalicized || fontFamily.supportsItalicStyle();
+    }
+
+    public boolean isValidIsCondensed(boolean isCondensed) {
+        if (isCondensed == this.isCondensed) return true;
+
+        return !isCondensed || fontFamily.supportsCondensedStyle();
     }
 
 
@@ -233,7 +526,7 @@ public final class TextFormat {
             fontFamily = DEFAULT_FONT_FAMILY;
             hasSerif = DEFAULT_HAS_SERIF;
             fontWeight = DEFAULT_FONT_WEIGHT;
-            isItalicized = DEFAULT_IS_ITALICISED;
+            isItalicized = DEFAULT_IS_ITALICIZED;
             isUnderlined = DEFAULT_IS_UNDERLINED;
             isCondensed = DEFAULT_IS_CONDENSED;
             elementColor = DEFAULT_ELEMENT_COLOR;
@@ -289,5 +582,46 @@ public final class TextFormat {
                                   isCondensed,
                                   elementColor);
         }
+    }
+
+
+    // OVERRIDDEN METHODS
+
+    @Override
+    public String toString() {
+        return "TextFormat{" +
+               "fontFamily=" + fontFamily +
+               ", hasSerif=" + hasSerif +
+               ", fontWeight=" + fontWeight +
+               ", isItalicized=" + isItalicized +
+               ", isUnderlined=" + isUnderlined +
+               ", isCondensed=" + isCondensed +
+               ", elementColor=" + elementColor +
+               '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof TextFormat)) return false;
+        TextFormat that = (TextFormat) o;
+        return hasSerif == that.hasSerif &&
+               isItalicized == that.isItalicized &&
+               isUnderlined == that.isUnderlined &&
+               isCondensed == that.isCondensed &&
+               fontFamily == that.fontFamily &&
+               fontWeight == that.fontWeight &&
+               elementColor == that.elementColor;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fontFamily,
+                            hasSerif,
+                            fontWeight,
+                            isItalicized,
+                            isUnderlined,
+                            isCondensed,
+                            elementColor);
     }
 }
