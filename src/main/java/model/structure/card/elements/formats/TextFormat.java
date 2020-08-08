@@ -101,26 +101,26 @@ public final class TextFormat {
                            FontWeight fontWeight,
                            boolean isItalicized,
                            boolean isCondensed) {
-        if (isItalicized) if (!fontFamily.supportsItalicStyle())
+        if (!isValidIsItalicized(fontFamily, isItalicized))
             throw new IllegalArgumentException(String.format(
                     "Unsupported font (fontFamily %s does not support italic style)",
                     fontFamily.toString()
             ));
 
-        if (isCondensed) if (!fontFamily.supportsCondensedStyle())
+        if (!isValidIsCondensed(fontFamily, isCondensed))
             throw new IllegalArgumentException(String.format(
                     "Unsupported font (fontFamily %s does not support condensed style)",
                     fontFamily.toString()
             ));
 
-        if (!isHasSerifSupported(fontFamily, hasSerif))
+        if (!isValidHasSerif(fontFamily, hasSerif))
             throw new IllegalArgumentException(String.format(
                     "Unsupported font (fontFamily %s does not support %s style)",
                     fontFamily.toString(),
                     hasSerif ? "serif" : "sans serif"
             ));
 
-        if (!isFontWeightSupported(fontFamily, hasSerif, fontWeight))
+        if (!isValidFontWeight(fontFamily, hasSerif, fontWeight))
             throw new IllegalArgumentException(String.format(
                     "Unsupported font (fontFamily %s does not support %s style with fontWeight %s)",
                     fontFamily.toString(),
@@ -130,15 +130,41 @@ public final class TextFormat {
     }
 
 
-    // IS SUPPORTED METHODS
+    // VALIDATORS
+    // (Public validators: Called in copy methods when instance variables have been initialised.)
+    // (Private validators: Called in constructor when instance variables yet to be initialised.)
 
-    private boolean isHasSerifSupported(FontFamily fontFamily, boolean hasSerif) {
+    public boolean isValidHasSerif(boolean hasSerif) {
+        if (this.hasSerif == hasSerif) return true;
+
+        return isValidHasSerif(fontFamily, hasSerif);
+    }
+
+    public boolean isValidFontWeight(FontWeight fontWeight) {
+        if (fontWeight == this.fontWeight) return true;
+
+        return isValidFontWeight(fontFamily, hasSerif, fontWeight);
+    }
+
+    public boolean isValidIsItalicized(boolean isItalicized) {
+        if (isItalicized == this.isItalicized) return true;
+
+        return isValidIsItalicized(fontFamily, isItalicized);
+    }
+
+    public boolean isValidIsCondensed(boolean isCondensed) {
+        if (isCondensed == this.isCondensed) return true;
+
+        return isValidIsCondensed(fontFamily, isCondensed);
+    }
+
+    private boolean isValidHasSerif(FontFamily fontFamily, boolean hasSerif) {
         return hasSerif ? fontFamily.supportsSerif() : fontFamily.supportsSansSerif();
     }
 
-    private boolean isFontWeightSupported(FontFamily fontFamily,
-                                          boolean hasSerif,
-                                          FontWeight fontWeight) {
+    private boolean isValidFontWeight(FontFamily fontFamily,
+                                      boolean hasSerif,
+                                      FontWeight fontWeight) {
         return hasSerif
                ? fontFamily.supportsSerifLightWeight() && fontWeight == FontWeight.LIGHT
                  || fontFamily.supportsSerifNormalWeight() && fontWeight == FontWeight.NORMAL
@@ -149,6 +175,14 @@ public final class TextFormat {
                  || fontFamily.supportsSansSerifSemiBoldWeight()
                     && fontWeight == FontWeight.SEMI_BOLD
                  || fontFamily.supportsSansSerifBlackWeight() && fontWeight == FontWeight.BLACK;
+    }
+
+    private boolean isValidIsItalicized(FontFamily fontFamily, boolean isItalicized) {
+        return !isItalicized || fontFamily.supportsItalicStyle();
+    }
+
+    private boolean isValidIsCondensed(FontFamily fontFamily, boolean isCondensed) {
+        return !isCondensed || fontFamily.supportsCondensedStyle();
     }
 
 
@@ -461,41 +495,6 @@ public final class TextFormat {
         if (fontFamily.supportsCondensedStyle()) validIsCondensedSet.add(true);
 
         return validIsCondensedSet;
-    }
-
-    // TODO: 08/08/2020 Resolve code repetition with isHasSerifSupported.
-    public boolean isValidHasSerif(boolean hasSerif) {
-        if (hasSerif == this.hasSerif) return true;
-
-        return hasSerif ? fontFamily.supportsSerif() : fontFamily.supportsSansSerif();
-    }
-
-    // TODO: 08/08/2020 Resolve code repetition with isFontWeightSupported
-    public boolean isValidFontWeight(FontWeight fontWeight) {
-        if (fontWeight == this.fontWeight) return true;
-
-        return hasSerif
-               ? fontFamily.supportsSerifLightWeight() && fontWeight == FontWeight.LIGHT
-                 || fontFamily.supportsSerifNormalWeight() && fontWeight == FontWeight.NORMAL
-                 || fontFamily.supportsSerifSemiBoldWeight() && fontWeight == FontWeight.SEMI_BOLD
-                 || fontFamily.supportsSerifBlackWeight() && fontWeight == FontWeight.BLACK
-               : fontFamily.supportsSansSerifLightWeight() && fontWeight == FontWeight.LIGHT
-                 || fontFamily.supportsSansSerifNormalWeight() && fontWeight == FontWeight.NORMAL
-                 || fontFamily.supportsSansSerifSemiBoldWeight()
-                    && fontWeight == FontWeight.SEMI_BOLD
-                 || fontFamily.supportsSansSerifBlackWeight() && fontWeight == FontWeight.BLACK;
-    }
-
-    public boolean isValidIsItalicized(boolean isItalicized) {
-        if (isItalicized == this.isItalicized) return true;
-
-        return !isItalicized || fontFamily.supportsItalicStyle();
-    }
-
-    public boolean isValidIsCondensed(boolean isCondensed) {
-        if (isCondensed == this.isCondensed) return true;
-
-        return !isCondensed || fontFamily.supportsCondensedStyle();
     }
 
 
