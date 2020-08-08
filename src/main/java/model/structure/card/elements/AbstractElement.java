@@ -48,5 +48,5 @@ abstract public class AbstractElement {
 
     // COPY METHODS
 
-    abstract public void withName();
+    abstract public AbstractElement withName(String newName);
 }
