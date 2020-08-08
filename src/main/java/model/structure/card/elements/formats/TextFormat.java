@@ -1,8 +1,6 @@
 package main.java.model.structure.card.elements.formats;
 
-import main.java.model.structure.card.elements.enums.ElementColor;
-import main.java.model.structure.card.elements.enums.FontFamily;
-import main.java.model.structure.card.elements.enums.FontWeight;
+import main.java.model.structure.card.elements.enums.*;
 
 public final class TextFormat {
 
@@ -205,5 +203,91 @@ public final class TextFormat {
 
     public static ElementColor getDefaultElementColor() {
         return DEFAULT_ELEMENT_COLOR;
+    }
+
+
+    // BUILDER
+
+    public static final class TextFormatBuilder {
+
+        // TextFormat VARIABLES
+
+        private FontFamily fontFamily;
+
+        private boolean hasSerif;
+
+        private FontWeight fontWeight;
+
+        private boolean isItalicized;
+
+        private boolean isUnderlined;
+
+        private boolean isCondensed;
+
+        private ElementColor elementColor;
+
+
+        // CONSTRUCTOR
+
+        public TextFormatBuilder() {
+            fontFamily = DEFAULT_FONT_FAMILY;
+            hasSerif = DEFAULT_HAS_SERIF;
+            fontWeight = DEFAULT_FONT_WEIGHT;
+            isItalicized = DEFAULT_IS_ITALICISED;
+            isUnderlined = DEFAULT_IS_UNDERLINED;
+            isCondensed = DEFAULT_IS_CONDENSED;
+            elementColor = DEFAULT_ELEMENT_COLOR;
+        }
+
+
+        // METHODS
+
+        public TextFormatBuilder fontFamily(FontFamily fontFamily) {
+            this.fontFamily = fontFamily;
+            return this;
+        }
+
+        public TextFormatBuilder hasSerif(boolean hasSerif) {
+            this.hasSerif = hasSerif;
+            return this;
+        }
+
+        public TextFormatBuilder fontWeight(FontWeight fontWeight) {
+            this.fontWeight = fontWeight;
+            return this;
+        }
+
+        public TextFormatBuilder isItalicized(boolean isItalicized) {
+            this.isItalicized = isItalicized;
+            return this;
+        }
+
+        public TextFormatBuilder isUnderlined(boolean isUnderlined) {
+            this.isUnderlined = isUnderlined;
+            return this;
+        }
+
+        public TextFormatBuilder isCondensed(boolean isCondensed) {
+            this.isCondensed = isCondensed;
+            return this;
+        }
+
+        public TextFormatBuilder elementColor(ElementColor elementColor) {
+            this.elementColor = elementColor;
+            return this;
+        }
+
+
+        // BUILD
+
+        public TextFormat build() {
+            return new TextFormat(fontFamily,
+                                  hasSerif,
+                                  fontWeight,
+                                  isItalicized,
+                                  isUnderlined,
+                                  isCondensed,
+                                  elementColor);
+        }
     }
 }
