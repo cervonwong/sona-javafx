@@ -1,8 +1,6 @@
 package main.java.model.structure.card.elements.formats;
 
-import main.java.model.structure.card.elements.enums.ElementColor;
-import main.java.model.structure.card.elements.enums.FontFamily;
-import main.java.model.structure.card.elements.enums.FontWeight;
+import main.java.model.structure.card.elements.enums.*;
 
 import java.util.HashSet;
 import java.util.Objects;
