@@ -71,7 +71,7 @@ public final class TextFormat {
     }
 
 
-    // CHECKING METHODS
+    // CHECK METHODS
 
     private void checkArguments(FontFamily fontFamily,
                                 boolean hasSerif,
