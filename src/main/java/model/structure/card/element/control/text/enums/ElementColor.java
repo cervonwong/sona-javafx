@@ -1,4 +1,4 @@
-package main.java.model.structure.card.elements.enums.text;
+package main.java.model.structure.card.element.control.text.enums;
 
 import javafx.scene.paint.Color;
 

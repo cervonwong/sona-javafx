@@ -1,4 +1,4 @@
-package main.java.model.structure.card.elements;
+package main.java.model.structure.card.element;
 
 abstract public class AbstractElement {
 

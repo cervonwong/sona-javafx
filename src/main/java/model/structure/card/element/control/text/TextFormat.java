@@ -1,6 +1,6 @@
-package main.java.model.structure.card.elements.formats;
+package main.java.model.structure.card.element.control.text;
 
-import main.java.model.structure.card.elements.enums.text.*;
+import main.java.model.structure.card.element.control.text.enums.*;
 
 import java.util.HashSet;
 import java.util.Objects;
