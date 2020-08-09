@@ -685,7 +685,7 @@ public final class TextFormat {
         if (this == o) return true;
         if (!(o instanceof TextFormat)) return false;
         TextFormat that = (TextFormat) o;
-        return fontSizeFactor == that.fontSizeFactor &&
+        return Double.compare(fontSizeFactor, that.fontSizeFactor) == 0 &&
                hasSerif == that.hasSerif &&
                isItalicized == that.isItalicized &&
                isUnderlined == that.isUnderlined &&
