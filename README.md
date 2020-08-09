@@ -16,6 +16,8 @@ To start using Sona, download the latest JAR file from [Releases](https://github
 
 ## Contributing
 
+~~ Note that this project does not use any build systems such as Maven or Gradle.
+
 Please feel free to report issues. If you want to submit a bug fix or enhancement request, you can create a PR.
 
 ### Set up
