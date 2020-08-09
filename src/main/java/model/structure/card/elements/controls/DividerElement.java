@@ -5,6 +5,8 @@ import main.java.model.structure.card.elements.enums.divider.IndentType;
 import main.java.model.structure.card.elements.enums.text.ElementColor;
 import main.java.model.structure.card.elements.interfaces.ControlElement;
 
+import java.util.Objects;
+
 public final class DividerElement extends AbstractElement implements ControlElement {
 
     // INSTANCE VARIABLES
@@ -591,4 +593,49 @@ public final class DividerElement extends AbstractElement implements ControlElem
 
     // OVERRIDDEN METHODS
 
+
+    @Override
+    public String toString() {
+        return "DividerElement{" +
+               "name='" + getName() + '\'' +
+               ", size=" + size +
+               ", thickness=" + thickness +
+               ", isSymmetrical=" + isSymmetrical +
+               ", indentType=" + indentType +
+               ", leadingIndent=" + leadingIndent +
+               ", trailingIndent=" + trailingIndent +
+               ", leadingIndentPercentage=" + leadingIndentPercentage +
+               ", trailingIndentPercentage=" + trailingIndentPercentage +
+               ", elementColor=" + elementColor +
+               "} " + super.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof DividerElement)) return false;
+        DividerElement that = (DividerElement) o;
+        return Double.compare(that.size, size) == 0 &&
+               Double.compare(that.thickness, thickness) == 0 &&
+               isSymmetrical == that.isSymmetrical &&
+               Double.compare(that.leadingIndent, leadingIndent) == 0 &&
+               Double.compare(that.trailingIndent, trailingIndent) == 0 &&
+               Double.compare(that.leadingIndentPercentage, leadingIndentPercentage) == 0 &&
+               Double.compare(that.trailingIndentPercentage, trailingIndentPercentage) == 0 &&
+               indentType == that.indentType &&
+               elementColor == that.elementColor;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(size,
+                            thickness,
+                            isSymmetrical,
+                            indentType,
+                            leadingIndent,
+                            trailingIndent,
+                            leadingIndentPercentage,
+                            trailingIndentPercentage,
+                            elementColor);
+    }
 }
