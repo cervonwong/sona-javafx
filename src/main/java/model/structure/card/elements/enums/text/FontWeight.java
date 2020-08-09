@@ -1,4 +1,4 @@
-package main.java.model.structure.card.elements.enums;
+package main.java.model.structure.card.elements.enums.text;
 
 public enum FontWeight {
     LIGHT,
