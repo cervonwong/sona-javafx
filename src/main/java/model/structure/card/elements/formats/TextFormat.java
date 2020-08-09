@@ -70,7 +70,7 @@ public final class TextFormat {
                        fontWeight,
                        isItalicized,
                        isCondensed,
-                       elementColor);
+                       elementColor); // Does not check isUnderlined
 
         this.fontSizeFactor = fontSizeFactor;
         this.fontFamily = fontFamily;
