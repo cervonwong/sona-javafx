@@ -31,7 +31,11 @@ abstract public class AbstractElement {
             throw new IllegalArgumentException("Illegal name (cannot be empty)");
 
         if (name.length() > MAX_NAME_LENGTH)
-            throw new IllegalArgumentException("Illegal name (is too long): " + name);
+            throw new IllegalArgumentException(String.format(
+                    "Illegal name (is longer than %s characters): %s",
+                    MAX_NAME_LENGTH,
+                    name
+            ));
     }
 
 
