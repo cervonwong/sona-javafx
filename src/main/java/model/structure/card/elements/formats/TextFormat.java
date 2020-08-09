@@ -9,6 +9,8 @@ public final class TextFormat {
 
     // INSTANCE VARIABLES
 
+    private final double fontSizeFactor;
+
     private final FontFamily fontFamily;
 
     private final boolean hasSerif;
@@ -26,6 +28,8 @@ public final class TextFormat {
 
     // DEFAULT VALUES
 
+    private static final double DEFAULT_FONT_SIZE_FACTOR = 32.0;
+
     private static final FontFamily DEFAULT_FONT_FAMILY = FontFamily.LATIN;
 
     private static final boolean DEFAULT_HAS_SERIF = false;
@@ -41,17 +45,27 @@ public final class TextFormat {
     private static final ElementColor DEFAULT_ELEMENT_COLOR = ElementColor.DEFAULT;
 
 
+    // BOUNDARY VALUES
+
+    private static final double MAX_FONT_SIZE = 200.0;
+
+    private static final double MIN_FONT_SIZE = 1.0;
+
+
+
     // CONSTRUCTOR
 
 
-    private TextFormat(FontFamily fontFamily,
+    private TextFormat(double fontSizeFactor,
+                       FontFamily fontFamily,
                        boolean hasSerif,
                        FontWeight fontWeight,
                        boolean isItalicized,
                        boolean isUnderlined,
                        boolean isCondensed,
                        ElementColor elementColor) {
-        checkArguments(fontFamily,
+        checkArguments(fontSizeFactor,
+                       fontFamily,
                        hasSerif,
                        fontWeight,
                        isItalicized,
@@ -59,6 +73,7 @@ public final class TextFormat {
                        isCondensed,
                        elementColor);
 
+        this.fontSizeFactor = fontSizeFactor;
         this.fontFamily = fontFamily;
         this.hasSerif = hasSerif;
         this.fontWeight = fontWeight;
@@ -71,7 +86,8 @@ public final class TextFormat {
 
     // CHECK METHODS
 
-    private void checkArguments(FontFamily fontFamily,
+    private void checkArguments(double fontSizeFactor,
+                                FontFamily fontFamily,
                                 boolean hasSerif,
                                 FontWeight fontWeight,
                                 boolean isItalicized,
@@ -79,6 +95,7 @@ public final class TextFormat {
                                 boolean isCondensed,
                                 ElementColor elementColor) {
         checkNonNull(fontFamily, fontWeight, elementColor);
+        checkFontSizeFactor(fontSizeFactor);
         checkFont(fontFamily, hasSerif, fontWeight, isItalicized, isCondensed);
     }
 
@@ -92,6 +109,22 @@ public final class TextFormat {
             throw new IllegalArgumentException("Illegal fontWeight (cannot be null)");
         if (elementColor == null)
             throw new IllegalArgumentException("Illegal elementColor (cannot be null)");
+    }
+
+    private void checkFontSizeFactor(double fontSizeFactor) {
+        if (fontSizeFactor < MIN_FONT_SIZE)
+            throw new IllegalArgumentException(String.format(
+                    "Illegal fontSizeFactor (is lesser than %s): %s",
+                    MIN_FONT_SIZE,
+                    fontSizeFactor
+            ));
+
+        if (fontSizeFactor > MAX_FONT_SIZE)
+            throw new IllegalArgumentException(String.format(
+                    "Illegal fontSizeFactor (is greater than %s): %s",
+                    MAX_FONT_SIZE,
+                    fontSizeFactor
+            ));
     }
 
     private void checkFont(FontFamily fontFamily,
@@ -185,6 +218,10 @@ public final class TextFormat {
 
     // ACCESSORS (Instance Variables)
 
+    public double getFontSizeFactor() {
+        return fontSizeFactor;
+    }
+
     public FontFamily getFontFamily() {
         return fontFamily;
     }
@@ -216,6 +253,10 @@ public final class TextFormat {
 
     // ACCESSORS (Default Values)
 
+    public static double getDefaultFontSizeFactor() {
+        return DEFAULT_FONT_SIZE_FACTOR;
+    }
+
     public static FontFamily getDefaultFontFamily() {
         return DEFAULT_FONT_FAMILY;
     }
@@ -245,7 +286,33 @@ public final class TextFormat {
     }
 
 
+    // ACCESSORS (Boundary Values)
+
+    public static double getMaxFontSize() {
+        return MAX_FONT_SIZE;
+    }
+
+    public static double getMinFontSize() {
+        return MIN_FONT_SIZE;
+    }
+
+
     // COPY METHODS
+
+    public TextFormat withFontSizeFactor(double newFontSizeFactor) {
+        if (newFontSizeFactor == fontSizeFactor) return this;
+
+        final var BUILDER = new TextFormatBuilder();
+        return BUILDER.fontSizeFactor(newFontSizeFactor)
+                      .fontFamily(fontFamily)
+                      .hasSerif(hasSerif)
+                      .fontWeight(fontWeight)
+                      .isItalicized(isItalicized)
+                      .isUnderlined(isUnderlined)
+                      .isCondensed(isCondensed)
+                      .elementColor(elementColor)
+                      .build();
+    }
 
     public TextFormat withFontFamily(FontFamily newFontFamily) {
         if (newFontFamily == null)
@@ -259,7 +326,8 @@ public final class TextFormat {
         final boolean NEW_IS_CONDENSED = newIsCondensed(newFontFamily);
 
         final var BUILDER = new TextFormatBuilder();
-        return BUILDER.fontFamily(newFontFamily)
+        return BUILDER.fontSizeFactor(fontSizeFactor)
+                      .fontFamily(newFontFamily)
                       .hasSerif(NEW_HAS_SERIF)
                       .fontWeight(NEW_FONT_WEIGHT)
                       .isItalicized(NEW_IS_ITALICIZED)
@@ -282,7 +350,8 @@ public final class TextFormat {
         final FontWeight NEW_FONT_WEIGHT = newFontWeight(fontFamily, newHasSerif);
 
         final var BUILDER = new TextFormatBuilder();
-        return BUILDER.fontFamily(fontFamily)
+        return BUILDER.fontSizeFactor(fontSizeFactor)
+                      .fontFamily(fontFamily)
                       .hasSerif(hasSerif)
                       .fontWeight(NEW_FONT_WEIGHT)
                       .isItalicized(isItalicized)
@@ -300,14 +369,16 @@ public final class TextFormat {
 
 //        if (!isValidFontWeight(newFontWeight))
 //            throw new IllegalArgumentException(String.format(
-//                    "Unsupported font (fontFamily %s does not support %s style with fontWeight %s)",
+//                    "Unsupported font (fontFamily %s does not support %s style with fontWeight
+//                    %s)",
 //                    fontFamily.toString(),
 //                    hasSerif ? "serif" : "sans serif",
 //                    newFontWeight.toString()
 //            ));
 
         final var BUILDER = new TextFormatBuilder();
-        return BUILDER.fontFamily(fontFamily)
+        return BUILDER.fontSizeFactor(fontSizeFactor)
+                      .fontFamily(fontFamily)
                       .hasSerif(hasSerif)
                       .fontWeight(newFontWeight)
                       .isItalicized(isItalicized)
@@ -328,7 +399,8 @@ public final class TextFormat {
 //        }
 
         final var BUILDER = new TextFormatBuilder();
-        return BUILDER.fontFamily(fontFamily)
+        return BUILDER.fontSizeFactor(fontSizeFactor)
+                      .fontFamily(fontFamily)
                       .hasSerif(hasSerif)
                       .fontWeight(fontWeight)
                       .isItalicized(newIsItalicized)
@@ -342,7 +414,8 @@ public final class TextFormat {
         if (newIsUnderlined == isUnderlined) return this;
 
         final var BUILDER = new TextFormatBuilder();
-        return BUILDER.fontFamily(fontFamily)
+        return BUILDER.fontSizeFactor(fontSizeFactor)
+                      .fontFamily(fontFamily)
                       .hasSerif(hasSerif)
                       .fontWeight(fontWeight)
                       .isItalicized(isItalicized)
@@ -363,7 +436,8 @@ public final class TextFormat {
 //        }
 
         final var BUILDER = new TextFormatBuilder();
-        return BUILDER.fontFamily(fontFamily)
+        return BUILDER.fontSizeFactor(fontSizeFactor)
+                      .fontFamily(fontFamily)
                       .hasSerif(hasSerif)
                       .fontWeight(fontWeight)
                       .isItalicized(isItalicized)
@@ -380,7 +454,8 @@ public final class TextFormat {
         if (newElementColor == elementColor) return this;
 
         final var BUILDER = new TextFormatBuilder();
-        return BUILDER.fontFamily(fontFamily)
+        return BUILDER.fontSizeFactor(fontSizeFactor)
+                      .fontFamily(fontFamily)
                       .hasSerif(hasSerif)
                       .fontWeight(fontWeight)
                       .isItalicized(isItalicized)
@@ -501,6 +576,8 @@ public final class TextFormat {
 
         // TextFormat VARIABLES
 
+        private double fontSizeFactor;
+
         private FontFamily fontFamily;
 
         private boolean hasSerif;
@@ -519,6 +596,7 @@ public final class TextFormat {
         // CONSTRUCTOR
 
         public TextFormatBuilder() {
+            fontSizeFactor = DEFAULT_FONT_SIZE_FACTOR;
             fontFamily = DEFAULT_FONT_FAMILY;
             hasSerif = DEFAULT_HAS_SERIF;
             fontWeight = DEFAULT_FONT_WEIGHT;
@@ -530,6 +608,11 @@ public final class TextFormat {
 
 
         // METHODS
+
+        public TextFormatBuilder fontSizeFactor(double fontSizeFactor) {
+            this.fontSizeFactor = fontSizeFactor;
+            return this;
+        }
 
         public TextFormatBuilder fontFamily(FontFamily fontFamily) {
             this.fontFamily = fontFamily;
@@ -570,7 +653,8 @@ public final class TextFormat {
         // BUILD
 
         public TextFormat build() {
-            return new TextFormat(fontFamily,
+            return new TextFormat(fontSizeFactor,
+                                  fontFamily,
                                   hasSerif,
                                   fontWeight,
                                   isItalicized,
@@ -586,7 +670,8 @@ public final class TextFormat {
     @Override
     public String toString() {
         return "TextFormat{" +
-               "fontFamily=" + fontFamily +
+               "fontSizeFactor=" + fontSizeFactor +
+               ", fontFamily=" + fontFamily +
                ", hasSerif=" + hasSerif +
                ", fontWeight=" + fontWeight +
                ", isItalicized=" + isItalicized +
@@ -601,7 +686,8 @@ public final class TextFormat {
         if (this == o) return true;
         if (!(o instanceof TextFormat)) return false;
         TextFormat that = (TextFormat) o;
-        return hasSerif == that.hasSerif &&
+        return fontSizeFactor == that.fontSizeFactor &&
+               hasSerif == that.hasSerif &&
                isItalicized == that.isItalicized &&
                isUnderlined == that.isUnderlined &&
                isCondensed == that.isCondensed &&
@@ -612,7 +698,8 @@ public final class TextFormat {
 
     @Override
     public int hashCode() {
-        return Objects.hash(fontFamily,
+        return Objects.hash(fontSizeFactor,
+                            fontFamily,
                             hasSerif,
                             fontWeight,
                             isItalicized,
