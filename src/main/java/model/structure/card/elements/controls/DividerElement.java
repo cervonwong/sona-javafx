@@ -1,5 +1,6 @@
-package main.java.model.structure.card.elements;
+package main.java.model.structure.card.elements.controls;
 
+import main.java.model.structure.card.elements.AbstractElement;
 import main.java.model.structure.card.elements.enums.divider.IndentType;
 import main.java.model.structure.card.elements.enums.text.ElementColor;
 

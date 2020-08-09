@@ -1,5 +1,6 @@
-package main.java.model.structure.card.elements;
+package main.java.model.structure.card.elements.controls;
 
+import main.java.model.structure.card.elements.AbstractElement;
 import main.java.model.structure.card.elements.formats.TextFormat;
 
 import java.util.Objects;
