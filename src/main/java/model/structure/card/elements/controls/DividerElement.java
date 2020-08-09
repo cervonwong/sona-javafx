@@ -3,8 +3,9 @@ package main.java.model.structure.card.elements.controls;
 import main.java.model.structure.card.elements.AbstractElement;
 import main.java.model.structure.card.elements.enums.divider.IndentType;
 import main.java.model.structure.card.elements.enums.text.ElementColor;
+import main.java.model.structure.card.elements.interfaces.ControlElement;
 
-public final class DividerElement extends AbstractElement {
+public final class DividerElement extends AbstractElement implements ControlElement {
 
     // INSTANCE VARIABLES
 

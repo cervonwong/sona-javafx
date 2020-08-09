@@ -2,10 +2,12 @@ package main.java.model.structure.card.elements.controls;
 
 import main.java.model.structure.card.elements.AbstractElement;
 import main.java.model.structure.card.elements.formats.TextFormat;
+import main.java.model.structure.card.elements.interfaces.ControlElement;
 
 import java.util.Objects;
 
-public final class TextElement extends AbstractElement {
+// TODO: 09/08/2020 Implement alignment
+public final class TextElement extends AbstractElement implements ControlElement {
 
     // INSTANCE VARIABLES
 
