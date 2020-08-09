@@ -69,7 +69,6 @@ public final class TextFormat {
                        hasSerif,
                        fontWeight,
                        isItalicized,
-                       isUnderlined,
                        isCondensed,
                        elementColor);
 
@@ -91,7 +90,6 @@ public final class TextFormat {
                                 boolean hasSerif,
                                 FontWeight fontWeight,
                                 boolean isItalicized,
-                                boolean isUnderlined,
                                 boolean isCondensed,
                                 ElementColor elementColor) {
         checkNonNull(fontFamily, fontWeight, elementColor);
