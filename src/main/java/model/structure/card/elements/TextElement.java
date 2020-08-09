@@ -10,7 +10,7 @@ public final class TextElement extends AbstractElement {
 
     private final String value;
 
-    private final TextFormat textFormat;
+    private final TextFormat textFormat; // Extracted so that copying formats are easier.
 
 
     // DEFAULT VALUES
