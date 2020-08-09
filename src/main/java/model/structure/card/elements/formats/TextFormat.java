@@ -129,7 +129,6 @@ public final class TextFormat {
 
 
     // VALIDATORS
-    // (Public validators: Called in copy methods when instance variables have been initialised.)
     // (Private validators: Called in constructor when instance variables yet to be initialised.)
 
     public boolean isValidHasSerif(boolean hasSerif) {
