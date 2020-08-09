@@ -273,12 +273,12 @@ public final class TextFormat {
     public TextFormat withHasSerif(boolean newHasSerif) {
         if (newHasSerif == hasSerif) return this;
 
-        if (!isValidHasSerif(newHasSerif))
-            throw new IllegalArgumentException(String.format(
-                    "Unsupported font (fontFamily %s does not support %s style)",
-                    fontFamily.toString(),
-                    newHasSerif ? "serif" : "sans serif"
-            ));
+//        if (!isValidHasSerif(newHasSerif))
+//            throw new IllegalArgumentException(String.format(
+//                    "Unsupported font (fontFamily %s does not support %s style)",
+//                    fontFamily.toString(),
+//                    newHasSerif ? "serif" : "sans serif"
+//            ));
 
         final FontWeight NEW_FONT_WEIGHT = newFontWeight(fontFamily, newHasSerif);
 
@@ -299,13 +299,13 @@ public final class TextFormat {
 
         if (newFontWeight == fontWeight) return this;
 
-        if (!isValidFontWeight(newFontWeight))
-            throw new IllegalArgumentException(String.format(
-                    "Unsupported font (fontFamily %s does not support %s style with fontWeight %s)",
-                    fontFamily.toString(),
-                    hasSerif ? "serif" : "sans serif",
-                    newFontWeight.toString()
-            ));
+//        if (!isValidFontWeight(newFontWeight))
+//            throw new IllegalArgumentException(String.format(
+//                    "Unsupported font (fontFamily %s does not support %s style with fontWeight %s)",
+//                    fontFamily.toString(),
+//                    hasSerif ? "serif" : "sans serif",
+//                    newFontWeight.toString()
+//            ));
 
         final var BUILDER = new TextFormatBuilder();
         return BUILDER.fontFamily(fontFamily)
@@ -321,12 +321,12 @@ public final class TextFormat {
     public TextFormat withIsItalicized(boolean newIsItalicized) {
         if (newIsItalicized == isItalicized) return this;
 
-        if (!isValidIsItalicized(isItalicized)) {
-            throw new IllegalArgumentException(String.format(
-                    "Unsupported font (fontFamily %s does not support italic style)",
-                    fontFamily.toString()
-            ));
-        }
+//        if (!isValidIsItalicized(isItalicized)) {
+//            throw new IllegalArgumentException(String.format(
+//                    "Unsupported font (fontFamily %s does not support italic style)",
+//                    fontFamily.toString()
+//            ));
+//        }
 
         final var BUILDER = new TextFormatBuilder();
         return BUILDER.fontFamily(fontFamily)
@@ -356,12 +356,12 @@ public final class TextFormat {
     public TextFormat withIsCondensed(boolean newIsCondensed) {
         if (newIsCondensed == isCondensed) return this;
 
-        if (isValidIsCondensed(isCondensed)) {
-            throw new IllegalArgumentException(String.format(
-                    "Unsupported font (fontFamily %s does not support condensed style)",
-                    fontFamily.toString()
-            ));
-        }
+//        if (isValidIsCondensed(isCondensed)) {
+//            throw new IllegalArgumentException(String.format(
+//                    "Unsupported font (fontFamily %s does not support condensed style)",
+//                    fontFamily.toString()
+//            ));
+//        }
 
         final var BUILDER = new TextFormatBuilder();
         return BUILDER.fontFamily(fontFamily)
