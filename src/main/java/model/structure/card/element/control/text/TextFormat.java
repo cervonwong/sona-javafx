@@ -575,35 +575,26 @@ public final class TextFormat {
 
         // TextFormat VARIABLES
 
-        private double fontSizeFactor;
+        private double fontSizeFactor = DEFAULT_FONT_SIZE_FACTOR;
 
-        private FontFamily fontFamily;
+        private FontFamily fontFamily = DEFAULT_FONT_FAMILY;
 
-        private boolean hasSerif;
+        private boolean hasSerif = DEFAULT_HAS_SERIF;
 
-        private FontWeight fontWeight;
+        private FontWeight fontWeight = DEFAULT_FONT_WEIGHT;
 
-        private boolean isItalicized;
+        private boolean isItalicized = DEFAULT_IS_ITALICIZED;
 
-        private boolean isUnderlined;
+        private boolean isUnderlined = DEFAULT_IS_UNDERLINED;
 
-        private boolean isCondensed;
+        private boolean isCondensed = DEFAULT_IS_CONDENSED;
 
-        private ElementColor elementColor;
+        private ElementColor elementColor = DEFAULT_ELEMENT_COLOR;
 
 
         // CONSTRUCTOR
 
-        public TextFormatBuilder() {
-            fontSizeFactor = DEFAULT_FONT_SIZE_FACTOR;
-            fontFamily = DEFAULT_FONT_FAMILY;
-            hasSerif = DEFAULT_HAS_SERIF;
-            fontWeight = DEFAULT_FONT_WEIGHT;
-            isItalicized = DEFAULT_IS_ITALICIZED;
-            isUnderlined = DEFAULT_IS_UNDERLINED;
-            isCondensed = DEFAULT_IS_CONDENSED;
-            elementColor = DEFAULT_ELEMENT_COLOR;
-        }
+        public TextFormatBuilder() {}
 
 
         // METHODS
