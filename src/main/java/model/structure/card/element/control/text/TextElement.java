@@ -1,7 +1,7 @@
 package main.java.model.structure.card.element.control.text;
 
 import main.java.model.structure.card.element.AbstractElement;
-import main.java.model.structure.card.element.interfaces.ControlElement;
+import main.java.model.structure.card.element.control.ControlElement;
 
 import java.util.Objects;
 
