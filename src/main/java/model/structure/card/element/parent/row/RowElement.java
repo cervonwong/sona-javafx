@@ -4,12 +4,13 @@ import main.java.model.structure.card.element.AbstractElement;
 import main.java.model.structure.card.element.control.ControlElement;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public final class RowElement extends AbstractElement {
 
     // INSTANCE VARIABLES
 
-    private final ArrayList<ControlElement> children;
+    private final List<ControlElement> children;
 
     private final HorizontalAlignment horizontalAlignment;
 
@@ -18,7 +19,7 @@ public final class RowElement extends AbstractElement {
 
     private static final String DEFAULT_NAME = "New Group Element";
 
-    private static final ArrayList<ControlElement> DEFAULT_CHILDREN = new ArrayList<>();
+    private static final List<ControlElement> DEFAULT_CHILDREN = new ArrayList<>();
 
     private static final HorizontalAlignment DEFAULT_HORIZONTAL_ALIGNMENT =
             HorizontalAlignment.CENTER;
@@ -26,22 +27,21 @@ public final class RowElement extends AbstractElement {
 
     // CONSTRUCTOR
 
-    @SuppressWarnings("unchecked")
     private RowElement(String name,
-                       ArrayList<ControlElement> children,
+                       List<ControlElement> children,
                        HorizontalAlignment horizontalAlignment) {
         super(name); // Parent class does checking, no checking needed for name.
 
         checkArguments(children, horizontalAlignment);
 
-        this.children = (ArrayList<ControlElement>) children.clone(); // Defensive copy.
+        this.children = new ArrayList<>(children); // Defensive copy.
         this.horizontalAlignment = horizontalAlignment;
     }
 
 
     // CHECK METHODS
 
-    private void checkArguments(ArrayList<ControlElement> children,
+    private void checkArguments(List<ControlElement> children,
                                 HorizontalAlignment horizontalAlignment) {
         if (children == null)
             throw new IllegalArgumentException("Illegal children (cannot be null)");
@@ -58,9 +58,8 @@ public final class RowElement extends AbstractElement {
 
     // ACCESSORS (Instance Variables)
 
-    @SuppressWarnings("unchecked")
-    public ArrayList<ControlElement> getChildren() {
-        return (ArrayList<ControlElement>) children.clone();
+    public List<ControlElement> getChildren() {
+        return new ArrayList<>(children);
     }
 
     public HorizontalAlignment getHorizontalAlignment() {
@@ -74,9 +73,8 @@ public final class RowElement extends AbstractElement {
         return DEFAULT_NAME;
     }
 
-    @SuppressWarnings("unchecked")
-    public static ArrayList<ControlElement> getDefaultChildren() {
-        return (ArrayList<ControlElement>) DEFAULT_CHILDREN.clone();
+    public static List<ControlElement> getDefaultChildren() {
+        return new ArrayList<>(DEFAULT_CHILDREN);
     }
 
     public static HorizontalAlignment getDefaultHorizontalAlignment() {
@@ -100,7 +98,7 @@ public final class RowElement extends AbstractElement {
                       .build();
     }
 
-    public RowElement replaceChildren(ArrayList<ControlElement> newChildren) {
+    public RowElement replaceChildren(List<ControlElement> newChildren) {
         if (newChildren == null)
             throw new IllegalArgumentException("Illegal newChildren (cannot be null)");
 
@@ -113,8 +111,6 @@ public final class RowElement extends AbstractElement {
                       .build();
     }
 
-
-    @SuppressWarnings("unchecked")
     public RowElement insertChildren(ControlElement element, int index) {
         if (element == null)
             throw new IllegalArgumentException("Illegal element (cannot be null)");
@@ -126,7 +122,7 @@ public final class RowElement extends AbstractElement {
                     index
             ));
 
-        ArrayList<ControlElement> newChildren = (ArrayList<ControlElement>) children.clone();
+        List<ControlElement> newChildren = new ArrayList<>(children);
         newChildren.add(index, element);
 
         final var BUILDER = new RowElementBuilder();
@@ -136,7 +132,6 @@ public final class RowElement extends AbstractElement {
                       .build();
     }
 
-    @SuppressWarnings("unchecked")
     public RowElement deleteChildren(int index) {
         if (!(index >= 0 && index < children.size()))
             throw new IllegalArgumentException(String.format(
@@ -145,7 +140,7 @@ public final class RowElement extends AbstractElement {
                     index
             ));
 
-        ArrayList<ControlElement> newChildren = (ArrayList<ControlElement>) children.clone();
+        List<ControlElement> newChildren = new ArrayList<>(children);
         newChildren.remove(index);
 
         final var BUILDER = new RowElementBuilder();
@@ -177,7 +172,7 @@ public final class RowElement extends AbstractElement {
 
         private String name = DEFAULT_NAME;
 
-        private ArrayList<ControlElement> children = DEFAULT_CHILDREN;
+        private List<ControlElement> children = DEFAULT_CHILDREN;
 
         private HorizontalAlignment horizontalAlignment = DEFAULT_HORIZONTAL_ALIGNMENT;
 
@@ -194,7 +189,7 @@ public final class RowElement extends AbstractElement {
             return this;
         }
 
-        public RowElementBuilder children(ArrayList<ControlElement> children) {
+        public RowElementBuilder children(List<ControlElement> children) {
             this.children = children;
             return this;
         }
