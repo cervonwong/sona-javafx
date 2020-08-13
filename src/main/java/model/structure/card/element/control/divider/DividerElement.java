@@ -613,7 +613,8 @@ public final class DividerElement extends AbstractElement implements ControlElem
         if (this == o) return true;
         if (!(o instanceof DividerElement)) return false;
         DividerElement that = (DividerElement) o;
-        return Double.compare(that.size, size) == 0 &&
+        return getName().equals(that.getName()) &&
+               Double.compare(that.size, size) == 0 &&
                Double.compare(that.thickness, thickness) == 0 &&
                isSymmetrical == that.isSymmetrical &&
                Double.compare(that.leadingIndent, leadingIndent) == 0 &&
@@ -626,7 +627,8 @@ public final class DividerElement extends AbstractElement implements ControlElem
 
     @Override
     public int hashCode() {
-        return Objects.hash(size,
+        return Objects.hash(getName(),
+                            size,
                             thickness,
                             isSymmetrical,
                             indentType,
