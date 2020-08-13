@@ -1,0 +1,17 @@
+@startuml
+
+skinparam classAttributeIconSize 0
+skinparam wrapWidth 400
+
+class RowElement
+
+class AbstractElement
+interface ControlElement
+
+enum HorizontalAlignment
+
+AbstractElement <|-- RowElement
+RowElement *-- "children\n1..*" ControlElement
+RowElement <-- "horizontalAlignment\n1..1" HorizontalAlignment
+
+@enduml

@@ -1,0 +1,18 @@
+@startuml
+
+skinparam classAttributeIconSize 0
+skinparam wrapWidth 400
+
+class DividerElement
+
+class AbstractElement
+interface ControlElement
+
+enum IndentType
+
+AbstractElement <|-- DividerElement
+ControlElement <|.. DividerElement
+DividerElement <-- "indentType\n1..1" IndentType
+
+
+@enduml

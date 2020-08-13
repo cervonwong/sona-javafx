@@ -5,14 +5,17 @@ skinparam wrapWidth 400
 
 class TextFormat
 class TextElement
+
 class AbstractElement
+interface ControlElement
 
 enum FontFamily
 enum FontWeight
 enum ElementColor
 
 AbstractElement <|-- TextElement
-TextElement o-- "textFormat\n1..1" TextFormat
+ControlElement <|.. TextElement
+TextElement *-- "textFormat\n1..1" TextFormat
 
 TextFormat <-- "fontFamily\n1..1" FontFamily
 TextFormat <-- "fontWeight\n1..1" FontWeight
