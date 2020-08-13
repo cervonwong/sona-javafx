@@ -110,7 +110,7 @@ public final class RowElement extends AbstractElement {
                       .build();
     }
 
-    public RowElement insertChildren(ControlElement element, int index) {
+    public RowElement insertElement(ControlElement element, int index) {
         if (element == null)
             throw new IllegalArgumentException("Illegal element (cannot be null)");
 
@@ -131,7 +131,7 @@ public final class RowElement extends AbstractElement {
                       .build();
     }
 
-    public RowElement deleteChildren(int index) {
+    public RowElement deleteElement(int index) {
         if (!(index >= 0 && index < children.size()))
             throw new IllegalArgumentException(String.format(
                     "Illegal index (out of bounds 0 to %s inclusive): %s",
