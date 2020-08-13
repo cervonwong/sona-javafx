@@ -3,8 +3,7 @@ package main.java.model.structure.card.element.parent.row;
 import main.java.model.structure.card.element.AbstractElement;
 import main.java.model.structure.card.element.control.ControlElement;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public final class RowElement extends AbstractElement {
 
@@ -205,5 +204,32 @@ public final class RowElement extends AbstractElement {
         public RowElement build() {
             return new RowElement(name, children, horizontalAlignment);
         }
+    }
+
+
+    // OBJECT OVERRIDDEN METHODS
+
+    @Override
+    public String toString() {
+        return "RowElement{" +
+               "name='" + getName() + '\'' +
+               ", children=" + children +
+               ", horizontalAlignment=" + horizontalAlignment +
+               "} " + super.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof RowElement)) return false;
+        RowElement that = (RowElement) o;
+        return getName().equals(that.getName()) &&
+               children.equals(that.children) &&
+               horizontalAlignment == that.horizontalAlignment;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), children, horizontalAlignment);
     }
 }
