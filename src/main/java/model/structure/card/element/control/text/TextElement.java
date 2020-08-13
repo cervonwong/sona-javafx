@@ -186,7 +186,7 @@ public final class TextElement extends AbstractElement implements ControlElement
     }
 
 
-    // OVERRIDDEN METHODS
+    // OBJECT OVERRIDDEN METHODS
 
     @Override
     public String toString() {

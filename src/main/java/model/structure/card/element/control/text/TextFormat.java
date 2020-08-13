@@ -655,7 +655,7 @@ public final class TextFormat {
     }
 
 
-    // OVERRIDDEN METHODS
+    // OBJECT OVERRIDDEN METHODS
 
     @Override
     public String toString() {

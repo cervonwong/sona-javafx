@@ -590,8 +590,7 @@ public final class DividerElement extends AbstractElement implements ControlElem
     }
 
 
-    // OVERRIDDEN METHODS
-
+    // OBJECT OVERRIDDEN METHODS
 
     @Override
     public String toString() {
