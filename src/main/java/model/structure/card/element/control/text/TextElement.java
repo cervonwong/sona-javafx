@@ -47,10 +47,10 @@ public final class TextElement extends AbstractElement implements ControlElement
     private void checkValue(String value) {
         // Value is allowed to be empty.
         if (value == null)
-            throw new IllegalArgumentException("Invalid value (cannot be null)");
+            throw new IllegalArgumentException("Illegal value (cannot be null)");
         if (value.length() > MAX_VALUE_LENGTH)
             throw new IllegalArgumentException(String.format(
-                    "Invalid value (is longer than %s characters): %s",
+                    "Illegal value (is longer than %s characters): %s",
                     MAX_VALUE_LENGTH,
                     value
             ));
@@ -58,7 +58,7 @@ public final class TextElement extends AbstractElement implements ControlElement
 
     private void checkTextFormat(TextFormat textFormat) {
         if (textFormat == null)
-            throw new IllegalArgumentException("Invalid textFormat (cannot be null)");
+            throw new IllegalArgumentException("Illegal textFormat (cannot be null)");
     }
 
 

@@ -125,14 +125,14 @@ public final class DividerElement extends AbstractElement implements ControlElem
     private void checkSize(double size) {
         if (size < MIN_SIZE)
             throw new IllegalArgumentException(String.format(
-                    "Invalid size (is lesser than %s): %s",
+                    "Illegal size (is lesser than %s): %s",
                     MIN_SIZE,
                     size
             ));
 
         if (size > MAX_SIZE)
             throw new IllegalArgumentException(String.format(
-                    "Invalid size (is greater than %s): %s",
+                    "Illegal size (is greater than %s): %s",
                     MAX_SIZE,
                     size
             ));
@@ -141,14 +141,14 @@ public final class DividerElement extends AbstractElement implements ControlElem
     private void checkThickness(double thickness) {
         if (thickness < MIN_THICKNESS)
             throw new IllegalArgumentException(String.format(
-                    "Invalid thickness (is lesser than %s): %s",
+                    "Illegal thickness (is lesser than %s): %s",
                     MIN_THICKNESS,
                     thickness
             ));
 
         if (size > MAX_THICKNESS)
             throw new IllegalArgumentException(String.format(
-                    "Invalid thickness (is greater than %s): %s",
+                    "Illegal thickness (is greater than %s): %s",
                     MAX_THICKNESS,
                     thickness
             ));
@@ -469,7 +469,7 @@ public final class DividerElement extends AbstractElement implements ControlElem
 
     public DividerElement withElementColor(ElementColor newElementColor) {
         if (newElementColor == null)
-            throw new IllegalArgumentException("Invalid newElementColor (cannot be null)");
+            throw new IllegalArgumentException("Illegal newElementColor (cannot be null)");
 
         if (newElementColor == elementColor) return this;
 
