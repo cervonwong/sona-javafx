@@ -6,12 +6,12 @@ skinparam wrapWidth 400
 class DividerElement
 
 class AbstractElement
-interface ControlElement
+interface ParentElement
 
 enum IndentType
 
 AbstractElement <|-- DividerElement
-ControlElement <|.. DividerElement
+ParentElement <|.. DividerElement
 DividerElement <-- "indentType\n1..1" IndentType
 
 
