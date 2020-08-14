@@ -37,7 +37,7 @@ public class Card {
                  CardSchedule schedule,
                  boolean isStarred,
                  boolean isHidden) {
-        checkArguments(noteId, index, schedule, isStarred, isHidden);
+        checkArguments(schedule);
 
         this.noteId = noteId;
         this.index = index;
@@ -49,13 +49,10 @@ public class Card {
 
     // CHECK METHODS
 
-    private void checkArguments(int noteId,
-                                int index,
-                                CardSchedule schedule,
-                                boolean isStarred,
-                                boolean isHidden) {
+    private void checkArguments(CardSchedule schedule) {
         // Does not check noteId and index.
         checkSchedule(schedule);
+        // Does not check isStarred and isHidden.
     }
 
     private void checkSchedule(CardSchedule schedule) {
