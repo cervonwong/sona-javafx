@@ -161,7 +161,6 @@ public final class TextFormat {
 
     // VALIDATORS
     // (Called in checker methods.)
-    // TODO: 09/08/2020 Inline into checker methods.
 
     public boolean isValidHasSerif(boolean hasSerif) {
         if (this.hasSerif == hasSerif) return true;
