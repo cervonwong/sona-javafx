@@ -140,9 +140,11 @@ public final class CardType {
 
         if (newFront.equals(front)) return this;
 
+        final List<AbstractElement> DEEP_FRONT = new ArrayList<>(newFront);
+
         final var BUILDER = new CardTypeBuilder();
         return BUILDER.name(name)
-                      .front(newFront)
+                      .front(DEEP_FRONT)
                       .back(back)
                       .build();
     }
@@ -153,10 +155,12 @@ public final class CardType {
 
         if (newBack.equals(back)) return this;
 
+        final List<AbstractElement> DEEP_BACK = new ArrayList<>(newBack);
+
         final var BUILDER = new CardTypeBuilder();
         return BUILDER.name(name)
                       .front(front)
-                      .back(newBack)
+                      .back(DEEP_BACK)
                       .build();
     }
 
@@ -171,12 +175,12 @@ public final class CardType {
                     index
             ));
 
-        List<AbstractElement> newFront = new ArrayList<>(front);
-        newFront.add(index, element);
+        final List<AbstractElement> NEW_FRONT = new ArrayList<>(front);
+        NEW_FRONT.add(index, element);
 
         final var BUILDER = new CardTypeBuilder();
         return BUILDER.name(name)
-                      .front(newFront)
+                      .front(NEW_FRONT)
                       .back(back)
                       .build();
     }
@@ -192,13 +196,13 @@ public final class CardType {
                     index
             ));
 
-        List<AbstractElement> newBack = new ArrayList<>(back);
-        newBack.add(index, element);
+        final List<AbstractElement> NEW_BACK = new ArrayList<>(back);
+        NEW_BACK.add(index, element);
 
         final var BUILDER = new CardTypeBuilder();
         return BUILDER.name(name)
                       .front(front)
-                      .back(newBack)
+                      .back(NEW_BACK)
                       .build();
     }
 
@@ -210,12 +214,12 @@ public final class CardType {
                     index
             ));
 
-        List<AbstractElement> newFront = new ArrayList<>(front);
-        newFront.remove(index);
+        final List<AbstractElement> NEW_BACK = new ArrayList<>(front);
+        NEW_BACK.remove(index);
 
         final var BUILDER = new CardTypeBuilder();
         return BUILDER.name(name)
-                      .front(newFront)
+                      .front(NEW_BACK)
                       .back(back)
                       .build();
     }
@@ -228,13 +232,13 @@ public final class CardType {
                     index
             ));
 
-        List<AbstractElement> newBack = new ArrayList<>(back);
-        newBack.remove(index);
+        final List<AbstractElement> NEW_BACK = new ArrayList<>(back);
+        NEW_BACK.remove(index);
 
         final var BUILDER = new CardTypeBuilder();
         return BUILDER.name(name)
                       .front(front)
-                      .back(newBack)
+                      .back(NEW_BACK)
                       .build();
     }
 
