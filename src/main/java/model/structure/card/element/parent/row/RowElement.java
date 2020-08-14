@@ -2,10 +2,11 @@ package main.java.model.structure.card.element.parent.row;
 
 import main.java.model.structure.card.element.AbstractElement;
 import main.java.model.structure.card.element.control.ControlElement;
+import main.java.model.structure.card.element.parent.ParentElement;
 
 import java.util.*;
 
-public final class RowElement extends AbstractElement {
+public final class RowElement extends AbstractElement implements ParentElement {
 
     // INSTANCE VARIABLES
 
