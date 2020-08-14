@@ -8,7 +8,7 @@ Sona is an open-source project written in JavaFX.
 
 ## Getting Started 🚀
 
-**This project currently only works for Windows, support for MacOS and Linux is coming soon.**
+**This project is currently only built for Windows, support for MacOS and Linux is coming soon.**
 
 To start using Sona, download the latest JAR file from [Releases](https://github.com/cervonwong/Sona/releases).
 
