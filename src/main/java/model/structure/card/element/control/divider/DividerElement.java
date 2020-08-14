@@ -245,7 +245,7 @@ public final class DividerElement extends AbstractElement implements ControlElem
         return DEFAULT_THICKNESS;
     }
 
-    public static boolean isDefaultIsSymmetrical() {
+    public static boolean isSymmetricalByDefault() {
         return DEFAULT_IS_SYMMETRICAL;
     }
 
