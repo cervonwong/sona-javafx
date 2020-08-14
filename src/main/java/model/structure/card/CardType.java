@@ -40,7 +40,7 @@ public final class CardType {
     }
 
 
-    // CHECK METHODS
+    // CHECK METHODS (Constructor)
 
     private void checkArguments(String name,
                                 List<AbstractElement> front,
@@ -79,6 +79,45 @@ public final class CardType {
                         faceName
                 ));
         }
+    }
+
+
+    // CHECK METHODS (Copy Methods)
+
+    private void checkFrontInsertionIndex(int index) {
+        if (!(index >= 0 && index <= front.size()))
+            throw new IllegalArgumentException(String.format(
+                    "Illegal index (out of bounds 0 to %s inclusive): %s",
+                    front.size(),
+                    index
+            ));
+    }
+
+    private void checkBackInsertionIndex(int index) {
+        if (!(index >= 0 && index <= back.size()))
+            throw new IllegalArgumentException(String.format(
+                    "Illegal index (out of bounds 0 to %s inclusive): %s",
+                    back.size(),
+                    index
+            ));
+    }
+
+    private void checkFrontDeletionIndex(int index) {
+        if (!(index >= 0 && index < front.size()))
+            throw new IllegalArgumentException(String.format(
+                    "Illegal index (out of bounds 0 to %s inclusive): %s",
+                    front.size() - 1,
+                    index
+            ));
+    }
+
+    private void checkBackDeletionIndex(int index) {
+        if (!(index >= 0 && index < back.size()))
+            throw new IllegalArgumentException(String.format(
+                    "Illegal index (out of bounds 0 to %s inclusive): %s",
+                    back.size() - 1,
+                    index
+            ));
     }
 
 
@@ -168,12 +207,7 @@ public final class CardType {
         if (element == null)
             throw new IllegalArgumentException("Illegal element (cannot be null)");
 
-        if (!(index >= 0 && index <= front.size()))
-            throw new IllegalArgumentException(String.format(
-                    "Illegal index (out of bounds 0 to %s inclusive): %s",
-                    front.size(),
-                    index
-            ));
+        checkFrontInsertionIndex(index);
 
         final List<AbstractElement> NEW_FRONT = new ArrayList<>(front);
         NEW_FRONT.add(index, element);
@@ -189,12 +223,7 @@ public final class CardType {
         if (element == null)
             throw new IllegalArgumentException("Illegal element (cannot be null)");
 
-        if (!(index >= 0 && index <= back.size()))
-            throw new IllegalArgumentException(String.format(
-                    "Illegal index (out of bounds 0 to %s inclusive): %s",
-                    back.size(),
-                    index
-            ));
+        checkBackInsertionIndex(index);
 
         final List<AbstractElement> NEW_BACK = new ArrayList<>(back);
         NEW_BACK.add(index, element);
@@ -207,12 +236,7 @@ public final class CardType {
     }
 
     public CardType deleteElementInFront(int index) {
-        if (!(index >= 0 && index < front.size()))
-            throw new IllegalArgumentException(String.format(
-                    "Illegal index (out of bounds 0 to %s inclusive): %s",
-                    front.size() - 1,
-                    index
-            ));
+        checkFrontDeletionIndex(index);
 
         final List<AbstractElement> NEW_BACK = new ArrayList<>(front);
         NEW_BACK.remove(index);
@@ -225,12 +249,7 @@ public final class CardType {
     }
 
     public CardType deleteElementInBack(int index) {
-        if (!(index >= 0 && index < back.size()))
-            throw new IllegalArgumentException(String.format(
-                    "Illegal index (out of bounds 0 to %s inclusive): %s",
-                    back.size() - 1,
-                    index
-            ));
+        checkBackDeletionIndex(index);
 
         final List<AbstractElement> NEW_BACK = new ArrayList<>(back);
         NEW_BACK.remove(index);
