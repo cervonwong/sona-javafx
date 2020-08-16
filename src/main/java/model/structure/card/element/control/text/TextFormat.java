@@ -513,7 +513,7 @@ public final class TextFormat {
 
 
     // VALID METHODS
-    // (Returns a possible value(s) for an instance variable based on state of this object.)
+    // (Returns possible value(s) for an instance variable based on state of this object.)
 
     public HashSet<Boolean> validHasSerifSet() {
         HashSet<Boolean> validHasSerifSet = new HashSet<>();
