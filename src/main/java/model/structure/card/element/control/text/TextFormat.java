@@ -54,7 +54,6 @@ public final class TextFormat {
 
     // CONSTRUCTOR
 
-
     private TextFormat(double fontSizeFactor,
                        FontFamily fontFamily,
                        boolean hasSerif,
