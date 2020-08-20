@@ -43,7 +43,7 @@ public class NoteTypePropertiesDaoImpl implements NoteTypePropertiesDao {
     }
 
 
-    // HELPER METHODS
+    // FILE METHODS
 
     private File getFile() {
         final String FILE_PATH = DaoUtils.DATA_PATH + "/note_types/properties.json";
