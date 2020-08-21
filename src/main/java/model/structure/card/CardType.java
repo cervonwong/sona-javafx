@@ -84,7 +84,7 @@ public final class CardType {
 
     // CHECK METHODS (Copy Methods)
 
-    private void checkFrontInsertionIndex(int index) {
+    private void checkInsertableInFront(int index) {
         if (!(index >= 0 && index <= front.size()))
             throw new IllegalArgumentException(String.format(
                     "Illegal index (out of bounds 0 to %s inclusive): %s",
@@ -93,7 +93,7 @@ public final class CardType {
             ));
     }
 
-    private void checkBackInsertionIndex(int index) {
+    private void checkInsertableInBack(int index) {
         if (!(index >= 0 && index <= back.size()))
             throw new IllegalArgumentException(String.format(
                     "Illegal index (out of bounds 0 to %s inclusive): %s",
@@ -102,7 +102,7 @@ public final class CardType {
             ));
     }
 
-    private void checkFrontDeletionIndex(int index) {
+    private void checkExistsInFront(int index) {
         if (!(index >= 0 && index < front.size()))
             throw new IllegalArgumentException(String.format(
                     "Illegal index (out of bounds 0 to %s inclusive): %s",
@@ -111,7 +111,7 @@ public final class CardType {
             ));
     }
 
-    private void checkBackDeletionIndex(int index) {
+    private void checkExistsInBack(int index) {
         if (!(index >= 0 && index < back.size()))
             throw new IllegalArgumentException(String.format(
                     "Illegal index (out of bounds 0 to %s inclusive): %s",
@@ -207,7 +207,7 @@ public final class CardType {
         if (element == null)
             throw new IllegalArgumentException("Illegal element (cannot be null)");
 
-        checkFrontInsertionIndex(index);
+        checkInsertableInFront(index);
 
         final List<AbstractElement> NEW_FRONT = new ArrayList<>(front);
         NEW_FRONT.add(index, element);
@@ -223,7 +223,7 @@ public final class CardType {
         if (element == null)
             throw new IllegalArgumentException("Illegal element (cannot be null)");
 
-        checkBackInsertionIndex(index);
+        checkInsertableInBack(index);
 
         final List<AbstractElement> NEW_BACK = new ArrayList<>(back);
         NEW_BACK.add(index, element);
@@ -236,7 +236,7 @@ public final class CardType {
     }
 
     public CardType deleteElementInFront(int index) {
-        checkFrontDeletionIndex(index);
+        checkExistsInFront(index);
 
         final List<AbstractElement> NEW_BACK = new ArrayList<>(front);
         NEW_BACK.remove(index);
@@ -249,7 +249,7 @@ public final class CardType {
     }
 
     public CardType deleteElementInBack(int index) {
-        checkBackDeletionIndex(index);
+        checkExistsInBack(index);
 
         final List<AbstractElement> NEW_BACK = new ArrayList<>(back);
         NEW_BACK.remove(index);
@@ -259,6 +259,16 @@ public final class CardType {
                       .front(front)
                       .back(NEW_BACK)
                       .build();
+    }
+
+    public CardType updateElementInFront(AbstractElement element, int index) {
+        return null;
+        // FIXME: 21/08/2020 IMPLEMENT METHOD.
+    }
+
+    public CardType updateElementInBack(AbstractElement element, int index) {
+        return null;
+        // FIXME: 21/08/2020 IMPLEMENT METHOD.
     }
 
 
