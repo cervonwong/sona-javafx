@@ -18,10 +18,8 @@ public class NoteTypePropertiesDaoImpl implements main.java.data.dao.NoteTypePro
         ObjectMapper mapper = new ObjectMapper();
 
         try {
-            return mapper.readValue(readFile(), NoteTypeProperties.class);
-        } catch (JsonProcessingException e) {
-            System.out.println("Error with ObjectMapper to read value in "
-                               + "NoteTypePropertiesDaoImpl");
+            return mapper.readValue(getFile(), NoteTypeProperties.class);
+        } catch (IOException e) {
             e.printStackTrace();
             return null;
         }
@@ -29,15 +27,14 @@ public class NoteTypePropertiesDaoImpl implements main.java.data.dao.NoteTypePro
 
     @Override
     public void update(NoteTypeProperties properties) {
+        if (properties == null)
+            throw new IllegalArgumentException("Illegal properties (cannot be null)");
+
         ObjectMapper mapper = new ObjectMapper();
 
         try {
-            final String JSON_STRING = mapper.writerWithDefaultPrettyPrinter()
-                                             .writeValueAsString(properties);
-            writeFile(JSON_STRING);
-        } catch (JsonProcessingException e) {
-            System.out.println("Error with ObjectMapper to write value in "
-                               + "NoteTypePropertiesDaoImpl");
+            mapper.writerWithDefaultPrettyPrinter().writeValue(getFile(), properties);
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -49,42 +46,5 @@ public class NoteTypePropertiesDaoImpl implements main.java.data.dao.NoteTypePro
         final String FILE_PATH = DaoUtils.DATA_PATH + "/note_types/properties.json";
 
         return new File(FILE_PATH);
-    }
-
-    private String readFile() {
-        final File FILE = getFile();
-
-        try {
-            final Scanner INPUT = new Scanner(FILE);
-
-            final StringBuilder BUILDER = new StringBuilder();
-
-            while (INPUT.hasNextLine()) BUILDER.append(INPUT.nextLine());
-
-            INPUT.close();
-
-            return BUILDER.toString();
-        } catch (FileNotFoundException e) {
-            System.out.println("Error reading note_types/properties.json in "
-                               + "NoteTypePropertiesDaoImpl");
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    private void writeFile(String jsonString) {
-        final File FILE = getFile();
-
-        try {
-            final PrintWriter OUTPUT = new PrintWriter(FILE);
-
-            OUTPUT.write(jsonString);
-
-            OUTPUT.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("Error writing note_types/properties.json in "
-                               + "NoteTypePropertiesDaoImpl");
-            e.printStackTrace();
-        }
     }
 }
