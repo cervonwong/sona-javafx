@@ -1,7 +1,7 @@
 package main.java.service.NoteTypeProperties;
 
-import main.java.dao.NoteTypeProperties.NoteTypePropertiesDaoImpl;
-import main.java.presenter.model.structure.note.NoteTypeProperties;
+import main.java.data.dao.NoteTypeProperties.NoteTypePropertiesDaoImpl;
+import main.java.presentation.model.structure.note.NoteTypeProperties;
 
 public class NoteTypePropertiesServiceImpl implements NoteTypePropertiesService {
 

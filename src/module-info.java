@@ -2,7 +2,7 @@ module Sona {
 
     // Exports
     exports main.java;
-    exports main.java.presenter.model.structure.note;
+    exports main.java.presentation.model.structure.note;
 
 
     // JavaFX

@@ -1,10 +1,10 @@
-package main.java.service.NoteTypeProperties;
+package main.java.data.dao.NoteTypeProperties;
 
 import main.java.presentation.model.structure.note.NoteTypeProperties;
 
-public interface NoteTypePropertiesService {
+public interface NoteTypePropertiesDao {
 
-    // SERVICE METHODS
+    // DAO METHODS
 
     NoteTypeProperties get();
 
