@@ -15,10 +15,10 @@ public class NoteTypePropertiesDaoImpl implements main.java.data.dao.NoteTypePro
 
     @Override
     public NoteTypeProperties get() {
-        ObjectMapper mapper = new ObjectMapper();
+        final ObjectMapper MAPPER = new ObjectMapper();
 
         try {
-            return mapper.readValue(getFile(), NoteTypeProperties.class);
+            return MAPPER.readValue(getFile(), NoteTypeProperties.class);
         } catch (IOException e) {
             e.printStackTrace();
             return null;
@@ -30,10 +30,10 @@ public class NoteTypePropertiesDaoImpl implements main.java.data.dao.NoteTypePro
         if (properties == null)
             throw new IllegalArgumentException("Illegal properties (cannot be null)");
 
-        ObjectMapper mapper = new ObjectMapper();
+        final ObjectMapper MAPPER = new ObjectMapper();
 
         try {
-            mapper.writerWithDefaultPrettyPrinter().writeValue(getFile(), properties);
+            MAPPER.writerWithDefaultPrettyPrinter().writeValue(getFile(), properties);
         } catch (IOException e) {
             e.printStackTrace();
         }
