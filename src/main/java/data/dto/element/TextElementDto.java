@@ -20,6 +20,8 @@ public class TextElementDto extends AbstractElementDto {
 
     private boolean isUnderlined;
 
+    private boolean isCondensed;
+
     private ElementColorDto elementColor;
 
 
@@ -58,6 +60,10 @@ public class TextElementDto extends AbstractElementDto {
         return isUnderlined;
     }
 
+    public boolean isCondensed() {
+        return isCondensed;
+    }
+
     public ElementColorDto getElementColor() {
         return elementColor;
     }
@@ -93,6 +99,10 @@ public class TextElementDto extends AbstractElementDto {
         isUnderlined = underlined;
     }
 
+    public void setIsCondensed(boolean condensed) {
+        isCondensed = condensed;
+    }
+
     public void setElementColor(ElementColorDto elementColor) {
         this.elementColor = elementColor;
     }
@@ -110,6 +120,7 @@ public class TextElementDto extends AbstractElementDto {
                ", fontWeight=" + fontWeight +
                ", isItalicized=" + isItalicized +
                ", isUnderlined=" + isUnderlined +
+               ", isCondensed=" + isCondensed +
                ", elementColor=" + elementColor +
                "} " + super.toString();
     }
