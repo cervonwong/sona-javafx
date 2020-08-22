@@ -1,6 +1,7 @@
 package main.java.data.dao;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface GenericDao<T> {
 
@@ -8,7 +9,7 @@ public interface GenericDao<T> {
 
     List<T> getAll();
 
-    T get(int id);
+    Optional<T> get(int id);
 
     void create(T t);
 
