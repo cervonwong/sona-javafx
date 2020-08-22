@@ -53,4 +53,14 @@ abstract public class AbstractElement {
     // COPY METHODS
 
     abstract public AbstractElement withName(String newName);
+
+
+    // OBJECT OVERRIDDEN METHODS
+
+    @Override
+    public String toString() {
+        return "AbstractElement{" +
+               "name='" + name + '\'' +
+               '}';
+    }
 }

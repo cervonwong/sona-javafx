@@ -426,8 +426,7 @@ public final class DividerElement extends AbstractElement implements ControlElem
     @Override
     public String toString() {
         return "DividerElement{" +
-               "name='" + getName() + '\'' +
-               ", size=" + size +
+               "size=" + size +
                ", thickness=" + thickness +
                ", isSymmetrical=" + isSymmetrical +
                ", leadingIndent=" + leadingIndent +

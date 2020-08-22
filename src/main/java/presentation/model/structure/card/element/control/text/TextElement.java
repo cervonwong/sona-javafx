@@ -191,8 +191,7 @@ public final class TextElement extends AbstractElement implements ControlElement
     @Override
     public String toString() {
         return "TextElement{" +
-               "name='" + getName() + '\'' +
-               ", value='" + value + '\'' +
+               "value='" + value + '\'' +
                ", textFormat=" + textFormat +
                "} " + super.toString();
     }
