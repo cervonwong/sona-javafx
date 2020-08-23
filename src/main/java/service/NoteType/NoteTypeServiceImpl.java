@@ -48,9 +48,10 @@ public class NoteTypeServiceImpl implements NoteTypeService {
     }
 
     @Override
-    public void create(NoteType noteType) {
-
+    public NoteType create() {
+        return null;
     }
+
 
     @Override
     public void delete(NoteType noteType) {

@@ -15,7 +15,7 @@ public interface NoteTypeService {
 
     void update(NoteType noteType);
 
-    void create(NoteType noteType);
+    NoteType create();
 
     void delete(NoteType noteType);
 }
