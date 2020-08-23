@@ -45,6 +45,7 @@ public final class NoteTypeDaoImpl implements GenericDao<NoteTypeDto> {
         }
     }
 
+    // THIS METHOD SHOULD NOT BE CALLED MULTIPLE TIMES BECAUSE IT IS SLOWER THAN getAll.
     @Override
     public Optional<NoteTypeDto> get(int id) {
         final List<NoteTypeDto> NOTE_TYPES = getAll();

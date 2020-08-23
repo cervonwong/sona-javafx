@@ -54,6 +54,7 @@ public final class NoteTypeServiceImpl implements NoteTypeService {
         return NOTE_TYPE_LIST;
     }
 
+    // THIS METHOD SHOULD NOT BE CALLED MULTIPLE TIMES BECAUSE IT IS SLOWER THAN getAll.
     @Override
     public Optional<NoteType> get(int id) {
         final GenericDao<NoteTypeDto> DAO = new NoteTypeDaoImpl();
