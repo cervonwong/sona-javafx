@@ -267,6 +267,8 @@ public final class CardType {
         if (element == null)
             throw new IllegalArgumentException("Illegal element (cannot be null)");
 
+        if (element.equals(front.get(index))) return this;
+
         final List<AbstractElement> NEW_FRONT = new ArrayList<>(front);
         NEW_FRONT.set(index, element);
 
@@ -282,6 +284,8 @@ public final class CardType {
 
         if (element == null)
             throw new IllegalArgumentException("Illegal element (cannot be null)");
+
+        if (element.equals(back.get(index))) return this;
 
         final List<AbstractElement> NEW_BACK = new ArrayList<>(back);
         NEW_BACK.set(index, element);
