@@ -16,14 +16,22 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package main.java.service.NoteType;
-
-import main.java.presentation.model.structure.note.NoteType;
-import main.java.service.GenericService;
+package main.java.service;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface NoteTypeService extends GenericService<NoteType> {
+public interface GenericService<T> {
 
+    // METHODS
+
+    List<T> getAll();
+
+    Optional<T> get(int id);
+
+    void update(T t);
+
+    T create();
+
+    void delete(T t);
 }
