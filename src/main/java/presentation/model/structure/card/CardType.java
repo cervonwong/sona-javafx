@@ -221,6 +221,14 @@ public final class CardType {
                       .build();
     }
 
+    public CardType addElementInFront(AbstractElement element) {
+        return insertElementInFront(element, front.size());
+    }
+
+    public CardType addElementInBack(AbstractElement element) {
+        return insertElementInBack(element, back.size());
+    }
+
     public CardType insertElementInFront(AbstractElement element, int index) {
         if (element == null)
             throw new IllegalArgumentException("Illegal element (cannot be null)");
