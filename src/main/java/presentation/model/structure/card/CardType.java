@@ -262,13 +262,35 @@ public final class CardType {
     }
 
     public CardType updateElementInFront(AbstractElement element, int index) {
-        return null;
-        // FIXME: 21/08/2020 IMPLEMENT METHOD.
+        checkExistsInFront(index);
+
+        if (element == null)
+            throw new IllegalArgumentException("Illegal element (cannot be null)");
+
+        final List<AbstractElement> NEW_FRONT = new ArrayList<>(front);
+        NEW_FRONT.set(index, element);
+
+        final var BUILDER = new CardTypeBuilder();
+        return BUILDER.name(name)
+                      .front(NEW_FRONT)
+                      .back(back)
+                      .build();
     }
 
     public CardType updateElementInBack(AbstractElement element, int index) {
-        return null;
-        // FIXME: 21/08/2020 IMPLEMENT METHOD.
+        checkExistsInBack(index);
+
+        if (element == null)
+            throw new IllegalArgumentException("Illegal element (cannot be null)");
+
+        final List<AbstractElement> NEW_BACK = new ArrayList<>(back);
+        NEW_BACK.set(index, element);
+
+        final var BUILDER = new CardTypeBuilder();
+        return BUILDER.name(name)
+                      .front(front)
+                      .back(NEW_BACK)
+                      .build();
     }
 
 
