@@ -1,6 +1,8 @@
 package main.java.service.NoteType;
 
 import main.java.data.dao.GenericDao;
+import main.java.data.dao.NoteTypeProperties.NoteTypePropertiesDao;
+import main.java.data.dao.NoteTypeProperties.NoteTypePropertiesDaoImpl;
 import main.java.data.dao.noteType.NoteTypeDaoImpl;
 import main.java.data.dto.CardTypeDto;
 import main.java.data.dto.NoteTypeDto;
@@ -13,6 +15,7 @@ import main.java.presentation.model.structure.card.element.control.text.TextElem
 import main.java.presentation.model.structure.card.element.control.text.TextFormat;
 import main.java.presentation.model.structure.card.element.control.text.enums.*;
 import main.java.presentation.model.structure.note.NoteType;
+import main.java.presentation.model.structure.note.NoteTypeProperties;
 
 import java.util.*;
 
@@ -49,7 +52,24 @@ public class NoteTypeServiceImpl implements NoteTypeService {
 
     @Override
     public NoteType create() {
-        return null;
+        // Gets the next NoteType id from NoteTypeProperties.
+        final NoteTypePropertiesDao NOTE_TYPE_PROPERTIES_DAO = new NoteTypePropertiesDaoImpl();
+        final NoteTypeProperties NOTE_TYPE_PROPERTIES = NOTE_TYPE_PROPERTIES_DAO.get();
+        final int NEXT_ID = NOTE_TYPE_PROPERTIES.getNextId();
+
+        // Update NoteTypeProperties for the future next NoteType id.
+        NOTE_TYPE_PROPERTIES.setNextId(NEXT_ID + 1);
+        NOTE_TYPE_PROPERTIES_DAO.update(NOTE_TYPE_PROPERTIES);
+
+        // Creates the new NoteType.
+        final NoteType NOTE_TYPE = new NoteType.NoteTypeBuilder(NEXT_ID, 1).build();
+
+        // Passes the new NoteType to DAO to update database.
+        final GenericDao<NoteTypeDto> DAO = new NoteTypeDaoImpl();
+        DAO.create(toDto(NOTE_TYPE));
+
+        // Returns caller the new NoteType.
+        return NOTE_TYPE;
     }
 
 
