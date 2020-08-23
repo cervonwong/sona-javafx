@@ -16,22 +16,15 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package main.java.service.NoteTypeProperties;
+package main.java.data.dao.note_type_properties;
 
-import main.java.data.dao.NoteTypeProperties.NoteTypePropertiesDaoImpl;
 import main.java.presentation.model.structure.note.NoteTypeProperties;
 
-public final class NoteTypePropertiesServiceImpl implements NoteTypePropertiesService {
+public interface NoteTypePropertiesDao {
 
-    // OVERRIDDEN METHODS
+    // DAO METHODS
 
-    @Override
-    public NoteTypeProperties get() {
-        return new NoteTypePropertiesDaoImpl().get();
-    }
+    NoteTypeProperties get();
 
-    @Override
-    public void update(NoteTypeProperties properties) {
-        new NoteTypePropertiesDaoImpl().update(properties);
-    }
+    void update(NoteTypeProperties properties);
 }

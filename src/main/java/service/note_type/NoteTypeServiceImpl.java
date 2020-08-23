@@ -16,12 +16,12 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package main.java.service.NoteType;
+package main.java.service.note_type;
 
 import main.java.data.dao.GenericDao;
-import main.java.data.dao.NoteTypeProperties.NoteTypePropertiesDao;
-import main.java.data.dao.NoteTypeProperties.NoteTypePropertiesDaoImpl;
-import main.java.data.dao.noteType.NoteTypeDaoImpl;
+import main.java.data.dao.note_type_properties.NoteTypePropertiesDao;
+import main.java.data.dao.note_type_properties.NoteTypePropertiesDaoImpl;
+import main.java.data.dao.note_type.NoteTypeDaoImpl;
 import main.java.data.dto.CardTypeDto;
 import main.java.data.dto.NoteTypeDto;
 import main.java.data.dto.element.*;

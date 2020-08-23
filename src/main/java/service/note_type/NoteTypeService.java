@@ -16,15 +16,11 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package main.java.data.dao.NoteTypeProperties;
+package main.java.service.note_type;
 
-import main.java.presentation.model.structure.note.NoteTypeProperties;
+import main.java.presentation.model.structure.note.NoteType;
+import main.java.service.GenericService;
 
-public interface NoteTypePropertiesDao {
+public interface NoteTypeService extends GenericService<NoteType> {
 
-    // DAO METHODS
-
-    NoteTypeProperties get();
-
-    void update(NoteTypeProperties properties);
 }

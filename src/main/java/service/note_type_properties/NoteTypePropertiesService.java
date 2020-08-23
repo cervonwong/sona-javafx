@@ -16,14 +16,15 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package main.java.service.NoteType;
+package main.java.service.note_type_properties;
 
-import main.java.presentation.model.structure.note.NoteType;
-import main.java.service.GenericService;
+import main.java.presentation.model.structure.note.NoteTypeProperties;
 
-import java.util.List;
-import java.util.Optional;
+public interface NoteTypePropertiesService {
 
-public interface NoteTypeService extends GenericService<NoteType> {
+    // SERVICE METHODS
 
+    NoteTypeProperties get();
+
+    void update(NoteTypeProperties properties);
 }

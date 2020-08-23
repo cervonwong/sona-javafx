@@ -16,68 +16,50 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package main.java.data.dao.noteType;
+package main.java.data.dao.note_type_properties;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import main.java.data.dao.DaoUtils;
-import main.java.data.dao.GenericDao;
-import main.java.data.dto.NoteTypeDto;
+import main.java.presentation.model.structure.note.NoteTypeProperties;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.List;
-import java.util.Optional;
+import java.io.*;
 
-// TODO: 22/08/2020 Replace e.printStackTrace().
-public final class NoteTypeDaoImpl implements GenericDao<NoteTypeDto> {
+// TODO: 20/08/2020 Replace e.printStackTrace().
+public final class NoteTypePropertiesDaoImpl implements main.java.data.dao.note_type_properties.NoteTypePropertiesDao {
 
     // DAO METHODS
 
     @Override
-    public List<NoteTypeDto> getAll() {
+    public NoteTypeProperties get() {
         final ObjectMapper MAPPER = new ObjectMapper();
 
         try {
-            return MAPPER.readValue(getFile(), new TypeReference<>() {});
+            return MAPPER.readValue(getFile(), NoteTypeProperties.class);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
     @Override
-    public Optional<NoteTypeDto> get(int id) {
-        final List<NoteTypeDto> NOTE_TYPES = getAll();
+    public void update(NoteTypeProperties properties) {
+        if (properties == null)
+            throw new IllegalArgumentException("Illegal properties (cannot be null)");
 
-        for (NoteTypeDto noteType : NOTE_TYPES)
-            if (noteType.getId() == id)
-                return Optional.of(noteType);
+        final ObjectMapper MAPPER = new ObjectMapper();
 
-        return Optional.empty();
-    }
-
-    @Override
-    public void create(NoteTypeDto noteType) {
-
-    }
-
-    @Override
-    public void update(NoteTypeDto noteType) {
-
-    }
-
-    @Override
-    public void delete(NoteTypeDto noteType) {
-
+        try {
+            MAPPER.writerWithDefaultPrettyPrinter().writeValue(getFile(), properties);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
     // FILE METHODS
 
     private File getFile() {
-        final String FILE_PATH = DaoUtils.DATA_PATH + "/note_types/note_types.json";
+        final String FILE_PATH = DaoUtils.DATA_PATH + "/note_types/properties.json";
 
         return new File(FILE_PATH);
     }
-
 }
