@@ -20,7 +20,7 @@ package main.java.presentation.model.structure.card;
 
 import java.util.Objects;
 
-public class Card {
+public final class Card {
 
     // INSTANCE VARIABLES (Identifiers)
 

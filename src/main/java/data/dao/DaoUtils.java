@@ -18,7 +18,7 @@
 
 package main.java.data.dao;
 
-public class DaoUtils {
+public final class DaoUtils {
 
     // VARIABLES
 

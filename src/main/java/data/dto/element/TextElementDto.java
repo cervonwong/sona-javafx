@@ -20,7 +20,7 @@ package main.java.data.dto.element;
 
 import main.java.data.dto.enums.*;
 
-public class TextElementDto extends AbstractElementDto {
+public final class TextElementDto extends AbstractElementDto {
 
     // FIELDS
 

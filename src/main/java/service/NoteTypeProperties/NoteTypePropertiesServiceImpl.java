@@ -21,7 +21,7 @@ package main.java.service.NoteTypeProperties;
 import main.java.data.dao.NoteTypeProperties.NoteTypePropertiesDaoImpl;
 import main.java.presentation.model.structure.note.NoteTypeProperties;
 
-public class NoteTypePropertiesServiceImpl implements NoteTypePropertiesService {
+public final class NoteTypePropertiesServiceImpl implements NoteTypePropertiesService {
 
     // OVERRIDDEN METHODS
 

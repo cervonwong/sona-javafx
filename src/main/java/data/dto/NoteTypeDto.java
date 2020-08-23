@@ -20,7 +20,7 @@ package main.java.data.dto;
 
 import java.util.List;
 
-public class NoteTypeDto {
+public final class NoteTypeDto {
 
     // FIELDS
 

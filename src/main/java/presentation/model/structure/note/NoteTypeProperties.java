@@ -19,7 +19,7 @@
 package main.java.presentation.model.structure.note;
 
 // This class is created by NoteTypePropertiesDao.
-public class NoteTypeProperties {
+public final class NoteTypeProperties {
 
     // INSTANCE VARIABLES
 

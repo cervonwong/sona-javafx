@@ -20,7 +20,7 @@ package main.java.data.dto.element;
 
 import main.java.data.dto.enums.ElementColorDto;
 
-public class DividerElementDto extends AbstractElementDto {
+public final class DividerElementDto extends AbstractElementDto {
 
     // FIELDS
 

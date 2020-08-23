@@ -37,7 +37,7 @@ import main.java.presentation.model.structure.note.NoteTypeProperties;
 
 import java.util.*;
 
-public class NoteTypeServiceImpl implements NoteTypeService {
+public final class NoteTypeServiceImpl implements NoteTypeService {
 
     // OVERRIDDEN METHODS
 

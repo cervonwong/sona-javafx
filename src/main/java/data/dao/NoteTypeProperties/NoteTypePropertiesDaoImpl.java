@@ -27,7 +27,7 @@ import java.io.*;
 import java.util.Scanner;
 
 // TODO: 20/08/2020 Replace e.printStackTrace().
-public class NoteTypePropertiesDaoImpl implements main.java.data.dao.NoteTypeProperties.NoteTypePropertiesDao {
+public final class NoteTypePropertiesDaoImpl implements main.java.data.dao.NoteTypeProperties.NoteTypePropertiesDao {
 
     // DAO METHODS
 
@@ -38,8 +38,7 @@ public class NoteTypePropertiesDaoImpl implements main.java.data.dao.NoteTypePro
         try {
             return MAPPER.readValue(getFile(), NoteTypeProperties.class);
         } catch (IOException e) {
-            e.printStackTrace();
-            return null;
+            throw new RuntimeException(e);
         }
     }
 

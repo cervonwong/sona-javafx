@@ -30,7 +30,7 @@ import java.util.List;
 import java.util.Optional;
 
 // TODO: 22/08/2020 Replace e.printStackTrace().
-public class NoteTypeDaoImpl implements GenericDao<NoteTypeDto> {
+public final class NoteTypeDaoImpl implements GenericDao<NoteTypeDto> {
 
     // DAO METHODS
 
@@ -39,11 +39,9 @@ public class NoteTypeDaoImpl implements GenericDao<NoteTypeDto> {
         final ObjectMapper MAPPER = new ObjectMapper();
 
         try {
-//            return MAPPER.readValue(getFile(), new TypeReference<List<NoteTypeDto>>() {});
             return MAPPER.readValue(getFile(), new TypeReference<>() {});
         } catch (IOException e) {
-            e.printStackTrace();
-            return null;
+            throw new RuntimeException(e);
         }
     }
 

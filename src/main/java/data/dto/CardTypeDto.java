@@ -22,7 +22,7 @@ import main.java.data.dto.element.AbstractElementDto;
 
 import java.util.List;
 
-public class CardTypeDto {
+public final class CardTypeDto {
 
     // FIELDS
 
