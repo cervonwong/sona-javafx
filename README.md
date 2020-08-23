@@ -1,6 +1,8 @@
 # Sona 🧠
 
 **This project is still in development, most features have not been implemented.**
+<br>
+**DEV NOTE: The code is not complete! There might be methods which are still unimplemented.**
 
 Sona is an open-source project written in JavaFX.
 
