@@ -104,7 +104,7 @@ public class NoteTypeServiceImpl implements NoteTypeService {
         final String NAME = noteTypeDto.getName();
         final int NEXT_CARD_TYPE_ID = noteTypeDto.getNextCardTypeId();
         final List<CardTypeDto> CARD_TYPE_LIST = noteTypeDto.getCardTypes();
-        final Set<String> FIELDS = noteTypeDto.getFields();
+        final List<String> FIELDS = noteTypeDto.getFields();
 
         final Map<Integer, CardType> CARD_TYPE_MAP = new HashMap<>();
 

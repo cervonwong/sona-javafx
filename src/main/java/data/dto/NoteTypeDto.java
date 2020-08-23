@@ -19,7 +19,6 @@
 package main.java.data.dto;
 
 import java.util.List;
-import java.util.Set;
 
 public class NoteTypeDto {
 
@@ -33,7 +32,7 @@ public class NoteTypeDto {
 
     private List<CardTypeDto> cardTypes;
 
-    private Set<String> fields;
+    private List<String> fields;
 
 
     // CONSTRUCTOR
@@ -59,7 +58,7 @@ public class NoteTypeDto {
         return cardTypes;
     }
 
-    public Set<String> getFields() {
+    public List<String> getFields() {
         return fields;
     }
 
@@ -82,7 +81,7 @@ public class NoteTypeDto {
         this.cardTypes = cardTypes;
     }
 
-    public void setFields(Set<String> fields) {
+    public void setFields(List<String> fields) {
         this.fields = fields;
     }
 
