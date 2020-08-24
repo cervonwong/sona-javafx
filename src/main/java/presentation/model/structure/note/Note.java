@@ -88,9 +88,16 @@ public final class Note {
         if (tags == null)
             throw new IllegalArgumentException("Illegal tags (cannot be null)");
 
-        for (String tag : tags)
+        for (String tag : tags) {
             if (tag == null)
                 throw new IllegalArgumentException("Illegal tag in tags (cannot be null)");
+            if (tag.length() > MAX_TAG_LENGTH)
+                throw new IllegalArgumentException(String.format(
+                        "Illegal tag in tags (cannot be longer than %s characters): %s",
+                        MAX_TAG_LENGTH,
+                        tag
+                ));
+        }
     }
 
 
