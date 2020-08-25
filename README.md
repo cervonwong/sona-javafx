@@ -20,6 +20,8 @@ To start using Sona on Windows 10, download the latest JAR file from [Releases](
 
 ~~ Note that this project does not use any build systems such as Maven or Gradle.
 
+This project does not depend on many libraries, as to meet the requirements for a project submission. Feel free to remove boilerplate with suitable libraries. :)
+
 Please feel free to report issues. If you want to submit a bug fix or enhancement request, you can create a PR.
 
 ### Set up
