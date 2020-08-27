@@ -16,9 +16,9 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package main.java.data.dto;
+package main.java.data.dto.types;
 
-import main.java.data.dto.element.AbstractElementDto;
+import main.java.data.dto.types.element.AbstractElementDto;
 
 import java.util.List;
 

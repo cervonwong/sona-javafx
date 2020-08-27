@@ -19,7 +19,7 @@
 package main.java.data.dao.note_type;
 
 import main.java.data.dao.GenericDao;
-import main.java.data.dto.NoteTypeDto;
+import main.java.data.dto.types.NoteTypeDto;
 
 public interface NoteTypeDao extends GenericDao<NoteTypeDto> {
 }

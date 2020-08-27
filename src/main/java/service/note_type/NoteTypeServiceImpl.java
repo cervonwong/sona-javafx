@@ -18,15 +18,14 @@
 
 package main.java.service.note_type;
 
-import main.java.data.dao.GenericDao;
 import main.java.data.dao.note_type.NoteTypeDao;
 import main.java.data.dao.note_type_properties.NoteTypePropertiesDao;
 import main.java.data.dao.note_type_properties.NoteTypePropertiesDaoImpl;
 import main.java.data.dao.note_type.NoteTypeDaoImpl;
-import main.java.data.dto.CardTypeDto;
-import main.java.data.dto.NoteTypeDto;
-import main.java.data.dto.element.*;
-import main.java.data.dto.enums.*;
+import main.java.data.dto.types.CardTypeDto;
+import main.java.data.dto.types.NoteTypeDto;
+import main.java.data.dto.types.element.*;
+import main.java.data.dto.types.enums.*;
 import main.java.presentation.model.structure.card.CardType;
 import main.java.presentation.model.structure.card.element.AbstractElement;
 import main.java.presentation.model.structure.card.element.control.divider.DividerElement;

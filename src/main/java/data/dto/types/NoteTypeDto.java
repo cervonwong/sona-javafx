@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package main.java.data.dto;
+package main.java.data.dto.types;
 
 import java.util.List;
 

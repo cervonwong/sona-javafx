@@ -16,11 +16,27 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package main.java.data.dto.enums;
+package main.java.data.dto.types.enums;
 
-public enum FontWeightDto {
-    LIGHT,
-    NORMAL,
-    SEMI_BOLD,
-    BLACK
+public enum ElementColorDto {
+    DEFAULT,
+    RED,
+    PINK,
+    PURPLE,
+    DEEP_PURPLE,
+    INDIGO,
+    BLUE,
+    LIGHT_BLUE,
+    CYAN,
+    TEAL,
+    GREEN,
+    LIGHT_GREEN,
+    LIME,
+    YELLOW,
+    AMBER,
+    ORANGE,
+    DEEP_ORANGE,
+    BROWN,
+    GRAY,
+    BLUE_GRAY
 }

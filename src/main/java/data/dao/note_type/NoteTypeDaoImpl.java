@@ -21,8 +21,7 @@ package main.java.data.dao.note_type;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import main.java.data.dao.DaoUtils;
-import main.java.data.dao.GenericDao;
-import main.java.data.dto.NoteTypeDto;
+import main.java.data.dto.types.NoteTypeDto;
 
 import java.io.File;
 import java.io.IOException;

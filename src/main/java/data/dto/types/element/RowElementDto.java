@@ -16,19 +16,8 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package main.java.data.dto.enums;
+package main.java.data.dto.types.element;
 
-public enum FontFamilyDto {
-    CHINESE_SIMPLIFIED,
-    CHINESE_TRADITIONAL,
-    CYRILLIC,
-    DEVANAGARI,
-    GEORGIAN,
-    GREEK,
-    JAPANESE,
-    KOREAN,
-    LATIN,
-    MONO,
-    TAMIL,
-    THAI
+public final class RowElementDto extends AbstractElementDto {
+    // Not implemented yet.
 }

@@ -16,9 +16,9 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package main.java.data.dto.element;
+package main.java.data.dto.types.element;
 
-import main.java.data.dto.enums.*;
+import main.java.data.dto.types.enums.*;
 
 public final class TextElementDto extends AbstractElementDto {
 
