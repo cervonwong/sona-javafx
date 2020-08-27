@@ -6,9 +6,8 @@ module Sona {
 
     exports main.java;
     exports main.java.presentation.model.structure.note;
-    exports main.java.data.dto;
-    exports main.java.data.dto.element;
-    exports main.java.data.dto.enums;
+    exports main.java.data.dto.types.element;
+    exports main.java.data.dto.types.enums;
     exports main.java.presentation.model.structure.card;
 
     // ============================================================================================
