@@ -30,7 +30,7 @@ import java.util.List;
 import java.util.Optional;
 
 // TODO: 22/08/2020 Replace e.printStackTrace().
-public final class NoteTypeDaoImpl implements GenericDao<NoteTypeDto> {
+public final class NoteTypeDaoImpl implements NoteTypeDao {
 
     // DAO METHODS
 

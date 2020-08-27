@@ -19,6 +19,7 @@
 package main.java.service.note_type;
 
 import main.java.data.dao.GenericDao;
+import main.java.data.dao.note_type.NoteTypeDao;
 import main.java.data.dao.note_type_properties.NoteTypePropertiesDao;
 import main.java.data.dao.note_type_properties.NoteTypePropertiesDaoImpl;
 import main.java.data.dao.note_type.NoteTypeDaoImpl;
@@ -43,7 +44,7 @@ public final class NoteTypeServiceImpl implements NoteTypeService {
 
     @Override
     public List<NoteType> getAll() {
-        final GenericDao<NoteTypeDto> DAO = new NoteTypeDaoImpl();
+        final NoteTypeDao DAO = new NoteTypeDaoImpl();
 
         final List<NoteTypeDto> NOTE_TYPE_DTO_LIST = DAO.getAll();
         final List<NoteType> NOTE_TYPE_LIST = new ArrayList<>();
@@ -57,7 +58,7 @@ public final class NoteTypeServiceImpl implements NoteTypeService {
     // THIS METHOD SHOULD NOT BE CALLED MULTIPLE TIMES BECAUSE IT IS SLOWER THAN getAll.
     @Override
     public Optional<NoteType> get(int id) {
-        final GenericDao<NoteTypeDto> DAO = new NoteTypeDaoImpl();
+        final NoteTypeDao DAO = new NoteTypeDaoImpl();
 
         final Optional<NoteTypeDto> OPTIONAL_DTO = DAO.get(id);
 
@@ -84,7 +85,7 @@ public final class NoteTypeServiceImpl implements NoteTypeService {
         final NoteType NOTE_TYPE = new NoteType.NoteTypeBuilder(NEXT_ID, 1).build();
 
         // Passes the new NoteType to DAO to update database.
-        final GenericDao<NoteTypeDto> DAO = new NoteTypeDaoImpl();
+        final NoteTypeDao DAO = new NoteTypeDaoImpl();
         DAO.create(toDto(NOTE_TYPE));
 
         // Returns caller the new NoteType.
