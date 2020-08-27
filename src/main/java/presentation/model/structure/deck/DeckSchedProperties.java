@@ -105,18 +105,15 @@ public final class DeckSchedProperties {
         }
 
 
-        // BUILDER
+        // BUILD
 
         public DeckSchedProperties build() {
             return new DeckSchedProperties(difficulty);
         }
-
-
     }
 
 
     // OBJECT OVERRIDDEN METHODS
-
 
     @Override
     public String toString() {
