@@ -31,11 +31,11 @@ public final class Card {
 
     // INSTANCE VARIABLES (Scheduling)
 
-    private final CardSchedule schedule; // Uneditable scheduling information.
+    private final CardSchedule schedule; // User-uneditable scheduling data.
 
-    private final boolean isStarred; // Editable scheduling information.
+    private final boolean isStarred; // User-editable scheduling data.
 
-    private final boolean isHidden; // Editable scheduling information.
+    private final boolean isHidden; // User-editable scheduling data.
 
 
     // DEFAULT VALUES
