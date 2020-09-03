@@ -1,4 +1,4 @@
-# Sona 🧠
+![Sona's Logo](https://user-images.githubusercontent.com/44718681/92099849-992bee00-ee0d-11ea-9abb-1de28951d258.png)
 
 **This project is still in development, most features have not been implemented.**
 <br>
