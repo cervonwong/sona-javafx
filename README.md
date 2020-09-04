@@ -1,4 +1,10 @@
-# Sona 🧠
+# Sona
+
+<p align="center">
+  <a href="https://github.com/cervonwong/Sona">
+    <img src="logo.svg" width="400" alt="Sona's logo">
+  </a>
+</p>
 
 **This project is still in development, most features have not been implemented.**
 <br>
