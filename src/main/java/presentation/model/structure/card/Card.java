@@ -159,9 +159,9 @@ public final class Card {
 
         // REQUIRED Card VARIABLES
 
-        private int noteId;
+        private final int noteId;
 
-        private int cardTypeId;
+        private final int cardTypeId;
 
 
         // OPTIONAL Card VARIABLES
