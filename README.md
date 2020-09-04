@@ -1,4 +1,10 @@
-![Sona's Logo](https://user-images.githubusercontent.com/44718681/92099849-992bee00-ee0d-11ea-9abb-1de28951d258.png)
+# Sona
+
+<p align="center">
+  <a href="https://github.com/cervonwong/Sona">
+    <img src="logo.svg" width="400" alt="Sona's logo">
+  </a>
+</p>
 
 **This project is still in development, most features have not been implemented.**
 <br>
