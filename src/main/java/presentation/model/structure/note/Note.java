@@ -349,6 +349,8 @@ public final class Note {
 
         if (newTags.equals(tags)) return this;
 
+        // TODO: 06/09/2020 Is this, and similar deep copies redundant? It is deep copied again
+        //  in the constructor.
         final Set<String> DEEP_TAGS = new HashSet<>(newTags);
 
         final var BUILDER = NoteBuilder.newBuilder();
