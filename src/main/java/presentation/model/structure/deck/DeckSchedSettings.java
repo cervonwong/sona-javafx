@@ -22,7 +22,7 @@ import main.java.presentation.model.structure.deck.enums.DeckDifficulty;
 
 import java.util.Objects;
 
-public final class DeckSchedProperties {
+public final class DeckSchedSettings {
 
     // INSTANCE VARIABLES
 
@@ -35,7 +35,7 @@ public final class DeckSchedProperties {
 
     // CONSTRUCTOR
 
-    private DeckSchedProperties(DeckDifficulty difficulty) {
+    private DeckSchedSettings(DeckDifficulty difficulty) {
         checkArguments(difficulty);
 
         this.difficulty = difficulty;
@@ -70,20 +70,20 @@ public final class DeckSchedProperties {
 
     // COPY METHODS
 
-    public DeckSchedProperties withDifficulty(DeckDifficulty newDifficulty) {
+    public DeckSchedSettings withDifficulty(DeckDifficulty newDifficulty) {
         if (newDifficulty == null)
             throw new IllegalArgumentException("Illegal newDifficulty (cannot be null)");
 
         if (newDifficulty.equals(difficulty)) return this;
 
-        final var BUILDER = new DeckSchedPropertiesBuilder();
+        final var BUILDER = new DeckSchedSettingsBuilder();
         return BUILDER.difficulty(newDifficulty).build();
     }
 
 
     // BUILDER
 
-    public static final class DeckSchedPropertiesBuilder {
+    public static final class DeckSchedSettingsBuilder {
 
         // DeckSchedProperties VARIABLES
 
@@ -92,14 +92,14 @@ public final class DeckSchedProperties {
 
         // CONSTRUCTOR
 
-        public DeckSchedPropertiesBuilder() {
+        public DeckSchedSettingsBuilder() {
 
         }
 
 
         // METHODS
 
-        public DeckSchedPropertiesBuilder difficulty(DeckDifficulty difficulty) {
+        public DeckSchedSettingsBuilder difficulty(DeckDifficulty difficulty) {
             this.difficulty = difficulty;
             return this;
         }
@@ -107,8 +107,8 @@ public final class DeckSchedProperties {
 
         // BUILD
 
-        public DeckSchedProperties build() {
-            return new DeckSchedProperties(difficulty);
+        public DeckSchedSettings build() {
+            return new DeckSchedSettings(difficulty);
         }
     }
 
@@ -117,7 +117,7 @@ public final class DeckSchedProperties {
 
     @Override
     public String toString() {
-        return "DeckSchedProperties{" +
+        return "DeckSchedSettings{" +
                "difficulty=" + difficulty +
                '}';
     }
@@ -125,8 +125,8 @@ public final class DeckSchedProperties {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof DeckSchedProperties)) return false;
-        DeckSchedProperties that = (DeckSchedProperties) o;
+        if (!(o instanceof DeckSchedSettings)) return false;
+        DeckSchedSettings that = (DeckSchedSettings) o;
         return difficulty == that.difficulty;
     }
 
