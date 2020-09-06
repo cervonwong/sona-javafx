@@ -30,7 +30,7 @@ public final class Note {
 
     private final int id;
 
-    private final int deckId;
+    private final String deckName;
 
 
     // INSTANCE VARIABLES (User-editable data)
@@ -75,17 +75,17 @@ public final class Note {
     // CONSTRUCTOR
 
     private Note(int id,
-                 int deckId,
+                 String deckName,
                  NoteType noteType,
                  Set<String> tags,
                  // The below arguments are NULLABLE.
                  Map<String, String> fieldData,
                  Map<Integer, Card> cards) {
         // Check and initialize non-null arguments first.
-        checkNonNullArguments(noteType, tags);
+        checkNonNullArguments(deckName, noteType, tags);
 
         this.id = id;
-        this.deckId = deckId;
+        this.deckName = deckName;
 
         this.noteType = noteType;
         this.tags = new HashSet<>(tags);
@@ -129,9 +129,17 @@ public final class Note {
 
     // CHECKERS (Constructor)
 
-    private void checkNonNullArguments(NoteType noteType, Set<String> tags) {
+    private void checkNonNullArguments(String deckName, NoteType noteType, Set<String> tags) {
+        checkDeckName(deckName);
         checkNoteType(noteType);
         checkTags(tags);
+    }
+
+    private void checkDeckName(String deckName) {
+        if (deckName == null)
+            throw new IllegalArgumentException("Illegal deckName (cannot be null)");
+
+        // Does not check where deckName actually exists.
     }
 
     private void checkNoteType(NoteType noteType) {
@@ -229,8 +237,8 @@ public final class Note {
         return id;
     }
 
-    public int getDeckId() {
-        return deckId;
+    public String getDeckName() {
+        return deckName;
     }
 
     public NoteType getNoteType() {
@@ -299,7 +307,7 @@ public final class Note {
 
         final var BUILDER = NoteBuilder.newBuilder();
         return BUILDER.id(id)
-                      .deckId(deckId)
+                      .deckName(deckName)
                       .noteType(noteType)
                       .tags(tags)
                       .fieldData(NEW_FIELD_DATA)
@@ -332,7 +340,7 @@ public final class Note {
 
         final var BUILDER = NoteBuilder.newBuilder();
         return BUILDER.id(id)
-                      .deckId(deckId)
+                      .deckName(deckName)
                       .noteType(noteType)
                       .tags(tags)
                       .fieldData(NEW_FIELD_DATA)
@@ -355,7 +363,7 @@ public final class Note {
 
         final var BUILDER = NoteBuilder.newBuilder();
         return BUILDER.id(id)
-                      .deckId(deckId)
+                      .deckName(deckName)
                       .noteType(noteType)
                       .tags(DEEP_TAGS)
                       .fieldData(fieldData)
@@ -374,7 +382,7 @@ public final class Note {
 
         final var BUILDER = NoteBuilder.newBuilder();
         return BUILDER.id(id)
-                      .deckId(deckId)
+                      .deckName(deckName)
                       .noteType(noteType)
                       .tags(NEW_TAGS)
                       .fieldData(fieldData)
@@ -394,7 +402,7 @@ public final class Note {
 
         final var BUILDER = NoteBuilder.newBuilder();
         return BUILDER.id(id)
-                      .deckId(deckId)
+                      .deckName(deckName)
                       .noteType(noteType)
                       .tags(NEW_TAGS)
                       .fieldData(fieldData)
@@ -423,7 +431,7 @@ public final class Note {
 
         final var BUILDER = NoteBuilder.newBuilder();
         return BUILDER.id(id)
-                      .deckId(deckId)
+                      .deckName(deckName)
                       .noteType(noteType)
                       .tags(tags)
                       .fieldData(fieldData)
@@ -446,14 +454,14 @@ public final class Note {
 
         // INTERFACES
 
-        // 1 (-> DeckIdStep)
+        // 1 (-> DeckNameStep)
         public interface IdStep {
-            DeckIdStep id(int id);
+            DeckNameStep id(int id);
         }
 
         // 2 (-> NoteTypeStep)
-        public interface DeckIdStep {
-            NoteTypeStep deckId(int deckId);
+        public interface DeckNameStep {
+            NoteTypeStep deckName(String deckName);
         }
 
         // 3 (-> CardsStep)
@@ -476,7 +484,7 @@ public final class Note {
         // IMPLEMENTATION CLASS
 
         private static final class Steps implements IdStep,
-                                                    DeckIdStep,
+                                                    DeckNameStep,
                                                     NoteTypeStep,
                                                     BuildableStep {
 
@@ -485,8 +493,8 @@ public final class Note {
             // 1 - IdStep
             private int id;
 
-            // 2 - DeckIdStep
-            private int deckId;
+            // 2 - DeckNameStep
+            private String deckName;
 
             // 3 - NoteTypeStep
             private NoteType noteType;
@@ -513,17 +521,17 @@ public final class Note {
 
             // STEP METHODS
 
-            // IdStep -> DeckIdStep
+            // IdStep -> DeckNameStep
             @Override
-            public DeckIdStep id(int id) {
+            public DeckNameStep id(int id) {
                 this.id = id;
                 return this;
             }
 
-            // DeckIdStep -> NoteTypeStep
+            // DeckNameStep -> NoteTypeStep
             @Override
-            public NoteTypeStep deckId(int deckId) {
-                this.deckId = deckId;
+            public NoteTypeStep deckName(String deckName) {
+                this.deckName = deckName;
                 return this;
             }
 
@@ -559,7 +567,7 @@ public final class Note {
             // BUILD
 
             public Note build() {
-                return new Note(id, deckId, noteType, tags, fieldData, cards);
+                return new Note(id, deckName, noteType, tags, fieldData, cards);
             }
         }
     }
@@ -567,15 +575,14 @@ public final class Note {
 
     // OBJECT OVERRIDDEN METHODS
 
-
     @Override
     public String toString() {
         return "Note{" +
                "id=" + id +
-               ", deckId=" + deckId +
+               ", deckName='" + deckName + '\'' +
                ", noteType=" + noteType +
-               ", fieldData=" + fieldData +
                ", tags=" + tags +
+               ", fieldData=" + fieldData +
                ", cards=" + cards +
                '}';
     }
@@ -586,11 +593,11 @@ public final class Note {
         if (!(o instanceof Note)) return false;
         Note note = (Note) o;
         return id == note.id &&
-               deckId == note.deckId;
+               deckName.equals(note.deckName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, deckId);
+        return Objects.hash(id, deckName);
     }
 }
