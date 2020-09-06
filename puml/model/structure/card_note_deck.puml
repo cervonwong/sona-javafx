@@ -1,0 +1,29 @@
+@startuml
+
+skinparam wrapWidth 200
+
+class Deck {
+}
+
+class Note {
+	-deckId : int
+}
+
+class Card {
+	-noteId : int
+	-index : int
+}
+
+Deck o-- "notes\n0..*" Note
+Note o-- "cards\n1..*"Card
+
+note right of Card
+<i>noteId</i> to retrieve the <i>Note</i> that aggregates this Card.
+<i>index</i> to retrieve the <i>CardType</i> from the <i>Note</i>'s <i>NoteType</i>.
+end note
+
+note right of Note
+<i>deckId</i> to retrieve the <i>Deck</i> that aggregates this Note.
+end note
+
+@enduml
