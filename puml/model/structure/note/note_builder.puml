@@ -1,0 +1,57 @@
+@startuml
+
+class NoteBuilder {
+	{static} +newBuilder() : IdStep
+}
+
+interface IdStep {
+    +id(id : int) : DeckIdStep
+}
+
+interface DeckIdStep {
+    +deckId(deckId : int) : NoteTypeStep
+}
+
+interface NoteTypeStep {
+    +noteType(noteType : NoteType) : BuildableStep
+}
+
+interface BuildableStep {
+    +tags(tags : Set<String>) : BuildableStep
+    +fieldData(fieldData : Map<String, String>) : BuildableStep
+    +cards(cards : Map<Integer, Card>) : BuildableStep
+    +build()
+}
+
+class Steps {
+    .. IdStep ..
+	-id : int
+	.. DeckIdStep ..
+	-deckId : int
+	.. NoteTypeStep ..
+	-noteType : NoteType
+	.. BuildableStep ..
+	-tags : Set<String> = DEFAULT_TAGS
+	-fieldData : Map<String, String> = null
+	cards : Map<Integer, Card> = null
+	== Overridden Interface Methods ==
+	(omitted for brevity)
+}
+
+class Note
+
+Steps <.. NoteBuilder
+
+IdStep <|.. Steps
+DeckIdStep <|.. Steps
+NoteTypeStep <|.. Steps
+BuildableStep <|.. Steps
+
+IdStep ..> DeckIdStep
+DeckIdStep ..> NoteTypeStep
+NoteTypeStep ..> BuildableStep
+
+BuildableStep ..> Note
+Steps ..> Note
+
+@enduml
