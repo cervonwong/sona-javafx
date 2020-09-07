@@ -3,6 +3,17 @@
 	-fx-border-color: transparent;
 }
 
+/*
+	Hard coded translucent white overlay
+*/
+.button:hover {
+	-fx-background-color: rgba(255, 255, 255, 0.05);
+}
+
+.button:pressed {
+	-fx-background-color: rgba(255, 255, 255, 0.1);
+}
+
 .item-icon {
 	-fx-font-family: 'Font Awesome 5 Pro Light';
 	-fx-font-size: 14;
