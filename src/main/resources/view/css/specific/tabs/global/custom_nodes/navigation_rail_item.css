@@ -14,13 +14,18 @@
 	-fx-background-color: rgba(255, 255, 255, 0.1);
 }
 
-.item-icon {
+.item-label {
+
+}
+
+.inactive-item-icon {
 	-fx-font-family: 'Font Awesome 5 Pro Light';
 	-fx-font-size: 14;
 }
 
-.item-label {
-
+.activated-item-icon {
+	-fx-font-family: 'Font Awesome 5 Pro Solid';
+    -fx-font-size: 14;
 }
 
 .inactive-item {
@@ -30,3 +35,4 @@
 .activated-item {
 	-fx-text-fill: -on-navigation-rail-activated-text-color;
 }
+

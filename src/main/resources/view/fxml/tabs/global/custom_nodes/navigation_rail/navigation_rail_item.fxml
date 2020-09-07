@@ -24,12 +24,11 @@
   ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
   -->
 
-
-<fx:root graphicTextGap="16.0" mnemonicParsing="false" text="UNDEFINED_ITEM_LABEL" type="Button" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root alignment="BASELINE_LEFT" graphicTextGap="16.0" mnemonicParsing="false" text="UNDEFINED_ITEM_LABEL" type="Button" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <graphic>
-      <Label fx:id="iconLabel" text="">
+      <Label fx:id="iconLabel" prefWidth="20.0" text="">
          <styleClass>
-            <String fx:value="item-icon" />
+            <String fx:value="inactive-item-icon" />
             <String fx:value="inactive-item" />
          </styleClass>
       </Label>
