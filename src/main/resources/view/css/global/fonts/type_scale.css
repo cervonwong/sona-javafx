@@ -1,0 +1,61 @@
+/*
+	This type scale is inspired by Reply from Material.io.
+	See: https://material.io/design/material-studies/reply.html#typography
+
+	Also add the stylesheet "all_fonts.css" to use this stylesheet.
+*/
+
+
+.headline-1 {
+
+}
+
+.headline-2 {
+
+}
+
+.headline-3 {
+
+}
+
+.headline-4 {
+
+}
+
+.headline-5 {
+
+}
+
+.headline-6 {
+
+}
+
+.subtitle-1 {
+
+}
+
+.subtitle-2 {
+
+}
+
+.body-1 {
+
+}
+
+.body-2 {
+	-fx-font-family: 'Work Sans Regular';
+	-fx-font-size: 14;
+}
+
+.button {
+
+}
+
+.caption {
+
+}
+
+.overline {
+
+}
+
