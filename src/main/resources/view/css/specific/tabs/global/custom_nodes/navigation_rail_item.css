@@ -1,0 +1,21 @@
+.button {
+	-fx-background-color: transparent;
+	-fx-border-color: transparent;
+}
+
+.item-icon {
+	-fx-font-family: 'Font Awesome 5 Pro Light';
+	-fx-font-size: 14;
+}
+
+.item-label {
+
+}
+
+.inactive-item {
+	-fx-text-fill: -on-navigation-rail-inactive-text-color;
+}
+
+.activated-item {
+	-fx-text-fill: -on-navigation-rail-activated-text-color;
+}

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<!--
+  ~ Sona is an educational SRS application written in JavaFX.
+  ~ Copyright (C) 2020 Cervon Wong
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+
+<fx:root graphicTextGap="16.0" mnemonicParsing="false" text="UNDEFINED_ITEM_LABEL" type="Button" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <graphic>
+      <Label fx:id="iconLabel" text="">
+         <styleClass>
+            <String fx:value="item-icon" />
+            <String fx:value="inactive-item" />
+         </styleClass>
+      </Label>
+   </graphic>
+   <padding>
+      <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
+   </padding>
+   <stylesheets>
+      <URL value="@../../../../../css/global/color/color_palette.css" />
+      <URL value="@../../../../../css/global/color/light_theme_colors.css" />
+      <URL value="@../../../../../css/global/fonts/all_fonts.css" />
+      <URL value="@../../../../../css/global/fonts/type_scale.css" />
+      <URL value="@../../../../../css/specific/tabs/global/custom_nodes/navigation_rail_item.css" />
+   </stylesheets>
+   <styleClass>
+      <String fx:value="inactive-item" />
+      <String fx:value="body-2" />
+   </styleClass>
+</fx:root>
