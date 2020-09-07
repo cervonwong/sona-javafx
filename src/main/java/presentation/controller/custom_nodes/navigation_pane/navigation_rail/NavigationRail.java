@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package main.java.presentation.controller.custom_nodes.tabs.global.navigation_rail;
+package main.java.presentation.controller.custom_nodes.navigation_pane.navigation_rail;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
@@ -71,7 +71,7 @@ public class NavigationRail extends VBox {
 
     private void initializeFxml() {
         final String RESOURCE_PATH =
-                "/view/fxml/tabs/global/custom_nodes/navigation_rail/navigation_rail.fxml";
+                "/view/fxml/custom_nodes/navigation_pane/navigation_rail/navigation_rail.fxml";
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(RESOURCE_PATH));
 
