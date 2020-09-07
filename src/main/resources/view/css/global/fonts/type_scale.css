@@ -6,6 +6,10 @@
 */
 
 
+/*
+	FONT TYPE SCALE
+*/
+
 .headline-1 {
 
 }
@@ -57,5 +61,15 @@
 
 .overline {
 
+}
+
+
+/*
+	(FONT AWESOME) ICON TYPE SCALE
+*/
+
+/* Similar to body-2. */
+.icon-2 {
+	-fx-font-size: 14;
 }
 
