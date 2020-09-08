@@ -16,6 +16,7 @@ module Sona {
     // ============================================================================================
 
     opens main.java.presentation.controller.custom_nodes.main.navigation_rail;
+    opens main.java.presentation.controller.custom_nodes.main.destinations.about;
 
 
     // ============================================================================================
@@ -29,4 +30,7 @@ module Sona {
     // Jackson
     requires com.fasterxml.jackson.annotation;
     requires com.fasterxml.jackson.databind;
+
+    // Desktop
+    requires java.desktop;
 }

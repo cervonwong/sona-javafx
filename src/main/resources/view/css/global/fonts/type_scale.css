@@ -81,8 +81,9 @@
 	(FONT AWESOME) ICON TYPE SCALE
 */
 
-/* Similar to body-2. */
-.icon-2 {
+/* Similar to button-3. */
+.button-brand-icon-3 {
+	-fx-font-family: 'Font Awesome 5 Brands Regular';
 	-fx-font-size: 14;
 }
 

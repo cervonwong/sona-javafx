@@ -92,48 +92,65 @@ public class NavigationRail extends VBox {
     }
 
     private void createItems() {
-        navigationRailItems.put("dashboard",
-                                new NavigationRailItem("dashboard",
+        navigationRailItems.put(Destination.DASHBOARD.getKey(),
+                                new NavigationRailItem(Destination.DASHBOARD.getKey(),
                                                        "\uF015",
-                                                       messages.getString("dashboard")));
-        navigationRailItems.put("decks",
-                                new NavigationRailItem("decks",
+                                                       messages.getString(Destination.DASHBOARD.getKey())));
+
+        navigationRailItems.put(Destination.DECKS.getKey(),
+                                new NavigationRailItem(Destination.DECKS.getKey(),
                                                        "\uF5DB",
-                                                       messages.getString("decks")));
-        navigationRailItems.put("stats",
-                                new NavigationRailItem("stats",
+                                                       messages.getString(Destination.DECKS.getKey())));
+
+        navigationRailItems.put(Destination.EDIT.getKey(),
+                                new NavigationRailItem(Destination.EDIT.getKey(),
+                                                       "\uF044",
+                                                       messages.getString(Destination.EDIT.getKey())));
+
+        navigationRailItems.put(Destination.BROWSE.getKey(),
+                                new NavigationRailItem(Destination.BROWSE.getKey(),
+                                                       "\uF002",
+                                                       messages.getString(Destination.BROWSE.getKey())));
+
+        navigationRailItems.put(Destination.STATS.getKey(),
+                                new NavigationRailItem(Destination.STATS.getKey(),
                                                        "\uF201",
-                                                       messages.getString("stats")));
-        navigationRailItems.put("settings",
-                                new NavigationRailItem("settings",
-                                                       "\uF085",
-                                                       messages.getString("settings")));
-        navigationRailItems.put("help",
-                                new NavigationRailItem("help",
+                                                       messages.getString(Destination.STATS.getKey())));
+
+        navigationRailItems.put(Destination.SETTINGS.getKey(),
+                                new NavigationRailItem(Destination.SETTINGS.getKey(),
+                                                       "\uF013",
+                                                       messages.getString(Destination.SETTINGS.getKey())));
+
+        navigationRailItems.put(Destination.HELP.getKey(),
+                                new NavigationRailItem(Destination.HELP.getKey(),
                                                        "\uF059",
-                                                       messages.getString("help")));
-        navigationRailItems.put("about",
-                                new NavigationRailItem("about",
+                                                       messages.getString(Destination.HELP.getKey())));
+
+        navigationRailItems.put(Destination.ABOUT.getKey(),
+                                new NavigationRailItem(Destination.ABOUT.getKey(),
                                                        "\uF05A",
-                                                       messages.getString("about")));
+                                                       messages.getString(Destination.ABOUT.getKey())));
     }
 
     private void addItems() {
         final ObservableList<Node> CHILDREN = this.getChildren();
 
         // TOP ITEMS
-        CHILDREN.add(navigationRailItems.get("dashboard"));
-        CHILDREN.add(navigationRailItems.get("decks"));
-        CHILDREN.add(navigationRailItems.get("stats"));
+        CHILDREN.add(navigationRailItems.get(Destination.DASHBOARD.getKey()));
+        CHILDREN.add(navigationRailItems.get(Destination.DECKS.getKey()));
+        CHILDREN.add(navigationRailItems.get(Destination.EDIT.getKey()));
+        CHILDREN.add(navigationRailItems.get(Destination.BROWSE.getKey()));
+        CHILDREN.add(navigationRailItems.get(Destination.STATS.getKey()));
 
         // Repositioning divider.
         CHILDREN.remove(dividerPane);
         CHILDREN.add(dividerPane);
 
         // BOTTOM ITEMS
-        CHILDREN.add(navigationRailItems.get("settings"));
-        CHILDREN.add(navigationRailItems.get("help"));
-        CHILDREN.add(navigationRailItems.get("about"));
+        CHILDREN.add(navigationRailItems.get(Destination.SETTINGS.getKey()));
+        CHILDREN.add(navigationRailItems.get(Destination.HELP.getKey()));
+        CHILDREN.add(navigationRailItems.get(Destination.ABOUT.getKey()));
     }
 
     private void initializeItemWidthProperties() {

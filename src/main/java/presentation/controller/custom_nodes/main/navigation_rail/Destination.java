@@ -16,24 +16,30 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package main.java.i18n;
+package main.java.presentation.controller.custom_nodes.main.navigation_rail;
 
-public enum ResourceBundles {
-    NAVIGATION_RAIL("i18n.navigation_rail.NavigationRail"),
-    ABOUT_PANE("i18n.about_pane.AboutPane");
+public enum Destination {
+    DASHBOARD("dashboard"),
+    DECKS("decks"),
+    EDIT("edit"),
+    BROWSE("browse"),
+    STATS("stats"),
+    SETTINGS("settings"),
+    HELP("help"),
+    ABOUT("about");
 
-    private final String bundleName;
+    private final String key;
 
-    ResourceBundles(String bundleName) {
-        this.bundleName = bundleName;
+    Destination(String key) {
+        this.key = key;
     }
 
-    public String getBundleName() {
-        return bundleName;
+    public String getKey() {
+        return key;
     }
 
     @Override
     public String toString() {
-        return bundleName;
+        return key;
     }
 }

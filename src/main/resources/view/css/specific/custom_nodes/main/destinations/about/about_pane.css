@@ -1,0 +1,7 @@
+.anchor-pane {
+	-fx-background-color: -background-color;
+}
+
+.label {
+	-fx-text-fill: -on-background-color;
+}

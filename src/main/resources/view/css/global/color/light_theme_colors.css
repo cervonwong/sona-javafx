@@ -10,13 +10,17 @@
 	-primary-variant-color:
 	-secondary-color:
 	-secondary-variant-color:
-	-background-color:
-	-surface-color:
+	*/
+	-background-color: -sona-blue-grey-50;
+	-surface-color: white;
+	/*
 	-error-color:
 	-on-primary-color:
 	-on-secondary-color:
-	-on-background-color:
-	-on-surface-color:
+	*/
+    -on-background-color: -sona-blue-grey-900;
+	-on-surface-color: -sona-blue-grey-900;
+	/*
 	-on-error-button:
 	*/
 
@@ -27,4 +31,6 @@
 	-navigation-rail-color: -sona-blue-grey-800;
 	-on-navigation-rail-inactive-text-color: -sona-blue-grey-100;
 	-on-navigation-rail-activated-text-color: -sona-orange-800;
+
+	-filled-extended-fab-color: -sona-orange-800;
 }
