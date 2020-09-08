@@ -71,7 +71,7 @@ public class NavigationRail extends VBox {
 
     private void initializeFxml() {
         final String RESOURCE_PATH =
-                "/view/fxml/custom_nodes/navigation_pane/navigation_rail/navigation_rail.fxml";
+                "/view/fxml/custom_nodes/main/navigation_rail/navigation_rail.fxml";
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(RESOURCE_PATH));
 

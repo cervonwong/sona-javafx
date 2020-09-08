@@ -15,7 +15,7 @@ module Sona {
     // OPENS (JAVAFX)
     // ============================================================================================
 
-    opens main.java.presentation.controller.custom_nodes.tabs.global.navigation_rail;
+    opens main.java.presentation.controller.custom_nodes.main.navigation_rail;
 
 
     // ============================================================================================
