@@ -41,7 +41,7 @@
       <URL value="@../../../../css/global/color/light_theme_colors.css" />
       <URL value="@../../../../css/global/fonts/all_fonts.css" />
       <URL value="@../../../../css/global/fonts/type_scale.css" />
-      <URL value="@../../../../css/specific/custom_nodes/navigation_pane/navigation_rail/navigation_rail_item.css" />
+      <URL value="@../../../../css/specific/custom_nodes/main/navigation_rail/navigation_rail_item.css" />
    </stylesheets>
    <styleClass>
       <String fx:value="inactive-item" />

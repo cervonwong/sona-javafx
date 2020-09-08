@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package main.java.presentation.controller.custom_nodes.navigation_pane.navigation_rail;
+package main.java.presentation.controller.custom_nodes.main.navigation_rail;
 
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.ObservableList;
