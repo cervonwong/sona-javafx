@@ -11,39 +11,48 @@
 */
 
 .headline-1 {
-
+	-fx-font-family: 'Work Sans Light';
+	-fx-font-size: 96;
 }
 
 .headline-2 {
-
+	-fx-font-family: 'Work Sans SemiBold';
+	-fx-font-size: 60;
 }
 
 .headline-3 {
-
+	-fx-font-family: 'Work Sans Regular';
+	-fx-font-size: 48;
 }
 
 .headline-4 {
-
+	-fx-font-family: 'Work Sans Bold';
+	-fx-font-size: 34;
 }
 
 .headline-5 {
-
+	-fx-font-family: 'Work Sans Bold';
+	-fx-font-size: 24;
 }
 
 .headline-6 {
-
+	-fx-font-family: 'Work Sans Medium';
+	-fx-font-size: 20;
 }
 
 .subtitle-1 {
-
+	-fx-font-family: 'Work Sans Regular';
+	-fx-font-size: 16;
 }
 
 .subtitle-2 {
-
+	-fx-font-family: 'Work Sans Medium';
+	-fx-font-size: 14;
 }
 
 .body-1 {
-
+	-fx-font-family: "Work Sans Regular";
+	-fx-font-size: 18;
 }
 
 .body-2 {
@@ -51,16 +60,20 @@
 	-fx-font-size: 14;
 }
 
-.button {
-
+.button-3 {
+	-fx-font-family: 'Work Sans Medium';
+	-fx-font-size: 14;
 }
 
 .caption {
-
+	-fx-font-family: 'Work Sans Regular';
+	-fx-font-size: 12;
 }
 
 .overline {
-
+	/* Type in ALL CAPS when using Overline style. */
+	-fx-font-family: 'Work Sans SemiBold';
+	-fx-font-size: 12
 }
 
 
