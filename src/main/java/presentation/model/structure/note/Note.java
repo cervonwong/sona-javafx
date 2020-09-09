@@ -305,6 +305,8 @@ public final class Note {
         DELETE_FIELDS.removeAll(NEW_FIELDS);
         for (String field : DELETE_FIELDS) NEW_FIELD_DATA.remove(field);
 
+        // TODO: 09/09/2020 Also Adds / Deletes cards ?
+
         final var BUILDER = NoteBuilder.newBuilder();
         return BUILDER.id(id)
                       .deckName(deckName)
