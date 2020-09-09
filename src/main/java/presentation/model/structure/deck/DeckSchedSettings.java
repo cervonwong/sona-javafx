@@ -85,7 +85,7 @@ public final class DeckSchedSettings {
 
     public static final class DeckSchedSettingsBuilder {
 
-        // DeckSchedProperties VARIABLES
+        // DeckSchedSettings VARIABLES
 
         private DeckDifficulty difficulty = DEFAULT_DIFFICULTY;
 
