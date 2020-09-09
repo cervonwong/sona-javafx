@@ -55,6 +55,7 @@ public final class NoteTypeServiceImpl implements NoteTypeService {
     }
 
     // THIS METHOD SHOULD NOT BE CALLED MULTIPLE TIMES BECAUSE IT IS SLOWER THAN getAll.
+    @Deprecated
     @Override
     public Optional<NoteType> get(int id) {
         final NoteTypeDao DAO = new NoteTypeDaoImpl();
