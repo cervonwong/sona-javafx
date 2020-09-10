@@ -11,6 +11,8 @@ module Sona {
     exports main.java.data.dto.structure.card;
     exports main.java.data.dto.structure.deck;
     exports main.java.data.dto.structure.deck.enums;
+    exports main.java.data.dto.structure.note;
+    exports main.java.data.dto.types;
     exports main.java.presentation.model.structure.card;
 
 
