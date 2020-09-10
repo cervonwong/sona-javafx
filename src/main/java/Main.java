@@ -49,7 +49,7 @@ public class Main extends Application {
     }
 
     private void setStageIcon(Stage primaryStage) {
-        final String RESOURCE_PATH = "/images/stage_icon/filled_512.png";
+        final String RESOURCE_PATH = "/images/stage_icon/filled_440.png";
 
         primaryStage.getIcons().add(new Image(getClass().getResourceAsStream(RESOURCE_PATH)));
     }
