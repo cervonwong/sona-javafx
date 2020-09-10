@@ -19,20 +19,39 @@
 package main.java;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.SceneAntialiasing;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import main.java.presentation.controller.custom_nodes.main.MainPane;
+
+import java.util.Locale;
 
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource(
-                "resources/view/fxml/scenes/sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+    public void start(Stage primaryStage) {
+        Locale.setDefault(Locale.FRANCE);
+
+        final MainPane ROOT = new MainPane();
+
+        primaryStage.setTitle("Sona (v.DEV)");
+        primaryStage.setScene(new Scene(ROOT, 0, 0, false, SceneAntialiasing.BALANCED));
+        primaryStage.setMaximized(true);
+
+        // TODO: 10/09/2020 Remove hard code.
+        primaryStage.setMinHeight(400);
+        primaryStage.setMinWidth(600);
+
+        setStageIcon(primaryStage);
+
         primaryStage.show();
+    }
+
+    private void setStageIcon(Stage primaryStage) {
+        final String RESOURCE_PATH = "/images/stage_icon/filled_512.png";
+
+        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream(RESOURCE_PATH)));
     }
 
 
