@@ -99,7 +99,7 @@ public final class Deck {
         checkAuthorName(authorName);
         checkDescription(description);
         checkDeckSchedSettings(schedSettings);
-        checkNotes(notes);
+        checkNotes(notes, name);
     }
 
     private void checkName(String name) {
@@ -152,7 +152,8 @@ public final class Deck {
             throw new IllegalArgumentException("Illegal schedSettings (cannot be null)");
     }
 
-    private void checkNotes(Map<Integer, Note> notes) {
+    // Pass in name because name is needed for checks before the object is initialized.
+    private void checkNotes(Map<Integer, Note> notes, String name) {
         // TODO: 06/09/2020 FIX EXCESSIVE CHECKS!! (Maybe check in builder and not constructor,
         //  then use constructor in copy methods?).
         if (notes == null)
