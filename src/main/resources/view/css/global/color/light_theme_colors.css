@@ -29,9 +29,12 @@
 		Implementations
 	*/
 
+	-divider-color: -sona-blue-grey-200;
+
+	-filled-extended-fab-color: -sona-orange-800;
+
 	-navigation-rail-color: -sona-blue-grey-800;
 	-on-navigation-rail-inactive-text-color: -sona-blue-grey-100;
 	-on-navigation-rail-activated-text-color: -sona-orange-800;
 
-	-filled-extended-fab-color: -sona-orange-800;
 }
