@@ -25,12 +25,11 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import main.java.i18n.ResourceBundles;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ResourceBundle;
-
-import java.awt.Desktop;
 
 public class AboutPane extends AnchorPane {
 
@@ -58,15 +57,10 @@ public class AboutPane extends AnchorPane {
 
         initializeFxml();
         internationalizeText();
-        initializeGithubButton();
     }
 
 
     // INITIALIZERS
-
-    private ResourceBundle initializeMessages() {
-        return ResourceBundle.getBundle(ResourceBundles.ABOUT_PANE.getBundleName());
-    }
 
     private void initializeFxml() {
         final String RESOURCE_PATH =
@@ -84,18 +78,25 @@ public class AboutPane extends AnchorPane {
         }
     }
 
-    private void initializeGithubButton() {
-        githubButton.setOnAction(e -> {
-            try {
-                Desktop.getDesktop().browse(new URI("https://github.com/cervonwong/Sona"));
-            } catch (IOException | URISyntaxException ex) {
-                ex.printStackTrace();
-            }
-        });
+    private void initializeGitHubButtonOnAction() {
+        githubButton.setOnAction(e -> browseGithub());
+    }
+
+    private void browseGithub() {
+        try {
+            final String GITHUB_URI = "https://github.com/cervonwong/Sona";
+            Desktop.getDesktop().browse(new URI(GITHUB_URI));
+        } catch (IOException | URISyntaxException ex) {
+            ex.printStackTrace();
+        }
     }
 
 
     // i18n
+
+    private ResourceBundle initializeMessages() {
+        return ResourceBundle.getBundle(ResourceBundles.ABOUT_PANE.getBundleName());
+    }
 
     private void internationalizeText() {
         summaryLabel.setText(messages.getString("summary"));
