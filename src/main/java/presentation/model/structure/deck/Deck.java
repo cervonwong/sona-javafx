@@ -421,7 +421,7 @@ public final class Deck {
 
         // CONSTRUCTOR
 
-        private DeckBuilder(String name) {
+        public DeckBuilder(String name) {
             this.name = name;
         }
 
