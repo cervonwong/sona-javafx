@@ -26,19 +26,21 @@ public final class CardSchedule {
 
     // INSTANCE VARIABLES (Scheduling)
 
-    private double easiness; // Between 1.3 (most difficult) to 2.5 (most difficult).
+    private final double easiness; // Between 1.3 (most difficult) to 2.5 (most difficult).
 
-    private int totalReviewCount; // Starts from 0, becomes 1 after initial review.
+    private final int totalReviewCount; // Starts from 0, becomes 1 after initial review.
 
-    private int effectiveReviewCount; // May be reset to zero.
+    private final int effectiveReviewCount; // May be reset to zero.
 
-    private int correctStreakCount; // Number of correct consecutive reviews from latest review.
+    // Number of correct consecutive reviews from latest review.
+    private final int correctStreakCount;
 
-    private int incorrectStreakCount; // Number of incorrect consecutive reviews from latest review.
+    // Number of incorrect consecutive reviews from latest review.
+    private final int incorrectStreakCount;
 
-    private int currentInterval; // in Days.
+    private final int currentInterval; // in Days.
 
-    private LocalDate nextReviewDate;
+    private final LocalDate nextReviewDate;
 
 
     // DEFAULT VALUES
@@ -71,7 +73,15 @@ public final class CardSchedule {
                          int incorrectStreakCount,
                          int currentInterval,
                          LocalDate nextReviewDate) {
+        checkArguments(easiness, nextReviewDate);
 
+        this.easiness = easiness;
+        this.totalReviewCount = totalReviewCount;
+        this.effectiveReviewCount = effectiveReviewCount;
+        this.correctStreakCount = correctStreakCount;
+        this.incorrectStreakCount = incorrectStreakCount;
+        this.currentInterval = currentInterval;
+        this.nextReviewDate = nextReviewDate;
     }
 
 
