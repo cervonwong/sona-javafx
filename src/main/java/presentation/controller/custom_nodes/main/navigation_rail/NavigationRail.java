@@ -18,7 +18,7 @@
 
 package main.java.presentation.controller.custom_nodes.main.navigation_rail;
 
-import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -36,12 +36,13 @@ public class NavigationRail extends VBox {
 
     private final ResourceBundle messages;
 
-    private final Map<String, NavigationRailItem> navigationRailItems = new HashMap<>();
+    private final Map<Destination, NavigationRailItem> navigationRailItems = new HashMap<>();
 
 
     // JAVAFX PROPERTIES
 
-    private final SimpleStringProperty activeItem = new SimpleStringProperty();
+    private final SimpleObjectProperty<Destination> activeDestination =
+            new SimpleObjectProperty<>();
 
     // FXML NODES
 
@@ -59,7 +60,7 @@ public class NavigationRail extends VBox {
 
         initializeActiveItemListener();
         initializeItemListener();
-        setActiveItem("dashboard");
+        setActiveDestination(Destination.DECKS); // TODO: 10/09/2020 Change to DASHBOARD.
     }
 
 
@@ -86,71 +87,47 @@ public class NavigationRail extends VBox {
     }
 
     private void initializeItems() {
-        createItems();
+        instantiateItems();
         addItems();
         initializeItemWidthProperties();
     }
 
-    private void createItems() {
-        navigationRailItems.put(Destination.DASHBOARD.getKey(),
-                                new NavigationRailItem(Destination.DASHBOARD.getKey(),
-                                                       "\uF015",
-                                                       messages.getString(Destination.DASHBOARD.getKey())));
+    private void instantiateItems() {
+        instantiateItem(Destination.DASHBOARD, "\uF015");
+        instantiateItem(Destination.DECKS, "\uF5DB");
+        instantiateItem(Destination.EDIT, "\uF044");
+        instantiateItem(Destination.BROWSE, "\uF002");
+        instantiateItem(Destination.STATS, "\uF201");
+        instantiateItem(Destination.SETTINGS, "\uF013");
+        instantiateItem(Destination.HELP, "\uF059");
+        instantiateItem(Destination.ABOUT, "\uF05A");
+    }
 
-        navigationRailItems.put(Destination.DECKS.getKey(),
-                                new NavigationRailItem(Destination.DECKS.getKey(),
-                                                       "\uF5DB",
-                                                       messages.getString(Destination.DECKS.getKey())));
-
-        navigationRailItems.put(Destination.EDIT.getKey(),
-                                new NavigationRailItem(Destination.EDIT.getKey(),
-                                                       "\uF044",
-                                                       messages.getString(Destination.EDIT.getKey())));
-
-        navigationRailItems.put(Destination.BROWSE.getKey(),
-                                new NavigationRailItem(Destination.BROWSE.getKey(),
-                                                       "\uF002",
-                                                       messages.getString(Destination.BROWSE.getKey())));
-
-        navigationRailItems.put(Destination.STATS.getKey(),
-                                new NavigationRailItem(Destination.STATS.getKey(),
-                                                       "\uF201",
-                                                       messages.getString(Destination.STATS.getKey())));
-
-        navigationRailItems.put(Destination.SETTINGS.getKey(),
-                                new NavigationRailItem(Destination.SETTINGS.getKey(),
-                                                       "\uF013",
-                                                       messages.getString(Destination.SETTINGS.getKey())));
-
-        navigationRailItems.put(Destination.HELP.getKey(),
-                                new NavigationRailItem(Destination.HELP.getKey(),
-                                                       "\uF059",
-                                                       messages.getString(Destination.HELP.getKey())));
-
-        navigationRailItems.put(Destination.ABOUT.getKey(),
-                                new NavigationRailItem(Destination.ABOUT.getKey(),
-                                                       "\uF05A",
-                                                       messages.getString(Destination.ABOUT.getKey())));
+    private void instantiateItem(Destination destination, String icon) {
+        navigationRailItems.put(destination,
+                                new NavigationRailItem(destination,
+                                                       icon,
+                                                       messages.getString(destination.getKey())));
     }
 
     private void addItems() {
         final ObservableList<Node> CHILDREN = this.getChildren();
 
         // TOP ITEMS
-        CHILDREN.add(navigationRailItems.get(Destination.DASHBOARD.getKey()));
-        CHILDREN.add(navigationRailItems.get(Destination.DECKS.getKey()));
-        CHILDREN.add(navigationRailItems.get(Destination.EDIT.getKey()));
-        CHILDREN.add(navigationRailItems.get(Destination.BROWSE.getKey()));
-        CHILDREN.add(navigationRailItems.get(Destination.STATS.getKey()));
+        CHILDREN.add(navigationRailItems.get(Destination.DASHBOARD));
+        CHILDREN.add(navigationRailItems.get(Destination.DECKS));
+        CHILDREN.add(navigationRailItems.get(Destination.EDIT));
+        CHILDREN.add(navigationRailItems.get(Destination.BROWSE));
+        CHILDREN.add(navigationRailItems.get(Destination.STATS));
 
         // Repositioning divider.
         CHILDREN.remove(dividerPane);
         CHILDREN.add(dividerPane);
 
         // BOTTOM ITEMS
-        CHILDREN.add(navigationRailItems.get(Destination.SETTINGS.getKey()));
-        CHILDREN.add(navigationRailItems.get(Destination.HELP.getKey()));
-        CHILDREN.add(navigationRailItems.get(Destination.ABOUT.getKey()));
+        CHILDREN.add(navigationRailItems.get(Destination.SETTINGS));
+        CHILDREN.add(navigationRailItems.get(Destination.HELP));
+        CHILDREN.add(navigationRailItems.get(Destination.ABOUT));
     }
 
     private void initializeItemWidthProperties() {
@@ -160,7 +137,7 @@ public class NavigationRail extends VBox {
     }
 
     private void initializeActiveItemListener() {
-        activeItem.addListener((obs, oldValue, newValue) -> {
+        activeDestination.addListener((obs, oldValue, newValue) -> {
             if (oldValue != null)
                 navigationRailItems.get(oldValue).setActivated(false);
             navigationRailItems.get(newValue).setActivated(true);
@@ -169,35 +146,35 @@ public class NavigationRail extends VBox {
 
     private void initializeItemListener() {
         for (NavigationRailItem item : navigationRailItems.values()) {
-            item.setOnAction(e -> setActiveItem(item.getKey()));
+            item.setOnAction(e -> setActiveDestination(item.getDestination()));
         }
     }
 
 
     // JAVAFX ACCESSORS
 
-    public String getActiveItem() {
-        return activeItem.get();
+    public Destination getActiveDestination() {
+        return activeDestination.get();
     }
 
-    public SimpleStringProperty activeItemProperty() {
-        return activeItem;
+    public SimpleObjectProperty<Destination> activeDestinationProperty() {
+        return activeDestination;
     }
 
 
     // JAVAFX MUTATORS
 
-    public void setActiveItem(String activeItem) {
-        if (activeItem == null)
-            throw new IllegalArgumentException("Illegal activeItem (cannot be null)");
+    public void setActiveDestination(Destination destination) {
+        if (destination == null)
+            throw new IllegalArgumentException("Illegal destination (cannot be null)");
 
-        if (!navigationRailItems.containsKey(activeItem))
+        if (!navigationRailItems.containsKey(destination))
             throw new IllegalArgumentException(String.format(
-                    "Illegal activeItem (not found): %s",
-                    activeItem
+                    "Illegal destination (not found): %s",
+                    destination
             ));
 
-        this.activeItem.set(activeItem);
+        this.activeDestination.set(destination);
     }
 }
 

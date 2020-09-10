@@ -31,7 +31,7 @@ public class NavigationRailItem extends Button {
 
     // INSTANCE VARIABLES
 
-    private final String key;
+    private final Destination destination;
 
 
     // JAVAFX PROPERTIES
@@ -47,12 +47,15 @@ public class NavigationRailItem extends Button {
 
     // CONSTRUCTOR
 
-    public NavigationRailItem(String key, String icon, String text) {
-        this(key, icon, text, false);
+    public NavigationRailItem(Destination destination, String icon, String text) {
+        this(destination, icon, text, false);
     }
 
-    public NavigationRailItem(String key, String icon, String text, boolean isActivated) {
-        this.key = key;
+    public NavigationRailItem(Destination destination,
+                              String icon,
+                              String text,
+                              boolean isActivated) {
+        this.destination = destination;
 
         initializeFxml();
         initializeIcon(icon);
@@ -133,8 +136,8 @@ public class NavigationRailItem extends Button {
 
     // ACCESSORS
 
-    public String getKey() {
-        return key;
+    public Destination getDestination() {
+        return destination;
     }
 
 
