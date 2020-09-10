@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://github.com/cervonwong/Sona">
-    <img src="logo.svg" width="400" alt="Sona's logo">
+    <img src="logo.svg" width="200" alt="Sona's logo">
   </a>
 </p>
 
