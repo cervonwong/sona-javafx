@@ -60,7 +60,6 @@ public class NavigationRail extends VBox {
 
         initializeActiveItemListener();
         initializeItemListener();
-        setActiveDestination(Destination.DECKS); // TODO: 10/09/2020 Change to DASHBOARD.
     }
 
 
