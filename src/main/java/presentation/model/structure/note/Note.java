@@ -415,21 +415,21 @@ public final class Note {
 
     // COPY METHODS (cards)
 
-    public Note updateCard(Card card, int index) {
+    public Note updateCard(Card card, int cardId) {
         if (card == null)
             throw new IllegalArgumentException("Illegal card (cannot be null)");
 
-        if (!cards.containsKey(index))
+        if (!cards.containsKey(cardId))
             throw new IllegalArgumentException(String.format(
-                    "Illegal index (not found): %s",
-                    index
+                    "Illegal cardId (not found): %s",
+                    cardId
             ));
 
         // Cannot check if the current Card equals to the new Card because the overridden equals
         // method only compared their ids.
 
         final Map<Integer, Card> NEW_CARDS = new HashMap<>(cards);
-        NEW_CARDS.put(index, card);
+        NEW_CARDS.put(cardId, card);
 
         final var BUILDER = NoteBuilder.newBuilder();
         return BUILDER.id(id)

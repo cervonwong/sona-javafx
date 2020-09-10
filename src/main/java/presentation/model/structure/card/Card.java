@@ -28,7 +28,7 @@ public final class Card {
 
     private final int noteId;
 
-    private final int cardTypeId;
+    private final int id;
 
 
     // INSTANCE VARIABLES (Scheduling)
@@ -53,14 +53,14 @@ public final class Card {
     // CONSTRUCTOR
 
     private Card(int noteId,
-                 int cardTypeId,
+                 int id,
                  CardSchedule schedule,
                  boolean isStarred,
                  boolean isHidden) {
         checkArguments(schedule);
 
         this.noteId = noteId;
-        this.cardTypeId = cardTypeId;
+        this.id = id;
         this.schedule = schedule;
         this.isStarred = isStarred;
         this.isHidden = isHidden;
@@ -70,7 +70,7 @@ public final class Card {
     // CHECK METHODS
 
     private void checkArguments(CardSchedule schedule) {
-        // Does not check noteId and cardTypeId.
+        // Does not check noteId and id.
         checkSchedule(schedule);
         // Does not check isStarred and isHidden.
     }
@@ -87,8 +87,8 @@ public final class Card {
         return noteId;
     }
 
-    public int getCardTypeId() {
-        return cardTypeId;
+    public int getId() {
+        return id;
     }
 
     public CardSchedule getSchedule() {
@@ -127,7 +127,7 @@ public final class Card {
 
         if (newSchedule.equals(schedule)) return this;
 
-        final var BUILDER = new CardBuilder(noteId, cardTypeId);
+        final var BUILDER = new CardBuilder(noteId, id);
         return BUILDER.schedule(newSchedule)
                       .isStarred(isStarred)
                       .isHidden(isHidden)
@@ -137,7 +137,7 @@ public final class Card {
     public Card withIsStarred(boolean newIsStarred) {
         if (newIsStarred == isStarred) return this;
 
-        final var BUILDER = new CardBuilder(noteId, cardTypeId);
+        final var BUILDER = new CardBuilder(noteId, id);
         return BUILDER.schedule(schedule)
                       .isStarred(newIsStarred)
                       .isHidden(isHidden)
@@ -147,7 +147,7 @@ public final class Card {
     public Card withIsHidden(boolean newIsHidden) {
         if (newIsHidden == isHidden) return this;
 
-        final var BUILDER = new CardBuilder(noteId, cardTypeId);
+        final var BUILDER = new CardBuilder(noteId, id);
         return BUILDER.schedule(schedule)
                       .isStarred(isStarred)
                       .isHidden(newIsHidden)
@@ -163,7 +163,7 @@ public final class Card {
 
         private final int noteId;
 
-        private final int cardTypeId;
+        private final int id;
 
 
         // OPTIONAL Card VARIABLES
@@ -177,9 +177,9 @@ public final class Card {
 
         // CONSTRUCTOR
 
-        public CardBuilder(int noteId, int cardTypeId) {
+        public CardBuilder(int noteId, int id) {
             this.noteId = noteId;
-            this.cardTypeId = cardTypeId;
+            this.id = id;
         }
 
 
@@ -203,7 +203,7 @@ public final class Card {
         // BUILD
 
         public Card build() {
-            return new Card(noteId, cardTypeId, schedule, isStarred, isHidden);
+            return new Card(noteId, id, schedule, isStarred, isHidden);
         }
     }
 
@@ -214,7 +214,7 @@ public final class Card {
     public String toString() {
         return "Card{" +
                "noteId=" + noteId +
-               ", cardTypeId=" + cardTypeId +
+               ", id=" + id +
                ", schedule=" + schedule +
                ", isStarred=" + isStarred +
                ", isHidden=" + isHidden +
@@ -228,12 +228,12 @@ public final class Card {
         if (!(o instanceof Card)) return false;
         Card card = (Card) o;
         return noteId == card.noteId &&
-               cardTypeId == card.cardTypeId;
+               id == card.id;
     }
 
     // SEMANTIC HASH
     @Override
     public int hashCode() {
-        return Objects.hash(noteId, cardTypeId);
+        return Objects.hash(noteId, id);
     }
 }
