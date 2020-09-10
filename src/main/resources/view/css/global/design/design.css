@@ -1,7 +1,6 @@
 .filled-button {
 	-fx-background-color: -filled-extended-fab-color;
 	-fx-background-radius: 9999;
-
 }
 
 .filled-button:hover {
