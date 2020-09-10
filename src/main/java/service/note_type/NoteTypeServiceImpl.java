@@ -102,6 +102,9 @@ public final class NoteTypeServiceImpl implements NoteTypeService {
     // CONVERTERS (DTO -> Model Object)
 
     private NoteType toNoteType(NoteTypeDto noteTypeDto) {
+        if (noteTypeDto == null)
+            throw new IllegalArgumentException("Illegal noteTypeDto (cannot be null)");
+
         final int ID = noteTypeDto.getId();
         final String NAME = noteTypeDto.getName();
         final int NEXT_CARD_TYPE_ID = noteTypeDto.getNextCardTypeId();
@@ -124,6 +127,9 @@ public final class NoteTypeServiceImpl implements NoteTypeService {
     }
 
     private CardType toCardType(CardTypeDto cardTypeDto) {
+        if (cardTypeDto == null)
+            throw new IllegalArgumentException("Illegal cardTypeDto (cannot be null)");
+
         final String NAME = cardTypeDto.getName();
 
         final List<AbstractElementDto> FRONT_DTO = cardTypeDto.getFront();
@@ -144,6 +150,9 @@ public final class NoteTypeServiceImpl implements NoteTypeService {
     }
 
     private AbstractElement toAbstractElement(AbstractElementDto abstractElementDto) {
+        if (abstractElementDto == null)
+            throw new IllegalArgumentException("Illegal abstractElementDto (cannot be null)");
+
         // TODO: 22/08/2020 Refactor code smell using instanceof.
         if (abstractElementDto instanceof TextElementDto)
             return toTextElement(((TextElementDto) abstractElementDto));
@@ -160,6 +169,9 @@ public final class NoteTypeServiceImpl implements NoteTypeService {
     }
 
     private TextElement toTextElement(TextElementDto textElementDto) {
+        if (textElementDto == null)
+            throw new IllegalArgumentException("Illegal textElementDto (cannot be null)");
+
         final String NAME = textElementDto.getName();
         final String VALUE = textElementDto.getValue();
         final double FONT_SIZE_FACTOR = textElementDto.getFontSizeFactor();
@@ -192,6 +204,9 @@ public final class NoteTypeServiceImpl implements NoteTypeService {
     }
 
     private DividerElement toDividerElement(DividerElementDto dividerElementDto) {
+        if (dividerElementDto == null)
+            throw new IllegalArgumentException("Illegal dividerElementDto (cannot be null)");
+
         final String NAME = dividerElementDto.getName();
         final double SIZE = dividerElementDto.getSize();
         final double THICKNESS = dividerElementDto.getThickness();
@@ -212,14 +227,23 @@ public final class NoteTypeServiceImpl implements NoteTypeService {
     }
 
     private FontFamily toFontFamily(FontFamilyDto fontFamilyDto) {
+        if (fontFamilyDto == null)
+            throw new IllegalArgumentException("Illegal fontFamilyDto (cannot be null)");
+
         return FontFamily.valueOf(fontFamilyDto.name());
     }
 
     private FontWeight toFontWeight(FontWeightDto fontWeightDto) {
+        if (fontWeightDto == null)
+            throw new IllegalArgumentException("Illegal fontWeightDto (cannot be null)");
+
         return FontWeight.valueOf(fontWeightDto.name());
     }
 
     private ElementColor toElementColor(ElementColorDto elementColorDto) {
+        if (elementColorDto == null)
+            throw new IllegalArgumentException("Illegal elementColorDto (cannot be null)");
+
         return ElementColor.valueOf(elementColorDto.name());
     }
 
