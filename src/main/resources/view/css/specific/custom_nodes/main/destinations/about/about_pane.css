@@ -3,5 +3,5 @@
 }
 
 .label {
-	-fx-text-fill: -on-background-color;
+	-fx-text-fill: -on-background-text-color;
 }
