@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<!--
+  ~ Sona is an educational SRS application written in JavaFX.
+  ~ Copyright (C) 2020 Cervon Wong
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<fx:root prefHeight="400.0" prefWidth="600.0" styleClass="anchor-pane" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <stylesheets>
+      <URL value="@../../../../../css/global/color/color_palette.css" />
+      <URL value="@../../../../../css/global/color/light_theme_colors.css" />
+      <URL value="@../../../../../css/global/design/design.css" />
+      <URL value="@../../../../../css/global/fonts/all_fonts.css" />
+      <URL value="@../../../../../css/global/fonts/type_scale.css" />
+      <URL value="@../../../../../css/specific/custom_nodes/main/destinations/decks/decks_pane.css" />
+   </stylesheets>
+   <children>
+      <VBox layoutX="200.0" layoutY="14.0" prefHeight="400.0" prefWidth="600.0" spacing="4.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <padding>
+            <Insets bottom="32.0" left="32.0" right="32.0" top="32.0" />
+         </padding>
+         <children>
+            <HBox>
+               <children>
+                  <Label fx:id="titleLabel" text="Your Decks">
+                     <styleClass>
+                        <String fx:value="headline-2" />
+                        <String fx:value="headline-4" />
+                     </styleClass>
+                  </Label>
+               </children>
+            </HBox>
+            <Pane prefHeight="2.0" styleClass="divider" />
+            <ScrollPane fx:id="decksViewScrollPane" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" />
+              </content>
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+            </ScrollPane>
+         </children>
+      </VBox>
+   </children>
+</fx:root>

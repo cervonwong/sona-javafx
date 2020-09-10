@@ -1,0 +1,19 @@
+.anchor-pane {
+	-fx-background-color: -background-color;
+}
+
+.divider {
+	-fx-background-color: -divider-color;
+}
+
+.label {
+	-fx-text-fill: -on-background-text-color;
+}
+
+.scroll-pane {
+	-fx-background-color: transparent;
+}
+
+.scroll-pane > .viewport {
+	-fx-background-color: transparent;
+}

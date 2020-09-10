@@ -19,8 +19,9 @@
 package main.java.i18n;
 
 public enum ResourceBundles {
-    NAVIGATION_RAIL("i18n.navigation_rail.NavigationRail"),
-    ABOUT_PANE("i18n.about_pane.AboutPane");
+    ABOUT_PANE("i18n.about_pane.AboutPane"),
+    DECKS_PANE("i18n.decks_pane.DecksPane"),
+    NAVIGATION_RAIL("i18n.navigation_rail.NavigationRail");
 
     private final String bundleName;
 

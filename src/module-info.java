@@ -22,7 +22,7 @@ module Sona {
 
     opens main.java.presentation.controller.custom_nodes.main.navigation_rail;
     opens main.java.presentation.controller.custom_nodes.main.destinations.about;
-
+    opens main.java.presentation.controller.custom_nodes.main.destinations.decks;
 
     // ============================================================================================
     // DEPENDENCIES

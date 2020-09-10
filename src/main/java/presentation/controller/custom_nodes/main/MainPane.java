@@ -18,14 +18,16 @@
 
 package main.java.presentation.controller.custom_nodes.main;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.layout.*;
-import main.java.i18n.ResourceBundles;
 import main.java.presentation.controller.custom_nodes.main.destinations.about.AboutPane;
+import main.java.presentation.controller.custom_nodes.main.destinations.decks.DecksPane;
+import main.java.presentation.controller.custom_nodes.main.navigation_rail.Destination;
 import main.java.presentation.controller.custom_nodes.main.navigation_rail.NavigationRail;
 
 import java.io.IOException;
-import java.util.ResourceBundle;
 
 public class MainPane extends HBox {
 
@@ -43,6 +45,7 @@ public class MainPane extends HBox {
         initializeNavigationDrawer();
         initializeContentPane();
         initializeNavigationBehavior();
+        initializeInitialDestination();
     }
 
 
@@ -79,30 +82,39 @@ public class MainPane extends HBox {
 
     private void initializeNavigationBehavior() {
         // Uses Android-Like navigation.
-        navigationRail.activeItemProperty().addListener((obs, oldValue, newValue) -> {
+        navigationRail.activeDestinationProperty().addListener((obs, oldValue, newValue) -> {
             // Remove the previous destination pane.
             contentPane.getChildren().clear();
 
             switch (newValue) {
-                case "about":
-                    final AboutPane aboutPane = new AboutPane();
-                    contentPane.getChildren().add(aboutPane);
-
-                    AnchorPane.setTopAnchor(aboutPane, 0.0);
-                    AnchorPane.setBottomAnchor(aboutPane, 0.0);
-                    AnchorPane.setRightAnchor(aboutPane, 0.0);
-                    AnchorPane.setLeftAnchor(aboutPane, 0.0);
-
-
-                    contentPane.widthProperty().addListener((ob, o, n) -> {
-                        System.out.println("o = " + o);
-                        System.out.println("n = " + n);
-                    });
-
+                case ABOUT:
+                    final AboutPane ABOUT_PANE = new AboutPane();
+                    addDestinationPane(ABOUT_PANE);
+                    break;
+                case DECKS:
+                    final DecksPane DECKS_PANE = new DecksPane();
+                    addDestinationPane(DECKS_PANE);
                     break;
                 default:
                     System.out.println("Unimplemented");
             }
         });
+    }
+
+    private void addDestinationPane(AnchorPane destinationPane) {
+        final ObservableList<Node> CONTENT_PANE_CHILDREN = contentPane.getChildren();
+
+        CONTENT_PANE_CHILDREN.clear();
+
+        CONTENT_PANE_CHILDREN.add(destinationPane);
+
+        AnchorPane.setTopAnchor(destinationPane, 0.0);
+        AnchorPane.setBottomAnchor(destinationPane, 0.0);
+        AnchorPane.setRightAnchor(destinationPane, 0.0);
+        AnchorPane.setLeftAnchor(destinationPane, 0.0);
+    }
+
+    private void initializeInitialDestination() {
+        navigationRail.setActiveDestination(Destination.DECKS);
     }
 }
