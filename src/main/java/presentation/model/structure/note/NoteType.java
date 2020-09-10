@@ -32,7 +32,7 @@ public final class NoteType {
 
     private final String name;
 
-    // The key is the id of the CardType, which is also the id of the
+    // The key is the id of the CardType, which is also the id of the Card with this CardType.
     private final Map<Integer, CardType> cardTypes;
 
     private final List<String> fields;
