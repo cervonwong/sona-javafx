@@ -18,6 +18,8 @@
 
 package main.java.presentation.model.structure.card;
 
+import main.java.presentation.model.structure.card.sched.CardSchedule;
+
 import java.util.Objects;
 
 public final class Card {
