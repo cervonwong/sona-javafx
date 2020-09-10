@@ -18,12 +18,10 @@
 
 package main.java.data.dao.structure.note;
 
-import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import main.java.data.dao.DaoUtils;
-import main.java.data.dto.structure.NoteDto;
+import main.java.data.dto.structure.note.NoteDto;
 
 import java.io.File;
 import java.io.IOException;

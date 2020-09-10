@@ -18,8 +18,7 @@
 
 package main.java.data.dao.structure.note;
 
-import main.java.data.dto.structure.NoteDto;
-import main.java.data.dto.structure.deck.DeckDto;
+import main.java.data.dto.structure.note.NoteDto;
 
 import java.util.List;
 import java.util.Optional;

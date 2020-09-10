@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package main.java.data.dto.structure;
+package main.java.data.dto.structure.note;
 
 import java.util.Map;
 import java.util.Set;
