@@ -57,7 +57,7 @@ public class AboutPane extends AnchorPane {
         messages = initializeMessages();
 
         initializeFxml();
-        initializeText();
+        internationalizeText();
         initializeGithubButton();
     }
 
@@ -84,12 +84,6 @@ public class AboutPane extends AnchorPane {
         }
     }
 
-    private void initializeText() {
-        summaryLabel.setText(messages.getString("summary"));
-        authorLabel.setText(messages.getString("author"));
-        githubButton.setText(messages.getString("github"));
-    }
-
     private void initializeGithubButton() {
         githubButton.setOnAction(e -> {
             try {
@@ -98,5 +92,14 @@ public class AboutPane extends AnchorPane {
                 ex.printStackTrace();
             }
         });
+    }
+
+
+    // i18n
+
+    private void internationalizeText() {
+        summaryLabel.setText(messages.getString("summary"));
+        authorLabel.setText(messages.getString("author"));
+        githubButton.setText(messages.getString("github"));
     }
 }
