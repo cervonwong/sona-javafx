@@ -26,7 +26,6 @@ import main.java.data.dto.structure.note.NoteDto;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 
 public class NoteDaoImpl implements NoteDao {
 
@@ -45,8 +44,8 @@ public class NoteDaoImpl implements NoteDao {
 
     @Deprecated
     @Override
-    public Optional<NoteDto> get(String deckName, int id) {
-        return Optional.empty();
+    public NoteDto get(String deckName, int id) {
+        return null;
     }
 
     @Override

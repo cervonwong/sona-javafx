@@ -21,7 +21,6 @@ package main.java.data.dao.structure.card;
 import main.java.data.dto.structure.card.CardDto;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface CardDao {
 
@@ -29,9 +28,9 @@ public interface CardDao {
 
     List<CardDto> getAll(String deckName);
 
-    Optional<List<CardDto>> getByNote(String deckName, int noteId);
+    List<CardDto> getByNote(String deckName, int noteId);
 
-    Optional<CardDto> get(String deckName, int noteId, int id);
+    CardDto get(String deckName, int noteId, int id);
 
     void create(String deckName, CardDto cardDto);
 

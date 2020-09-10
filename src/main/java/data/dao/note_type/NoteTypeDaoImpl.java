@@ -26,7 +26,6 @@ import main.java.data.dto.types.NoteTypeDto;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 
 // TODO: 22/08/2020 Replace e.printStackTrace().
 public final class NoteTypeDaoImpl implements NoteTypeDao {
@@ -47,14 +46,17 @@ public final class NoteTypeDaoImpl implements NoteTypeDao {
     // THIS METHOD SHOULD NOT BE CALLED MULTIPLE TIMES BECAUSE IT IS SLOWER THAN getAll.
     @Deprecated
     @Override
-    public Optional<NoteTypeDto> get(int id) {
+    public NoteTypeDto get(int id) {
         final List<NoteTypeDto> NOTE_TYPES = getAll();
 
         for (NoteTypeDto noteType : NOTE_TYPES)
             if (noteType.getId() == id)
-                return Optional.of(noteType);
+                return noteType;
 
-        return Optional.empty();
+        throw new IllegalArgumentException(String.format(
+                "Illegal id (no noteType found, or error reading file): %s",
+                id
+        ));
     }
 
     @Override

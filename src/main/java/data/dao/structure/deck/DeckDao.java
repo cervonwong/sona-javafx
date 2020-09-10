@@ -18,12 +18,9 @@
 
 package main.java.data.dao.structure.deck;
 
-import main.java.data.dao.GenericDao;
 import main.java.data.dto.structure.deck.DeckDto;
-import main.java.presentation.model.structure.deck.Deck;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface DeckDao {
 
@@ -31,7 +28,7 @@ public interface DeckDao {
 
     List<DeckDto> getAll();
 
-    Optional<DeckDto> get(String name);
+    DeckDto get(String name);
 
     void create(DeckDto deckDto);
 

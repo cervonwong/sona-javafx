@@ -26,7 +26,6 @@ import main.java.data.dto.structure.deck.DeckSchedSettingsDto;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 
 public class DeckDaoImpl implements DeckDao {
 
@@ -39,7 +38,7 @@ public class DeckDaoImpl implements DeckDao {
     }
 
     @Override
-    public Optional<DeckDto> get(String name) {
+    public DeckDto get(String name) {
         final ObjectMapper MAPPER = new ObjectMapper();
 
         try {
@@ -49,10 +48,12 @@ public class DeckDaoImpl implements DeckDao {
 
             DECK_DTO.setSchedSettings(SCHED_SETTINGS);
 
-            return Optional.of(DECK_DTO);
+            return DECK_DTO;
         } catch (IOException e) {
-            e.printStackTrace(); // TODO: 10/09/2020 Remove e.printStackTrace() ?
-            return Optional.empty();
+            throw new IllegalArgumentException(String.format(
+                    "Illegal name (no deck found, or error reading file): %s",
+                    name
+            ));
         }
     }
 

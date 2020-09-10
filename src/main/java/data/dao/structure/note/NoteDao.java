@@ -21,7 +21,6 @@ package main.java.data.dao.structure.note;
 import main.java.data.dto.structure.note.NoteDto;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface NoteDao {
 
@@ -29,7 +28,7 @@ public interface NoteDao {
 
     List<NoteDto> getAll(String deckName);
 
-    Optional<NoteDto> get(String deckName, int id);
+    NoteDto get(String deckName, int id);
 
     void create(String deckName, NoteDto noteDto);
 

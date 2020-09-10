@@ -24,12 +24,10 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import main.java.data.dao.DaoUtils;
 import main.java.data.dto.structure.card.CardDto;
-import main.java.data.dto.structure.note.NoteDto;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 
 public class CardDaoImpl implements CardDao {
 
@@ -52,14 +50,14 @@ public class CardDaoImpl implements CardDao {
 
     @Deprecated
     @Override
-    public Optional<List<CardDto>> getByNote(String deckName, int noteId) {
-        return Optional.empty();
+    public List<CardDto> getByNote(String deckName, int noteId) {
+        return null;
     }
 
     @Deprecated
     @Override
-    public Optional<CardDto> get(String deckName, int noteId, int id) {
-        return Optional.empty();
+    public CardDto get(String deckName, int noteId, int id) {
+        return null;
     }
 
     @Override

@@ -19,7 +19,6 @@
 package main.java.service;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface GenericService<T> {
 
@@ -27,7 +26,7 @@ public interface GenericService<T> {
 
     List<T> getAll();
 
-    Optional<T> get(int id);
+    T get(int id);
 
     void update(T t);
 

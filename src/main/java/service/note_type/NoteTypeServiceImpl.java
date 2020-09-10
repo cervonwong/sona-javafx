@@ -19,9 +19,9 @@
 package main.java.service.note_type;
 
 import main.java.data.dao.note_type.NoteTypeDao;
+import main.java.data.dao.note_type.NoteTypeDaoImpl;
 import main.java.data.dao.note_type_properties.NoteTypePropertiesDao;
 import main.java.data.dao.note_type_properties.NoteTypePropertiesDaoImpl;
-import main.java.data.dao.note_type.NoteTypeDaoImpl;
 import main.java.data.dto.types.CardTypeDto;
 import main.java.data.dto.types.NoteTypeDto;
 import main.java.data.dto.types.element.*;
@@ -57,12 +57,10 @@ public final class NoteTypeServiceImpl implements NoteTypeService {
     // THIS METHOD SHOULD NOT BE CALLED MULTIPLE TIMES BECAUSE IT IS SLOWER THAN getAll.
     @Deprecated
     @Override
-    public Optional<NoteType> get(int id) {
+    public NoteType get(int id) {
         final NoteTypeDao DAO = new NoteTypeDaoImpl();
 
-        final Optional<NoteTypeDto> OPTIONAL_DTO = DAO.get(id);
-
-        return OPTIONAL_DTO.map(this::toNoteType);
+        return toNoteType(DAO.get(id));
     }
 
     @Override
