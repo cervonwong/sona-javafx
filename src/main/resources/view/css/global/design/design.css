@@ -2,17 +2,12 @@
 	-fx-background-color: -filled-extended-fab-color;
 	-fx-background-radius: 9999;
 
-	-fx-effect: dropshadow(gaussian, derive(-filled-extended-fab-color, 50%), 10, 0.1, 0, 4);
 }
 
 .filled-button:hover {
-	-fx-background-color: derive(-filled-extended-fab-color, 4%);
-
-	-fx-effect: dropshadow(gaussian, derive(-filled-extended-fab-color, 50%), 13, 0.15, 0, 6);
+	-fx-background-color: derive(-filled-extended-fab-color, 16%);
 }
 
 .filled-button:pressed {
-	-fx-background-color: derive(-filled-extended-fab-color, 16%);
-
-	-fx-effect: dropshadow(gaussian, derive(-filled-extended-fab-color, 50%), 17, 0.4, 0, 6);
+	-fx-background-color: derive(-filled-extended-fab-color, 32%);
 }
