@@ -51,7 +51,7 @@ public class DeckDaoImpl implements DeckDao {
 
             return Optional.of(DECK_DTO);
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace(); // TODO: 10/09/2020 Remove e.printStackTrace() ?
             return Optional.empty();
         }
     }
