@@ -2,6 +2,7 @@
 
 	/*
 		SONA-SPECIFIC COLOR PALETTE
+		Taken from https://codelabs.developers.google.com/codelabs/design-material-darktheme/#0
 	*/
 
 	-sona-orange-50: #FFFDE8;
@@ -25,6 +26,12 @@
     -sona-blue-grey-700: #425C6A;
     -sona-blue-grey-800: #344955;
     -sona-blue-grey-900: #23343E;
+
+    /* Additional colors follow which are from screenshots in the case study, but not from the color palette. */
+
+	-sona-light-background: #EEF1F3;
+
+
 
 	/*
 		2014 MATERIAL DESIGN COLOR PALETTE
