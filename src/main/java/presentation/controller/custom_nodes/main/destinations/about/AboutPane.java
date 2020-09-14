@@ -23,7 +23,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-import main.java.i18n.ResourceBundles;
+import main.java.i18n.ResourceBundleName;
+import main.java.presentation.controller.ControllerUtils;
 
 import java.awt.*;
 import java.io.IOException;
@@ -53,7 +54,7 @@ public class AboutPane extends AnchorPane {
     // CONSTRUCTOR
 
     public AboutPane() {
-        messages = initializeMessages();
+        messages = ControllerUtils.getMessages(ResourceBundleName.ABOUT_PANE);
 
         initializeFxml();
         internationalizeText();
@@ -93,10 +94,6 @@ public class AboutPane extends AnchorPane {
 
 
     // i18n
-
-    private ResourceBundle initializeMessages() {
-        return ResourceBundle.getBundle(ResourceBundles.ABOUT_PANE.getBundleName());
-    }
 
     private void internationalizeText() {
         summaryLabel.setText(messages.getString("summary"));

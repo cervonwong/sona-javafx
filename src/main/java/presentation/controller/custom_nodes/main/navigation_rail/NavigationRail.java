@@ -26,6 +26,7 @@ import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import main.java.i18n.ResourceBundleName;
+import main.java.presentation.controller.ControllerUtils;
 
 import java.io.IOException;
 import java.util.*;
@@ -53,7 +54,7 @@ public class NavigationRail extends VBox {
     // CONSTRUCTOR
 
     public NavigationRail() {
-        messages = initializeMessages();
+        messages = ControllerUtils.getMessages(ResourceBundleName.NAVIGATION_RAIL);
 
         initializeFxml();
         initializeItems();
@@ -64,10 +65,6 @@ public class NavigationRail extends VBox {
 
 
     // INITIALIZERS
-
-    private ResourceBundle initializeMessages() {
-        return ResourceBundle.getBundle(ResourceBundleName.NAVIGATION_RAIL.getBundleName());
-    }
 
     private void initializeFxml() {
         final String RESOURCE_PATH =
