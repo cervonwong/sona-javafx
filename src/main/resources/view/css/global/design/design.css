@@ -10,3 +10,15 @@
 .filled-button:pressed {
 	-fx-background-color: derive(-filled-extended-fab-color, 32%);
 }
+
+.large-component {
+	-fx-background-radius: 10;
+}
+
+.medium-component {
+	-fx-background-radius: 10;
+}
+
+.small-component {
+	-fx-background-radius: 10;
+}
