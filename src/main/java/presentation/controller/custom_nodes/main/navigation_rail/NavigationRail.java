@@ -25,7 +25,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import main.java.i18n.ResourceBundles;
+import main.java.i18n.ResourceBundleName;
 
 import java.io.IOException;
 import java.util.*;
@@ -66,7 +66,7 @@ public class NavigationRail extends VBox {
     // INITIALIZERS
 
     private ResourceBundle initializeMessages() {
-        return ResourceBundle.getBundle(ResourceBundles.NAVIGATION_RAIL.getBundleName());
+        return ResourceBundle.getBundle(ResourceBundleName.NAVIGATION_RAIL.getBundleName());
     }
 
     private void initializeFxml() {
@@ -94,7 +94,7 @@ public class NavigationRail extends VBox {
     private void instantiateItems() {
         instantiateItem(Destination.DASHBOARD, "\uF015");
         instantiateItem(Destination.DECKS, "\uF5DB");
-        instantiateItem(Destination.EDIT, "\uF044");
+//        instantiateItem(Destination.EDIT, "\uF044");
         instantiateItem(Destination.BROWSE, "\uF002");
         instantiateItem(Destination.STATS, "\uF201");
         instantiateItem(Destination.SETTINGS, "\uF013");
@@ -115,7 +115,7 @@ public class NavigationRail extends VBox {
         // TOP ITEMS
         CHILDREN.add(navigationRailItems.get(Destination.DASHBOARD));
         CHILDREN.add(navigationRailItems.get(Destination.DECKS));
-        CHILDREN.add(navigationRailItems.get(Destination.EDIT));
+//        CHILDREN.add(navigationRailItems.get(Destination.EDIT));
         CHILDREN.add(navigationRailItems.get(Destination.BROWSE));
         CHILDREN.add(navigationRailItems.get(Destination.STATS));
 
