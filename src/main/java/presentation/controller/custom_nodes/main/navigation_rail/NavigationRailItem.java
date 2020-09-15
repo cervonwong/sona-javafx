@@ -140,19 +140,19 @@ public class NavigationRailItem extends Button {
         return destination;
     }
 
-
-    // JAVAFX PROPERTY ACCESSORS
-
     public boolean isActivated() {
         return isActivated.get();
     }
+
+
+    // PROPERTY ACCESSORS
 
     public SimpleBooleanProperty isActivatedProperty() {
         return isActivated;
     }
 
 
-    // JAVAFX PROPERTY MUTATORS
+    // MUTATORS
 
     public void setActivated(boolean isActivated) {
         this.isActivated.set(isActivated);
