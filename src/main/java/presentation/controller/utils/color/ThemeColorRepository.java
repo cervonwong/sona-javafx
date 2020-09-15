@@ -18,6 +18,50 @@
 
 package main.java.presentation.controller.utils.color;
 
+import javafx.scene.paint.Color;
+
 public interface ThemeColorRepository {
 
+    // [SHARED] BASELINE COLORS
+
+    Color getBrandColor();
+
+    Color getBackgroundColor();
+
+    Color getSurfaceColor();
+
+    Color getErrorColor();
+
+
+    // [SHARED] TEXT COLORS
+
+    Color getHighEmphasisHeaderTextColor();
+
+    Color getHighEmphasisNonHeaderTextColor();
+
+    Color getMediumEmphasisTextColor();
+
+    Color getLowEmphasisTextColor();
+
+
+    // [SHARED] BUTTON COLORS
+
+    Color getTextButtonHoverRippleColor();
+
+    Color getTextButtonPressedRippleColor();
+
+    Color getBrandContainedButtonEnabledFillColor();
+
+    Color getBrandContainedButtonHoverFillColor();
+
+    Color getBrandContainedButtonPressedFillColor();
+
+
+    // [SPECIFIC] NAVIGATION RAIL COLORS
+
+    Color getNavigationRailBaseColor();
+
+    Color getNavigationRailInactiveTextColor();
+
+    Color getNavigationRailActivatedTextColor();
 }
