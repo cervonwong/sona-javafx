@@ -97,12 +97,8 @@ public class NavigationRail extends VBox {
     // INITIALIZERS (Style)
 
     private void initializeStyle() {
-        final StringProperty BACKGROUND_COLOR = new SimpleStringProperty();
-        ColorProvider.navigationRailBaseColorProperty()
-                     .addListener((obs, oldColor, newColor)
-                                          -> BACKGROUND_COLOR.set(ColorFxUtils.toHexCode(newColor)));
-        BACKGROUND_COLOR.set(ColorFxUtils.toHexCode(ColorProvider.navigationRailBaseColorProperty()
-                                                                 .get()));
+        final StringProperty BACKGROUND_COLOR = ColorFxUtils.createStaticColorBinding(
+                ColorProvider.navigationRailBaseColorProperty());
 
         style.bind(Bindings.concat("-fx-background-color: ", BACKGROUND_COLOR, ";"));
 

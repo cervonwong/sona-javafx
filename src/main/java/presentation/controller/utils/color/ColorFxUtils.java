@@ -18,9 +18,12 @@
 
 package main.java.presentation.controller.utils.color;
 
+import javafx.beans.property.*;
 import javafx.scene.paint.Color;
 
 public class ColorFxUtils {
+
+    // CONVERTERS
 
     public static String toHexCode(Color color) {
         return "#"
@@ -33,5 +36,18 @@ public class ColorFxUtils {
     private static String format(double value) {
         String hexString = Integer.toHexString((int) Math.round(value * 255));
         return hexString.length() == 1 ? "0" + hexString : hexString;
+    }
+
+
+    // BINDING
+
+    public static StringProperty createStaticColorBinding(ObjectProperty<Color> colorProperty) {
+        final StringProperty STRING_PROPERTY =
+                new SimpleStringProperty(ColorFxUtils.toHexCode(colorProperty.get()));
+
+        colorProperty.addListener((obs, oldColor, newColor) ->
+                                          STRING_PROPERTY.set(ColorFxUtils.toHexCode(newColor)));
+
+        return STRING_PROPERTY;
     }
 }
