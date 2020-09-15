@@ -23,6 +23,10 @@ import javafx.scene.paint.Color;
 
 public class LightThemeColorRepository implements ThemeColorRepository {
 
+    // ============================================================================================
+    // CONSTANTS
+    // ============================================================================================
+
     // [SHARED] BASELINE COLORS
 
     private final Color BRAND_COLOR = BaseColorRepository.ORANGE_800;
@@ -61,4 +65,84 @@ public class LightThemeColorRepository implements ThemeColorRepository {
     private final Color NAVIGATION_RAIL_BASE_COLOR = BaseColorRepository.BLUE_800;
     private final Color NAVIGATION_RAIL_INACTIVE_TEXT_COLOR = BaseColorRepository.BLUE_100;
     private final Color NAVIGATION_RAIL_ACTIVATED_TEXT_COLOR = BRAND_COLOR;
+
+
+    // ============================================================================================
+    // ACCESSORS
+    // ============================================================================================
+
+    // [SHARED] BASELINE COLORS
+
+    public Color getBrandColor() {
+        return BRAND_COLOR;
+    }
+
+    public Color getBackgroundColor() {
+        return BACKGROUND_COLOR;
+    }
+
+    public Color getSurfaceColor() {
+        return SURFACE_COLOR;
+    }
+
+    public Color getErrorColor() {
+        return ERROR_COLOR;
+    }
+
+
+    // [SHARED] TEXT COLORS
+
+    public Color getHighEmphasisHeaderTextColor() {
+        return HIGH_EMPHASIS_HEADER_TEXT_COLOR;
+    }
+
+    public Color getHighEmphasisNonHeaderTextColor() {
+        return HIGH_EMPHASIS_NON_HEADER_TEXT_COLOR;
+    }
+
+    public Color getMediumEmphasisTextColor() {
+        return MEDIUM_EMPHASIS_TEXT_COLOR;
+    }
+
+    public Color getLowEmphasisTextColor() {
+        return LOW_EMPHASIS_TEXT_COLOR;
+    }
+
+
+    // [SHARED] BUTTON COLORS
+
+    public Color getTextButtonHoverRippleColor() {
+        return TEXT_BUTTON_HOVER_RIPPLE_COLOR;
+    }
+
+    public Color getTextButtonPressedRippleColor() {
+        return TEXT_BUTTON_PRESSED_RIPPLE_COLOR;
+    }
+
+    public Color getBrandContainedButtonEnabledFillColor() {
+        return BRAND_CONTAINED_BUTTON_ENABLED_FILL_COLOR;
+    }
+
+    public Color getBrandContainedButtonHoverFillColor() {
+        return BRAND_CONTAINED_BUTTON_HOVER_FILL_COLOR;
+    }
+
+    public Color getBrandContainedButtonPressedFillColor() {
+        return BRAND_CONTAINED_BUTTON_PRESSED_FILL_COLOR;
+    }
+
+
+    // [SPECIFIC] NAVIGATION RAIL COLORS
+
+    public Color getNavigationRailBaseColor() {
+        return NAVIGATION_RAIL_BASE_COLOR;
+    }
+
+    public Color getNavigationRailInactiveTextColor() {
+        return NAVIGATION_RAIL_INACTIVE_TEXT_COLOR;
+    }
+
+    public Color getNavigationRailActivatedTextColor() {
+        return NAVIGATION_RAIL_ACTIVATED_TEXT_COLOR;
+    }
 }
