@@ -28,8 +28,6 @@
       <Pane fx:id="dividerPane" VBox.vgrow="ALWAYS" />
    </children>
    <stylesheets>
-      <URL value="@../../../../css/global/color/color_palette.css" />
-      <URL value="@../../../../css/global/color/light_theme_colors.css" />
       <URL value="@../../../../css/global/fonts/all_fonts.css" />
       <URL value="@../../../../css/specific/custom_nodes/main/navigation_rail/navigation_rail.css" />
       <URL value="@../../../../css/global/fonts/type_scale.css" />

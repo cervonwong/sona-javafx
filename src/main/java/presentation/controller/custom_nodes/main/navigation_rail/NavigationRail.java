@@ -18,8 +18,8 @@
 
 package main.java.presentation.controller.custom_nodes.main.navigation_rail;
 
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.*;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,6 +28,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import main.java.i18n.ResourceBundleName;
 import main.java.presentation.controller.utils.ControllerUtils;
+import main.java.presentation.controller.utils.color.ColorFxUtils;
+import main.java.presentation.controller.utils.color.ColorProvider;
 
 import java.io.IOException;
 import java.util.*;
@@ -49,6 +51,10 @@ public class NavigationRail extends VBox {
     private final ObjectProperty<Destination> activeDestination = new SimpleObjectProperty<>();
 
 
+    // JAVAFX PROPERTIES (Style)
+
+    private final StringProperty style = new SimpleStringProperty();
+
 
     // FXML NODES
 
@@ -62,6 +68,7 @@ public class NavigationRail extends VBox {
         messages = ControllerUtils.getMessages(ResourceBundleName.NAVIGATION_RAIL);
 
         initializeFxml();
+        initializeStyle();
         initializeItems();
 
         initializeActiveItemListener();
@@ -86,6 +93,29 @@ public class NavigationRail extends VBox {
             throw new RuntimeException(e);
         }
     }
+
+    // INITIALIZERS (Style)
+
+    private void initializeStyle() {
+        final StringProperty BACKGROUND_COLOR = new SimpleStringProperty();
+        ColorProvider.navigationRailBaseColorProperty()
+                     .addListener((obs, oldColor, newColor)
+                                          -> BACKGROUND_COLOR.set(ColorFxUtils.toHexCode(newColor)));
+        BACKGROUND_COLOR.set(ColorFxUtils.toHexCode(ColorProvider.navigationRailBaseColorProperty()
+                                                                 .get()));
+
+        style.bind(Bindings.concat("-fx-background-color: ", BACKGROUND_COLOR, ";"));
+
+        initializeStyleListener();
+    }
+
+    private void initializeStyleListener() {
+        style.addListener((obs, oldStyle, newStyle) -> this.setStyle(newStyle));
+        this.setStyle(style.get());
+    }
+
+
+    // INITIALIZERS / INSTANTIATERS (Items)
 
     private void initializeItems() {
         instantiateItems();
