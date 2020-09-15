@@ -20,7 +20,7 @@ package main.java.presentation.controller.utils.color;
 
 import javafx.scene.paint.Color;
 
-public class ColorUtils {
+public class ColorFxUtils {
 
     public static String toHexCode(Color color) {
         return "#"
