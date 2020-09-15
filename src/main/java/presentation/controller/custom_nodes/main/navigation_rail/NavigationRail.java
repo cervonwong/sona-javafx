@@ -18,6 +18,7 @@
 
 package main.java.presentation.controller.custom_nodes.main.navigation_rail;
 
+import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -26,24 +27,28 @@ import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import main.java.i18n.ResourceBundleName;
-import main.java.presentation.controller.ControllerUtils;
+import main.java.presentation.controller.utils.ControllerUtils;
 
 import java.io.IOException;
 import java.util.*;
 
 public class NavigationRail extends VBox {
 
-    // INSTANCE VARIABLES
+    // INSTANCE VARIABLES (i18n)
 
     private final ResourceBundle messages;
+
+
+    // INSTANCE VARIABLES (Nodes)
 
     private final Map<Destination, NavigationRailItem> navigationRailItems = new HashMap<>();
 
 
-    // JAVAFX PROPERTIES
+    // JAVAFX PROPERTIES (Public Accessors / Mutators)
 
-    private final SimpleObjectProperty<Destination> activeDestination =
-            new SimpleObjectProperty<>();
+    private final ObjectProperty<Destination> activeDestination = new SimpleObjectProperty<>();
+
+
 
     // FXML NODES
 
@@ -153,7 +158,7 @@ public class NavigationRail extends VBox {
         return activeDestination.get();
     }
 
-    public SimpleObjectProperty<Destination> activeDestinationProperty() {
+    public ObjectProperty<Destination> activeDestinationProperty() {
         return activeDestination;
     }
 
