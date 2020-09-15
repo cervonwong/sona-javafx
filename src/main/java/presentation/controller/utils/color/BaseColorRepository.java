@@ -43,28 +43,28 @@ public class BaseColorRepository {
 
     // BLUE-GREY SWATCH
 
-    final static Color BLUE_GREY_050 = Color.rgb(232, 240, 246); // #E8F0F6
-    final static Color BLUE_GREY_100 = Color.rgb(203, 217, 225); // #CBD9E1
-    final static Color BLUE_GREY_200 = Color.rgb(173, 192, 203); // #ADC0CB
-    final static Color BLUE_GREY_300 = Color.rgb(141, 166, 181); // #8DA6B5
-    final static Color BLUE_GREY_400 = Color.rgb(117, 146, 163); // #7592A3
-    final static Color BLUE_GREY_500 = Color.rgb(93, 127, 146);  // #5D7F92
-    final static Color BLUE_GREY_600 = Color.rgb(81, 112, 129);  // #517081
-    final static Color BLUE_GREY_700 = Color.rgb(66, 92, 106);   // #425C6A
-    final static Color BLUE_GREY_800 = Color.rgb(52, 73, 85);    // #344955
-    final static Color BLUE_GREY_900 = Color.rgb(35, 52, 62);    // #23343E
+    final static Color BLUE_050 = Color.rgb(232, 240, 246); // #E8F0F6
+    final static Color BLUE_100 = Color.rgb(203, 217, 225); // #CBD9E1
+    final static Color BLUE_200 = Color.rgb(173, 192, 203); // #ADC0CB
+    final static Color BLUE_300 = Color.rgb(141, 166, 181); // #8DA6B5
+    final static Color BLUE_400 = Color.rgb(117, 146, 163); // #7592A3
+    final static Color BLUE_500 = Color.rgb(93, 127, 146);  // #5D7F92
+    final static Color BLUE_600 = Color.rgb(81, 112, 129);  // #517081
+    final static Color BLUE_700 = Color.rgb(66, 92, 106);   // #425C6A
+    final static Color BLUE_800 = Color.rgb(52, 73, 85);    // #344955
+    final static Color BLUE_900 = Color.rgb(35, 52, 62);    // #23343E
 
 
     // ADDITIONAL COLORS
 
     // A more desaturated color compared to BLUE_GREY_050.
-    final static Color LIGHT_BACKGROUND = Color.rgb(238, 241, 243); // #EEF1F3
+    final static Color LIGHT_BACKGROUND_COLOR = Color.rgb(238, 241, 243); // #EEF1F3
 
     final static Color NEARLY_WHITE = Color.rgb(254, 254, 254); // #FEFEFE
     final static Color ALMOST_WHITE = Color.rgb(242, 242, 242); // #F2F2F2
 
-    final static Color NEARLY_BLACK = BLUE_GREY_900;
+    final static Color NEARLY_BLACK = BLUE_900;
 
-    final static Color DARKEST_TEXT = Color.rgb(23, 38, 42); // #17262A (For headings)
-    final static Color DARKER_TEXT = Color.rgb(23, 38, 42); // #253840 (For body, etc.)
+    final static Color DARKEST_TEXT_COLOR = Color.rgb(23, 38, 42); // #17262A (For headings)
+    final static Color DARKER_TEXT_COLOR = Color.rgb(23, 38, 42); // #253840 (For body, etc.)
 }
