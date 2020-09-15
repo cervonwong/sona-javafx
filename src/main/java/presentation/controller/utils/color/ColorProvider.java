@@ -91,43 +91,55 @@ public class ColorProvider {
     // INITIALIZATION
 
     static {
+        theme.set(Theme.LIGHT);
+
         initializeThemeListener();
         initializeThemeColorRepositoryListener();
     }
 
     private static void initializeThemeListener() {
-        theme.addListener((obs, oldTheme, newTheme) -> {
-            switch (newTheme) {
-                case LIGHT:
-                    themeColorRepository.set(new LightThemeColorRepository());
-                case DARK:
-                    themeColorRepository.set(new DarkThemeColorRepository());
-            }
-        });
+        theme.addListener((obs, oldTheme, newTheme) -> setThemeColorRepository(newTheme));
+
+        setThemeColorRepository(theme.get());
+    }
+
+    private static void setThemeColorRepository(Theme theme) {
+        switch (theme) {
+            case LIGHT:
+                themeColorRepository.set(new LightThemeColorRepository());
+                break;
+            case DARK:
+                themeColorRepository.set(new DarkThemeColorRepository());
+                break;
+        }
     }
 
     private static void initializeThemeColorRepositoryListener() {
-        themeColorRepository.addListener((obs, oldRepo, newRepo) -> {
-            brandColor.set(newRepo.getBrandColor());
-            backgroundColor.set(newRepo.getBackgroundColor());
-            surfaceColor.set(newRepo.getSurfaceColor());
-            errorColor.set(newRepo.getErrorColor());
+        themeColorRepository.addListener((obs, oldRepo, newRepo) -> setColors(newRepo));
 
-            highEmphasisHeaderTextColor.set(newRepo.getHighEmphasisHeaderTextColor());
-            highEmphasisNonHeaderTextColor.set(newRepo.getHighEmphasisNonHeaderTextColor());
-            mediumEmphasisTextColor.set(newRepo.getMediumEmphasisTextColor());
-            lowEmphasisTextColor.set(newRepo.getLowEmphasisTextColor());
+        setColors(themeColorRepository.get());
+    }
 
-            textButtonHoverRippleColor.set(newRepo.getTextButtonHoverRippleColor());
-            textButtonPressedRippleColor.set(newRepo.getTextButtonPressedRippleColor());
-            brandContainedButtonEnabledFillColor.set(newRepo.getBrandContainedButtonEnabledFillColor());
-            brandContainedButtonHoverFillColor.set(newRepo.getBrandContainedButtonHoverFillColor());
-            brandContainedButtonPressedFillColor.set(newRepo.getBrandContainedButtonPressedFillColor());
+    private static void setColors(ThemeColorRepository repository) {
+        brandColor.set(repository.getBrandColor());
+        backgroundColor.set(repository.getBackgroundColor());
+        surfaceColor.set(repository.getSurfaceColor());
+        errorColor.set(repository.getErrorColor());
 
-            navigationRailBaseColor.set(newRepo.getNavigationRailBaseColor());
-            navigationRailInactiveTextColor.set(newRepo.getNavigationRailInactiveTextColor());
-            navigationRailActivatedTextColor.set(newRepo.getNavigationRailActivatedTextColor());
-        });
+        highEmphasisHeaderTextColor.set(repository.getHighEmphasisHeaderTextColor());
+        highEmphasisNonHeaderTextColor.set(repository.getHighEmphasisNonHeaderTextColor());
+        mediumEmphasisTextColor.set(repository.getMediumEmphasisTextColor());
+        lowEmphasisTextColor.set(repository.getLowEmphasisTextColor());
+
+        textButtonHoverRippleColor.set(repository.getTextButtonHoverRippleColor());
+        textButtonPressedRippleColor.set(repository.getTextButtonPressedRippleColor());
+        brandContainedButtonEnabledFillColor.set(repository.getBrandContainedButtonEnabledFillColor());
+        brandContainedButtonHoverFillColor.set(repository.getBrandContainedButtonHoverFillColor());
+        brandContainedButtonPressedFillColor.set(repository.getBrandContainedButtonPressedFillColor());
+
+        navigationRailBaseColor.set(repository.getNavigationRailBaseColor());
+        navigationRailInactiveTextColor.set(repository.getNavigationRailInactiveTextColor());
+        navigationRailActivatedTextColor.set(repository.getNavigationRailActivatedTextColor());
     }
 
 
@@ -282,8 +294,6 @@ public class ColorProvider {
     // MUTATORS
 
     public static void setTheme(Theme t) {
-        if (getTheme().equals(t)) return;
-
         theme.set(t);
     }
 }
