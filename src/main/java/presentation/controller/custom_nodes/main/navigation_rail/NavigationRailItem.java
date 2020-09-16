@@ -122,6 +122,7 @@ public class NavigationRailItem extends Button {
     private void initializeAttributiveStyleBindings() {
         initializeTextFillStyleBinding();
         initializeIconLabelFontFamilyStyleBinding();
+        initializeBackgroundColorStyleBindings();
     }
 
     private void initializeNodalStyleBindings() {
@@ -130,7 +131,7 @@ public class NavigationRailItem extends Button {
     }
 
 
-    // INITIALIZERS (Style Bindings (Internal - Attributive TextFillStyle))
+    // INITIALIZERS (Style Bindings (Internal - Attributive textFillStyle))
 
     private void initializeTextFillStyleBinding() {
         final Duration TRANSITION_DURATION = Duration.millis(50);
@@ -164,7 +165,7 @@ public class NavigationRailItem extends Button {
     }
 
 
-    // INITIALIZERS (Style Bindings (Internal - Attributive IconLabelFontFamilyStyle))
+    // INITIALIZERS (Style Bindings (Internal - Attributive iconLabelFontFamilyStyle))
 
     private void initializeIconLabelFontFamilyStyleBinding() {
         final StringProperty ICON_LABEL_FONT_FAMILY = createIconLabelFontFamily();
@@ -192,11 +193,56 @@ public class NavigationRailItem extends Button {
         iconLabelFontFamily.set(isActivated ? ACTIVATED_FONT_FAMILY : INACTIVE_FONT_FAMILY);
     }
 
+
+    // INITIALIZERS (Style Bindings (Internal - Attributive backgroundColorStyle))
+
+    private void initializeBackgroundColorStyleBindings() {
+        final Duration TRANSITION_DURATION = Duration.millis(50);
+
+        final ObjectProperty<Color> DESIRED_BACKGROUND_COLOR = createDesiredBackgroundColor();
+
+        final StringProperty BACKGROUND_COLOR =
+                ColorFxUtils.createDynamicStringProperty(DESIRED_BACKGROUND_COLOR,
+                                                         TRANSITION_DURATION);
+
+        backgroundColorStyle.bind(Bindings.concat("-fx-background-color: ", BACKGROUND_COLOR, ";"));
+    }
+
+    private ObjectProperty<Color> createDesiredBackgroundColor() {
+        final ObjectProperty<Color> DESIRED_BACKGROUND_COLOR = new SimpleObjectProperty<>();
+
+        final ObjectProperty<Color> ENABLED_BACKGROUND_COLOR =
+                ColorFxUtils.createStaticColorProperty(ColorProvider.enabledTextButtonBackgroundColorProperty());
+
+        final ObjectProperty<Color> HOVER_BACKGROUND_COLOR =
+                ColorFxUtils.createStaticColorProperty(ColorProvider.hoverTextButtonBackgroundColorProperty());
+
+        final ObjectProperty<Color> PRESSED_BACKGROUND_COLOR =
+                ColorFxUtils.createStaticColorProperty(ColorProvider.pressedTextButtonBackgroundColorProperty());
+
+        this.hoverProperty()
+            .addListener((obs, oldValue, newValue)
+                                 -> DESIRED_BACKGROUND_COLOR.bind(newValue
+                                                                  ? HOVER_BACKGROUND_COLOR
+                                                                  : ENABLED_BACKGROUND_COLOR));
+
+        this.pressedProperty()
+            .addListener((obs, oldValue, newValue) ->
+                                 DESIRED_BACKGROUND_COLOR.bind(newValue
+                                                               ? PRESSED_BACKGROUND_COLOR
+                                                               : ENABLED_BACKGROUND_COLOR));
+
+        DESIRED_BACKGROUND_COLOR.bind(ENABLED_BACKGROUND_COLOR);
+
+        return DESIRED_BACKGROUND_COLOR;
+    }
+
+
     // INITIALIZERS (Style Bindings (Internal - Nodal))
 
     private void initializeThisStyleBinding() {
-        thisStyle.bind(textFillStyle);
-        this.styleProperty().bind(textFillStyle);
+        thisStyle.bind(Bindings.concat(textFillStyle, backgroundColorStyle));
+        this.styleProperty().bind(thisStyle);
     }
 
     private void initializeIconLabelStyleBinding() {

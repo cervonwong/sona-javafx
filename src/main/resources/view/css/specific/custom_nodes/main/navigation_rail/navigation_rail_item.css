@@ -1,16 +1,9 @@
 .button {
 	-fx-background-color: transparent;
 	-fx-border-color: transparent;
+	/* -fx-background-radius: 0 20 20 0; Experimental */
+	-fx-background-radius: 0;
 }
 
-/*
-	Hard coded translucent white overlay
-*/
-.button:hover {
-	-fx-background-color: rgba(255, 255, 255, 0.05);
-}
 
-.button:pressed {
-	-fx-background-color: rgba(255, 255, 255, 0.1);
-}
 
