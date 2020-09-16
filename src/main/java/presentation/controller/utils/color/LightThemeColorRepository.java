@@ -49,15 +49,15 @@ public class LightThemeColorRepository implements ThemeColorRepository {
 
     // [SHARED] BUTTON COLORS
 
-    private final Color TEXT_BUTTON_NO_RIPPLE_COLOR = Color.TRANSPARENT;
-    private final Color TEXT_BUTTON_HOVER_RIPPLE_COLOR = null;
-    private final Color TEXT_BUTTON_PRESSED_RIPPLE_COLOR = null;
+    private final Color ENABLED_TEXT_BUTTON_BACKGROUND_COLOR = Color.TRANSPARENT;
+    private final Color HOVER_TEXT_BUTTON_BACKGROUND_COLOR = null;
+    private final Color PRESSED_TEXT_BUTTON_BACKGROUND_COLOR = null;
 
-    private final Color BRAND_CONTAINED_BUTTON_ENABLED_FILL_COLOR =
+    private final Color ENABLED_BRAND_CONTAINED_BUTTON_FILL_COLOR =
             BRAND_COLOR;
-    private final Color BRAND_CONTAINED_BUTTON_HOVER_FILL_COLOR =
+    private final Color HOVER_BRAND_CONTAINED_BUTTON_FILL_COLOR =
             BRAND_COLOR.deriveColor(0, 1, 1.3, 1);
-    private final Color BRAND_CONTAINED_BUTTON_PRESSED_FILL_COLOR =
+    private final Color PRESSED_BRAND_CONTAINED_BUTTON_FILL_COLOR =
             BRAND_COLOR.deriveColor(0, 1, 1.7, 1);
 
 
@@ -121,33 +121,33 @@ public class LightThemeColorRepository implements ThemeColorRepository {
     // [SHARED] BUTTON COLORS
 
     @Override
-    public Color getTextButtonNoRippleColor() {
+    public Color getEnabledTextButtonBackgroundColor() {
         return null;
     }
 
     @Override
-    public Color getTextButtonHoverRippleColor() {
-        return TEXT_BUTTON_HOVER_RIPPLE_COLOR;
+    public Color getHoverTextButtonBackgroundColor() {
+        return HOVER_TEXT_BUTTON_BACKGROUND_COLOR;
     }
 
     @Override
-    public Color getTextButtonPressedRippleColor() {
-        return TEXT_BUTTON_PRESSED_RIPPLE_COLOR;
+    public Color getPressedTextButtonBackgroundColor() {
+        return PRESSED_TEXT_BUTTON_BACKGROUND_COLOR;
     }
 
     @Override
-    public Color getBrandContainedButtonEnabledFillColor() {
-        return BRAND_CONTAINED_BUTTON_ENABLED_FILL_COLOR;
+    public Color getEnabledBrandContainedButtonFillColor() {
+        return ENABLED_BRAND_CONTAINED_BUTTON_FILL_COLOR;
     }
 
     @Override
-    public Color getBrandContainedButtonHoverFillColor() {
-        return BRAND_CONTAINED_BUTTON_HOVER_FILL_COLOR;
+    public Color getHoverBrandContainedButtonFillColor() {
+        return HOVER_BRAND_CONTAINED_BUTTON_FILL_COLOR;
     }
 
     @Override
-    public Color getBrandContainedButtonPressedFillColor() {
-        return BRAND_CONTAINED_BUTTON_PRESSED_FILL_COLOR;
+    public Color getPressedBrandContainedButtonFillColor() {
+        return PRESSED_BRAND_CONTAINED_BUTTON_FILL_COLOR;
     }
 
 

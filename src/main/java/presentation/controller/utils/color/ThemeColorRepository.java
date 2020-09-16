@@ -46,17 +46,17 @@ public interface ThemeColorRepository {
 
     // [SHARED] BUTTON COLORS
 
-    Color getTextButtonNoRippleColor();
+    Color getEnabledTextButtonBackgroundColor();
 
-    Color getTextButtonHoverRippleColor();
+    Color getHoverTextButtonBackgroundColor();
 
-    Color getTextButtonPressedRippleColor();
+    Color getPressedTextButtonBackgroundColor();
 
-    Color getBrandContainedButtonEnabledFillColor();
+    Color getEnabledBrandContainedButtonFillColor();
 
-    Color getBrandContainedButtonHoverFillColor();
+    Color getHoverBrandContainedButtonFillColor();
 
-    Color getBrandContainedButtonPressedFillColor();
+    Color getPressedBrandContainedButtonFillColor();
 
 
     // [SPECIFIC] NAVIGATION RAIL COLORS

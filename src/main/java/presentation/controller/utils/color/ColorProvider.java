@@ -60,22 +60,22 @@ public class ColorProvider {
 
     // JAVAFX PROPERTIES ([SHARED] BUTTON COLORS)
 
-    private static final ObjectProperty<Color> textButtonNoRippleColor =
+    private static final ObjectProperty<Color> enabledTextButtonBackgroundColor =
             new SimpleObjectProperty<>();
 
-    private static final ObjectProperty<Color> textButtonHoverRippleColor =
+    private static final ObjectProperty<Color> hoverTextButtonBackgroundColor =
             new SimpleObjectProperty<>();
 
-    private static final ObjectProperty<Color> textButtonPressedRippleColor =
+    private static final ObjectProperty<Color> pressedTextButtonBackgroundColor =
             new SimpleObjectProperty<>();
 
-    private static final ObjectProperty<Color> brandContainedButtonEnabledFillColor =
+    private static final ObjectProperty<Color> enabledBrandContainedButtonFillColor =
             new SimpleObjectProperty<>();
 
-    private static final ObjectProperty<Color> brandContainedButtonHoverFillColor =
+    private static final ObjectProperty<Color> hoverBrandContainedButtonFillColor =
             new SimpleObjectProperty<>();
 
-    private static final ObjectProperty<Color> brandContainedButtonPressedFillColor =
+    private static final ObjectProperty<Color> pressedBrandContainedButtonFillColor =
             new SimpleObjectProperty<>();
 
 
@@ -134,12 +134,12 @@ public class ColorProvider {
         mediumEmphasisTextColor.set(repository.getMediumEmphasisTextColor());
         lowEmphasisTextColor.set(repository.getLowEmphasisTextColor());
 
-        textButtonNoRippleColor.set(repository.getTextButtonNoRippleColor());
-        textButtonHoverRippleColor.set(repository.getTextButtonHoverRippleColor());
-        textButtonPressedRippleColor.set(repository.getTextButtonPressedRippleColor());
-        brandContainedButtonEnabledFillColor.set(repository.getBrandContainedButtonEnabledFillColor());
-        brandContainedButtonHoverFillColor.set(repository.getBrandContainedButtonHoverFillColor());
-        brandContainedButtonPressedFillColor.set(repository.getBrandContainedButtonPressedFillColor());
+        enabledTextButtonBackgroundColor.set(repository.getEnabledTextButtonBackgroundColor());
+        hoverTextButtonBackgroundColor.set(repository.getHoverTextButtonBackgroundColor());
+        pressedTextButtonBackgroundColor.set(repository.getPressedTextButtonBackgroundColor());
+        enabledBrandContainedButtonFillColor.set(repository.getEnabledBrandContainedButtonFillColor());
+        hoverBrandContainedButtonFillColor.set(repository.getHoverBrandContainedButtonFillColor());
+        pressedBrandContainedButtonFillColor.set(repository.getPressedBrandContainedButtonFillColor());
 
         navigationRailBaseColor.set(repository.getNavigationRailBaseColor());
         navigationRailInactiveTextColor.set(repository.getNavigationRailInactiveTextColor());
@@ -188,28 +188,28 @@ public class ColorProvider {
         return lowEmphasisTextColor.get();
     }
 
-    public static Color getTextButtonNoRippleColor() {
-        return textButtonNoRippleColor.get();
+    public static Color getEnabledTextButtonBackgroundColor() {
+        return enabledTextButtonBackgroundColor.get();
     }
 
-    public static Color getTextButtonHoverRippleColor() {
-        return textButtonHoverRippleColor.get();
+    public static Color getHoverTextButtonBackgroundColor() {
+        return hoverTextButtonBackgroundColor.get();
     }
 
-    public static Color getTextButtonPressedRippleColor() {
-        return textButtonPressedRippleColor.get();
+    public static Color getPressedTextButtonBackgroundColor() {
+        return pressedTextButtonBackgroundColor.get();
     }
 
-    public static Color getBrandContainedButtonEnabledFillColor() {
-        return brandContainedButtonEnabledFillColor.get();
+    public static Color getEnabledBrandContainedButtonFillColor() {
+        return enabledBrandContainedButtonFillColor.get();
     }
 
-    public static Color getBrandContainedButtonHoverFillColor() {
-        return brandContainedButtonHoverFillColor.get();
+    public static Color getHoverBrandContainedButtonFillColor() {
+        return hoverBrandContainedButtonFillColor.get();
     }
 
-    public static Color getBrandContainedButtonPressedFillColor() {
-        return brandContainedButtonPressedFillColor.get();
+    public static Color getPressedBrandContainedButtonFillColor() {
+        return pressedBrandContainedButtonFillColor.get();
     }
 
     public static Color getNavigationRailBaseColor() {
@@ -266,28 +266,28 @@ public class ColorProvider {
         return lowEmphasisTextColor;
     }
 
-    public static ObjectProperty<Color> textButtonNoRippleColorProperty() {
-        return textButtonNoRippleColor;
+    public static ObjectProperty<Color> enabledTextButtonBackgroundColorProperty() {
+        return enabledTextButtonBackgroundColor;
     }
 
-    public static ObjectProperty<Color> textButtonHoverRippleColorProperty() {
-        return textButtonHoverRippleColor;
+    public static ObjectProperty<Color> hoverTextButtonBackgroundColorProperty() {
+        return hoverTextButtonBackgroundColor;
     }
 
-    public static ObjectProperty<Color> textButtonPressedRippleColorProperty() {
-        return textButtonPressedRippleColor;
+    public static ObjectProperty<Color> pressedTextButtonBackgroundColorProperty() {
+        return pressedTextButtonBackgroundColor;
     }
 
-    public static ObjectProperty<Color> brandContainedButtonEnabledFillColorProperty() {
-        return brandContainedButtonEnabledFillColor;
+    public static ObjectProperty<Color> enabledBrandContainedButtonFillColorProperty() {
+        return enabledBrandContainedButtonFillColor;
     }
 
-    public static ObjectProperty<Color> brandContainedButtonHoverFillColorProperty() {
-        return brandContainedButtonHoverFillColor;
+    public static ObjectProperty<Color> hoverBrandContainedButtonFillColorProperty() {
+        return hoverBrandContainedButtonFillColor;
     }
 
-    public static ObjectProperty<Color> brandContainedButtonPressedFillColorProperty() {
-        return brandContainedButtonPressedFillColor;
+    public static ObjectProperty<Color> pressedBrandContainedButtonFillColorProperty() {
+        return pressedBrandContainedButtonFillColor;
     }
 
     public static ObjectProperty<Color> navigationRailBaseColorProperty() {
