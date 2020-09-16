@@ -52,7 +52,7 @@ public class LightThemeColorRepository implements ThemeColorRepository {
     private final Color ENABLED_TEXT_BUTTON_BACKGROUND_COLOR =
             Color.TRANSPARENT;
     private final Color HOVER_TEXT_BUTTON_BACKGROUND_COLOR =
-            Color.WHITE.deriveColor(0, 1, 1, 0.8);
+            Color.WHITE.deriveColor(0, 1, 1, 0.08);
     private final Color PRESSED_TEXT_BUTTON_BACKGROUND_COLOR =
             Color.WHITE.deriveColor(0, 1, 1, 0.24);
 
