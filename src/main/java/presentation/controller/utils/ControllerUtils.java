@@ -26,6 +26,8 @@ import java.util.ResourceBundle;
 
 public class ControllerUtils {
 
+    // TODO: 16/09/2020 Split into FxUtils and I18nUtils.
+
     // i18n
 
     public static ResourceBundle getMessages(ResourceBundleName name) {
