@@ -60,6 +60,9 @@ public class ColorProvider {
 
     // JAVAFX PROPERTIES ([SHARED] BUTTON COLORS)
 
+    private static final ObjectProperty<Color> textButtonNoRippleColor =
+            new SimpleObjectProperty<>();
+
     private static final ObjectProperty<Color> textButtonHoverRippleColor =
             new SimpleObjectProperty<>();
 
@@ -131,6 +134,7 @@ public class ColorProvider {
         mediumEmphasisTextColor.set(repository.getMediumEmphasisTextColor());
         lowEmphasisTextColor.set(repository.getLowEmphasisTextColor());
 
+        textButtonNoRippleColor.set(repository.getTextButtonNoRippleColor());
         textButtonHoverRippleColor.set(repository.getTextButtonHoverRippleColor());
         textButtonPressedRippleColor.set(repository.getTextButtonPressedRippleColor());
         brandContainedButtonEnabledFillColor.set(repository.getBrandContainedButtonEnabledFillColor());
@@ -182,6 +186,10 @@ public class ColorProvider {
 
     public static Color getLowEmphasisTextColor() {
         return lowEmphasisTextColor.get();
+    }
+
+    public static Color getTextButtonNoRippleColor() {
+        return textButtonNoRippleColor.get();
     }
 
     public static Color getTextButtonHoverRippleColor() {
@@ -256,6 +264,10 @@ public class ColorProvider {
 
     public static ObjectProperty<Color> lowEmphasisTextColorProperty() {
         return lowEmphasisTextColor;
+    }
+
+    public static ObjectProperty<Color> textButtonNoRippleColorProperty() {
+        return textButtonNoRippleColor;
     }
 
     public static ObjectProperty<Color> textButtonHoverRippleColorProperty() {

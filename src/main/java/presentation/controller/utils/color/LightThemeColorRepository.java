@@ -49,6 +49,7 @@ public class LightThemeColorRepository implements ThemeColorRepository {
 
     // [SHARED] BUTTON COLORS
 
+    private final Color TEXT_BUTTON_NO_RIPPLE_COLOR = Color.TRANSPARENT;
     private final Color TEXT_BUTTON_HOVER_RIPPLE_COLOR = null;
     private final Color TEXT_BUTTON_PRESSED_RIPPLE_COLOR = null;
 
@@ -73,18 +74,22 @@ public class LightThemeColorRepository implements ThemeColorRepository {
 
     // [SHARED] BASELINE COLORS
 
+    @Override
     public Color getBrandColor() {
         return BRAND_COLOR;
     }
 
+    @Override
     public Color getBackgroundColor() {
         return BACKGROUND_COLOR;
     }
 
+    @Override
     public Color getSurfaceColor() {
         return SURFACE_COLOR;
     }
 
+    @Override
     public Color getErrorColor() {
         return ERROR_COLOR;
     }
@@ -92,18 +97,22 @@ public class LightThemeColorRepository implements ThemeColorRepository {
 
     // [SHARED] TEXT COLORS
 
+    @Override
     public Color getHighEmphasisHeaderTextColor() {
         return HIGH_EMPHASIS_HEADER_TEXT_COLOR;
     }
 
+    @Override
     public Color getHighEmphasisNonHeaderTextColor() {
         return HIGH_EMPHASIS_NON_HEADER_TEXT_COLOR;
     }
 
+    @Override
     public Color getMediumEmphasisTextColor() {
         return MEDIUM_EMPHASIS_TEXT_COLOR;
     }
 
+    @Override
     public Color getLowEmphasisTextColor() {
         return LOW_EMPHASIS_TEXT_COLOR;
     }
@@ -111,22 +120,32 @@ public class LightThemeColorRepository implements ThemeColorRepository {
 
     // [SHARED] BUTTON COLORS
 
+    @Override
+    public Color getTextButtonNoRippleColor() {
+        return null;
+    }
+
+    @Override
     public Color getTextButtonHoverRippleColor() {
         return TEXT_BUTTON_HOVER_RIPPLE_COLOR;
     }
 
+    @Override
     public Color getTextButtonPressedRippleColor() {
         return TEXT_BUTTON_PRESSED_RIPPLE_COLOR;
     }
 
+    @Override
     public Color getBrandContainedButtonEnabledFillColor() {
         return BRAND_CONTAINED_BUTTON_ENABLED_FILL_COLOR;
     }
 
+    @Override
     public Color getBrandContainedButtonHoverFillColor() {
         return BRAND_CONTAINED_BUTTON_HOVER_FILL_COLOR;
     }
 
+    @Override
     public Color getBrandContainedButtonPressedFillColor() {
         return BRAND_CONTAINED_BUTTON_PRESSED_FILL_COLOR;
     }
@@ -134,14 +153,17 @@ public class LightThemeColorRepository implements ThemeColorRepository {
 
     // [SPECIFIC] NAVIGATION RAIL COLORS
 
+    @Override
     public Color getNavigationRailBaseColor() {
         return NAVIGATION_RAIL_BASE_COLOR;
     }
 
+    @Override
     public Color getNavigationRailInactiveTextColor() {
         return NAVIGATION_RAIL_INACTIVE_TEXT_COLOR;
     }
 
+    @Override
     public Color getNavigationRailActivatedTextColor() {
         return NAVIGATION_RAIL_ACTIVATED_TEXT_COLOR;
     }

@@ -46,6 +46,8 @@ public interface ThemeColorRepository {
 
     // [SHARED] BUTTON COLORS
 
+    Color getTextButtonNoRippleColor();
+
     Color getTextButtonHoverRippleColor();
 
     Color getTextButtonPressedRippleColor();
