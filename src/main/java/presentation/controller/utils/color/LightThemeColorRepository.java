@@ -49,9 +49,12 @@ public class LightThemeColorRepository implements ThemeColorRepository {
 
     // [SHARED] BUTTON COLORS
 
-    private final Color ENABLED_TEXT_BUTTON_BACKGROUND_COLOR = Color.TRANSPARENT;
-    private final Color HOVER_TEXT_BUTTON_BACKGROUND_COLOR = null;
-    private final Color PRESSED_TEXT_BUTTON_BACKGROUND_COLOR = null;
+    private final Color ENABLED_TEXT_BUTTON_BACKGROUND_COLOR =
+            Color.TRANSPARENT;
+    private final Color HOVER_TEXT_BUTTON_BACKGROUND_COLOR =
+            Color.WHITE.deriveColor(0, 1, 1, 0.8);
+    private final Color PRESSED_TEXT_BUTTON_BACKGROUND_COLOR =
+            Color.WHITE.deriveColor(0, 1, 1, 0.24);
 
     private final Color ENABLED_BRAND_CONTAINED_BUTTON_FILL_COLOR =
             BRAND_COLOR;
@@ -122,7 +125,7 @@ public class LightThemeColorRepository implements ThemeColorRepository {
 
     @Override
     public Color getEnabledTextButtonBackgroundColor() {
-        return null;
+        return ENABLED_TEXT_BUTTON_BACKGROUND_COLOR;
     }
 
     @Override
