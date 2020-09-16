@@ -18,8 +18,10 @@
 
 package main.java.presentation.controller.utils.color;
 
+import javafx.animation.*;
 import javafx.beans.property.*;
 import javafx.scene.paint.Color;
+import javafx.util.Duration;
 
 public class ColorFxUtils {
 
@@ -41,13 +43,44 @@ public class ColorFxUtils {
 
     // BINDING
 
-    public static StringProperty createStaticColorBinding(ObjectProperty<Color> colorProperty) {
-        final StringProperty STRING_PROPERTY =
-                new SimpleStringProperty(ColorFxUtils.toHexCode(colorProperty.get()));
+    // Static color bindings are colors that will only change when the theme changes, but nowhere
+    // else.
+    public static StringProperty createStaticColorBinding(ObjectProperty<Color> desiredColor) {
+        final Duration MODE_TRANSITION_DURATION = Duration.millis(400);
 
-        colorProperty.addListener((obs, oldColor, newColor) ->
-                                          STRING_PROPERTY.set(ColorFxUtils.toHexCode(newColor)));
+        final StringProperty STRING_PROPERTY =
+                new SimpleStringProperty(ColorFxUtils.toHexCode(desiredColor.get()));
+
+        final ObjectProperty<Color> color = new SimpleObjectProperty<>(desiredColor.get());
+
+        desiredColor.addListener((obs, oldColor, newColor) -> {
+            // Transition between light and dark modes.
+            createColorTimelineAnimation(color,
+                                         oldColor,
+                                         newColor,
+                                         MODE_TRANSITION_DURATION).play();
+        });
+
+        color.addListener((obs, oldColor, newColor)
+                                  -> STRING_PROPERTY.set(ColorFxUtils.toHexCode(newColor)));
 
         return STRING_PROPERTY;
+    }
+
+
+    // ANIMATIONS
+
+    public static Timeline createColorTimelineAnimation(ObjectProperty<Color> color,
+                                                        Color startColor,
+                                                        Color endColor,
+                                                        Duration duration) {
+        return new Timeline(new KeyFrame(Duration.ZERO,
+                                         new KeyValue(color,
+                                                      startColor,
+                                                      Interpolator.EASE_BOTH)),
+                            new KeyFrame(duration,
+                                         new KeyValue(color,
+                                                      endColor,
+                                                      Interpolator.EASE_BOTH)));
     }
 }
