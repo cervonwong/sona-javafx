@@ -113,7 +113,7 @@ public class NavigationRailItem extends Button {
     }
 
     private void initializeThisText(String text) {
-        this.setText(text);
+        setText(text);
     }
 
 
@@ -220,17 +220,19 @@ public class NavigationRailItem extends Button {
         final ObjectProperty<Color> PRESSED_BACKGROUND_COLOR =
                 ColorFxUtils.createStaticColorProperty(ColorProvider.pressedTextButtonBackgroundColorProperty());
 
-        this.hoverProperty()
+        hoverProperty()
             .addListener((obs, oldValue, newValue)
                                  -> DESIRED_BACKGROUND_COLOR.bind(newValue
                                                                   ? HOVER_BACKGROUND_COLOR
                                                                   : ENABLED_BACKGROUND_COLOR));
 
-        this.pressedProperty()
-            .addListener((obs, oldValue, newValue) ->
-                                 DESIRED_BACKGROUND_COLOR.bind(newValue
-                                                               ? PRESSED_BACKGROUND_COLOR
-                                                               : ENABLED_BACKGROUND_COLOR));
+        pressedProperty()
+            .addListener((obs, oldValue, newValue)
+                                 -> DESIRED_BACKGROUND_COLOR.bind(newValue
+                                                                  ? PRESSED_BACKGROUND_COLOR
+                                                                  : isHover()
+                                                                    ? HOVER_BACKGROUND_COLOR
+                                                                    : ENABLED_BACKGROUND_COLOR));
 
         DESIRED_BACKGROUND_COLOR.bind(ENABLED_BACKGROUND_COLOR);
 
@@ -242,7 +244,7 @@ public class NavigationRailItem extends Button {
 
     private void initializeThisStyleBinding() {
         thisStyle.bind(Bindings.concat(textFillStyle, backgroundColorStyle));
-        this.styleProperty().bind(thisStyle);
+        styleProperty().bind(thisStyle);
     }
 
     private void initializeIconLabelStyleBinding() {
