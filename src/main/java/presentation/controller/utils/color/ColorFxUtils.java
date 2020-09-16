@@ -91,10 +91,10 @@ public class ColorFxUtils {
         return new Timeline(new KeyFrame(Duration.ZERO,
                                          new KeyValue(color,
                                                       startColor,
-                                                      Interpolator.EASE_BOTH)),
+                                                      Interpolator.EASE_OUT)),
                             new KeyFrame(duration,
                                          new KeyValue(color,
                                                       endColor,
-                                                      Interpolator.EASE_BOTH)));
+                                                      Interpolator.EASE_OUT)));
     }
 }
