@@ -58,6 +58,7 @@ public class NavigationRailItem extends Button {
 
     private final StringProperty iconLabelStyle = new SimpleStringProperty();
 
+
     // FXML NODES
 
     @FXML
@@ -221,18 +222,19 @@ public class NavigationRailItem extends Button {
                 ColorFxUtils.createStaticColorProperty(ColorProvider.pressedTextButtonBackgroundColorProperty());
 
         hoverProperty()
-            .addListener((obs, oldValue, newValue)
-                                 -> DESIRED_BACKGROUND_COLOR.bind(newValue
-                                                                  ? HOVER_BACKGROUND_COLOR
-                                                                  : ENABLED_BACKGROUND_COLOR));
+                .addListener((obs, oldValue, newValue)
+                                     -> DESIRED_BACKGROUND_COLOR.bind(newValue
+                                                                      ? HOVER_BACKGROUND_COLOR
+                                                                      : ENABLED_BACKGROUND_COLOR));
 
         pressedProperty()
-            .addListener((obs, oldValue, newValue)
-                                 -> DESIRED_BACKGROUND_COLOR.bind(newValue
-                                                                  ? PRESSED_BACKGROUND_COLOR
-                                                                  : isHover()
-                                                                    ? HOVER_BACKGROUND_COLOR
-                                                                    : ENABLED_BACKGROUND_COLOR));
+                .addListener((obs, oldValue, newValue)
+                                     -> DESIRED_BACKGROUND_COLOR.bind(newValue
+                                                                      ? PRESSED_BACKGROUND_COLOR
+                                                                      : isHover()
+                                                                        ? HOVER_BACKGROUND_COLOR
+                                                                        :
+                                                                        ENABLED_BACKGROUND_COLOR));
 
         DESIRED_BACKGROUND_COLOR.bind(ENABLED_BACKGROUND_COLOR);
 
