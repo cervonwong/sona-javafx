@@ -45,11 +45,11 @@ public class ColorFxUtils {
 
     // Static color bindings are colors that will only change when the theme changes, but nowhere
     // else.
-    public static StringProperty createStaticColorBoundStringProperty(ObjectProperty<Color> desiredColor) {
+    public static StringProperty createStaticStringProperty(ObjectProperty<Color> desiredColor) {
         final StringProperty STRING_PROPERTY =
                 new SimpleStringProperty(ColorFxUtils.toHexCode(desiredColor.get()));
 
-        final ObjectProperty<Color> COLOR = createStaticColorBoundColorProperty(desiredColor);
+        final ObjectProperty<Color> COLOR = createStaticColorProperty(desiredColor);
 
         COLOR.addListener((obs, oldColor, newColor)
                                   -> STRING_PROPERTY.set(ColorFxUtils.toHexCode(newColor)));
@@ -57,7 +57,7 @@ public class ColorFxUtils {
         return STRING_PROPERTY;
     }
 
-    public static ObjectProperty<Color> createStaticColorBoundColorProperty(ObjectProperty<Color> desiredColor) {
+    public static ObjectProperty<Color> createStaticColorProperty(ObjectProperty<Color> desiredColor) {
         final Duration THEME_TRANSITION_DURATION = Duration.millis(400);
 
         final ObjectProperty<Color> COLOR = new SimpleObjectProperty<>(desiredColor.get());
