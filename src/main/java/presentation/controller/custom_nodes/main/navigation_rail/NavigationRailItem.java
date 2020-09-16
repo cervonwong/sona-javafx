@@ -49,6 +49,8 @@ public class NavigationRailItem extends Button {
 
     private final StringProperty iconLabelFontFamilyStyle = new SimpleStringProperty();
 
+    private final StringProperty backgroundColorStyle = new SimpleStringProperty();
+
 
     // JAVAFX PROPERTIES (Style (Nodal))
 
@@ -73,6 +75,7 @@ public class NavigationRailItem extends Button {
                               String text,
                               boolean isActivated) {
         this.destination = destination;
+        setActivated(isActivated);
 
         initializeFxml();
 
