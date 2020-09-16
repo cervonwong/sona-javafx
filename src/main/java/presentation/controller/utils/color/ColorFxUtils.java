@@ -43,13 +43,24 @@ public class ColorFxUtils {
 
     // BINDING
 
+    private static final Duration STATIC_TRANSITION_DURATION = Duration.millis(400);
+
     // Static color bindings are colors that will only change when the theme changes, but nowhere
     // else.
     public static StringProperty createStaticStringProperty(ObjectProperty<Color> desiredColor) {
+        return createDynamicStringProperty(desiredColor, STATIC_TRANSITION_DURATION);
+    }
+
+    public static ObjectProperty<Color> createStaticColorProperty(ObjectProperty<Color> desiredColor) {
+        return createDynamicColorProperty(desiredColor, STATIC_TRANSITION_DURATION);
+    }
+
+    public static StringProperty createDynamicStringProperty(ObjectProperty<Color> desiredColor,
+                                                             Duration duration) {
         final StringProperty STRING_PROPERTY =
                 new SimpleStringProperty(ColorFxUtils.toHexCode(desiredColor.get()));
 
-        final ObjectProperty<Color> COLOR = createStaticColorProperty(desiredColor);
+        final ObjectProperty<Color> COLOR = createDynamicColorProperty(desiredColor, duration);
 
         COLOR.addListener((obs, oldColor, newColor)
                                   -> STRING_PROPERTY.set(ColorFxUtils.toHexCode(newColor)));
@@ -57,16 +68,15 @@ public class ColorFxUtils {
         return STRING_PROPERTY;
     }
 
-    public static ObjectProperty<Color> createStaticColorProperty(ObjectProperty<Color> desiredColor) {
-        final Duration THEME_TRANSITION_DURATION = Duration.millis(400);
-
+    private static ObjectProperty<Color> createDynamicColorProperty(ObjectProperty<Color> desiredColor,
+                                                                    Duration duration) {
         final ObjectProperty<Color> COLOR = new SimpleObjectProperty<>(desiredColor.get());
 
         desiredColor.addListener((obs, oldColor, newColor)
                                          -> createColorTimelineAnimation(COLOR,
                                                                          oldColor,
                                                                          newColor,
-                                                                         THEME_TRANSITION_DURATION).play());
+                                                                         duration).play());
 
         return COLOR;
     }
