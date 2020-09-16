@@ -18,12 +18,16 @@
 
 package main.java.presentation.controller.custom_nodes.main.navigation_rail;
 
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.collections.ObservableList;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
+import javafx.util.Duration;
+import main.java.presentation.controller.utils.color.ColorFxUtils;
+import main.java.presentation.controller.utils.color.ColorProvider;
 
 import java.io.IOException;
 
@@ -34,10 +38,23 @@ public class NavigationRailItem extends Button {
     private final Destination destination;
 
 
-    // JAVAFX PROPERTIES
+    // JAVAFX PROPERTIES (Public Accessors / Mutators)
 
     private final SimpleBooleanProperty isActivated = new SimpleBooleanProperty();
 
+
+    // JAVAFX PROPERTIES (Style (Attributive))
+
+    private final StringProperty textFillStyle = new SimpleStringProperty();
+
+    private final StringProperty iconLabelFontFamilyStyle = new SimpleStringProperty();
+
+
+    // JAVAFX PROPERTIES (Style (Nodal))
+
+    private final StringProperty thisStyle = new SimpleStringProperty();
+
+    private final StringProperty iconLabelStyle = new SimpleStringProperty();
 
     // FXML NODES
 
@@ -58,15 +75,16 @@ public class NavigationRailItem extends Button {
         this.destination = destination;
 
         initializeFxml();
-        initializeIcon(icon);
-        initializeText(text);
 
-        initializeIsActivatedProperty();
-        updateStyleClass(isActivated);
+        initializeIconLabelText(icon);
+        initializeThisText(text);
+
+        initializeAttributiveStyleBindings();
+        initializeNodalStyleBindings();
     }
 
 
-    // INITIALIZERS
+    // INITIALIZERS (FXML)
 
     private void initializeFxml() {
         final String RESOURCE_PATH =
@@ -84,53 +102,104 @@ public class NavigationRailItem extends Button {
         }
     }
 
-    private void initializeIcon(String icon) {
+
+    // INITIALIZERS (Text)
+
+    private void initializeIconLabelText(String icon) {
         iconLabel.setText(icon);
     }
 
-    private void initializeText(String text) {
+    private void initializeThisText(String text) {
         this.setText(text);
     }
 
-    private void initializeIsActivatedProperty() {
-        isActivated.addListener((obs, oldValue, newValue) -> updateStyleClass(newValue));
+
+    // INITIALIZERS (Style Bindings (Called in constructor))
+
+    private void initializeAttributiveStyleBindings() {
+        initializeTextFillStyleBinding();
+        initializeIconLabelFontFamilyStyleBinding();
+    }
+
+    private void initializeNodalStyleBindings() {
+        initializeThisStyleBinding();
+        initializeIconLabelStyleBinding();
     }
 
 
-    // UPDATERS
+    // INITIALIZERS (Style Bindings (Internal - Attributive TextFillStyle))
 
-    private void updateStyleClass(boolean isActivated) {
-        final String DESIRED_GLOBAL_STYLE_CLASS = isActivated
-                                                  ? "activated-item"
-                                                  : "inactive-item";
+    private void initializeTextFillStyleBinding() {
+        final Duration TRANSITION_DURATION = Duration.millis(50);
 
-        final String UNDESIRED_GLOBAL_STYLE_CLASS = isActivated
-                                                    ? "inactive-item"
-                                                    : "activated-item";
+        final ObjectProperty<Color> DESIRED_TEXT_COLOR = createDesiredTextColor();
 
-        final String DESIRED_ICON_STYLE_CLASS = isActivated
-                                                ? "activated-item-icon"
-                                                : "inactive-item-icon";
+        final StringProperty TEXT_COLOR =
+                ColorFxUtils.createDynamicStringProperty(DESIRED_TEXT_COLOR, TRANSITION_DURATION);
 
-        final String UNDESIRED_ICON_STYLE_CLASS = isActivated
-                                                  ? "inactive-item-icon"
-                                                  : "activated-item-icon";
+        textFillStyle.bind(Bindings.concat("-fx-text-fill: ", TEXT_COLOR, ";"));
+    }
 
-        final ObservableList<String> BUTTON_STYLE_CLASS = this.getStyleClass();
-        final ObservableList<String> ICON_LABEL_STYLE_CLASS = iconLabel.getStyleClass();
+    private ObjectProperty<Color> createDesiredTextColor() {
+        final ObjectProperty<Color> DESIRED_TEXT_COLOR = new SimpleObjectProperty<>();
 
-        // TODO: 07/09/2020 Remove hard code.
-        if (!BUTTON_STYLE_CLASS.contains(DESIRED_GLOBAL_STYLE_CLASS))
-            BUTTON_STYLE_CLASS.add(DESIRED_GLOBAL_STYLE_CLASS);
-        BUTTON_STYLE_CLASS.remove(UNDESIRED_GLOBAL_STYLE_CLASS);
+        isActivated.addListener((obs, oldValue, newValue)
+                                        -> bindDesiredTextColor(DESIRED_TEXT_COLOR, newValue));
+        bindDesiredTextColor(DESIRED_TEXT_COLOR, isActivated.get());
 
-        if (!ICON_LABEL_STYLE_CLASS.contains(DESIRED_GLOBAL_STYLE_CLASS))
-            ICON_LABEL_STYLE_CLASS.add(DESIRED_GLOBAL_STYLE_CLASS);
-        ICON_LABEL_STYLE_CLASS.remove(UNDESIRED_GLOBAL_STYLE_CLASS);
+        return DESIRED_TEXT_COLOR;
+    }
 
-        if (!ICON_LABEL_STYLE_CLASS.contains(DESIRED_ICON_STYLE_CLASS))
-            ICON_LABEL_STYLE_CLASS.add(DESIRED_ICON_STYLE_CLASS);
-        ICON_LABEL_STYLE_CLASS.remove(UNDESIRED_ICON_STYLE_CLASS);
+    private void bindDesiredTextColor(ObjectProperty<Color> desiredTextColor, boolean isActivated) {
+        final ObjectProperty<Color> INACTIVE_TEXT_COLOR =
+                ColorFxUtils.createStaticColorProperty(ColorProvider.navigationRailInactiveTextColorProperty());
+
+        final ObjectProperty<Color> ACTIVATED_TEXT_COLOR =
+                ColorFxUtils.createStaticColorProperty(ColorProvider.navigationRailActivatedTextColorProperty());
+
+        desiredTextColor.bind(isActivated ? ACTIVATED_TEXT_COLOR : INACTIVE_TEXT_COLOR);
+    }
+
+
+    // INITIALIZERS (Style Bindings (Internal - Attributive IconLabelFontFamilyStyle))
+
+    private void initializeIconLabelFontFamilyStyleBinding() {
+        final StringProperty ICON_LABEL_FONT_FAMILY = createIconLabelFontFamily();
+
+        iconLabelFontFamilyStyle.bind(Bindings.concat("-fx-font-family: ",
+                                                      ICON_LABEL_FONT_FAMILY,
+                                                      ";"));
+    }
+
+    private StringProperty createIconLabelFontFamily() {
+        final StringProperty ICON_LABEL_FONT_FAMILY = new SimpleStringProperty();
+
+        isActivated.addListener((obs, oldValue, newValue)
+                                        -> setIconLabelFontFamily(ICON_LABEL_FONT_FAMILY,
+                                                                  newValue));
+        setIconLabelFontFamily(ICON_LABEL_FONT_FAMILY, isActivated.get());
+
+        return ICON_LABEL_FONT_FAMILY;
+    }
+
+    private void setIconLabelFontFamily(StringProperty iconLabelFontFamily, boolean isActivated) {
+        final String INACTIVE_FONT_FAMILY = "'Font Awesome 5 Pro Light'";
+        final String ACTIVATED_FONT_FAMILY = "'Font Awesome 5 Pro Solid'";
+
+        iconLabelFontFamily.set(isActivated ? ACTIVATED_FONT_FAMILY : INACTIVE_FONT_FAMILY);
+    }
+
+
+    // INITIALIZERS (Style Bindings (Internal - Nodal TextFillStyle))
+
+    private void initializeThisStyleBinding() {
+        thisStyle.bind(textFillStyle);
+        this.styleProperty().bind(textFillStyle);
+    }
+
+    private void initializeIconLabelStyleBinding() {
+        iconLabelStyle.bind(Bindings.concat(textFillStyle, iconLabelFontFamilyStyle));
+        iconLabel.styleProperty().bind(iconLabelStyle);
     }
 
 

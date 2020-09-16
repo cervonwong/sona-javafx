@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -24,27 +23,16 @@
   ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
   -->
 
-<fx:root alignment="BASELINE_LEFT" graphicTextGap="16.0" mnemonicParsing="false" text="UNDEFINED_ITEM_LABEL" type="Button" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root alignment="BASELINE_LEFT" graphicTextGap="16.0" mnemonicParsing="false" styleClass="body-2" text="UNDEFINED_ITEM_LABEL" type="Button" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <graphic>
-      <Label fx:id="iconLabel" prefWidth="20.0" text="">
-         <styleClass>
-            <String fx:value="inactive-item-icon" />
-            <String fx:value="inactive-item" />
-         </styleClass>
-      </Label>
+      <Label fx:id="iconLabel" prefWidth="20.0" text="" />
    </graphic>
    <padding>
       <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
    </padding>
    <stylesheets>
-      <URL value="@../../../../css/global/color/color_palette.css" />
-      <URL value="@../../../../css/global/color/light_theme_colors.css" />
       <URL value="@../../../../css/global/fonts/all_fonts.css" />
       <URL value="@../../../../css/global/fonts/type_scale.css" />
       <URL value="@../../../../css/specific/custom_nodes/main/navigation_rail/navigation_rail_item.css" />
    </stylesheets>
-   <styleClass>
-      <String fx:value="inactive-item" />
-      <String fx:value="body-2" />
-   </styleClass>
 </fx:root>
