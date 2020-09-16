@@ -192,8 +192,7 @@ public class NavigationRailItem extends Button {
         iconLabelFontFamily.set(isActivated ? ACTIVATED_FONT_FAMILY : INACTIVE_FONT_FAMILY);
     }
 
-
-    // INITIALIZERS (Style Bindings (Internal - Nodal TextFillStyle))
+    // INITIALIZERS (Style Bindings (Internal - Nodal))
 
     private void initializeThisStyleBinding() {
         thisStyle.bind(textFillStyle);
