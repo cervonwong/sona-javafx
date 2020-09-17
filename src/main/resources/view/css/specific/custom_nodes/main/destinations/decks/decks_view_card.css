@@ -1,0 +1,7 @@
+.anchor-pane {
+	-fx-background-radius: 8 8 0 0, 0 0 8 8;
+}
+
+.button {
+	-fx-background-color: transparent;
+}
