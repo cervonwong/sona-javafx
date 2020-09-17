@@ -91,6 +91,11 @@ public class ColorProvider {
             new SimpleObjectProperty<>();
 
 
+    // JAVAFX PROPERTIES ([SPECIFIC] DECKS VIEW CARD COLORS)
+
+    private static final ObjectProperty<Color> decksViewCardHoverAccentColor =
+            new SimpleObjectProperty<>();
+
     // INITIALIZATION
 
     static {
@@ -144,6 +149,8 @@ public class ColorProvider {
         navigationRailBaseColor.set(repository.getNavigationRailBaseColor());
         navigationRailInactiveTextColor.set(repository.getNavigationRailInactiveTextColor());
         navigationRailActivatedTextColor.set(repository.getNavigationRailActivatedTextColor());
+
+        decksViewCardHoverAccentColor.set(repository.getDecksViewCardHoverAccentColor());
     }
 
 
@@ -224,6 +231,10 @@ public class ColorProvider {
         return navigationRailActivatedTextColor.get();
     }
 
+    public static Color getDecksViewCardHoverAccentColor() {
+        return decksViewCardHoverAccentColor.get();
+    }
+
 
     // PROPERTY ACCESSORS
 
@@ -300,6 +311,10 @@ public class ColorProvider {
 
     public static ObjectProperty<Color> navigationRailActivatedTextColorProperty() {
         return navigationRailActivatedTextColor;
+    }
+
+    public static ObjectProperty<Color> decksViewCardHoverAccentColorProperty() {
+        return decksViewCardHoverAccentColor;
     }
 
 

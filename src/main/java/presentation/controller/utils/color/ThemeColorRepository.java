@@ -66,4 +66,9 @@ public interface ThemeColorRepository {
     Color getNavigationRailInactiveTextColor();
 
     Color getNavigationRailActivatedTextColor();
+
+
+    // [SPECIFIC] DECKS VIEW CARD COLORS
+
+    Color getDecksViewCardHoverAccentColor();
 }

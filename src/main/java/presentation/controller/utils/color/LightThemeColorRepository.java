@@ -71,6 +71,10 @@ public class LightThemeColorRepository implements ThemeColorRepository {
     private final Color NAVIGATION_RAIL_ACTIVATED_TEXT_COLOR = BRAND_COLOR;
 
 
+    // [SPECIFIC] DECKS VIEW CARD
+
+    private final Color DECKS_VIEW_CARD_HOVER_ACCENT_COLOR = BRAND_COLOR;
+
     // ============================================================================================
     // ACCESSORS
     // ============================================================================================
@@ -169,5 +173,13 @@ public class LightThemeColorRepository implements ThemeColorRepository {
     @Override
     public Color getNavigationRailActivatedTextColor() {
         return NAVIGATION_RAIL_ACTIVATED_TEXT_COLOR;
+    }
+
+
+    // [SPECIFIC] DECKS VIEW CARD COLORS
+
+    @Override
+    public Color getDecksViewCardHoverAccentColor() {
+        return DECKS_VIEW_CARD_HOVER_ACCENT_COLOR;
     }
 }
