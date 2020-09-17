@@ -139,10 +139,10 @@ public class NavigationRailItem extends Button {
 
         final ObjectProperty<Color> DESIRED_TEXT_COLOR = createDesiredTextColor();
 
-        final StringProperty TEXT_COLOR =
+        final StringProperty TEXT_COLOR_STRING =
                 ColorFxUtils.createDynamicStringProperty(DESIRED_TEXT_COLOR, TRANSITION_DURATION);
 
-        textFillStyle.bind(Bindings.concat("-fx-text-fill: ", TEXT_COLOR, ";"));
+        textFillStyle.bind(Bindings.concat("-fx-text-fill: ", TEXT_COLOR_STRING, ";"));
     }
 
     private ObjectProperty<Color> createDesiredTextColor() {
@@ -202,11 +202,11 @@ public class NavigationRailItem extends Button {
 
         final ObjectProperty<Color> DESIRED_BACKGROUND_COLOR = createDesiredBackgroundColor();
 
-        final StringProperty BACKGROUND_COLOR =
+        final StringProperty BACKGROUND_COLOR_STRING =
                 ColorFxUtils.createDynamicStringProperty(DESIRED_BACKGROUND_COLOR,
                                                          TRANSITION_DURATION);
 
-        backgroundColorStyle.bind(Bindings.concat("-fx-background-color: ", BACKGROUND_COLOR, ";"));
+        backgroundColorStyle.bind(Bindings.concat("-fx-background-color: ", BACKGROUND_COLOR_STRING, ";"));
     }
 
     private ObjectProperty<Color> createDesiredBackgroundColor() {
