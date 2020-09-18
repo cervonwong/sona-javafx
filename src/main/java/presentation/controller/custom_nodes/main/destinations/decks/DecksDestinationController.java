@@ -28,7 +28,7 @@ import main.java.presentation.model.structure.deck.Deck;
 import java.util.List;
 import java.util.Stack;
 
-public class DecksDestinationController extends AnchorPane {
+public class DecksDestinationController extends AnchorPane implements DestinationController {
 
     // INSTANCE VARIABLES (Data)
 
@@ -63,27 +63,21 @@ public class DecksDestinationController extends AnchorPane {
     // INITIALIZERS (Destination)
 
     private void initializeDefaultPane() {
-        requestPush(DecksDestination.VIEW_PANE);
+        final DecksViewPane DEFAULT_PANE = new DecksViewPane(this, decks);
+
+        requestPush(DEFAULT_PANE);
     }
 
 
     // DESTINATION METHODS
 
-    public void requestPush(DecksDestination decksDestination) {
-        AnchorPane NEW_DESTINATION;
-
-        switch (decksDestination) {
-            case VIEW_PANE:
-                NEW_DESTINATION = new DecksViewPane(decks);
-                break;
-            default:
-                NEW_DESTINATION = new DecksViewPane(decks);
-        }
-
-        decksDestinationStack.push(NEW_DESTINATION);
+    @Override
+    public void requestPush(AnchorPane newDestination) {
+        decksDestinationStack.push(newDestination);
         showPushed();
     }
 
+    @Override
     public void requestPop() {
         decksDestinationStack.pop();
     }
@@ -102,7 +96,8 @@ public class DecksDestinationController extends AnchorPane {
 
     }
 
-    public Stack<AnchorPane> getDecksDestinationStack() {
+    @Override
+    public Stack<AnchorPane> getStack() {
         return decksDestinationStack; // Not defensively-copied.
     }
 }

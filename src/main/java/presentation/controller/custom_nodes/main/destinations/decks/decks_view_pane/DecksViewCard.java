@@ -29,6 +29,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import main.java.i18n.ResourceBundleName;
+import main.java.presentation.controller.custom_nodes.main.destinations.decks.DestinationController;
+import main.java.presentation.controller.custom_nodes.main.destinations.decks.deck_info_pane.DeckInfoPane;
 import main.java.presentation.controller.utils.ControllerUtils;
 import main.java.presentation.controller.utils.color.ColorFxUtils;
 import main.java.presentation.controller.utils.color.ColorProvider;
@@ -44,6 +46,8 @@ public class DecksViewCard extends AnchorPane {
     // INSTANCE VARIABLES
 
     private final ResourceBundle messages;
+
+    private final DestinationController destinationController;
 
     private final Deck deck;
 
@@ -91,13 +95,15 @@ public class DecksViewCard extends AnchorPane {
 
     // CONSTRUCTOR
 
-    public DecksViewCard(Deck deck) {
+    public DecksViewCard(DestinationController destinationController, Deck deck) {
         messages = ControllerUtils.getMessages(ResourceBundleName.DECKS_VIEW_CARD);
+        this.destinationController = destinationController;
         this.deck = deck;
 
         initializeFxml();
 
         initializeDeckNameLabelText();
+        initializeActionButtonBehavior();
 
         initializeI18nText();
 
@@ -130,6 +136,16 @@ public class DecksViewCard extends AnchorPane {
 
     private void initializeDeckNameLabelText() {
         deckNameLabel.setText(deck.getName());
+    }
+
+
+    // INITIALIZERS (Behavior)
+
+    private void initializeActionButtonBehavior() {
+        actionButton.setOnAction(e -> {
+            final DeckInfoPane DECK_INFO_PANE = new DeckInfoPane(deck);
+            destinationController.requestPush(DECK_INFO_PANE);
+        });
     }
 
 
@@ -191,12 +207,12 @@ public class DecksViewCard extends AnchorPane {
                 ColorFxUtils.createStaticColorProperty(ColorProvider.decksViewCardHoverAccentColorProperty());
 
         actionButton.hoverProperty()
-                .addListener((obs, oldValue, newValue)
-                                     -> DESIRED_ACCENT_BACKGROUND_COLOR.bind(newValue
-                                                                             ?
-                                                                             HOVER_BACKGROUND_COLOR
-                                                                             :
-                                                                             ENABLED_BACKGROUND_COLOR));
+                    .addListener((obs, oldValue, newValue)
+                                         -> DESIRED_ACCENT_BACKGROUND_COLOR.bind(newValue
+                                                                                 ?
+                                                                                 HOVER_BACKGROUND_COLOR
+                                                                                 :
+                                                                                 ENABLED_BACKGROUND_COLOR));
 
         DESIRED_ACCENT_BACKGROUND_COLOR.bind(ENABLED_BACKGROUND_COLOR);
 
@@ -238,11 +254,12 @@ public class DecksViewCard extends AnchorPane {
         final DoubleProperty HOVER_INSET = new SimpleDoubleProperty(hoverAccentHeight);
 
         actionButton.hoverProperty()
-                .addListener((obs, oldValue, newValue)
-                                     -> DESIRED_BASE_PARAMETRIC_BACKGROUND_INSET.bind(newValue
-                                                                                      ? HOVER_INSET
-                                                                                      :
-                                                                                      ENABLED_INSET));
+                    .addListener((obs, oldValue, newValue)
+                                         -> DESIRED_BASE_PARAMETRIC_BACKGROUND_INSET.bind(newValue
+                                                                                          ?
+                                                                                          HOVER_INSET
+                                                                                          :
+                                                                                          ENABLED_INSET));
 
         DESIRED_BASE_PARAMETRIC_BACKGROUND_INSET.bind(ENABLED_INSET);
 
@@ -260,12 +277,12 @@ public class DecksViewCard extends AnchorPane {
         HOVER_INSET.bind(heightProperty().subtract(hoverAccentHeight));
 
         actionButton.hoverProperty()
-                .addListener((obs, oldValue, newValue)
-                                     -> DESIRED_ACCENT_PARAMETRIC_BACKGROUND_INSET.bind(newValue
-                                                                                        ?
-                                                                                        HOVER_INSET
-                                                                                        :
-                                                                                        ENABLED_INSET));
+                    .addListener((obs, oldValue, newValue)
+                                         -> DESIRED_ACCENT_PARAMETRIC_BACKGROUND_INSET.bind(newValue
+                                                                                            ?
+                                                                                            HOVER_INSET
+                                                                                            :
+                                                                                            ENABLED_INSET));
 
         DESIRED_ACCENT_PARAMETRIC_BACKGROUND_INSET.bind(ENABLED_INSET);
 
@@ -300,12 +317,12 @@ public class DecksViewCard extends AnchorPane {
         final double HOVER_RADIUS = 0.0;
 
         actionButton.hoverProperty()
-                .addListener((obs, oldValue, newValue)
-                                     -> DESIRED_BASE_PARAMETRIC_BACKGROUND_RADIUS.set(newValue
-                                                                                      ?
-                                                                                      HOVER_RADIUS
-                                                                                      :
-                                                                                      backgroundRadius));
+                    .addListener((obs, oldValue, newValue)
+                                         -> DESIRED_BASE_PARAMETRIC_BACKGROUND_RADIUS.set(newValue
+                                                                                          ?
+                                                                                          HOVER_RADIUS
+                                                                                          :
+                                                                                          backgroundRadius));
         DESIRED_BASE_PARAMETRIC_BACKGROUND_RADIUS.set(backgroundRadius);
 
         return DESIRED_BASE_PARAMETRIC_BACKGROUND_RADIUS;

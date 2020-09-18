@@ -27,6 +27,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import main.java.i18n.ResourceBundleName;
+import main.java.presentation.controller.custom_nodes.main.destinations.decks.DestinationController;
 import main.java.presentation.controller.utils.ControllerUtils;
 import main.java.presentation.controller.utils.FxUtils;
 import main.java.presentation.model.structure.deck.Deck;
@@ -40,6 +41,8 @@ public class DecksViewPane extends AnchorPane {
     // INSTANCE VARIABLES
 
     private final ResourceBundle messages;
+
+    private final DestinationController destinationController;
 
     private final List<Deck> decks;
 
@@ -58,8 +61,9 @@ public class DecksViewPane extends AnchorPane {
 
     // CONSTRUCTOR
 
-    public DecksViewPane(List<Deck> decks) {
+    public DecksViewPane(DestinationController destinationController, List<Deck> decks) {
         messages = ControllerUtils.getMessages(ResourceBundleName.DECKS_VIEW_PANE);
+        this.destinationController = destinationController;
         this.decks = decks; // Not defensive copied.
 
         initializeFxml();
@@ -97,7 +101,7 @@ public class DecksViewPane extends AnchorPane {
 
         for (int i = 0; i < 3; i++) {
             for (Deck deck : decks) {
-                final DecksViewCard CARD = new DecksViewCard(deck);
+                final DecksViewCard CARD = new DecksViewCard(destinationController, deck);
                 CHILDREN.add(CARD);
             }
         }
