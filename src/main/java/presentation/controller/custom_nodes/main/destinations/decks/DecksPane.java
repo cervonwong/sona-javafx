@@ -18,14 +18,20 @@
 
 package main.java.presentation.controller.custom_nodes.main.destinations.decks;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
-import main.java.i18n.ResourceBundles;
+import javafx.scene.layout.VBox;
+import main.java.i18n.ResourceBundleName;
+import main.java.presentation.controller.utils.ControllerUtils;
+import main.java.presentation.model.structure.deck.Deck;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class DecksPane extends AnchorPane {
@@ -33,6 +39,8 @@ public class DecksPane extends AnchorPane {
     // INSTANCE VARIABLES
 
     private final ResourceBundle messages;
+
+    private final List<Deck> decks;
 
 
     // FXML
@@ -43,19 +51,25 @@ public class DecksPane extends AnchorPane {
     @FXML
     private ScrollPane decksViewScrollPane;
 
+    @FXML
+    private VBox decksViewBox;
+
 
     // CONSTRUCTOR
 
-    public DecksPane() {
-        messages = initializeMessages();
+    public DecksPane(List<Deck> decks) {
+        messages = ControllerUtils.getMessages(ResourceBundleName.DECKS_PANE);
+        this.decks = decks; // Not defensive copied.
 
         initializeFxml();
         internationalizeText();
+        ControllerUtils.sharpenScrollPane(decksViewScrollPane);
+
+        instantiateDecksViewCards();
     }
 
 
-    // INITIALIZERS
-
+    // INITIALIZERS (FXML)
 
     private void initializeFxml() {
         final String RESOURCE_PATH =
@@ -74,11 +88,20 @@ public class DecksPane extends AnchorPane {
     }
 
 
-    // i18n
+    // INSTANTIATERS
 
-    private ResourceBundle initializeMessages() {
-        return ResourceBundle.getBundle(ResourceBundles.DECKS_PANE.getBundleName());
+    private void instantiateDecksViewCards() {
+        final ObservableList<Node> CHILDREN = decksViewBox.getChildren();
+
+        for (int i = 0; i < 3; i++) {
+            for (Deck deck : decks) {
+                final DecksViewCard CARD = new DecksViewCard(deck);
+                CHILDREN.add(CARD);
+            }
+        }
     }
+
+    // i18n
 
     private void internationalizeText() {
         titleLabel.setText(messages.getString("title"));
