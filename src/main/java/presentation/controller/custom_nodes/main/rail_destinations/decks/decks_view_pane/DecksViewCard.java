@@ -32,6 +32,7 @@ import main.java.i18n.ResourceBundleName;
 import main.java.presentation.controller.custom_nodes.main.rail_destinations.decks.deck_info_pane.DeckInfoPane;
 import main.java.presentation.controller.custom_nodes.main.rail_destinations.decks.destination_controller.DestinationController;
 import main.java.presentation.controller.utils.ControllerUtils;
+import main.java.presentation.controller.utils.FxUtils;
 import main.java.presentation.controller.utils.color.ColorFxUtils;
 import main.java.presentation.controller.utils.color.ColorProvider;
 import main.java.presentation.model.structure.deck.Deck;
@@ -120,16 +121,7 @@ public class DecksViewCard extends AnchorPane {
                 + "/decks_view_card"
                 + ".fxml";
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(RESOURCE_PATH));
-
-        fxmlLoader.setRoot(this);
-        fxmlLoader.setController(this);
-
-        try {
-            fxmlLoader.load();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        FxUtils.initializeFxml(this, RESOURCE_PATH);
     }
 
 
