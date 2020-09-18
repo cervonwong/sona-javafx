@@ -29,7 +29,7 @@ import javafx.scene.layout.VBox;
 import main.java.i18n.ResourceBundleName;
 import main.java.presentation.controller.utils.ControllerUtils;
 import main.java.presentation.controller.utils.color.ColorFxUtils;
-import main.java.presentation.controller.utils.color.ColorProvider;
+import main.java.presentation.controller.utils.color.provider.ColorProvider;
 
 import java.io.IOException;
 import java.util.*;

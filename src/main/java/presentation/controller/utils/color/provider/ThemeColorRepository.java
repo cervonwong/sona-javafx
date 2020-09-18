@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package main.java.presentation.controller.utils.color;
+package main.java.presentation.controller.utils.color.provider;
 
 import javafx.scene.paint.Color;
 

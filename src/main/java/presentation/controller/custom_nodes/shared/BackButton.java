@@ -26,7 +26,7 @@ import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import main.java.presentation.controller.utils.FxUtils;
 import main.java.presentation.controller.utils.color.ColorFxUtils;
-import main.java.presentation.controller.utils.color.ColorProvider;
+import main.java.presentation.controller.utils.color.provider.ColorProvider;
 
 public class BackButton extends Button {
 

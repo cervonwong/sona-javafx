@@ -27,7 +27,7 @@ import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import main.java.presentation.controller.utils.color.ColorFxUtils;
-import main.java.presentation.controller.utils.color.ColorProvider;
+import main.java.presentation.controller.utils.color.provider.ColorProvider;
 
 import java.io.IOException;
 

@@ -33,7 +33,7 @@ import main.java.presentation.controller.custom_nodes.main.rail_destinations.dec
 import main.java.presentation.controller.utils.ControllerUtils;
 import main.java.presentation.controller.utils.FxUtils;
 import main.java.presentation.controller.utils.color.ColorFxUtils;
-import main.java.presentation.controller.utils.color.ColorProvider;
+import main.java.presentation.controller.utils.color.provider.ColorProvider;
 import main.java.presentation.model.structure.deck.Deck;
 
 import java.util.ResourceBundle;
@@ -136,7 +136,7 @@ public class DecksViewCard extends AnchorPane {
 
     private void initializeActionButtonBehavior() {
         actionButton.setOnAction(e -> {
-            final DeckInfoPane DECK_INFO_PANE = new DeckInfoPane(deck);
+            final DeckInfoPane DECK_INFO_PANE = new DeckInfoPane(destinationController, deck);
             destinationController.requestPush(DECK_INFO_PANE);
         });
     }
