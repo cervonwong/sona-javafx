@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
@@ -45,12 +44,7 @@
          <children>
             <HBox>
                <children>
-                  <Label fx:id="titleLabel" text="Your Decks">
-                     <styleClass>
-                        <String fx:value="headline-2" />
-                        <String fx:value="headline-4" />
-                     </styleClass>
-                  </Label>
+                  <Label fx:id="titleLabel" styleClass="headline-4" text="Your Decks" />
                </children>
             </HBox>
             <Pane prefHeight="2.0" styleClass="divider" />
