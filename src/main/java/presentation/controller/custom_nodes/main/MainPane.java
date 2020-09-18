@@ -26,6 +26,7 @@ import main.java.presentation.controller.custom_nodes.main.destinations.about.Ab
 import main.java.presentation.controller.custom_nodes.main.destinations.decks.DecksDestinationController;
 import main.java.presentation.controller.custom_nodes.main.navigation_rail.Destination;
 import main.java.presentation.controller.custom_nodes.main.navigation_rail.NavigationRail;
+import main.java.presentation.controller.utils.FxUtils;
 import main.java.presentation.model.structure.deck.Deck;
 import main.java.service.structure.deck.DeckService;
 import main.java.service.structure.deck.DeckServiceImpl;
@@ -121,10 +122,7 @@ public class MainPane extends HBox {
         CONTENT_PANE_CHILDREN.clear();
         CONTENT_PANE_CHILDREN.add(destinationPane);
 
-        AnchorPane.setTopAnchor(destinationPane, 0.0);
-        AnchorPane.setBottomAnchor(destinationPane, 0.0);
-        AnchorPane.setRightAnchor(destinationPane, 0.0);
-        AnchorPane.setLeftAnchor(destinationPane, 0.0);
+        FxUtils.initializeAnchorPaneAnchors(destinationPane);
     }
 
     private void initializeInitialDestination() {
