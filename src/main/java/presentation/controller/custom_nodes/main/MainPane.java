@@ -23,24 +23,40 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.layout.*;
 import main.java.presentation.controller.custom_nodes.main.destinations.about.AboutPane;
-import main.java.presentation.controller.custom_nodes.main.destinations.decks.DecksPane;
+import main.java.presentation.controller.custom_nodes.main.destinations.decks.DecksDestinationController;
 import main.java.presentation.controller.custom_nodes.main.navigation_rail.Destination;
 import main.java.presentation.controller.custom_nodes.main.navigation_rail.NavigationRail;
+import main.java.presentation.model.structure.deck.Deck;
+import main.java.service.structure.deck.DeckService;
+import main.java.service.structure.deck.DeckServiceImpl;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainPane extends HBox {
 
-    // INSTANCE VARIABLES
+    // INSTANCE VARIABLES (Nodes)
 
     private final NavigationRail navigationRail = new NavigationRail();
 
     private final AnchorPane contentPane = new AnchorPane();
 
+
+    // INSTANCE VARIABLES (Non-Nodes)
+
+    private final List<Deck> decks;
+
+
     // CONSTRUCTOR
 
     public MainPane() {
         initializeFxml();
+
+        final List<Deck> TEMP_DECKS = new ArrayList<>();
+        final DeckService SERVICE = new DeckServiceImpl();
+        TEMP_DECKS.add(SERVICE.get("Japanese Deck"));
+        decks = TEMP_DECKS; // TODO: 15/09/2020 This is temporary.
 
         initializeNavigationDrawer();
         initializeContentPane();
@@ -92,9 +108,7 @@ public class MainPane extends HBox {
                     addDestinationPane(ABOUT_PANE);
                     break;
                 case DECKS:
-                    final DecksPane DECKS_PANE = new DecksPane();
-                    addDestinationPane(DECKS_PANE);
-                    break;
+                    addDestinationPane(new DecksDestinationController(decks));
                 default:
                     System.out.println("Unimplemented");
             }
@@ -105,7 +119,6 @@ public class MainPane extends HBox {
         final ObservableList<Node> CONTENT_PANE_CHILDREN = contentPane.getChildren();
 
         CONTENT_PANE_CHILDREN.clear();
-
         CONTENT_PANE_CHILDREN.add(destinationPane);
 
         AnchorPane.setTopAnchor(destinationPane, 0.0);
