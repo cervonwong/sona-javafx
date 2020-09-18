@@ -21,6 +21,7 @@ package main.java.presentation.controller.utils;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 
 import java.io.IOException;
@@ -46,5 +47,12 @@ public class FxUtils {
             StackPane stackPane = (StackPane) scrollPane.lookup("ScrollPane .viewport");
             stackPane.setCache(false);
         });
+    }
+
+    public static void initializeAnchorPaneAnchors(Node node) {
+        AnchorPane.setTopAnchor(node, 0.0);
+        AnchorPane.setBottomAnchor(node, 0.0);
+        AnchorPane.setRightAnchor(node, 0.0);
+        AnchorPane.setLeftAnchor(node, 0.0);
     }
 }
