@@ -19,7 +19,7 @@
 package main.java.presentation.controller.custom_nodes.main;
 
 import javafx.collections.ObservableList;
-import javafx.fxml.FXMLLoader;
+import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.layout.*;
 import main.java.presentation.controller.custom_nodes.main.destinations.about.AboutPane;
@@ -31,11 +31,10 @@ import main.java.presentation.model.structure.deck.Deck;
 import main.java.service.structure.deck.DeckService;
 import main.java.service.structure.deck.DeckServiceImpl;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainPane extends HBox {
+public class MainPane extends AnchorPane {
 
     // INSTANCE VARIABLES (Nodes)
 
@@ -49,6 +48,12 @@ public class MainPane extends HBox {
     private final List<Deck> decks;
 
 
+    // FXML
+
+    @FXML
+    private HBox containerBox;
+
+
     // CONSTRUCTOR
 
     public MainPane() {
@@ -59,43 +64,39 @@ public class MainPane extends HBox {
         TEMP_DECKS.add(SERVICE.get("Japanese Deck"));
         decks = TEMP_DECKS; // TODO: 15/09/2020 This is temporary.
 
-        initializeNavigationDrawer();
-        initializeContentPane();
+        addNavigationRail();
+        addContentPane();
         initializeNavigationBehavior();
         initializeInitialDestination();
     }
 
 
-    // INITIALIZERS
-
+    // INITIALIZERS (FXML)
 
     private void initializeFxml() {
         final String RESOURCE_PATH =
                 "/view/fxml/custom_nodes/main/main_pane.fxml";
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(RESOURCE_PATH));
-
-        fxmlLoader.setRoot(this);
-        fxmlLoader.setController(this);
-
-        try {
-            fxmlLoader.load();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        FxUtils.initializeFxml(this, RESOURCE_PATH);
     }
 
-    private void initializeNavigationDrawer() {
-        this.getChildren().add(navigationRail);
+
+    // INITIALIZERS (containerBox)
+
+    private void addNavigationRail() {
+        containerBox.getChildren().add(navigationRail);
         navigationRail.prefHeightProperty().bind(this.heightProperty());
     }
 
-    private void initializeContentPane() {
-        this.getChildren().add(contentPane);
+    private void addContentPane() {
+        containerBox.getChildren().add(contentPane);
 
         HBox.setHgrow(contentPane, Priority.ALWAYS);
         contentPane.prefHeightProperty().bind(this.heightProperty());
     }
+
+
+    // INITIALIZERS (Navigation)
 
     private void initializeNavigationBehavior() {
         // Uses Android-Like navigation.
@@ -106,21 +107,21 @@ public class MainPane extends HBox {
             switch (newValue) {
                 case ABOUT:
                     final AboutPane ABOUT_PANE = new AboutPane();
-                    addDestinationPane(ABOUT_PANE);
+                    updateDestinationController(ABOUT_PANE);
                     break;
                 case DECKS:
-                    addDestinationPane(new DecksDestinationController(decks));
+                    updateDestinationController(new DecksDestinationController(decks));
                 default:
                     System.out.println("Unimplemented");
             }
         });
     }
 
-    private void addDestinationPane(AnchorPane destinationPane) {
-        final ObservableList<Node> CONTENT_PANE_CHILDREN = contentPane.getChildren();
+    private void updateDestinationController(AnchorPane destinationPane) {
+        final ObservableList<Node> CHILDREN = contentPane.getChildren();
 
-        CONTENT_PANE_CHILDREN.clear();
-        CONTENT_PANE_CHILDREN.add(destinationPane);
+        CHILDREN.clear();
+        CHILDREN.add(destinationPane);
 
         FxUtils.initializeAnchorPaneAnchors(destinationPane);
     }
