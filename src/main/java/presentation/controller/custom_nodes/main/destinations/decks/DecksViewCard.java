@@ -36,6 +36,8 @@ import main.java.presentation.model.structure.deck.Deck;
 import java.io.IOException;
 import java.util.ResourceBundle;
 
+// FIXME: 18/09/2020 Fix bug where the entire button will have an orange background when moving
+//  mouse rapidly in and out of the cards.
 public class DecksViewCard extends AnchorPane {
 
     // INSTANCE VARIABLES
@@ -311,6 +313,7 @@ public class DecksViewCard extends AnchorPane {
         thisStyle.bind(Bindings.concat(backgroundColorStyle,
                                        backgroundInsetsStyle,
                                        backgroundRadiusStyle));
+
         styleProperty().bind(thisStyle);
     }
 
