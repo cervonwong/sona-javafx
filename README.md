@@ -8,7 +8,7 @@
 
 **This project is still in development, most features have not been implemented.**
 
-**The code is not complete! There might be methods which are still unimplemented.**
+**Since most features have not been implemented. NOT ALL CLASSES ARE ERROR-FREE, most have temporary code snippets and empty methods.**
 
 Sona is an open-source project written in JavaFX.
 
@@ -24,13 +24,7 @@ To start using Sona on Windows 10, download the latest JAR file from [Releases](
 
 ## Contributing 🤝
 
-~~ Note that this project does not use any build systems such as Maven or Gradle.
-
-This project does not depend on many libraries, as to meet the requirements for a project submission. Feel free to remove boilerplate with suitable libraries. :)
-
-Please feel free to report issues. If you want to submit a bug fix or enhancement request, you can create a PR. Since this project is still in development, note that only PRs with immediate benefits will be accepted. Low-quality PRs might be closed with a short comment explaining why.
-
-If you would like to collaborate on a major enhancement, or a new feature, please create a PR detailing your ideas. You can also get in touch with me on Discord. 😊
+Since this project is still in development. I do not accept any contributors yet. I am working on making the code more readable and modularised for contributions in the future. Please understand if I reject your pull requests.
 
 ### Set up
 
