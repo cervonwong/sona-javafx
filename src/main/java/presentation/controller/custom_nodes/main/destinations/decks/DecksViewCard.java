@@ -50,7 +50,7 @@ public class DecksViewCard extends AnchorPane {
 
     // CONSTANTS (Style)
 
-    private static final double hoverAccentHeight = 6.0;
+    private static final double hoverAccentHeight = 4.0;
 
     private static final double backgroundRadius = 8.0;
 
@@ -200,7 +200,7 @@ public class DecksViewCard extends AnchorPane {
     // INITIALIZERS (Style Bindings (Internal - Attributive backgroundInsetsStyle))
 
     private void initializeBackgroundInsetsStyleBindings() {
-        final Duration TRANSITION_DURATION = Duration.millis(300);
+        final Duration TRANSITION_DURATION = Duration.millis(50);
 
         final DoubleProperty DESIRED_BASE_PARAMETRIC_BACKGROUND_INSET =
                 createDesiredBaseParametricBackgroundInset();
@@ -208,10 +208,18 @@ public class DecksViewCard extends AnchorPane {
         final DoubleProperty DESIRED_ACCENT_PARAMETRIC_BACKGROUND_INSET =
                 createDesiredAccentParametricBackgroundInset();
 
+        final DoubleProperty BASE_PARAMETRIC_BACKGROUND_INSET =
+                createDynamicDoubleProperty(DESIRED_BASE_PARAMETRIC_BACKGROUND_INSET,
+                                            TRANSITION_DURATION);
+
+        final DoubleProperty ACCENT_PARAMETRIC_BACKGROUND_INSET =
+                createDynamicDoubleProperty(DESIRED_ACCENT_PARAMETRIC_BACKGROUND_INSET,
+                                            TRANSITION_DURATION);
+
         backgroundInsetsStyle.bind(Bindings.concat("-fx-background-insets: 0 0 ",
-                                                   DESIRED_BASE_PARAMETRIC_BACKGROUND_INSET,
+                                                   BASE_PARAMETRIC_BACKGROUND_INSET,
                                                    " 0, ",
-                                                   DESIRED_ACCENT_PARAMETRIC_BACKGROUND_INSET,
+                                                   ACCENT_PARAMETRIC_BACKGROUND_INSET,
                                                    " 0 0 0;"));
     }
 
