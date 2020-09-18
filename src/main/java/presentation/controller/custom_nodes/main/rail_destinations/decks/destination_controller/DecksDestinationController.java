@@ -80,6 +80,7 @@ public class DecksDestinationController extends AnchorPane implements Destinatio
     @Override
     public void requestPop() {
         decksDestinationStack.pop();
+        showPopped();
     }
 
     private void showPushed() {
@@ -93,7 +94,15 @@ public class DecksDestinationController extends AnchorPane implements Destinatio
     }
 
     private void showPopped() {
+        // TODO: 18/09/2020 This looks similar to showPush, but it is because animations have not
+        //  been implemented, which is different for both methods.
+        final ObservableList<Node> CHILDREN = getChildren();
+        final AnchorPane DESTINATION = decksDestinationStack.peek();
 
+        CHILDREN.clear();
+        CHILDREN.add(DESTINATION);
+
+        FxUtils.initializeAnchorPaneAnchors(DESTINATION);
     }
 
     @Override
