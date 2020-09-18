@@ -23,6 +23,7 @@ import javafx.beans.binding.Bindings;
 import javafx.beans.property.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -83,6 +84,9 @@ public class DecksViewCard extends AnchorPane {
             newCountLabel,
             seenLabelLabel,
             seenCountLabel;
+
+    @FXML
+    private Button actionButton;
 
 
     // CONSTRUCTOR
@@ -185,7 +189,7 @@ public class DecksViewCard extends AnchorPane {
         final ObjectProperty<Color> HOVER_BACKGROUND_COLOR =
                 ColorFxUtils.createStaticColorProperty(ColorProvider.decksViewCardHoverAccentColorProperty());
 
-        hoverProperty()
+        actionButton.hoverProperty()
                 .addListener((obs, oldValue, newValue)
                                      -> DESIRED_ACCENT_BACKGROUND_COLOR.bind(newValue
                                                                              ?
@@ -232,7 +236,7 @@ public class DecksViewCard extends AnchorPane {
 
         final DoubleProperty HOVER_INSET = new SimpleDoubleProperty(hoverAccentHeight);
 
-        hoverProperty()
+        actionButton.hoverProperty()
                 .addListener((obs, oldValue, newValue)
                                      -> DESIRED_BASE_PARAMETRIC_BACKGROUND_INSET.bind(newValue
                                                                                       ? HOVER_INSET
@@ -254,7 +258,7 @@ public class DecksViewCard extends AnchorPane {
         final DoubleProperty HOVER_INSET = new SimpleDoubleProperty();
         HOVER_INSET.bind(heightProperty().subtract(hoverAccentHeight));
 
-        hoverProperty()
+        actionButton.hoverProperty()
                 .addListener((obs, oldValue, newValue)
                                      -> DESIRED_ACCENT_PARAMETRIC_BACKGROUND_INSET.bind(newValue
                                                                                         ?
@@ -294,7 +298,7 @@ public class DecksViewCard extends AnchorPane {
 
         final double HOVER_RADIUS = 0.0;
 
-        hoverProperty()
+        actionButton.hoverProperty()
                 .addListener((obs, oldValue, newValue)
                                      -> DESIRED_BASE_PARAMETRIC_BACKGROUND_RADIUS.set(newValue
                                                                                       ?
