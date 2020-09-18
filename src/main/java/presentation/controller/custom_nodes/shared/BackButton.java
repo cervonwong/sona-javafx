@@ -84,7 +84,7 @@ public class BackButton extends Button {
     // INITIALIZERS (Style Bindings (Internal - Attributive textFillStyle))
 
     private void initializeTextFillStyleBindings() {
-        final Duration TRANSITION_DURATION = Duration.millis(50);
+        final Duration TRANSITION_DURATION = Duration.millis(25);
 
         final ObjectProperty<Color> DESIRED_TEXT_FILL_COLOR = createDesiredTextFillColor();
 
