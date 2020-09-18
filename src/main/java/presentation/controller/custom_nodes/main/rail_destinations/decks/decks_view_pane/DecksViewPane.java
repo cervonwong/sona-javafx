@@ -100,13 +100,12 @@ public class DecksViewPane extends AnchorPane {
     private void instantiateDecksViewCards() {
         final ObservableList<Node> CHILDREN = decksViewBox.getChildren();
 
-        for (int i = 0; i < 3; i++) {
-            for (Deck deck : decks) {
-                final DecksViewCard CARD = new DecksViewCard(destinationController, deck);
-                CHILDREN.add(CARD);
-            }
+        for (Deck deck : decks) {
+            final DecksViewCard CARD = new DecksViewCard(destinationController, deck);
+            CHILDREN.add(CARD);
         }
     }
+
 
     // i18n
 
