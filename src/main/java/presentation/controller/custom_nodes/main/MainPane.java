@@ -61,7 +61,9 @@ public class MainPane extends AnchorPane {
 
         final List<Deck> TEMP_DECKS = new ArrayList<>();
         final DeckService SERVICE = new DeckServiceImpl();
-        TEMP_DECKS.add(SERVICE.get("Japanese Deck"));
+        for (int i = 0; i < 3; i++) {
+            TEMP_DECKS.add(SERVICE.get("Japanese Deck").withAuthorName("Author " + i));
+        }
         decks = TEMP_DECKS; // TODO: 15/09/2020 This is temporary.
 
         addNodes();
