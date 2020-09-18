@@ -22,7 +22,6 @@ import javafx.animation.*;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.*;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
@@ -37,7 +36,6 @@ import main.java.presentation.controller.utils.color.ColorFxUtils;
 import main.java.presentation.controller.utils.color.ColorProvider;
 import main.java.presentation.model.structure.deck.Deck;
 
-import java.io.IOException;
 import java.util.ResourceBundle;
 
 // FIXME: 18/09/2020 Fix bug where the entire button will have an orange background when moving
@@ -64,6 +62,8 @@ public class DecksViewCard extends AnchorPane {
 
 
     // JAVAFX PROPERTIES (Style (Attributive))
+
+    // TODO: 18/09/2020 Include additional Styles such as textFillStyle.
 
     private final StringProperty backgroundColorStyle = new SimpleStringProperty();
 
