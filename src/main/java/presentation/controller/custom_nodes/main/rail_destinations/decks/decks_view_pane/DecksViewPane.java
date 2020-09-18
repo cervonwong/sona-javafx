@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package main.java.presentation.controller.custom_nodes.main.destinations.decks.decks_view_pane;
+package main.java.presentation.controller.custom_nodes.main.rail_destinations.decks.decks_view_pane;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -27,7 +27,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import main.java.i18n.ResourceBundleName;
-import main.java.presentation.controller.custom_nodes.main.destinations.decks.DestinationController;
+import main.java.presentation.controller.custom_nodes.main.rail_destinations.decks.destination_controller.DestinationController;
 import main.java.presentation.controller.utils.ControllerUtils;
 import main.java.presentation.controller.utils.FxUtils;
 import main.java.presentation.model.structure.deck.Deck;
@@ -78,7 +78,8 @@ public class DecksViewPane extends AnchorPane {
 
     private void initializeFxml() {
         final String RESOURCE_PATH =
-                "/view/fxml/custom_nodes/main/destinations/decks/decks_view_pane/decks_view_pane"
+                "/view/fxml/custom_nodes/main/rail_destinations/decks/decks_view_pane"
+                + "/decks_view_pane"
                 + ".fxml";
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(RESOURCE_PATH));

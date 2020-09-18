@@ -34,7 +34,7 @@
       <URL value="@../../../../../../css/global/design/design.css" />
       <URL value="@../../../../../../css/global/fonts/all_fonts.css" />
       <URL value="@../../../../../../css/global/fonts/type_scale.css" />
-      <URL value="@../../../../../../css/specific/custom_nodes/main/destinations/decks/decks_view_pane/decks_view_card.css" />
+      <URL value="@../../../../../../css/specific/custom_nodes/main/rail_destinations/decks/decks_view_pane/decks_view_card.css" />
    </stylesheets>
    <children>
       <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">

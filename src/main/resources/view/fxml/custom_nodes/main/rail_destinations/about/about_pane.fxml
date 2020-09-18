@@ -59,7 +59,7 @@
       <URL value="@../../../../../css/global/color/light_theme_colors.css" />
       <URL value="@../../../../../css/global/fonts/all_fonts.css" />
       <URL value="@../../../../../css/global/fonts/type_scale.css" />
-      <URL value="@../../../../../css/specific/custom_nodes/main/destinations/about/about_pane.css" />
+      <URL value="@../../../../../css/specific/custom_nodes/main/rail_destinations/about/about_pane.css" />
       <URL value="@../../../../../css/global/design/design.css" />
    </stylesheets>
 </fx:root>

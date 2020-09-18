@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package main.java.presentation.controller.custom_nodes.main.destinations.decks.decks_view_pane;
+package main.java.presentation.controller.custom_nodes.main.rail_destinations.decks.decks_view_pane;
 
 import javafx.animation.*;
 import javafx.beans.binding.Bindings;
@@ -29,8 +29,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import main.java.i18n.ResourceBundleName;
-import main.java.presentation.controller.custom_nodes.main.destinations.decks.DestinationController;
-import main.java.presentation.controller.custom_nodes.main.destinations.decks.deck_info_pane.DeckInfoPane;
+import main.java.presentation.controller.custom_nodes.main.rail_destinations.decks.deck_info_pane.DeckInfoPane;
+import main.java.presentation.controller.custom_nodes.main.rail_destinations.decks.destination_controller.DestinationController;
 import main.java.presentation.controller.utils.ControllerUtils;
 import main.java.presentation.controller.utils.color.ColorFxUtils;
 import main.java.presentation.controller.utils.color.ColorProvider;
@@ -116,7 +116,8 @@ public class DecksViewCard extends AnchorPane {
 
     private void initializeFxml() {
         final String RESOURCE_PATH =
-                "/view/fxml/custom_nodes/main/destinations/decks/decks_view_pane/decks_view_card"
+                "/view/fxml/custom_nodes/main/rail_destinations/decks/decks_view_pane"
+                + "/decks_view_card"
                 + ".fxml";
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(RESOURCE_PATH));

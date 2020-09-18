@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package main.java.presentation.controller.custom_nodes.main.destinations.about;
+package main.java.presentation.controller.custom_nodes.main.rail_destinations.about;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,7 +24,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import main.java.i18n.ResourceBundleName;
-import main.java.presentation.controller.ControllerUtils;
+import main.java.presentation.controller.utils.ControllerUtils;
 
 import java.awt.*;
 import java.io.IOException;
@@ -65,7 +65,7 @@ public class AboutPane extends AnchorPane {
 
     private void initializeFxml() {
         final String RESOURCE_PATH =
-                "/view/fxml/custom_nodes/main/destinations/about/about_pane.fxml";
+                "/view/fxml/custom_nodes/main/rail_destinations/about/about_pane.fxml";
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(RESOURCE_PATH));
 

@@ -16,12 +16,12 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package main.java.presentation.controller.custom_nodes.main.destinations.decks;
+package main.java.presentation.controller.custom_nodes.main.rail_destinations.decks.destination_controller;
 
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
-import main.java.presentation.controller.custom_nodes.main.destinations.decks.decks_view_pane.DecksViewPane;
+import main.java.presentation.controller.custom_nodes.main.rail_destinations.decks.decks_view_pane.DecksViewPane;
 import main.java.presentation.controller.utils.FxUtils;
 import main.java.presentation.model.structure.deck.Deck;
 
@@ -53,7 +53,7 @@ public class DecksDestinationController extends AnchorPane implements Destinatio
     // INITIALIZERS (FXML)
 
     private void initializeFxml() {
-        final String RESOURCE_PATH = "/view/fxml/custom_nodes/main/destinations/decks"
+        final String RESOURCE_PATH = "/view/fxml/custom_nodes/main/rail_destinations/decks"
                                      + "/decks_destination_controller.fxml";
 
         FxUtils.initializeFxml(this, RESOURCE_PATH);

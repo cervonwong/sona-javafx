@@ -16,9 +16,17 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package main.java.presentation.controller.custom_nodes.main.destinations.decks;
+package main.java.presentation.controller.custom_nodes.main.rail_destinations.decks.destination_controller;
 
-public enum DecksDestination {
-    VIEW_PANE,
-    INFO_PANE
+import javafx.scene.layout.AnchorPane;
+
+import java.util.Stack;
+
+public interface DestinationController {
+
+    void requestPush(AnchorPane newDestination);
+
+    void requestPop();
+
+    Stack<AnchorPane> getStack();
 }
