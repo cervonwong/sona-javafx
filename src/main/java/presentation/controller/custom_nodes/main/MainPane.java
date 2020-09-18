@@ -64,8 +64,7 @@ public class MainPane extends AnchorPane {
         TEMP_DECKS.add(SERVICE.get("Japanese Deck"));
         decks = TEMP_DECKS; // TODO: 15/09/2020 This is temporary.
 
-        addNavigationRail();
-        addContentPane();
+        addNodes();
         initializeNavigationBehavior();
         initializeInitialDestination();
     }
@@ -81,6 +80,11 @@ public class MainPane extends AnchorPane {
 
 
     // INITIALIZERS (Adding Methods)
+
+    private void addNodes() {
+        addNavigationRail();
+        addContentPane();
+    }
 
     private void addNavigationRail() {
         containerBox.getChildren().add(navigationRail);
