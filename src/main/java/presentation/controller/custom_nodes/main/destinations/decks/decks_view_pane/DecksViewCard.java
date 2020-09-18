@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package main.java.presentation.controller.custom_nodes.main.destinations.decks;
+package main.java.presentation.controller.custom_nodes.main.destinations.decks.decks_view_pane;
 
 import javafx.animation.*;
 import javafx.beans.binding.Bindings;
@@ -110,7 +110,8 @@ public class DecksViewCard extends AnchorPane {
 
     private void initializeFxml() {
         final String RESOURCE_PATH =
-                "/view/fxml/custom_nodes/main/destinations/decks/decks_view_card.fxml";
+                "/view/fxml/custom_nodes/main/destinations/decks/decks_view_pane/decks_view_card"
+                + ".fxml";
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(RESOURCE_PATH));
 
