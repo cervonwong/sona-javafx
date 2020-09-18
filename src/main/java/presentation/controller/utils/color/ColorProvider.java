@@ -78,6 +78,9 @@ public class ColorProvider {
     private static final ObjectProperty<Color> pressedBrandContainedButtonFillColor =
             new SimpleObjectProperty<>();
 
+    private static final ObjectProperty<Color> hoverBackButtonTextFillColor =
+            new SimpleObjectProperty<>();
+
 
     // JAVAFX PROPERTIES ([SPECIFIC] NAVIGATION RAIL COLORS)
 
@@ -145,6 +148,7 @@ public class ColorProvider {
         enabledBrandContainedButtonFillColor.set(repository.getEnabledBrandContainedButtonFillColor());
         hoverBrandContainedButtonFillColor.set(repository.getHoverBrandContainedButtonFillColor());
         pressedBrandContainedButtonFillColor.set(repository.getPressedBrandContainedButtonFillColor());
+        hoverBackButtonTextFillColor.set(repository.getHoverBackButtonTextFillColor());
 
         navigationRailBaseColor.set(repository.getNavigationRailBaseColor());
         navigationRailInactiveTextColor.set(repository.getNavigationRailInactiveTextColor());
@@ -217,6 +221,10 @@ public class ColorProvider {
 
     public static Color getPressedBrandContainedButtonFillColor() {
         return pressedBrandContainedButtonFillColor.get();
+    }
+
+    public static Color getHoverBackButtonTextFillColor() {
+        return hoverBackButtonTextFillColor.get();
     }
 
     public static Color getNavigationRailBaseColor() {
@@ -299,6 +307,10 @@ public class ColorProvider {
 
     public static ObjectProperty<Color> pressedBrandContainedButtonFillColorProperty() {
         return pressedBrandContainedButtonFillColor;
+    }
+
+    public static ObjectProperty<Color> hoverBackButtonTextFillColorProperty() {
+        return hoverBackButtonTextFillColor;
     }
 
     public static ObjectProperty<Color> navigationRailBaseColorProperty() {

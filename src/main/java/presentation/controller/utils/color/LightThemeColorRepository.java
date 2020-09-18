@@ -63,6 +63,9 @@ public class LightThemeColorRepository implements ThemeColorRepository {
     private final Color PRESSED_BRAND_CONTAINED_BUTTON_FILL_COLOR =
             BRAND_COLOR.deriveColor(0, 1, 1.7, 1);
 
+    private final Color HOVER_BACK_BUTTON_TEXT_FILL_COLOR =
+            BRAND_COLOR;
+
 
     // [SPECIFIC] NAVIGATION RAIL COLORS
 
@@ -155,6 +158,11 @@ public class LightThemeColorRepository implements ThemeColorRepository {
     @Override
     public Color getPressedBrandContainedButtonFillColor() {
         return PRESSED_BRAND_CONTAINED_BUTTON_FILL_COLOR;
+    }
+
+    @Override
+    public Color getHoverBackButtonTextFillColor() {
+        return HOVER_BACK_BUTTON_TEXT_FILL_COLOR;
     }
 
 

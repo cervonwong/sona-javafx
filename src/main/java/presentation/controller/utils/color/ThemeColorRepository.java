@@ -58,6 +58,8 @@ public interface ThemeColorRepository {
 
     Color getPressedBrandContainedButtonFillColor();
 
+    Color getHoverBackButtonTextFillColor();
+
 
     // [SPECIFIC] NAVIGATION RAIL COLORS
 
