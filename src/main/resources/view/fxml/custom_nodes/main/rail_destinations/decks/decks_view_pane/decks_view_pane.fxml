@@ -27,7 +27,7 @@
   ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
   -->
 
-<fx:root prefHeight="400.0" prefWidth="600.0" styleClass="anchor-pane" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root styleClass="anchor-pane" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <stylesheets>
       <URL value="@../../../../../../css/global/color/color_palette.css" />
       <URL value="@../../../../../../css/global/color/light_theme_colors.css" />
@@ -37,7 +37,7 @@
       <URL value="@../../../../../../css/specific/custom_nodes/main/rail_destinations/decks/decks_view_pane/decks_view_pane.css" />
    </stylesheets>
    <children>
-      <VBox layoutX="200.0" layoutY="14.0" prefHeight="400.0" prefWidth="600.0" spacing="4.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox layoutX="200.0" layoutY="14.0" spacing="4.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <padding>
             <Insets bottom="32.0" left="32.0" right="32.0" top="32.0" />
          </padding>
@@ -48,11 +48,11 @@
                </children>
             </HBox>
             <Pane prefHeight="2.0" styleClass="divider" />
-            <ScrollPane fx:id="decksViewScrollPane" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+            <ScrollPane fx:id="decksViewScrollPane" fitToWidth="true" VBox.vgrow="ALWAYS">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0">
+                <AnchorPane>
                      <children>
-                        <VBox fx:id="decksViewBox" prefHeight="0.0" prefWidth="0.0" spacing="16.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <VBox fx:id="decksViewBox" spacing="16.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                      </children></AnchorPane>
               </content>
                <VBox.margin>
