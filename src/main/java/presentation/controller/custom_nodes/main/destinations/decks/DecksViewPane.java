@@ -28,6 +28,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import main.java.i18n.ResourceBundleName;
 import main.java.presentation.controller.utils.ControllerUtils;
+import main.java.presentation.controller.utils.FxUtils;
 import main.java.presentation.model.structure.deck.Deck;
 
 import java.io.IOException;
@@ -63,7 +64,7 @@ public class DecksViewPane extends AnchorPane {
 
         initializeFxml();
         internationalizeText();
-        ControllerUtils.sharpenScrollPane(decksViewScrollPane);
+        FxUtils.sharpenScrollPane(decksViewScrollPane);
 
         instantiateDecksViewCards();
     }

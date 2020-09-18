@@ -18,24 +18,33 @@
 
 package main.java.presentation.controller.utils;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.StackPane;
-import main.java.i18n.ResourceBundleName;
 
-import java.util.ResourceBundle;
+import java.io.IOException;
 
-public class ControllerUtils {
+public class FxUtils {
 
-    // TODO: 16/09/2020 Split into FxUtils and I18nUtils.
+    public static void initializeFxml(Node node, String resourcePath) {
+        FXMLLoader fxmlLoader = new FXMLLoader(node.getClass().getResource(resourcePath));
 
-    // i18n
+        fxmlLoader.setRoot(node);
+        fxmlLoader.setController(node);
 
-    public static ResourceBundle getMessages(ResourceBundleName name) {
-        return ResourceBundle.getBundle(name.getBundleName());
+        try {
+            fxmlLoader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-
-    // CACHING
-
-
+    public static void sharpenScrollPane(ScrollPane scrollPane) {
+        scrollPane.skinProperty().addListener((obs, oldValue, newValue) -> {
+            if (oldValue != null) return;
+            StackPane stackPane = (StackPane) scrollPane.lookup("ScrollPane .viewport");
+            stackPane.setCache(false);
+        });
+    }
 }
