@@ -47,7 +47,7 @@ public class DecksViewPane extends AnchorPane {
     private final List<Deck> decks;
 
 
-    // FXML
+    // FXML NODES
 
     @FXML
     private Label titleLabel;

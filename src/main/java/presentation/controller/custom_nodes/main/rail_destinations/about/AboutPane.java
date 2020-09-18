@@ -39,7 +39,7 @@ public class AboutPane extends AnchorPane {
     private final ResourceBundle messages;
 
 
-    // FXML
+    // FXML NODES
 
     @FXML
     private Label summaryLabel, authorLabel;

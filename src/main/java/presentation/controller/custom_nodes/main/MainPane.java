@@ -48,7 +48,7 @@ public class MainPane extends AnchorPane {
     private final List<Deck> decks;
 
 
-    // FXML
+    // FXML NODES
 
     @FXML
     private HBox containerBox;
@@ -80,7 +80,7 @@ public class MainPane extends AnchorPane {
     }
 
 
-    // INITIALIZERS (containerBox)
+    // INITIALIZERS (Adding Methods)
 
     private void addNavigationRail() {
         containerBox.getChildren().add(navigationRail);
