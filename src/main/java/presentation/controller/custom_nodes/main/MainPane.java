@@ -74,8 +74,7 @@ public class MainPane extends AnchorPane {
     // INITIALIZERS (FXML)
 
     private void initializeFxml() {
-        final String RESOURCE_PATH =
-                "/view/fxml/custom_nodes/main/main_pane.fxml";
+        final String RESOURCE_PATH = "/view/fxml/custom_nodes/main/main_pane.fxml";
 
         FxUtils.initializeFxml(this, RESOURCE_PATH);
     }
