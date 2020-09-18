@@ -34,7 +34,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class DecksPane extends AnchorPane {
+public class DecksViewPane extends AnchorPane {
 
     // INSTANCE VARIABLES
 
@@ -57,8 +57,8 @@ public class DecksPane extends AnchorPane {
 
     // CONSTRUCTOR
 
-    public DecksPane(List<Deck> decks) {
-        messages = ControllerUtils.getMessages(ResourceBundleName.DECKS_PANE);
+    public DecksViewPane(List<Deck> decks) {
+        messages = ControllerUtils.getMessages(ResourceBundleName.DECKS_VIEW_PANE);
         this.decks = decks; // Not defensive copied.
 
         initializeFxml();
@@ -73,7 +73,7 @@ public class DecksPane extends AnchorPane {
 
     private void initializeFxml() {
         final String RESOURCE_PATH =
-                "/view/fxml/custom_nodes/main/destinations/decks/decks_pane.fxml";
+                "/view/fxml/custom_nodes/main/destinations/decks/decks_view_pane.fxml";
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(RESOURCE_PATH));
 

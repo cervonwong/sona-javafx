@@ -35,7 +35,7 @@
       <URL value="@../../../../../css/global/design/design.css" />
       <URL value="@../../../../../css/global/fonts/all_fonts.css" />
       <URL value="@../../../../../css/global/fonts/type_scale.css" />
-      <URL value="@../../../../../css/specific/custom_nodes/main/destinations/decks/decks_pane.css" />
+      <URL value="@../../../../../css/specific/custom_nodes/main/destinations/decks/decks_view_pane.css" />
    </stylesheets>
    <children>
       <VBox layoutX="200.0" layoutY="14.0" prefHeight="400.0" prefWidth="600.0" spacing="4.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
