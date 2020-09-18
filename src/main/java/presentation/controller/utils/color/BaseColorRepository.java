@@ -29,15 +29,24 @@ public class BaseColorRepository {
 
     // ORANGE SWATCH
 
+    @Deprecated
     final static Color ORANGE_050 = Color.rgb(255, 253, 232); // #FFFDE8
+    @Deprecated
     final static Color ORANGE_100 = Color.rgb(255, 249, 198); // #FFF9C6
+    @Deprecated
     final static Color ORANGE_200 = Color.rgb(255, 245, 160); // #FFF5A0
+    @Deprecated
     final static Color ORANGE_300 = Color.rgb(255, 240, 123); // #FFF07B
+    @Deprecated
     final static Color ORANGE_400 = Color.rgb(253, 235, 93);  // #FDEB5D
+    @Deprecated
     final static Color ORANGE_500 = Color.rgb(251, 230, 66);  // #FBE642
+    @Deprecated
     final static Color ORANGE_600 = Color.rgb(255, 217, 66);  // #FFD942
+    @Deprecated
     final static Color ORANGE_700 = Color.rgb(252, 193, 59);  // #FCC13B
     final static Color ORANGE_800 = Color.rgb(249, 170, 51);  // #F9AA33 (Brand Color)
+    @Deprecated
     final static Color ORANGE_900 = Color.rgb(244, 130, 38);  // #F48226
 
 
