@@ -58,6 +58,8 @@ public interface ThemeColorRepository {
 
     Color getPressedContainedButtonFillColor();
 
+    Color getOnContainedButtonTextColor();
+
     Color getHoverBackButtonTextFillColor();
 
 

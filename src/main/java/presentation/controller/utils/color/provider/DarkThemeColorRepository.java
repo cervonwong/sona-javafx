@@ -97,6 +97,11 @@ public class DarkThemeColorRepository implements ThemeColorRepository {
     }
 
     @Override
+    public Color getOnContainedButtonTextColor() {
+        return Color.WHITE;
+    }
+
+    @Override
     public Color getHoverBackButtonTextFillColor() {
         return Color.RED;
     }

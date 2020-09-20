@@ -78,6 +78,9 @@ public class ColorProvider {
     private static final ObjectProperty<Color> pressedContainedButtonFillColor =
             new SimpleObjectProperty<>();
 
+    private static final ObjectProperty<Color> onContainedButtonTextColor =
+            new SimpleObjectProperty<>();
+
     private static final ObjectProperty<Color> hoverBackButtonTextFillColor =
             new SimpleObjectProperty<>();
 
@@ -98,6 +101,7 @@ public class ColorProvider {
 
     private static final ObjectProperty<Color> decksViewCardHoverAccentColor =
             new SimpleObjectProperty<>();
+
 
     // INITIALIZATION
 
@@ -148,6 +152,7 @@ public class ColorProvider {
         enabledContainedButtonFillColor.set(repository.getEnabledContainedButtonFillColor());
         hoverContainedButtonFillColor.set(repository.getHoverContainedButtonFillColor());
         pressedContainedButtonFillColor.set(repository.getPressedContainedButtonFillColor());
+        onContainedButtonTextColor.set(repository.getOnContainedButtonTextColor());
         hoverBackButtonTextFillColor.set(repository.getHoverBackButtonTextFillColor());
 
         navigationRailBaseColor.set(repository.getNavigationRailBaseColor());
@@ -221,6 +226,10 @@ public class ColorProvider {
 
     public static Color getPressedContainedButtonFillColor() {
         return pressedContainedButtonFillColor.get();
+    }
+
+    public static Color getOnContainedButtonTextColor() {
+        return onContainedButtonTextColor.get();
     }
 
     public static Color getHoverBackButtonTextFillColor() {
@@ -307,6 +316,10 @@ public class ColorProvider {
 
     public static ObjectProperty<Color> pressedContainedButtonFillColorProperty() {
         return pressedContainedButtonFillColor;
+    }
+
+    public static ObjectProperty<Color> onContainedButtonTextColorProperty() {
+        return onContainedButtonTextColor;
     }
 
     public static ObjectProperty<Color> hoverBackButtonTextFillColorProperty() {
