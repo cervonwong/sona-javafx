@@ -40,6 +40,9 @@ import java.util.ResourceBundle;
 
 // FIXME: 18/09/2020 Fix bug where the entire button will have an orange background when moving
 //  mouse rapidly in and out of the cards.
+
+// TODO: 20/09/2020 Improve hover animation (currently the radius of the bottom hover accent is
+//  equal to the height of the accent, not ideal.
 public class DecksViewCard extends AnchorPane {
 
     // INSTANCE VARIABLES
