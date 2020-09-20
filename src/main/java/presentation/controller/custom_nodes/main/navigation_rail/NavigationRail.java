@@ -97,6 +97,7 @@ public class NavigationRail extends VBox {
 
     // INITIALIZERS (Style)
 
+    // TODO: 20/09/2020 Standardise method namings and organisations for styling.
     private void initializeStyle() {
         final StringProperty BACKGROUND_COLOR = ColorFxUtils.createStaticStringProperty(
                 ColorProvider.navigationRailBaseColorProperty());
