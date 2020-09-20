@@ -98,26 +98,26 @@ public class DarkThemeColorRepository implements ThemeColorRepository {
 
     @Override
     public Color getHoverBackButtonTextFillColor() {
-        return Color.PURPLE;
-    }
-
-    @Override
-    public Color getNavigationRailBaseColor() {
         return Color.RED;
     }
 
     @Override
-    public Color getNavigationRailInactiveTextColor() {
+    public Color getNavigationRailBaseColor() {
         return Color.PURPLE;
+    }
+
+    @Override
+    public Color getNavigationRailInactiveTextColor() {
+        return Color.YELLOW;
     }
 
     @Override
     public Color getNavigationRailActivatedTextColor() {
-        return Color.PURPLE;
+        return Color.GREEN;
     }
 
     @Override
     public Color getDecksViewCardHoverAccentColor() {
-        return Color.PURPLE;
+        return Color.BLUE;
     }
 }
