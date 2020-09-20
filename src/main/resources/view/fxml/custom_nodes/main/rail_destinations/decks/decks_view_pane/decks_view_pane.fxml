@@ -47,7 +47,7 @@
                   <Label fx:id="titleLabel" styleClass="headline-4" text="Your Decks" />
                </children>
             </HBox>
-            <Pane prefHeight="2.0" styleClass="divider" />
+            <Pane maxHeight="2.0" minHeight="2.0" prefHeight="2.0" styleClass="divider" />
             <ScrollPane fx:id="decksViewScrollPane" fitToWidth="true" VBox.vgrow="ALWAYS">
               <content>
                 <AnchorPane>
