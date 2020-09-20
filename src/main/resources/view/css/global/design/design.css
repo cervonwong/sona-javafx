@@ -13,12 +13,15 @@
 
 .large-component {
 	-fx-background-radius: 10;
+	-fx-border-radius: 10;
 }
 
 .medium-component {
 	-fx-background-radius: 10;
+	-fx-border-radius: 10;
 }
 
 .small-component {
 	-fx-background-radius: 10;
+	-fx-border-radius: 10;
 }
