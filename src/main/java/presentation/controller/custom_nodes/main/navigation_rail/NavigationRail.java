@@ -22,16 +22,15 @@ import javafx.beans.binding.Bindings;
 import javafx.beans.property.*;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import main.java.i18n.ResourceBundleName;
 import main.java.presentation.controller.utils.ControllerUtils;
+import main.java.presentation.controller.utils.FxUtils;
 import main.java.presentation.controller.utils.color.ColorFxUtils;
 import main.java.presentation.controller.utils.color.provider.ColorProvider;
 
-import java.io.IOException;
 import java.util.*;
 
 public class NavigationRail extends VBox {
@@ -51,9 +50,14 @@ public class NavigationRail extends VBox {
     private final ObjectProperty<Destination> activeDestination = new SimpleObjectProperty<>();
 
 
-    // JAVAFX PROPERTIES (Style)
+    // JAVAFX PROPERTIES (Style (Attributive))
 
-    private final StringProperty style = new SimpleStringProperty();
+    private final StringProperty backgroundColorStyle = new SimpleStringProperty();
+
+
+    // JAVAFX PROPERTIES (Style (Nodal))
+
+    private final StringProperty thisStyle = new SimpleStringProperty();
 
 
     // FXML NODES
@@ -68,63 +72,68 @@ public class NavigationRail extends VBox {
         messages = ControllerUtils.getMessages(ResourceBundleName.NAVIGATION_RAIL);
 
         initializeFxml();
-        initializeStyle();
         initializeItems();
 
-        initializeActiveItemListener();
-        initializeItemListener();
+        initializeActiveDestinationListener();
+        initializeItemBehavior();
+
+        initializeAttributiveStyleBindings();
+        initializeNodalStyleBindings();
     }
 
 
-    // INITIALIZERS
+    // INITIALIZERS (FXML)
 
     private void initializeFxml() {
         final String RESOURCE_PATH =
                 "/view/fxml/custom_nodes/main/navigation_rail/navigation_rail.fxml";
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(RESOURCE_PATH));
-
-        fxmlLoader.setRoot(this);
-        fxmlLoader.setController(this);
-
-        try {
-            fxmlLoader.load();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        FxUtils.initializeFxml(this, RESOURCE_PATH);
     }
 
 
-    // INITIALIZERS (Style)
+    // INITIALIZERS (Style (Called in constructor))
 
-    // TODO: 20/09/2020 Standardise method namings and organisations for styling.
-    private void initializeStyle() {
-        final StringProperty BACKGROUND_COLOR = ColorFxUtils.createStaticStringProperty(
+    private void initializeAttributiveStyleBindings() {
+        initializeBackgroundColorStyleBindings();
+    }
+
+    private void initializeNodalStyleBindings() {
+        initializeThisStyleBinding();
+    }
+
+
+    // INITIALIZERS (Style Bindings (Internal - Attributive backgroundColorStyle))
+
+    private void initializeBackgroundColorStyleBindings() {
+        final StringProperty BACKGROUND_COLOR_STRING = ColorFxUtils.createStaticStringProperty(
                 ColorProvider.navigationRailBaseColorProperty());
 
-        style.bind(Bindings.concat("-fx-background-color: ", BACKGROUND_COLOR, ";"));
-
-        initializeStyleListener();
-    }
-
-    private void initializeStyleListener() {
-        style.addListener((obs, oldStyle, newStyle) -> this.setStyle(newStyle));
-        this.setStyle(style.get());
+        backgroundColorStyle.bind(Bindings.concat("-fx-background-color: ",
+                                                  BACKGROUND_COLOR_STRING,
+                                                  ";"));
     }
 
 
-    // INITIALIZERS / INSTANTIATERS (Items)
+    // INITIALIZERS (Style Bindings (Internal - Nodal))
+
+    private void initializeThisStyleBinding() {
+        thisStyle.bind(backgroundColorStyle);
+        styleProperty().bind(thisStyle);
+    }
+
+
+    // INITIALIZERS (Adding Methods)
 
     private void initializeItems() {
         instantiateItems();
         addItems();
-        initializeItemWidthProperties();
+        initializeItemWidthBinding();
     }
 
     private void instantiateItems() {
         instantiateItem(Destination.DASHBOARD, "\uF015");
         instantiateItem(Destination.DECKS, "\uF5DB");
-//        instantiateItem(Destination.EDIT, "\uF044");
         instantiateItem(Destination.BROWSE, "\uF002");
         instantiateItem(Destination.STATS, "\uF201");
         instantiateItem(Destination.SETTINGS, "\uF013");
@@ -145,7 +154,6 @@ public class NavigationRail extends VBox {
         // TOP ITEMS
         CHILDREN.add(navigationRailItems.get(Destination.DASHBOARD));
         CHILDREN.add(navigationRailItems.get(Destination.DECKS));
-//        CHILDREN.add(navigationRailItems.get(Destination.EDIT));
         CHILDREN.add(navigationRailItems.get(Destination.BROWSE));
         CHILDREN.add(navigationRailItems.get(Destination.STATS));
 
@@ -159,13 +167,16 @@ public class NavigationRail extends VBox {
         CHILDREN.add(navigationRailItems.get(Destination.ABOUT));
     }
 
-    private void initializeItemWidthProperties() {
-        for (NavigationRailItem item : navigationRailItems.values()) {
+    // TODO: 20/09/2020 Use AnchorPanes or something to remove this.
+    private void initializeItemWidthBinding() {
+        for (NavigationRailItem item : navigationRailItems.values())
             item.prefWidthProperty().bind(this.widthProperty());
-        }
     }
 
-    private void initializeActiveItemListener() {
+
+    // INITIALIZERS (Behavior)
+
+    private void initializeActiveDestinationListener() {
         activeDestination.addListener((obs, oldValue, newValue) -> {
             if (oldValue != null)
                 navigationRailItems.get(oldValue).setActivated(false);
@@ -173,7 +184,7 @@ public class NavigationRail extends VBox {
         });
     }
 
-    private void initializeItemListener() {
+    private void initializeItemBehavior() {
         for (NavigationRailItem item : navigationRailItems.values()) {
             item.setOnAction(e -> setActiveDestination(item.getDestination()));
         }
@@ -196,12 +207,6 @@ public class NavigationRail extends VBox {
     public void setActiveDestination(Destination destination) {
         if (destination == null)
             throw new IllegalArgumentException("Illegal destination (cannot be null)");
-
-        if (!navigationRailItems.containsKey(destination))
-            throw new IllegalArgumentException(String.format(
-                    "Illegal destination (not found): %s",
-                    destination
-            ));
 
         this.activeDestination.set(destination);
     }

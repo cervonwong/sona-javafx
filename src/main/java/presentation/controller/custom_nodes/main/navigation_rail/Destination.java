@@ -21,7 +21,6 @@ package main.java.presentation.controller.custom_nodes.main.navigation_rail;
 public enum Destination {
     DASHBOARD("dashboard"),
     DECKS("decks"),
-    EDIT("edit"),
     BROWSE("browse"),
     STATS("stats"),
     SETTINGS("settings"),
