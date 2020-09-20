@@ -88,8 +88,8 @@
 }
 
 /* Similar to button-3. */
-.button-regular-icon-3 {
-	-fx-font-family: 'Font Awesome 5 Pro Regular';
+.button-solid-icon-3 {
+	-fx-font-family: 'Font Awesome 5 Pro Solid';
 	-fx-font-size: 14;
 }
 
