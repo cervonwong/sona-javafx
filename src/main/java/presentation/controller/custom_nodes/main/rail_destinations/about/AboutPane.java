@@ -25,6 +25,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import main.java.i18n.ResourceBundleName;
 import main.java.presentation.controller.utils.ControllerUtils;
+import main.java.presentation.controller.utils.FxUtils;
 
 import java.awt.*;
 import java.io.IOException;
@@ -57,29 +58,24 @@ public class AboutPane extends AnchorPane {
         messages = ControllerUtils.getMessages(ResourceBundleName.ABOUT_PANE);
 
         initializeFxml();
-        internationalizeText();
+
+        initializeI18nText();
     }
 
 
-    // INITIALIZERS
+    // INITIALIZERS (FXML)
 
     private void initializeFxml() {
         final String RESOURCE_PATH =
                 "/view/fxml/custom_nodes/main/rail_destinations/about/about_pane.fxml";
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(RESOURCE_PATH));
-
-        fxmlLoader.setRoot(this);
-        fxmlLoader.setController(this);
-
-        try {
-            fxmlLoader.load();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        FxUtils.initializeFxml(this, RESOURCE_PATH);
     }
 
-    private void initializeGitHubButtonOnAction() {
+
+    // INITIALIZERS (Behavior)
+
+    private void initializeGitHubButtonBehavior() {
         githubButton.setOnAction(e -> browseGithub());
     }
 
@@ -93,9 +89,9 @@ public class AboutPane extends AnchorPane {
     }
 
 
-    // i18n
+    // INITIALIZERS (i18n)
 
-    private void internationalizeText() {
+    private void initializeI18nText() {
         summaryLabel.setText(messages.getString("summary"));
         authorLabel.setText(messages.getString("author"));
         githubButton.setText(messages.getString("github"));

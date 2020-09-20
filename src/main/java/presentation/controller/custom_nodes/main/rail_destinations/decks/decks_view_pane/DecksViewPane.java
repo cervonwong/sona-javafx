@@ -20,7 +20,6 @@ package main.java.presentation.controller.custom_nodes.main.rail_destinations.de
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -32,7 +31,6 @@ import main.java.presentation.controller.utils.ControllerUtils;
 import main.java.presentation.controller.utils.FxUtils;
 import main.java.presentation.model.structure.deck.Deck;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -67,10 +65,12 @@ public class DecksViewPane extends AnchorPane {
         this.decks = decks; // Not defensive copied.
 
         initializeFxml();
-        internationalizeText();
+
+        addDecksViewCards();
+
         FxUtils.sharpenScrollPane(decksViewScrollPane);
 
-        instantiateDecksViewCards();
+        initializeI18nText();
     }
 
 
@@ -82,22 +82,13 @@ public class DecksViewPane extends AnchorPane {
                 + "/decks_view_pane"
                 + ".fxml";
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(RESOURCE_PATH));
-
-        fxmlLoader.setRoot(this);
-        fxmlLoader.setController(this);
-
-        try {
-            fxmlLoader.load();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        FxUtils.initializeFxml(this, RESOURCE_PATH);
     }
 
 
-    // INSTANTIATERS
+    // INITIALIZERS (Adding Methods)
 
-    private void instantiateDecksViewCards() {
+    private void addDecksViewCards() {
         final ObservableList<Node> CHILDREN = decksViewBox.getChildren();
 
         for (Deck deck : decks) {
@@ -107,9 +98,9 @@ public class DecksViewPane extends AnchorPane {
     }
 
 
-    // i18n
+    // INITIALIZERS (i18n)
 
-    private void internationalizeText() {
+    private void initializeI18nText() {
         titleLabel.setText(messages.getString("title"));
     }
 }
