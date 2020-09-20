@@ -34,6 +34,7 @@ import main.java.presentation.model.structure.deck.Deck;
 import java.util.List;
 import java.util.ResourceBundle;
 
+// TODO: 20/09/2020 Due for rewrite.
 public class DecksViewPane extends AnchorPane {
 
     // INSTANCE VARIABLES
