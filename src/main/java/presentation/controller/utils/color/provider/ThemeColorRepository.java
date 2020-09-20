@@ -52,11 +52,11 @@ public interface ThemeColorRepository {
 
     Color getPressedTextButtonBackgroundColor();
 
-    Color getEnabledBrandContainedButtonFillColor();
+    Color getEnabledContainedButtonFillColor();
 
-    Color getHoverBrandContainedButtonFillColor();
+    Color getHoverContainedButtonFillColor();
 
-    Color getPressedBrandContainedButtonFillColor();
+    Color getPressedContainedButtonFillColor();
 
     Color getHoverBackButtonTextFillColor();
 

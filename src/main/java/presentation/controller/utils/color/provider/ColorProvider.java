@@ -69,13 +69,13 @@ public class ColorProvider {
     private static final ObjectProperty<Color> pressedTextButtonBackgroundColor =
             new SimpleObjectProperty<>();
 
-    private static final ObjectProperty<Color> enabledBrandContainedButtonFillColor =
+    private static final ObjectProperty<Color> enabledContainedButtonFillColor =
             new SimpleObjectProperty<>();
 
-    private static final ObjectProperty<Color> hoverBrandContainedButtonFillColor =
+    private static final ObjectProperty<Color> hoverContainedButtonFillColor =
             new SimpleObjectProperty<>();
 
-    private static final ObjectProperty<Color> pressedBrandContainedButtonFillColor =
+    private static final ObjectProperty<Color> pressedContainedButtonFillColor =
             new SimpleObjectProperty<>();
 
     private static final ObjectProperty<Color> hoverBackButtonTextFillColor =
@@ -145,9 +145,9 @@ public class ColorProvider {
         enabledTextButtonBackgroundColor.set(repository.getEnabledTextButtonBackgroundColor());
         hoverTextButtonBackgroundColor.set(repository.getHoverTextButtonBackgroundColor());
         pressedTextButtonBackgroundColor.set(repository.getPressedTextButtonBackgroundColor());
-        enabledBrandContainedButtonFillColor.set(repository.getEnabledBrandContainedButtonFillColor());
-        hoverBrandContainedButtonFillColor.set(repository.getHoverBrandContainedButtonFillColor());
-        pressedBrandContainedButtonFillColor.set(repository.getPressedBrandContainedButtonFillColor());
+        enabledContainedButtonFillColor.set(repository.getEnabledContainedButtonFillColor());
+        hoverContainedButtonFillColor.set(repository.getHoverContainedButtonFillColor());
+        pressedContainedButtonFillColor.set(repository.getPressedContainedButtonFillColor());
         hoverBackButtonTextFillColor.set(repository.getHoverBackButtonTextFillColor());
 
         navigationRailBaseColor.set(repository.getNavigationRailBaseColor());
@@ -211,16 +211,16 @@ public class ColorProvider {
         return pressedTextButtonBackgroundColor.get();
     }
 
-    public static Color getEnabledBrandContainedButtonFillColor() {
-        return enabledBrandContainedButtonFillColor.get();
+    public static Color getEnabledContainedButtonFillColor() {
+        return enabledContainedButtonFillColor.get();
     }
 
-    public static Color getHoverBrandContainedButtonFillColor() {
-        return hoverBrandContainedButtonFillColor.get();
+    public static Color getHoverContainedButtonFillColor() {
+        return hoverContainedButtonFillColor.get();
     }
 
-    public static Color getPressedBrandContainedButtonFillColor() {
-        return pressedBrandContainedButtonFillColor.get();
+    public static Color getPressedContainedButtonFillColor() {
+        return pressedContainedButtonFillColor.get();
     }
 
     public static Color getHoverBackButtonTextFillColor() {
@@ -297,16 +297,16 @@ public class ColorProvider {
         return pressedTextButtonBackgroundColor;
     }
 
-    public static ObjectProperty<Color> enabledBrandContainedButtonFillColorProperty() {
-        return enabledBrandContainedButtonFillColor;
+    public static ObjectProperty<Color> enabledContainedButtonFillColorProperty() {
+        return enabledContainedButtonFillColor;
     }
 
-    public static ObjectProperty<Color> hoverBrandContainedButtonFillColorProperty() {
-        return hoverBrandContainedButtonFillColor;
+    public static ObjectProperty<Color> hoverContainedButtonFillColorProperty() {
+        return hoverContainedButtonFillColor;
     }
 
-    public static ObjectProperty<Color> pressedBrandContainedButtonFillColorProperty() {
-        return pressedBrandContainedButtonFillColor;
+    public static ObjectProperty<Color> pressedContainedButtonFillColorProperty() {
+        return pressedContainedButtonFillColor;
     }
 
     public static ObjectProperty<Color> hoverBackButtonTextFillColorProperty() {

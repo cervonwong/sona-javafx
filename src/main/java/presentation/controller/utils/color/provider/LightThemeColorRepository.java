@@ -56,11 +56,11 @@ public class LightThemeColorRepository implements ThemeColorRepository {
     private final Color PRESSED_TEXT_BUTTON_BACKGROUND_COLOR =
             Color.WHITE.deriveColor(0, 1, 1, 0.18);
 
-    private final Color ENABLED_BRAND_CONTAINED_BUTTON_FILL_COLOR =
+    private final Color ENABLED_CONTAINED_BUTTON_FILL_COLOR =
             BRAND_COLOR;
-    private final Color HOVER_BRAND_CONTAINED_BUTTON_FILL_COLOR =
+    private final Color HOVER_CONTAINED_BUTTON_FILL_COLOR =
             BRAND_COLOR.deriveColor(0, 1, 1.3, 1);
-    private final Color PRESSED_BRAND_CONTAINED_BUTTON_FILL_COLOR =
+    private final Color PRESSED_CONTAINED_BUTTON_FILL_COLOR =
             BRAND_COLOR.deriveColor(0, 1, 1.7, 1);
 
     private final Color HOVER_BACK_BUTTON_TEXT_FILL_COLOR =
@@ -146,18 +146,18 @@ public class LightThemeColorRepository implements ThemeColorRepository {
     }
 
     @Override
-    public Color getEnabledBrandContainedButtonFillColor() {
-        return ENABLED_BRAND_CONTAINED_BUTTON_FILL_COLOR;
+    public Color getEnabledContainedButtonFillColor() {
+        return ENABLED_CONTAINED_BUTTON_FILL_COLOR;
     }
 
     @Override
-    public Color getHoverBrandContainedButtonFillColor() {
-        return HOVER_BRAND_CONTAINED_BUTTON_FILL_COLOR;
+    public Color getHoverContainedButtonFillColor() {
+        return HOVER_CONTAINED_BUTTON_FILL_COLOR;
     }
 
     @Override
-    public Color getPressedBrandContainedButtonFillColor() {
-        return PRESSED_BRAND_CONTAINED_BUTTON_FILL_COLOR;
+    public Color getPressedContainedButtonFillColor() {
+        return PRESSED_CONTAINED_BUTTON_FILL_COLOR;
     }
 
     @Override

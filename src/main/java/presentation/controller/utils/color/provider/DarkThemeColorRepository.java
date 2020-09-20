@@ -82,17 +82,17 @@ public class DarkThemeColorRepository implements ThemeColorRepository {
     }
 
     @Override
-    public Color getEnabledBrandContainedButtonFillColor() {
+    public Color getEnabledContainedButtonFillColor() {
         return Color.PURPLE;
     }
 
     @Override
-    public Color getHoverBrandContainedButtonFillColor() {
+    public Color getHoverContainedButtonFillColor() {
         return Color.PURPLE;
     }
 
     @Override
-    public Color getPressedBrandContainedButtonFillColor() {
+    public Color getPressedContainedButtonFillColor() {
         return Color.PURPLE;
     }
 
