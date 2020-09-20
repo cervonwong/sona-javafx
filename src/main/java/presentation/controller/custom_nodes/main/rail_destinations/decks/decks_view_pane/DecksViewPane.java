@@ -52,7 +52,7 @@ public class DecksViewPane extends AnchorPane {
     private Label titleLabel;
 
     @FXML
-    private ScrollPane decksViewScrollPane;
+    private ScrollPane scrollPane;
 
     @FXML
     private VBox decksViewBox;
@@ -69,7 +69,7 @@ public class DecksViewPane extends AnchorPane {
 
         addDecksViewCards();
 
-        FxUtils.sharpenScrollPane(decksViewScrollPane);
+        FxUtils.sharpenScrollPane(scrollPane);
 
         initializeI18nText();
     }
