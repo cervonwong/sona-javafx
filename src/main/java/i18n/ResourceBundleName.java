@@ -20,8 +20,9 @@ package main.java.i18n;
 
 public enum ResourceBundleName {
     ABOUT_PANE("i18n.about_pane.AboutPane"),
-    DECKS_VIEW_PANE("i18n.decks_view_pane.DecksViewPane"),
     DECKS_VIEW_CARD("i18n.decks_view_card.DecksViewCard"),
+    DECKS_VIEW_PANE("i18n.decks_view_pane.DecksViewPane"),
+    DECK_INFO_PANE("i18n.deck_info_pane.DeckInfoPane"),
     NAVIGATION_RAIL("i18n.navigation_rail.NavigationRail");
 
     private final String bundleName;
