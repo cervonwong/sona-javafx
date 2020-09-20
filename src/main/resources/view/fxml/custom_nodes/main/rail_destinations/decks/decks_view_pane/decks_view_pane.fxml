@@ -48,7 +48,7 @@
                </children>
             </HBox>
             <Pane maxHeight="2.0" minHeight="2.0" prefHeight="2.0" styleClass="divider" />
-            <ScrollPane fx:id="decksViewScrollPane" fitToWidth="true" VBox.vgrow="ALWAYS">
+            <ScrollPane fx:id="decksViewScrollPane" fitToWidth="true" hbarPolicy="NEVER" VBox.vgrow="ALWAYS">
               <content>
                 <AnchorPane>
                      <children>
