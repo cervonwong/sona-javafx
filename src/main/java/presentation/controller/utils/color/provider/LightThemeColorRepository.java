@@ -59,9 +59,9 @@ public class LightThemeColorRepository implements ThemeColorRepository {
     private final Color ENABLED_CONTAINED_BUTTON_FILL_COLOR =
             BRAND_COLOR;
     private final Color HOVER_CONTAINED_BUTTON_FILL_COLOR =
-            BRAND_COLOR.deriveColor(0, 1, 1.3, 1);
+            BRAND_COLOR.interpolate(Color.WHITE, 0.12);
     private final Color PRESSED_CONTAINED_BUTTON_FILL_COLOR =
-            BRAND_COLOR.deriveColor(0, 1, 1.7, 1);
+            BRAND_COLOR.interpolate(Color.WHITE, 0.24);
     private final Color ON_CONTAINED_BUTTON_TEXT_COLOR = BaseColorRepository.DARKEST_TEXT_COLOR;
 
 
