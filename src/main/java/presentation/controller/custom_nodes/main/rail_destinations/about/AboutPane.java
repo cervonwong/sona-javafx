@@ -32,6 +32,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ResourceBundle;
 
+// TODO: 20/09/2020 Due for rewrite.
 public class AboutPane extends AnchorPane {
 
     // INSTANCE VARIABLES
