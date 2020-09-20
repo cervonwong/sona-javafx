@@ -75,4 +75,9 @@ public interface ThemeColorRepository {
     // [SPECIFIC] DECKS VIEW CARD COLORS
 
     Color getDecksViewCardHoverAccentColor();
+
+
+    // [SPECIFIC] DIVIDER
+
+    Color getDividerColor();
 }

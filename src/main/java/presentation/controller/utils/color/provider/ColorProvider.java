@@ -103,6 +103,11 @@ public class ColorProvider {
             new SimpleObjectProperty<>();
 
 
+    // JAVAFX PROPERTIES ([SPECIFIC] DIVIDER)
+
+    private static final ObjectProperty<Color> dividerColor = new SimpleObjectProperty<>();
+
+
     // INITIALIZATION
 
     static {
@@ -160,6 +165,8 @@ public class ColorProvider {
         navigationRailActivatedTextColor.set(repository.getNavigationRailActivatedTextColor());
 
         decksViewCardHoverAccentColor.set(repository.getDecksViewCardHoverAccentColor());
+
+        dividerColor.set(repository.getDividerColor());
     }
 
 
@@ -252,6 +259,9 @@ public class ColorProvider {
         return decksViewCardHoverAccentColor.get();
     }
 
+    public static Color getDividerColor() {
+        return dividerColor.get();
+    }
 
     // PROPERTY ACCESSORS
 
@@ -340,6 +350,10 @@ public class ColorProvider {
 
     public static ObjectProperty<Color> decksViewCardHoverAccentColorProperty() {
         return decksViewCardHoverAccentColor;
+    }
+
+    public static ObjectProperty<Color> dividerColorProperty() {
+        return dividerColor;
     }
 
 

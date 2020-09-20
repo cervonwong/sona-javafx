@@ -125,4 +125,9 @@ public class DarkThemeColorRepository implements ThemeColorRepository {
     public Color getDecksViewCardHoverAccentColor() {
         return Color.BLUE;
     }
+
+    @Override
+    public Color getDividerColor() {
+        return Color.ORCHID;
+    }
 }

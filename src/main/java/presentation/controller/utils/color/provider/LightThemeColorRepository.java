@@ -80,6 +80,12 @@ public class LightThemeColorRepository implements ThemeColorRepository {
 
     private final Color DECKS_VIEW_CARD_HOVER_ACCENT_COLOR = BRAND_COLOR;
 
+
+    // [SPECIFIC] DIVIDER
+
+    private final Color DIVIDER_COLOR = BaseColorRepository.BLUE_200;
+
+
     // ============================================================================================
     // ACCESSORS
     // ============================================================================================
@@ -196,5 +202,13 @@ public class LightThemeColorRepository implements ThemeColorRepository {
     @Override
     public Color getDecksViewCardHoverAccentColor() {
         return DECKS_VIEW_CARD_HOVER_ACCENT_COLOR;
+    }
+
+
+    // [SPECIFIC] DIVIDER
+
+    @Override
+    public Color getDividerColor() {
+        return DIVIDER_COLOR;
     }
 }
