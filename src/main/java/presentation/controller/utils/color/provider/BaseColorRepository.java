@@ -50,7 +50,7 @@ public class BaseColorRepository {
     final static Color ORANGE_900 = Color.rgb(244, 130, 38);  // #F48226
 
 
-    // BLUE-GREY SWATCH
+    // BLUE SWATCH
 
     final static Color BLUE_050 = Color.rgb(232, 240, 246); // #E8F0F6
     final static Color BLUE_100 = Color.rgb(203, 217, 225); // #CBD9E1
