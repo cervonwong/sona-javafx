@@ -87,6 +87,12 @@
 	-fx-font-size: 14;
 }
 
+/* Similar to button-3. */
+.button-regular-icon-3 {
+	-fx-font-family: 'Font Awesome 5 Pro Regular';
+	-fx-font-size: 14;
+}
+
 /* Similar to headline-4 */
 .headline-icon-4 {
 	-fx-font-family: 'Font Awesome 5 Pro Solid';
