@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package main.java.presentation.controller.custom_nodes.shared;
+package main.java.presentation.controller.custom_nodes.shared_components;
 
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.*;
@@ -87,7 +87,7 @@ public class ExtendedFab extends Button {
     // INITIALIZERS (FXML)
 
     private void initializeFxml() {
-        final String RESOURCE_PATH = "/view/fxml/custom_nodes/shared/extended_fab.fxml";
+        final String RESOURCE_PATH = "/view/fxml/custom_nodes/shared_components/extended_fab.fxml";
 
         FxUtils.initializeFxml(this, RESOURCE_PATH);
     }

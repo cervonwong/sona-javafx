@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 
 <!--
   ~ Sona is an educational SRS application written in JavaFX.
@@ -23,16 +21,11 @@
   ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
   -->
 
-<fx:root graphicTextGap="16.0" mnemonicParsing="false" styleClass="button-3" text="UNKNOWN_TEXT" type="Button" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+
+<fx:root mnemonicParsing="false" styleClass="headline-icon-4" text="" type="Button" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <stylesheets>
-      <URL value="@../../../css/specific/custom_nodes/shared/extended_fab.css" />
       <URL value="@../../../css/global/fonts/all_fonts.css" />
       <URL value="@../../../css/global/fonts/type_scale.css" />
+      <URL value="@../../../css/specific/custom_nodes/shared_components/back_button.css" />
    </stylesheets>
-   <padding>
-      <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
-   </padding>
-   <graphic>
-      <Label fx:id="iconLabel" text="UNKNOWN_ICON" />
-   </graphic>
 </fx:root>
