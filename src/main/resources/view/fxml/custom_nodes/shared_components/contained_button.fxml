@@ -25,7 +25,7 @@
 
 <fx:root graphicTextGap="16.0" mnemonicParsing="false" styleClass="button-3" text="UNKNOWN_TEXT" type="Button" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <stylesheets>
-      <URL value="@../../../css/specific/custom_nodes/shared_components/contained_icon_button.css" />
+      <URL value="@../../../css/specific/custom_nodes/shared_components/contained_button.css" />
       <URL value="@../../../css/global/fonts/all_fonts.css" />
       <URL value="@../../../css/global/fonts/type_scale.css" />
    </stylesheets>
