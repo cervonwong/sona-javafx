@@ -30,7 +30,7 @@ import main.java.presentation.controller.utils.color.ColorFxUtils;
 import main.java.presentation.controller.utils.color.provider.ColorProvider;
 
 // TODO: 20/09/2020 Currently, the button and icon label does not explicitly support changing text.
-public class ExtendedFab extends Button {
+public class ContainedIconButton extends Button {
 
     // INSTANCE VARIABLES
 
@@ -68,7 +68,7 @@ public class ExtendedFab extends Button {
 
     // CONSTRUCTOR
 
-    public ExtendedFab(String text, char icon, IconType iconType) {
+    public ContainedIconButton(String text, char icon, IconType iconType) {
         this.text = text;
         this.icon = icon;
         this.iconType = iconType;
@@ -87,7 +87,8 @@ public class ExtendedFab extends Button {
     // INITIALIZERS (FXML)
 
     private void initializeFxml() {
-        final String RESOURCE_PATH = "/view/fxml/custom_nodes/shared_components/extended_fab.fxml";
+        final String RESOURCE_PATH = "/view/fxml/custom_nodes/shared_components"
+                                     + "/contained_icon_button.fxml";
 
         FxUtils.initializeFxml(this, RESOURCE_PATH);
     }
