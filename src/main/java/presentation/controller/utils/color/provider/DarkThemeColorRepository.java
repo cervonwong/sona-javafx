@@ -102,7 +102,7 @@ public class DarkThemeColorRepository implements ThemeColorRepository {
     }
 
     @Override
-    public Color getHoverBackButtonTextFillColor() {
+    public Color getHoverIconButtonTextFillColor() {
         return Color.RED;
     }
 

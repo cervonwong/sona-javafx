@@ -64,9 +64,7 @@ public class LightThemeColorRepository implements ThemeColorRepository {
             BRAND_COLOR.interpolate(Color.WHITE, 0.24);
     private final Color ON_CONTAINED_BUTTON_TEXT_COLOR = BaseColorRepository.DARKEST_TEXT_COLOR;
 
-
-    private final Color HOVER_BACK_BUTTON_TEXT_FILL_COLOR =
-            BRAND_COLOR;
+    private final Color HOVER_ICON_BUTTON_TEXT_FILL_COLOR = BRAND_COLOR;
 
 
     // [SPECIFIC] NAVIGATION RAIL COLORS
@@ -174,8 +172,8 @@ public class LightThemeColorRepository implements ThemeColorRepository {
     }
 
     @Override
-    public Color getHoverBackButtonTextFillColor() {
-        return HOVER_BACK_BUTTON_TEXT_FILL_COLOR;
+    public Color getHoverIconButtonTextFillColor() {
+        return HOVER_ICON_BUTTON_TEXT_FILL_COLOR;
     }
 
 
