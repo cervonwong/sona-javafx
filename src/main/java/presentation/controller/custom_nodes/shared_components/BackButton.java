@@ -18,109 +18,11 @@
 
 package main.java.presentation.controller.custom_nodes.shared_components;
 
-import javafx.beans.binding.Bindings;
-import javafx.beans.property.*;
-import javafx.geometry.Insets;
-import javafx.scene.control.Button;
-import javafx.scene.paint.Color;
-import javafx.util.Duration;
-import main.java.presentation.controller.utils.FxUtils;
-import main.java.presentation.controller.utils.color.ColorFxUtils;
-import main.java.presentation.controller.utils.color.provider.ColorProvider;
+public class BackButton extends IconButton {
 
-public class BackButton extends Button {
-
-    // CONSTANTS (Style)
-
-    // JAVAFX PROPERTIES (Style (Attributive))
-
-    private final StringProperty textFillStyle = new SimpleStringProperty();
-
-
-    // JAVAFX PROPERTIES (Style (Nodal))
-
-    private final StringProperty thisStyle = new SimpleStringProperty();
-
-
-    // CONTROLLER
+    // CONSTRUCTOR
 
     public BackButton() {
-        initializeFxml();
-
-        removePadding();
-
-        initializeAttributiveStyleBindings();
-        initializeNodalStyleBindings();
-    }
-
-
-    // INITIALIZERS (FXML)
-
-    private void initializeFxml() {
-        final String RESOURCE_PATH = "/view/fxml/custom_nodes/shared_components/back_button.fxml";
-
-        FxUtils.initializeFxml(this, RESOURCE_PATH);
-    }
-
-
-    // INITIALIZERS (Additional Static Properties)
-
-    private void removePadding() {
-        setPadding(Insets.EMPTY);
-    }
-
-
-    // INITIALIZERS (Style Bindings (Called in constructor))
-
-    private void initializeAttributiveStyleBindings() {
-        initializeTextFillStyleBindings();
-    }
-
-    private void initializeNodalStyleBindings() {
-        initializeThisStyleBinding();
-    }
-
-
-    // INITIALIZERS (Style Bindings (Internal - Attributive textFillStyle))
-
-    private void initializeTextFillStyleBindings() {
-        final Duration TRANSITION_DURATION = Duration.millis(75);
-
-        final ObjectProperty<Color> DESIRED_TEXT_FILL_COLOR = createDesiredTextFillColor();
-
-        final StringProperty TEXT_FILL_COLOR_STRING =
-                ColorFxUtils.createDynamicStringProperty(DESIRED_TEXT_FILL_COLOR,
-                                                         TRANSITION_DURATION);
-
-        textFillStyle.bind(Bindings.concat("-fx-text-fill: ", TEXT_FILL_COLOR_STRING, ";"));
-    }
-
-    private ObjectProperty<Color> createDesiredTextFillColor() {
-        final ObjectProperty<Color> DESIRED_TEXT_FILL_COLOR = new SimpleObjectProperty<>();
-
-        final ObjectProperty<Color> ENABLED_TEXT_FILL_COLOR =
-                ColorFxUtils.createStaticColorProperty(ColorProvider.highEmphasisHeaderTextColorProperty());
-
-        final ObjectProperty<Color> HOVER_TEXT_FILL_COLOR =
-                ColorFxUtils.createStaticColorProperty(ColorProvider.hoverBackButtonTextFillColorProperty());
-
-
-        hoverProperty()
-                .addListener((obs, oldValue, newValue)
-                                     -> DESIRED_TEXT_FILL_COLOR.bind(newValue
-                                                                     ? HOVER_TEXT_FILL_COLOR
-                                                                     : ENABLED_TEXT_FILL_COLOR));
-
-        DESIRED_TEXT_FILL_COLOR.bind(ENABLED_TEXT_FILL_COLOR);
-
-        return DESIRED_TEXT_FILL_COLOR;
-    }
-
-
-    // INITIALIZERS (Style Bindings (Internal - Nodal))
-
-    private void initializeThisStyleBinding() {
-        thisStyle.bind(textFillStyle);
-        styleProperty().bind(thisStyle);
+        super('\uF060', IconSize.HEADLINE_4, IconType.SOLID, IconEmphasis.HIGHEST);
     }
 }
