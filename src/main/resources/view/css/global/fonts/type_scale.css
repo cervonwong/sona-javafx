@@ -99,3 +99,19 @@
 	-fx-font-size: 30; /* Made slightly smaller than headline-4 to be compatible with it. */
 }
 
+.headline-brand-icon-4 {
+	-fx-font-family: 'Font Awesome 5 Brands Regular';
+	-fx-font-size: 30;
+}
+
+/* Similar to headline-5 */
+.headline-icon-5 {
+	-fx-font-family: 'Font Awesome 5 Pro Solid';
+	-fx-font-size: 20; /* Made slightly smaller than headline-5 to be compatible with it. */
+}
+
+.headline-brand-icon-5 {
+	-fx-font-family: 'Font Awesome 5 Brands Regular';
+	-fx-font-size: 20;
+}
+
