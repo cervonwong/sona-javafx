@@ -48,7 +48,7 @@ public class IconButton extends Button {
 
     public enum IconType { SOLID, BRAND }
 
-    public enum IconEmphasis { HEADER, HIGH, MEDIUM, LOW }
+    public enum IconEmphasis { HIGHEST, HIGH, MEDIUM, LOW }
 
 
     // JAVAFX PROPERTIES (Style (Attributive))
@@ -153,13 +153,13 @@ public class IconButton extends Button {
         ObjectProperty<Color> TEMP_ENABLED_TEXT_FILL_COLOR = new SimpleObjectProperty<>();
 
         switch (iconEmphasis) {
-            case HEADER:
+            case HIGHEST:
                 TEMP_ENABLED_TEXT_FILL_COLOR =
-                        ColorFxUtils.createStaticColorProperty(ColorProvider.highEmphasisHeaderTextColorProperty());
+                        ColorFxUtils.createStaticColorProperty(ColorProvider.highestEmphasisTextColorProperty());
                 break;
             case HIGH:
                 TEMP_ENABLED_TEXT_FILL_COLOR =
-                        ColorFxUtils.createStaticColorProperty(ColorProvider.highEmphasisNonHeaderTextColorProperty());
+                        ColorFxUtils.createStaticColorProperty(ColorProvider.highEmphasisTextColorProperty());
                 break;
             case MEDIUM:
                 TEMP_ENABLED_TEXT_FILL_COLOR =
