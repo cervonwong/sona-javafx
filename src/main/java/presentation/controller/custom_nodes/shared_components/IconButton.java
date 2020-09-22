@@ -61,7 +61,7 @@ public class IconButton extends Button {
     private final StringProperty thisStyle = new SimpleStringProperty();
 
 
-    // CONTROLLER
+    // CONSTRUCTOR
 
     public IconButton(char icon, IconSize iconSize, IconType iconType, IconEmphasis iconEmphasis) {
         this.icon = icon;
