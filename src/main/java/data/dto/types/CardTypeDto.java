@@ -54,7 +54,7 @@ public final class CardTypeDto {
     }
 
 
-    // MUTATAORS
+    // MUTATORS
 
     public void setId(int id) {
         this.id = id;
