@@ -47,12 +47,12 @@ public class DarkThemeColorRepository implements ThemeColorRepository {
     }
 
     @Override
-    public Color getHighEmphasisHeaderTextColor() {
+    public Color getHighestEmphasisTextColor() {
         return Color.PURPLE;
     }
 
     @Override
-    public Color getHighEmphasisNonHeaderTextColor() {
+    public Color getHighEmphasisTextColor() {
         return Color.PURPLE;
     }
 

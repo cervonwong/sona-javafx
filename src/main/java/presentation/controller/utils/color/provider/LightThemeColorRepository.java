@@ -37,9 +37,9 @@ public class LightThemeColorRepository implements ThemeColorRepository {
 
     // [SHARED] TEXT COLORS
 
-    private final Color HIGH_EMPHASIS_HEADER_TEXT_COLOR =
+    private final Color HIGHEST_EMPHASIS_TEXT_COLOR =
             BaseColorRepository.DARKEST_TEXT_COLOR;
-    private final Color HIGH_EMPHASIS_NON_HEADER_TEXT_COLOR =
+    private final Color HIGH_EMPHASIS_TEXT_COLOR =
             BaseColorRepository.DARKER_TEXT_COLOR;
     private final Color MEDIUM_EMPHASIS_TEXT_COLOR =
             BaseColorRepository.BLUE_900.deriveColor(0, 1, 1, 0.6);
@@ -116,13 +116,13 @@ public class LightThemeColorRepository implements ThemeColorRepository {
     // [SHARED] TEXT COLORS
 
     @Override
-    public Color getHighEmphasisHeaderTextColor() {
-        return HIGH_EMPHASIS_HEADER_TEXT_COLOR;
+    public Color getHighestEmphasisTextColor() {
+        return HIGHEST_EMPHASIS_TEXT_COLOR;
     }
 
     @Override
-    public Color getHighEmphasisNonHeaderTextColor() {
-        return HIGH_EMPHASIS_NON_HEADER_TEXT_COLOR;
+    public Color getHighEmphasisTextColor() {
+        return HIGH_EMPHASIS_TEXT_COLOR;
     }
 
     @Override

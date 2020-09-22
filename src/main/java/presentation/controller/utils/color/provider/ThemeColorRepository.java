@@ -35,9 +35,9 @@ public interface ThemeColorRepository {
 
     // [SHARED] TEXT COLORS
 
-    Color getHighEmphasisHeaderTextColor();
+    Color getHighestEmphasisTextColor();
 
-    Color getHighEmphasisNonHeaderTextColor();
+    Color getHighEmphasisTextColor();
 
     Color getMediumEmphasisTextColor();
 

@@ -46,10 +46,10 @@ public class ColorProvider {
 
     // JAVAFX PROPERTIES ([SHARED] TEXT COLORS)
 
-    private static final ObjectProperty<Color> highEmphasisHeaderTextColor =
+    private static final ObjectProperty<Color> highestEmphasisTextColor =
             new SimpleObjectProperty<>();
 
-    private static final ObjectProperty<Color> highEmphasisNonHeaderTextColor =
+    private static final ObjectProperty<Color> highEmphasisTextColor =
             new SimpleObjectProperty<>();
 
     private static final ObjectProperty<Color> mediumEmphasisTextColor =
@@ -146,8 +146,8 @@ public class ColorProvider {
         surfaceColor.set(repository.getSurfaceColor());
         errorColor.set(repository.getErrorColor());
 
-        highEmphasisHeaderTextColor.set(repository.getHighEmphasisHeaderTextColor());
-        highEmphasisNonHeaderTextColor.set(repository.getHighEmphasisNonHeaderTextColor());
+        highestEmphasisTextColor.set(repository.getHighestEmphasisTextColor());
+        highEmphasisTextColor.set(repository.getHighEmphasisTextColor());
         mediumEmphasisTextColor.set(repository.getMediumEmphasisTextColor());
         lowEmphasisTextColor.set(repository.getLowEmphasisTextColor());
 
@@ -195,12 +195,12 @@ public class ColorProvider {
         return errorColor.get();
     }
 
-    public static Color getHighEmphasisHeaderTextColor() {
-        return highEmphasisHeaderTextColor.get();
+    public static Color getHighestEmphasisTextColor() {
+        return highestEmphasisTextColor.get();
     }
 
-    public static Color getHighEmphasisNonHeaderTextColor() {
-        return highEmphasisNonHeaderTextColor.get();
+    public static Color getHighEmphasisTextColor() {
+        return highEmphasisTextColor.get();
     }
 
     public static Color getMediumEmphasisTextColor() {
@@ -288,12 +288,12 @@ public class ColorProvider {
         return errorColor;
     }
 
-    public static ObjectProperty<Color> highEmphasisHeaderTextColorProperty() {
-        return highEmphasisHeaderTextColor;
+    public static ObjectProperty<Color> highestEmphasisTextColorProperty() {
+        return highestEmphasisTextColor;
     }
 
-    public static ObjectProperty<Color> highEmphasisNonHeaderTextColorProperty() {
-        return highEmphasisNonHeaderTextColor;
+    public static ObjectProperty<Color> highEmphasisTextColorProperty() {
+        return highEmphasisTextColor;
     }
 
     public static ObjectProperty<Color> mediumEmphasisTextColorProperty() {
