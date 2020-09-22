@@ -42,9 +42,9 @@ public class LightThemeColorRepository implements ThemeColorRepository {
     private final Color HIGH_EMPHASIS_NON_HEADER_TEXT_COLOR =
             BaseColorRepository.DARKER_TEXT_COLOR;
     private final Color MEDIUM_EMPHASIS_TEXT_COLOR =
-            BaseColorRepository.DARKEST_TEXT_COLOR.deriveColor(0, 1, 1, 0.6);
+            BaseColorRepository.BLUE_900.deriveColor(0, 1, 1, 0.6);
     private final Color LOW_EMPHASIS_TEXT_COLOR =
-            BaseColorRepository.DARKEST_TEXT_COLOR.deriveColor(0, 1, 1, 0.38);
+            BaseColorRepository.BLUE_900.deriveColor(0, 1, 1, 0.38);
 
 
     // [SHARED] BUTTON COLORS
