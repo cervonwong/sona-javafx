@@ -33,6 +33,7 @@ import main.java.presentation.controller.utils.color.provider.ColorProvider;
 
 import java.util.*;
 
+// !THIS CLASS IS NOT A SHARED COMPONENT!
 public class NavigationRail extends VBox {
 
     // INSTANCE VARIABLES (i18n)
@@ -177,10 +178,10 @@ public class NavigationRail extends VBox {
     // INITIALIZERS (Behavior)
 
     private void initializeActiveDestinationListener() {
-        activeDestination.addListener((obs, oldValue, newValue) -> {
-            if (oldValue != null)
-                navigationRailItems.get(oldValue).setActivated(false);
-            navigationRailItems.get(newValue).setActivated(true);
+        activeDestination.addListener((obs, oldDestination, newDestination) -> {
+            if (oldDestination != null)
+                navigationRailItems.get(oldDestination).setActivated(false);
+            navigationRailItems.get(newDestination).setActivated(true);
         });
     }
 
