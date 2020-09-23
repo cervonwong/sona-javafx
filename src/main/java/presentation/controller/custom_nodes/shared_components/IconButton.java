@@ -138,55 +138,55 @@ public class IconButton extends Button {
     private void initializeTextFillStyleBindings() {
         final Duration TRANSITION_DURATION = Duration.millis(75);
 
-        final ObjectProperty<Color> DESIRED_TEXT_FILL_COLOR = createDesiredTextFillColor();
+        final ObjectProperty<Color> DESIRED_TEXT_COLOR = createDesiredTextColor();
 
-        final StringProperty TEXT_FILL_COLOR_STRING =
-                ColorFxUtils.createDynamicStringProperty(DESIRED_TEXT_FILL_COLOR,
+        final StringProperty TEXT_COLOR_STRING =
+                ColorFxUtils.createDynamicStringProperty(DESIRED_TEXT_COLOR,
                                                          TRANSITION_DURATION);
 
-        textFillStyle.bind(Bindings.concat("-fx-text-fill: ", TEXT_FILL_COLOR_STRING, ";"));
+        textFillStyle.bind(Bindings.concat("-fx-text-fill: ", TEXT_COLOR_STRING, ";"));
     }
 
-    private ObjectProperty<Color> createDesiredTextFillColor() {
-        final ObjectProperty<Color> DESIRED_TEXT_FILL_COLOR = new SimpleObjectProperty<>();
+    private ObjectProperty<Color> createDesiredTextColor() {
+        final ObjectProperty<Color> DESIRED_TEXT_COLOR = new SimpleObjectProperty<>();
 
-        ObjectProperty<Color> TEMP_ENABLED_TEXT_FILL_COLOR = new SimpleObjectProperty<>();
+        ObjectProperty<Color> TEMP_ENABLED_TEXT_COLOR = new SimpleObjectProperty<>();
 
         switch (iconEmphasis) {
             case HIGHEST:
-                TEMP_ENABLED_TEXT_FILL_COLOR =
+                TEMP_ENABLED_TEXT_COLOR =
                         ColorFxUtils.createStaticColorProperty(ColorProvider.highestEmphasisTextColorProperty());
                 break;
             case HIGH:
-                TEMP_ENABLED_TEXT_FILL_COLOR =
+                TEMP_ENABLED_TEXT_COLOR =
                         ColorFxUtils.createStaticColorProperty(ColorProvider.highEmphasisTextColorProperty());
                 break;
             case MEDIUM:
-                TEMP_ENABLED_TEXT_FILL_COLOR =
+                TEMP_ENABLED_TEXT_COLOR =
                         ColorFxUtils.createStaticColorProperty(ColorProvider.mediumEmphasisTextColorProperty());
                 break;
             case LOW:
-                TEMP_ENABLED_TEXT_FILL_COLOR =
+                TEMP_ENABLED_TEXT_COLOR =
                         ColorFxUtils.createStaticColorProperty(ColorProvider.lowEmphasisTextColorProperty());
                 break;
         }
 
-        final ObjectProperty<Color> ENABLED_TEXT_FILL_COLOR = new SimpleObjectProperty<>();
-        ENABLED_TEXT_FILL_COLOR.bind(TEMP_ENABLED_TEXT_FILL_COLOR);
+        final ObjectProperty<Color> ENABLED_TEXT_COLOR = new SimpleObjectProperty<>();
+        ENABLED_TEXT_COLOR.bind(TEMP_ENABLED_TEXT_COLOR);
 
-        final ObjectProperty<Color> HOVER_TEXT_FILL_COLOR =
+        final ObjectProperty<Color> HOVER_TEXT_COLOR =
                 ColorFxUtils.createStaticColorProperty(ColorProvider.hoverIconButtonTextColorProperty());
 
 
         hoverProperty()
                 .addListener((obs, oldValue, newValue)
-                                     -> DESIRED_TEXT_FILL_COLOR.bind(newValue
-                                                                     ? HOVER_TEXT_FILL_COLOR
-                                                                     : ENABLED_TEXT_FILL_COLOR));
+                                     -> DESIRED_TEXT_COLOR.bind(newValue
+                                                                     ? HOVER_TEXT_COLOR
+                                                                     : ENABLED_TEXT_COLOR));
 
-        DESIRED_TEXT_FILL_COLOR.bind(TEMP_ENABLED_TEXT_FILL_COLOR);
+        DESIRED_TEXT_COLOR.bind(TEMP_ENABLED_TEXT_COLOR);
 
-        return DESIRED_TEXT_FILL_COLOR;
+        return DESIRED_TEXT_COLOR;
     }
 
 
