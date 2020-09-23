@@ -40,7 +40,7 @@ public class NavigationRailItem extends Button {
 
     // JAVAFX PROPERTIES (Public Accessors / Mutators)
 
-    private final SimpleBooleanProperty isActivated = new SimpleBooleanProperty();
+    private final BooleanProperty isActivated = new SimpleBooleanProperty();
 
 
     // JAVAFX PROPERTIES (Style (Attributive))
@@ -268,7 +268,7 @@ public class NavigationRailItem extends Button {
 
     // PROPERTY ACCESSORS
 
-    public SimpleBooleanProperty isActivatedProperty() {
+    public BooleanProperty isActivatedProperty() {
         return isActivated;
     }
 
