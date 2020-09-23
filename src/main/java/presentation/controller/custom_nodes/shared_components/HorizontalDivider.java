@@ -50,6 +50,8 @@ public class HorizontalDivider extends Pane {
 
         initializeFxml();
 
+        initializeThickness();
+
         initializeAttributiveStyleBindings();
         initializeNodalStyleBindings();
     }

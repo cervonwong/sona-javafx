@@ -21,4 +21,4 @@
   -->
 
 
-<fx:root maxHeight="2.0" minHeight="2.0" prefHeight="2.0" prefWidth="100.0" styleClass="divider" stylesheets="@../../../css/specific/custom_nodes/shared_components/horizontal_divider.css" type="Pane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" />
+<fx:root maxHeight="2.0" minHeight="2.0" prefHeight="2.0" styleClass="divider" stylesheets="@../../../css/specific/custom_nodes/shared_components/horizontal_divider.css" type="Pane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" />
