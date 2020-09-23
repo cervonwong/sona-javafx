@@ -81,7 +81,7 @@ public class ColorProvider {
     private static final ObjectProperty<Color> onContainedButtonTextColor =
             new SimpleObjectProperty<>();
 
-    private static final ObjectProperty<Color> hoverIconButtonTextFillColor =
+    private static final ObjectProperty<Color> hoverIconButtonTextColor =
             new SimpleObjectProperty<>();
 
 
@@ -175,7 +175,7 @@ public class ColorProvider {
         hoverContainedButtonFillColor.set(repository.getHoverContainedButtonFillColor());
         pressedContainedButtonFillColor.set(repository.getPressedContainedButtonFillColor());
         onContainedButtonTextColor.set(repository.getOnContainedButtonTextColor());
-        hoverIconButtonTextFillColor.set(repository.getHoverIconButtonTextFillColor());
+        hoverIconButtonTextColor.set(repository.getHoverIconButtonTextColor());
 
         navigationRailBaseColor.set(repository.getNavigationRailBaseColor());
         navigationRailInactiveTextColor.set(repository.getNavigationRailInactiveTextColor());
@@ -262,8 +262,8 @@ public class ColorProvider {
         return onContainedButtonTextColor.get();
     }
 
-    public static Color getHoverIconButtonTextFillColor() {
-        return hoverIconButtonTextFillColor.get();
+    public static Color getHoverIconButtonTextColor() {
+        return hoverIconButtonTextColor.get();
     }
 
     public static Color getNavigationRailBaseColor() {
@@ -375,8 +375,8 @@ public class ColorProvider {
         return onContainedButtonTextColor;
     }
 
-    public static ObjectProperty<Color> hoverIconButtonTextFillColorProperty() {
-        return hoverIconButtonTextFillColor;
+    public static ObjectProperty<Color> hoverIconButtonTextColorProperty() {
+        return hoverIconButtonTextColor;
     }
 
     public static ObjectProperty<Color> navigationRailBaseColorProperty() {

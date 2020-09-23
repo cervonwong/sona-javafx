@@ -175,7 +175,7 @@ public class IconButton extends Button {
         ENABLED_TEXT_FILL_COLOR.bind(TEMP_ENABLED_TEXT_FILL_COLOR);
 
         final ObjectProperty<Color> HOVER_TEXT_FILL_COLOR =
-                ColorFxUtils.createStaticColorProperty(ColorProvider.hoverIconButtonTextFillColorProperty());
+                ColorFxUtils.createStaticColorProperty(ColorProvider.hoverIconButtonTextColorProperty());
 
 
         hoverProperty()

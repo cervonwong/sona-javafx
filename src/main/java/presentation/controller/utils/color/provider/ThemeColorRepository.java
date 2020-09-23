@@ -60,7 +60,7 @@ public interface ThemeColorRepository {
 
     Color getOnContainedButtonTextColor();
 
-    Color getHoverIconButtonTextFillColor();
+    Color getHoverIconButtonTextColor();
 
 
     // [SPECIFIC] NAVIGATION RAIL COLORS
