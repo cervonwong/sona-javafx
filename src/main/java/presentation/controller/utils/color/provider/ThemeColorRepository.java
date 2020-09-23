@@ -80,4 +80,17 @@ public interface ThemeColorRepository {
     // [SPECIFIC] DIVIDER
 
     Color getDividerColor();
+
+
+    // [SPECIFIC] TAB BAR
+
+    Color getEnabledTabItemBackgroundColor();
+
+    Color getHoverTabItemBackgroundColor();
+
+    Color getPressedTabItemBackgroundColor();
+
+    Color getActivatedTabItemTextColor();
+
+    Color getTabBarIndicatorColor();
 }

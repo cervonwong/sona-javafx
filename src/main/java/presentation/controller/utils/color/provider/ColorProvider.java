@@ -108,6 +108,23 @@ public class ColorProvider {
     private static final ObjectProperty<Color> dividerColor = new SimpleObjectProperty<>();
 
 
+    // JAVAFX PROPERTIES ([SPECIFIC] TAB BAR)
+
+    private static final ObjectProperty<Color> enabledTabItemBackgroundColor =
+            new SimpleObjectProperty<>();
+
+    private static final ObjectProperty<Color> hoverTabItemBackgroundColor =
+            new SimpleObjectProperty<>();
+
+    private static final ObjectProperty<Color> pressedTabItemBackgroundColor =
+            new SimpleObjectProperty<>();
+
+    private static final ObjectProperty<Color> activatedTabItemTextColor =
+            new SimpleObjectProperty<>();
+
+    private static final ObjectProperty<Color> tabBarIndicatorColor = new SimpleObjectProperty<>();
+
+
     // INITIALIZATION
 
     static {
@@ -167,6 +184,12 @@ public class ColorProvider {
         decksViewCardHoverAccentColor.set(repository.getDecksViewCardHoverAccentColor());
 
         dividerColor.set(repository.getDividerColor());
+
+        enabledTabItemBackgroundColor.set(repository.getEnabledTabItemBackgroundColor());
+        hoverTabItemBackgroundColor.set(repository.getHoverTabItemBackgroundColor());
+        pressedTabItemBackgroundColor.set(repository.getPressedTabItemBackgroundColor());
+        activatedTabItemTextColor.set(repository.getActivatedTabItemTextColor());
+        tabBarIndicatorColor.set(repository.getTabBarIndicatorColor());
     }
 
 
@@ -263,6 +286,26 @@ public class ColorProvider {
         return dividerColor.get();
     }
 
+    public static Color getEnabledTabItemBackgroundColor() {
+        return enabledTabItemBackgroundColor.get();
+    }
+
+    public static Color getHoverTabItemBackgroundColor() {
+        return hoverTabItemBackgroundColor.get();
+    }
+
+    public static Color getPressedTabItemBackgroundColor() {
+        return pressedTabItemBackgroundColor.get();
+    }
+
+    public static Color getActivatedTabItemTextColor() {
+        return activatedTabItemTextColor.get();
+    }
+
+    public static Color getTabBarIndicatorColor() {
+        return tabBarIndicatorColor.get();
+    }
+
     // PROPERTY ACCESSORS
 
     public static ObjectProperty<Theme> themeProperty() {
@@ -354,6 +397,26 @@ public class ColorProvider {
 
     public static ObjectProperty<Color> dividerColorProperty() {
         return dividerColor;
+    }
+
+    public static ObjectProperty<Color> enabledTabItemBackgroundColorProperty() {
+        return enabledTabItemBackgroundColor;
+    }
+
+    public static ObjectProperty<Color> hoverTabItemBackgroundColorProperty() {
+        return hoverTabItemBackgroundColor;
+    }
+
+    public static ObjectProperty<Color> pressedTabItemBackgroundColorProperty() {
+        return pressedTabItemBackgroundColor;
+    }
+
+    public static ObjectProperty<Color> activatedTabItemTextColorProperty() {
+        return activatedTabItemTextColor;
+    }
+
+    public static ObjectProperty<Color> tabBarIndicatorColorProperty() {
+        return tabBarIndicatorColor;
     }
 
 

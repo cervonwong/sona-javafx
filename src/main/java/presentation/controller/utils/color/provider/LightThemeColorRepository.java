@@ -84,6 +84,16 @@ public class LightThemeColorRepository implements ThemeColorRepository {
     private final Color DIVIDER_COLOR = BaseColorRepository.BLUE_200;
 
 
+    // [SPECIFIC] TAB BAR
+
+    private final Color ENABLED_TAB_ITEM_BACKGROUND_COLOR = Color.TRANSPARENT;
+    private final Color HOVER_TAB_ITEM_BACKGROUND_COLOR = BRAND_COLOR.deriveColor(0, 1, 1, 0.1);
+    private final Color PRESSED_TAB_ITEM_BACKGROUND_COLOR = BRAND_COLOR.deriveColor(0, 1, 1, 0.3);
+
+    private final Color ACTIVATED_TAB_ITEM_TEXT_COLOR = BRAND_COLOR;
+
+    private final Color TAB_BAR_INDICATOR_COLOR = BRAND_COLOR;
+
     // ============================================================================================
     // ACCESSORS
     // ============================================================================================
@@ -91,6 +101,7 @@ public class LightThemeColorRepository implements ThemeColorRepository {
     // [SHARED] BASELINE COLORS
 
     @Override
+
     public Color getBrandColor() {
         return BRAND_COLOR;
     }
@@ -208,5 +219,33 @@ public class LightThemeColorRepository implements ThemeColorRepository {
     @Override
     public Color getDividerColor() {
         return DIVIDER_COLOR;
+    }
+
+
+    // [SPECIFIC] TAB BAR
+
+    @Override
+    public Color getEnabledTabItemBackgroundColor() {
+        return ENABLED_TAB_ITEM_BACKGROUND_COLOR;
+    }
+
+    @Override
+    public Color getHoverTabItemBackgroundColor() {
+        return HOVER_TAB_ITEM_BACKGROUND_COLOR;
+    }
+
+    @Override
+    public Color getPressedTabItemBackgroundColor() {
+        return PRESSED_TAB_ITEM_BACKGROUND_COLOR;
+    }
+
+    @Override
+    public Color getActivatedTabItemTextColor() {
+        return ACTIVATED_TAB_ITEM_TEXT_COLOR;
+    }
+
+    @Override
+    public Color getTabBarIndicatorColor() {
+        return TAB_BAR_INDICATOR_COLOR;
     }
 }

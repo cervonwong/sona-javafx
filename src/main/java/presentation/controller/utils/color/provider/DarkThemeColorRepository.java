@@ -130,4 +130,29 @@ public class DarkThemeColorRepository implements ThemeColorRepository {
     public Color getDividerColor() {
         return Color.ORCHID;
     }
+
+    @Override
+    public Color getEnabledTabItemBackgroundColor() {
+        return Color.LIGHTGOLDENRODYELLOW;
+    }
+
+    @Override
+    public Color getHoverTabItemBackgroundColor() {
+        return Color.MEDIUMPURPLE;
+    }
+
+    @Override
+    public Color getPressedTabItemBackgroundColor() {
+        return Color.PALEVIOLETRED;
+    }
+
+    @Override
+    public Color getActivatedTabItemTextColor() {
+        return Color.DARKORANGE;
+    }
+
+    @Override
+    public Color getTabBarIndicatorColor() {
+        return Color.CADETBLUE;
+    }
 }
