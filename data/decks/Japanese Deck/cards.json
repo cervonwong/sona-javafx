@@ -1,0 +1,32 @@
+[
+  {
+    "noteId": 1,
+    "id": 4,
+    "schedule": {
+      "ef": 2.5,
+      "trc": 0,
+      "erc": 0,
+      "csc": 0,
+      "isc": 0,
+      "ci": 0,
+      "nrd": "2020-02-28"
+    },
+    "isStarred": true,
+    "isHidden": false
+  },
+  {
+    "noteId": 1,
+    "id": 5,
+    "schedule": {
+      "ef": 2.5,
+      "trc": 0,
+      "erc": 0,
+      "csc": 0,
+      "isc": 0,
+      "ci": 0,
+      "nrd": "2020-02-28"
+    },
+    "isStarred": false,
+    "isHidden": true
+  }
+]

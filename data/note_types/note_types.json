@@ -1,0 +1,356 @@
+[
+  {
+    "id": 1,
+    "name": "Japanese Simple",
+    "nextCardTypeId": 6,
+    "cardTypes": [
+      {
+        "id": 4,
+        "name": "Jap -> Eng",
+        "front": [
+          {
+            "type": "TEXT",
+            "name": "Prompt",
+            "value": "Translate this to English",
+            "fontSizeFactor": 16.0,
+            "fontFamily": "LATIN",
+            "hasSerif": true,
+            "fontWeight": "NORMAL",
+            "isItalicized": true,
+            "isUnderlined": true,
+            "isCondensed": true,
+            "elementColor": "GRAY"
+          },
+          {
+            "type": "TEXT",
+            "name": "Japanese",
+            "value": "$$JAPANESE$$",
+            "fontSizeFactor": 32.0,
+            "fontFamily": "LATIN",
+            "hasSerif": false,
+            "fontWeight": "NORMAL",
+            "isItalicized": false,
+            "isUnderlined": false,
+            "isCondensed": false,
+            "elementColor": "DEFAULT"
+          }
+        ],
+        "back": [
+          {
+            "type": "TEXT",
+            "name": "Prompt",
+            "value": "Translate this to English",
+            "fontSizeFactor": 16.0,
+            "fontFamily": "LATIN",
+            "hasSerif": false,
+            "fontWeight": "NORMAL",
+            "isItalicized": true,
+            "isUnderlined": false,
+            "isCondensed": false,
+            "elementColor": "GRAY"
+          },
+          {
+            "type": "TEXT",
+            "name": "Japanese",
+            "value": "$$JAPANESE$$",
+            "fontSizeFactor": 32.0,
+            "fontFamily": "LATIN",
+            "hasSerif": false,
+            "fontWeight": "NORMAL",
+            "isItalicized": false,
+            "isUnderlined": false,
+            "isCondensed": false,
+            "elementColor": "DEFAULT"
+          },
+          {
+            "type": "DIVIDER",
+            "name": "Divider",
+            "size": 10.0,
+            "thickness": 1.0,
+            "isSymmetrical": true,
+            "leadingIndent": 0.05,
+            "trailingIndent": 0.05,
+            "elementColor": "GRAY"
+          },
+          {
+            "type": "TEXT",
+            "name": "English",
+            "value": "$$ENGLISH$$",
+            "fontSizeFactor": 32.0,
+            "fontFamily": "LATIN",
+            "hasSerif": false,
+            "fontWeight": "NORMAL",
+            "isItalicized": false,
+            "isUnderlined": false,
+            "isCondensed": false,
+            "elementColor": "DEFAULT"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Eng -> Jap",
+        "front": [
+          {
+            "type": "TEXT",
+            "name": "Prompt",
+            "value": "Translate this to Japanese",
+            "fontSizeFactor": 16.0,
+            "fontFamily": "LATIN",
+            "hasSerif": false,
+            "fontWeight": "NORMAL",
+            "isItalicized": true,
+            "isUnderlined": false,
+            "isCondensed": false,
+            "elementColor": "GRAY"
+          },
+          {
+            "type": "TEXT",
+            "name": "English",
+            "value": "$$ENGLISH$$",
+            "fontSizeFactor": 32.0,
+            "fontFamily": "LATIN",
+            "hasSerif": false,
+            "fontWeight": "NORMAL",
+            "isItalicized": false,
+            "isUnderlined": false,
+            "isCondensed": false,
+            "elementColor": "DEFAULT"
+          }
+        ],
+        "back": [
+          {
+            "type": "TEXT",
+            "name": "Prompt",
+            "value": "Translate this to Japanese",
+            "fontSizeFactor": 16.0,
+            "fontFamily": "LATIN",
+            "hasSerif": false,
+            "fontWeight": "NORMAL",
+            "isItalicized": true,
+            "isUnderlined": false,
+            "isCondensed": false,
+            "elementColor": "GRAY"
+          },
+          {
+            "type": "TEXT",
+            "name": "English",
+            "value": "$$ENGLISH$$",
+            "fontSizeFactor": 32.0,
+            "fontFamily": "LATIN",
+            "hasSerif": false,
+            "fontWeight": "NORMAL",
+            "isItalicized": false,
+            "isUnderlined": false,
+            "isCondensed": false,
+            "elementColor": "DEFAULT"
+          },
+          {
+            "type": "DIVIDER",
+            "name": "Divider",
+            "size": 10.0,
+            "thickness": 1.0,
+            "isSymmetrical": true,
+            "leadingIndent": 0.05,
+            "trailingIndent": 0.05,
+            "elementColor": "GRAY"
+          },
+          {
+            "type": "TEXT",
+            "name": "Japanese",
+            "value": "$$JAPANESE$$",
+            "fontSizeFactor": 32.0,
+            "fontFamily": "LATIN",
+            "hasSerif": false,
+            "fontWeight": "NORMAL",
+            "isItalicized": false,
+            "isUnderlined": false,
+            "isCondensed": false,
+            "elementColor": "DEFAULT"
+          }
+        ]
+      }
+    ],
+    "fields": [
+      "Japanese",
+      "English"
+    ]
+  },
+  {
+    "id": 69696969,
+    "name": "Japanese Simple",
+    "nextCardTypeId": 6,
+    "cardTypes": [
+      {
+        "id": 4,
+        "name": "Jap -> Eng",
+        "front": [
+          {
+            "type": "TEXT",
+            "name": "Prompt",
+            "value": "Translate this to English",
+            "fontSizeFactor": 16.0,
+            "fontFamily": "LATIN",
+            "hasSerif": false,
+            "fontWeight": "NORMAL",
+            "isItalicized": true,
+            "isUnderlined": false,
+            "isCondensed": false,
+            "elementColor": "GRAY"
+          },
+          {
+            "type": "TEXT",
+            "name": "Japanese",
+            "value": "$$JAPANESE$$",
+            "fontSizeFactor": 32.0,
+            "fontFamily": "LATIN",
+            "hasSerif": false,
+            "fontWeight": "NORMAL",
+            "isItalicized": false,
+            "isUnderlined": false,
+            "isCondensed": false,
+            "elementColor": "DEFAULT"
+          }
+        ],
+        "back": [
+          {
+            "type": "TEXT",
+            "name": "Prompt",
+            "value": "Translate this to English",
+            "fontSizeFactor": 16.0,
+            "fontFamily": "LATIN",
+            "hasSerif": false,
+            "fontWeight": "NORMAL",
+            "isItalicized": true,
+            "isUnderlined": false,
+            "isCondensed": false,
+            "elementColor": "GRAY"
+          },
+          {
+            "type": "TEXT",
+            "name": "Japanese",
+            "value": "$$JAPANESE$$",
+            "fontSizeFactor": 32.0,
+            "fontFamily": "LATIN",
+            "hasSerif": false,
+            "fontWeight": "NORMAL",
+            "isItalicized": false,
+            "isUnderlined": false,
+            "isCondensed": false,
+            "elementColor": "DEFAULT"
+          },
+          {
+            "type": "DIVIDER",
+            "name": "Divider",
+            "size": 10.0,
+            "thickness": 1.0,
+            "isSymmetrical": true,
+            "leadingIndent": 0.05,
+            "trailingIndent": 0.05,
+            "elementColor": "GRAY"
+          },
+          {
+            "type": "TEXT",
+            "name": "English",
+            "value": "$$ENGLISH$$",
+            "fontSizeFactor": 32.0,
+            "fontFamily": "LATIN",
+            "hasSerif": false,
+            "fontWeight": "NORMAL",
+            "isItalicized": false,
+            "isUnderlined": false,
+            "isCondensed": false,
+            "elementColor": "DEFAULT"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Eng -> Jap",
+        "front": [
+          {
+            "type": "TEXT",
+            "name": "Prompt",
+            "value": "Translate this to Japanese",
+            "fontSizeFactor": 16.0,
+            "fontFamily": "LATIN",
+            "hasSerif": false,
+            "fontWeight": "NORMAL",
+            "isItalicized": true,
+            "isUnderlined": false,
+            "isCondensed": false,
+            "elementColor": "GRAY"
+          },
+          {
+            "type": "TEXT",
+            "name": "English",
+            "value": "$$ENGLISH$$",
+            "fontSizeFactor": 32.0,
+            "fontFamily": "LATIN",
+            "hasSerif": false,
+            "fontWeight": "NORMAL",
+            "isItalicized": false,
+            "isUnderlined": false,
+            "isCondensed": false,
+            "elementColor": "DEFAULT"
+          }
+        ],
+        "back": [
+          {
+            "type": "TEXT",
+            "name": "Prompt",
+            "value": "Translate this to Japanese",
+            "fontSizeFactor": 16.0,
+            "fontFamily": "LATIN",
+            "hasSerif": false,
+            "fontWeight": "NORMAL",
+            "isItalicized": true,
+            "isUnderlined": false,
+            "isCondensed": false,
+            "elementColor": "GRAY"
+          },
+          {
+            "type": "TEXT",
+            "name": "English",
+            "value": "$$ENGLISH$$",
+            "fontSizeFactor": 32.0,
+            "fontFamily": "LATIN",
+            "hasSerif": false,
+            "fontWeight": "NORMAL",
+            "isItalicized": false,
+            "isUnderlined": false,
+            "isCondensed": false,
+            "elementColor": "DEFAULT"
+          },
+          {
+            "type": "DIVIDER",
+            "name": "Divider",
+            "size": 10.0,
+            "thickness": 1.0,
+            "isSymmetrical": true,
+            "leadingIndent": 0.05,
+            "trailingIndent": 0.05,
+            "elementColor": "GRAY"
+          },
+          {
+            "type": "TEXT",
+            "name": "Japanese",
+            "value": "$$JAPANESE$$",
+            "fontSizeFactor": 32.0,
+            "fontFamily": "LATIN",
+            "hasSerif": false,
+            "fontWeight": "NORMAL",
+            "isItalicized": false,
+            "isUnderlined": false,
+            "isCondensed": false,
+            "elementColor": "DEFAULT"
+          }
+        ]
+      }
+    ],
+    "fields": [
+      "Japanese",
+      "English"
+    ]
+  }
+]
