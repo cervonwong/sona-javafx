@@ -99,7 +99,6 @@ public class TabBar extends AnchorPane {
 
     private void initializeItemBarBehavior() {
         tabItems.addListener((MapChangeListener<DeckInfoTab, TabItem>) change -> {
-            System.out.println(change);
             if (change.wasAdded()) {
                 final TabItem TAB_ITEM = change.getValueAdded();
                 addTabItem(TAB_ITEM);
