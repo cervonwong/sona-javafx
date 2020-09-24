@@ -87,10 +87,14 @@
 	-fx-font-size: 14;
 }
 
-/* Similar to button-3. */
 .button-solid-icon-3 {
 	-fx-font-family: 'Font Awesome 5 Pro Solid';
 	-fx-font-size: 14;
+}
+
+.headline-icon-2 {
+	-fx-font-family: 'Font Awesome 5 Pro Solid';
+	-fx-font-size: 56;
 }
 
 /* Similar to headline-4 */
