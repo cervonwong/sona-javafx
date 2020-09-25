@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<!--
+  ~ Sona is an educational SRS application written in JavaFX.
+  ~ Copyright (C) 2020 Cervon Wong
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+
+<fx:root prefHeight="400.0" prefWidth="600.0" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox alignment="CENTER" layoutX="293.0" layoutY="100.0" prefHeight="400.0" prefWidth="600.0" spacing="16.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label fx:id="iconLabel" styleClass="headline-icon-2" text="">
+               <stylesheets>
+                  <URL value="@../../../css/global/fonts/type_scale.css" />
+                  <URL value="@../../../css/global/fonts/all_fonts.css" />
+                  <URL value="@../../../css/specific/custom_nodes/screens/unimplemented_screen.css" />
+               </stylesheets>
+            </Label>
+            <Label fx:id="titleLabel" styleClass="headline-6" text="This section of Sona is still work in progress." wrapText="true">
+               <stylesheets>
+                  <URL value="@../../../css/global/fonts/type_scale.css" />
+                  <URL value="@../../../css/global/fonts/all_fonts.css" />
+                  <URL value="@../../../css/specific/custom_nodes/screens/unimplemented_screen.css" />
+               </stylesheets>
+            </Label>
+            <Label fx:id="reasonLabel" styleClass="body-2" text="UNKNOWN_REASON" wrapText="true">
+               <stylesheets>
+                  <URL value="@../../../css/global/fonts/type_scale.css" />
+                  <URL value="@../../../css/global/fonts/all_fonts.css" />
+                  <URL value="@../../../css/specific/custom_nodes/screens/unimplemented_screen.css" />
+               </stylesheets>
+            </Label>
+         </children>
+      </VBox>
+   </children>
+</fx:root>
