@@ -134,7 +134,7 @@ public class MainPane extends AnchorPane {
             case ABOUT:
                 return new AboutPane();
             default:
-                return null;
+                return new AnchorPane();
         }
     }
 
