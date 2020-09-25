@@ -23,12 +23,18 @@ import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import main.java.i18n.ResourceBundleName;
+import main.java.presentation.controller.utils.ControllerUtils;
 import main.java.presentation.controller.utils.FxUtils;
 import main.java.presentation.controller.utils.color.CommonColorBindings;
+
+import java.util.ResourceBundle;
 
 public class UnimplementedComponent extends AnchorPane {
 
     // INSTANCE VARIABLES
+
+    private final ResourceBundle messages;
 
     private final String reason;
 
@@ -65,13 +71,16 @@ public class UnimplementedComponent extends AnchorPane {
     // CONSTRUCTOR
 
     public UnimplementedComponent(String reason) {
+        messages = ControllerUtils.getMessages(ResourceBundleName.UNIMPLEMENTED_COMPONENT);
         this.reason = reason;
 
         initializeFxml();
         initializeReasonLabelText();
+        initializeI18nText();
 
         initializeAttributiveStyleBindings();
         initializeNodalStyleBindings();
+
     }
 
 
@@ -124,5 +133,12 @@ public class UnimplementedComponent extends AnchorPane {
     private void initializeReasonLabelStyleBinding() {
         reasonLabelStyle.bind(titleAndReasonLabelTextFillStyle);
         reasonLabel.styleProperty().bind(reasonLabelStyle);
+    }
+
+
+    // INITIALIZERS (i18n)
+
+    private void initializeI18nText() {
+        titleLabel.setText(messages.getString("title"));
     }
 }

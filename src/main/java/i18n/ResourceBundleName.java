@@ -23,7 +23,8 @@ public enum ResourceBundleName {
     DECKS_VIEW_CARD("i18n.decks_view_card.DecksViewCard"),
     DECKS_VIEW_PANE("i18n.decks_view_pane.DecksViewPane"),
     DECK_INFO_PANE("i18n.deck_info_pane.DeckInfoPane"),
-    NAVIGATION_RAIL("i18n.navigation_rail.NavigationRail");
+    NAVIGATION_RAIL("i18n.navigation_rail.NavigationRail"),
+    UNIMPLEMENTED_COMPONENT("i18n.unimplemented_component.UnimplementedComponent");
 
     private final String bundleName;
 
