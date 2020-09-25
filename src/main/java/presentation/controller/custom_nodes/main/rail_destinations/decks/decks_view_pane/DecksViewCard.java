@@ -29,7 +29,7 @@ import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import main.java.i18n.ResourceBundleName;
 import main.java.presentation.controller.custom_nodes.main.rail_destinations.decks.deck_info_pane.DeckInfoPane;
-import main.java.presentation.controller.custom_nodes.main.rail_destinations.decks.destination_controller.DestinationController;
+import main.java.presentation.controller.custom_nodes.main.rail_destinations.DestinationController;
 import main.java.presentation.controller.utils.ControllerUtils;
 import main.java.presentation.controller.utils.FxUtils;
 import main.java.presentation.controller.utils.color.ColorFxUtils;

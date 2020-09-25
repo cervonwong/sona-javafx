@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package main.java.presentation.controller.custom_nodes.main.rail_destinations.decks.destination_controller;
+package main.java.presentation.controller.custom_nodes.main.rail_destinations;
 
 import javafx.scene.layout.AnchorPane;
 

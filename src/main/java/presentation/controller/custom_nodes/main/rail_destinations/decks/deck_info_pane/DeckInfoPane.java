@@ -28,7 +28,7 @@ import javafx.scene.layout.AnchorPane;
 import main.java.i18n.ResourceBundleName;
 import main.java.presentation.controller.custom_nodes.main.rail_destinations.decks.deck_info_pane.tabs.DeckInfoTab;
 import main.java.presentation.controller.custom_nodes.main.rail_destinations.decks.deck_info_pane.tabs.overview.DeckInfoOverviewTabPane;
-import main.java.presentation.controller.custom_nodes.main.rail_destinations.decks.destination_controller.DestinationController;
+import main.java.presentation.controller.custom_nodes.main.rail_destinations.DestinationController;
 import main.java.presentation.controller.custom_nodes.shared_components.UnimplementedComponent;
 import main.java.presentation.controller.custom_nodes.shared_components.BackButton;
 import main.java.presentation.controller.custom_nodes.shared_components.HorizontalDivider;

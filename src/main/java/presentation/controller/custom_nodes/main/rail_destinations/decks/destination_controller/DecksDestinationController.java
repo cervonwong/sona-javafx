@@ -21,6 +21,7 @@ package main.java.presentation.controller.custom_nodes.main.rail_destinations.de
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
+import main.java.presentation.controller.custom_nodes.main.rail_destinations.DestinationController;
 import main.java.presentation.controller.custom_nodes.main.rail_destinations.decks.decks_view_pane.DecksViewPane;
 import main.java.presentation.controller.utils.FxUtils;
 import main.java.presentation.model.structure.deck.Deck;

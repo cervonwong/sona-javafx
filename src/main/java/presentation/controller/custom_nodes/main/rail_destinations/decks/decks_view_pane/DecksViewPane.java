@@ -26,7 +26,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import main.java.i18n.ResourceBundleName;
-import main.java.presentation.controller.custom_nodes.main.rail_destinations.decks.destination_controller.DestinationController;
+import main.java.presentation.controller.custom_nodes.main.rail_destinations.DestinationController;
 import main.java.presentation.controller.utils.ControllerUtils;
 import main.java.presentation.controller.utils.FxUtils;
 import main.java.presentation.model.structure.deck.Deck;
