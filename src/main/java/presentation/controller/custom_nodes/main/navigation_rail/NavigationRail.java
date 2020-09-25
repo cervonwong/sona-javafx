@@ -136,6 +136,7 @@ public class NavigationRail extends VBox {
         instantiateItem(Destination.DASHBOARD, "\uF015");
         instantiateItem(Destination.DECKS, "\uF5DB");
         instantiateItem(Destination.BROWSE, "\uF002");
+        instantiateItem(Destination.EDIT, "\uF304");
         instantiateItem(Destination.STATS, "\uF201");
         instantiateItem(Destination.SETTINGS, "\uF013");
         instantiateItem(Destination.HELP, "\uF059");
@@ -156,6 +157,7 @@ public class NavigationRail extends VBox {
         CHILDREN.add(navigationRailItems.get(Destination.DASHBOARD));
         CHILDREN.add(navigationRailItems.get(Destination.DECKS));
         CHILDREN.add(navigationRailItems.get(Destination.BROWSE));
+        CHILDREN.add(navigationRailItems.get(Destination.EDIT));
         CHILDREN.add(navigationRailItems.get(Destination.STATS));
 
         // Repositioning divider.
