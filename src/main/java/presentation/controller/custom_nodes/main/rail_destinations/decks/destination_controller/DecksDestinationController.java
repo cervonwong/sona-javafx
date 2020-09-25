@@ -55,7 +55,7 @@ public class DecksDestinationController extends AnchorPane implements Destinatio
 
     private void initializeFxml() {
         final String RESOURCE_PATH = "/view/fxml/custom_nodes/main/rail_destinations/decks"
-                                     + "/decks_destination_controller.fxml";
+                                     + "/destination_controller.fxml";
 
         FxUtils.initializeFxml(this, RESOURCE_PATH);
     }
