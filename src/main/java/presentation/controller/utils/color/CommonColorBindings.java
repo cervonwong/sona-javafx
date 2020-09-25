@@ -19,13 +19,13 @@
 package main.java.presentation.controller.utils.color;
 
 import javafx.beans.binding.Bindings;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
+import javafx.scene.paint.Color;
 import main.java.presentation.controller.utils.color.provider.ColorProvider;
 
 public class CommonColorBindings {
 
-    // STATIC
+    // -fx-background-color
 
     public static StringProperty backgroundColorStyleProperty() {
         final StringProperty BACKGROUND_COLOR_STRING =
@@ -37,5 +37,34 @@ public class CommonColorBindings {
                                                     ";"));
 
         return BACKGROUND_COLOR_STYLE;
+    }
+
+
+    // -fx-text-fill
+
+    private static StringProperty textFillStyleProperty(ObjectProperty<Color> colorProperty) {
+        final StringProperty TEXT_COLOR_STRING =
+                ColorFxUtils.createStaticStringProperty(colorProperty);
+
+        final StringProperty TEXT_FILL_STYLE = new SimpleStringProperty();
+        TEXT_FILL_STYLE.bind(Bindings.concat("-fx-text-fill: ", TEXT_COLOR_STRING, ";"));
+
+        return TEXT_FILL_STYLE;
+    }
+
+    public static StringProperty highestEmphasisTextFillStyleProperty() {
+        return textFillStyleProperty(ColorProvider.highestEmphasisTextColorProperty());
+    }
+
+    public static StringProperty highEmphasisTextFillStyleProperty() {
+        return textFillStyleProperty(ColorProvider.highEmphasisTextColorProperty());
+    }
+
+    public static StringProperty mediumEmphasisTextFillStyleProperty() {
+        return textFillStyleProperty(ColorProvider.mediumEmphasisTextColorProperty());
+    }
+
+    public static StringProperty lowEmphasisTextFillStyleProperty() {
+        return textFillStyleProperty(ColorProvider.lowEmphasisTextColorProperty());
     }
 }
