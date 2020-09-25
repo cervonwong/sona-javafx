@@ -29,7 +29,7 @@ import main.java.i18n.ResourceBundleName;
 import main.java.presentation.controller.custom_nodes.main.rail_destinations.decks.deck_info_pane.tabs.DeckInfoTab;
 import main.java.presentation.controller.custom_nodes.main.rail_destinations.decks.deck_info_pane.tabs.overview.DeckInfoOverviewTabPane;
 import main.java.presentation.controller.custom_nodes.main.rail_destinations.decks.destination_controller.DestinationController;
-import main.java.presentation.controller.custom_nodes.shared_components.UnimplementedScreen;
+import main.java.presentation.controller.custom_nodes.shared_components.UnimplementedComponent;
 import main.java.presentation.controller.custom_nodes.shared_components.BackButton;
 import main.java.presentation.controller.custom_nodes.shared_components.HorizontalDivider;
 import main.java.presentation.controller.custom_nodes.shared_components.tab_bar.TabBar;
@@ -158,17 +158,17 @@ public class DeckInfoPane extends AnchorPane {
             case REVIEW:
                 return new DeckInfoOverviewTabPane(deck);
             case BROWSE:
-                return new UnimplementedScreen("The 'Browse' tab will enable you to view and sort"
-                                               + " your cards and notes of this deck easily.");
+                return new UnimplementedComponent("The 'Browse' tab will enable you to view and sort"
+                                                  + " your cards and notes of this deck easily.");
             case PROGRESS:
-                return new UnimplementedScreen("The 'Progress' tab will enable you to visualise "
-                                               + "how well you memorise facts.");
+                return new UnimplementedComponent("The 'Progress' tab will enable you to visualise "
+                                                  + "how well you memorise facts.");
             case ACTIVITY:
-                return new UnimplementedScreen("The 'Activity' tab will enable you to see at a "
-                                               + "glance, all the work you've put into this deck.");
+                return new UnimplementedComponent("The 'Activity' tab will enable you to see at a "
+                                                  + "glance, all the work you've put into this deck.");
             case INFO:
-                return new UnimplementedScreen("The 'Info' tab will show you all the fine details"
-                                               + " of this deck.");
+                return new UnimplementedComponent("The 'Info' tab will show you all the fine details"
+                                                  + " of this deck.");
             default:
                 return new AnchorPane();
         }

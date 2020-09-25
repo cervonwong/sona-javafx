@@ -26,7 +26,7 @@ import main.java.presentation.controller.custom_nodes.main.navigation_rail.Desti
 import main.java.presentation.controller.custom_nodes.main.navigation_rail.NavigationRail;
 import main.java.presentation.controller.custom_nodes.main.rail_destinations.about.AboutPane;
 import main.java.presentation.controller.custom_nodes.main.rail_destinations.decks.destination_controller.DecksDestinationController;
-import main.java.presentation.controller.custom_nodes.shared_components.UnimplementedScreen;
+import main.java.presentation.controller.custom_nodes.shared_components.UnimplementedComponent;
 import main.java.presentation.controller.utils.FxUtils;
 import main.java.presentation.model.structure.deck.Deck;
 import main.java.service.structure.deck.DeckService;
@@ -115,22 +115,22 @@ public class MainPane extends AnchorPane {
     private AnchorPane createNewDestinationController(Destination newDestination) {
         switch (newDestination) {
             case DASHBOARD:
-                return new UnimplementedScreen("The 'Dashboard' tab will enable you to see what's "
-                                               + "most important at a glance.");
+                return new UnimplementedComponent("The 'Dashboard' tab will enable you to see what's "
+                                                  + "most important at a glance.");
             case DECKS:
                 return new DecksDestinationController(decks);
             case BROWSE:
-                return new UnimplementedScreen("The 'Browse' tab will enable you to view and sort "
-                                               + "your cards and notes from all your decks.");
+                return new UnimplementedComponent("The 'Browse' tab will enable you to view and sort "
+                                                  + "your cards and notes from all your decks.");
             case STATS:
-                return new UnimplementedScreen("The 'Stats' tab will enable you to visualise how "
-                                               + "well you memorise facts.");
+                return new UnimplementedComponent("The 'Stats' tab will enable you to visualise how "
+                                                  + "well you memorise facts.");
             case SETTINGS:
-                return new UnimplementedScreen("The 'Settings' tab will enable you to customise "
-                                               + "Sona how you feel most comfortable.");
+                return new UnimplementedComponent("The 'Settings' tab will enable you to customise "
+                                                  + "Sona how you feel most comfortable.");
             case HELP:
-                return new UnimplementedScreen("The 'Help' tab will enable you learn how to work "
-                                               + "with Sona more seamlessly.");
+                return new UnimplementedComponent("The 'Help' tab will enable you learn how to work "
+                                                  + "with Sona more seamlessly.");
             case ABOUT:
                 return new AboutPane();
             default:

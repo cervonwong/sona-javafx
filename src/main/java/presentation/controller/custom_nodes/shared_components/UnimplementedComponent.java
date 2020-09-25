@@ -26,7 +26,7 @@ import javafx.scene.layout.AnchorPane;
 import main.java.presentation.controller.utils.FxUtils;
 import main.java.presentation.controller.utils.color.CommonColorBindings;
 
-public class UnimplementedScreen extends AnchorPane {
+public class UnimplementedComponent extends AnchorPane {
 
     // INSTANCE VARIABLES
 
@@ -64,7 +64,7 @@ public class UnimplementedScreen extends AnchorPane {
 
     // CONSTRUCTOR
 
-    public UnimplementedScreen(String reason) {
+    public UnimplementedComponent(String reason) {
         this.reason = reason;
 
         initializeFxml();
@@ -79,7 +79,7 @@ public class UnimplementedScreen extends AnchorPane {
 
     private void initializeFxml() {
         final String RESOURCE_PATH = "/view/fxml/custom_nodes/shared_components"
-                                     + "/unimplemented_screen.fxml";
+                                     + "/unimplemented_component.fxml";
 
         FxUtils.initializeFxml(this, RESOURCE_PATH);
     }

@@ -32,21 +32,21 @@
                <stylesheets>
                   <URL value="@../../../css/global/fonts/type_scale.css" />
                   <URL value="@../../../css/global/fonts/all_fonts.css" />
-                  <URL value="@../../../css/specific/custom_nodes/shared_components/unimplemented_screen.css" />
+                  <URL value="@../../../css/specific/custom_nodes/shared_components/unimplemented_component.css" />
                </stylesheets>
             </Label>
             <Label fx:id="titleLabel" styleClass="headline-6" text="This section of Sona is still work in progress." wrapText="true">
                <stylesheets>
                   <URL value="@../../../css/global/fonts/type_scale.css" />
                   <URL value="@../../../css/global/fonts/all_fonts.css" />
-                  <URL value="@../../../css/specific/custom_nodes/shared_components/unimplemented_screen.css" />
+                  <URL value="@../../../css/specific/custom_nodes/shared_components/unimplemented_component.css" />
                </stylesheets>
             </Label>
             <Label fx:id="reasonLabel" styleClass="body-2" text="UNKNOWN_REASON" wrapText="true">
                <stylesheets>
                   <URL value="@../../../css/global/fonts/type_scale.css" />
                   <URL value="@../../../css/global/fonts/all_fonts.css" />
-                  <URL value="@../../../css/specific/custom_nodes/shared_components/unimplemented_screen.css" />
+                  <URL value="@../../../css/specific/custom_nodes/shared_components/unimplemented_component.css" />
                </stylesheets>
             </Label>
          </children>
