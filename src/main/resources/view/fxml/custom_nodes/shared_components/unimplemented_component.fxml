@@ -23,10 +23,9 @@
   ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
   -->
 
-
-<fx:root prefHeight="400.0" prefWidth="600.0" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox alignment="CENTER" layoutX="293.0" layoutY="100.0" prefHeight="400.0" prefWidth="600.0" spacing="16.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="CENTER" layoutX="293.0" layoutY="100.0" spacing="16.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label fx:id="iconLabel" styleClass="headline-icon-2" text="">
                <stylesheets>
@@ -35,7 +34,7 @@
                   <URL value="@../../../css/specific/custom_nodes/shared_components/unimplemented_component.css" />
                </stylesheets>
             </Label>
-            <Label fx:id="titleLabel" styleClass="headline-6" text="This section of Sona is still work in progress." wrapText="true">
+            <Label fx:id="titleLabel" styleClass="headline-6" text="This section of Sona will be available soon!" wrapText="true">
                <stylesheets>
                   <URL value="@../../../css/global/fonts/type_scale.css" />
                   <URL value="@../../../css/global/fonts/all_fonts.css" />
