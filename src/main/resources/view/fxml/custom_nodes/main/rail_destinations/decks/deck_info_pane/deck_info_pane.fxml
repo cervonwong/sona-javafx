@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<!--
+  ~ Sona is an educational SRS application written in JavaFX.
+  ~ Copyright (C) 2020 Cervon Wong
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<fx:root prefWidth="500.0" styleClass="anchor-pane" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="32.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" spacing="32.0">
+               <children>
+                  <AnchorPane fx:id="backButtonPane" />
+                  <Label fx:id="titleLabel" styleClass="headline-4" text="DECK_NAME">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin></Label>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="32.0" left="32.0" right="32.0" />
+               </VBox.margin>
+            </HBox>
+            <AnchorPane fx:id="tabBarPane">
+               <VBox.margin>
+                  <Insets left="32.0" right="32.0" />
+               </VBox.margin></AnchorPane>
+            <AnchorPane fx:id="dividerPane" />
+            <AnchorPane fx:id="tabPaneContainer" />
+         </children>
+      </VBox>
+   </children>
+   <stylesheets>
+      <URL value="@../../../../../../css/global/fonts/all_fonts.css" />
+      <URL value="@../../../../../../css/global/fonts/type_scale.css" />
+      <URL value="@../../../../../../css/global/design/design.css" />
+      <URL value="@../../../../../../css/specific/custom_nodes/main/rail_destinations/decks/deck_info_pane/deck_info_pane.css" />
+   </stylesheets>
+</fx:root>
