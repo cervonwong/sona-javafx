@@ -26,6 +26,7 @@ import main.java.presentation.controller.custom_nodes.main.navigation_rail.Desti
 import main.java.presentation.controller.custom_nodes.main.navigation_rail.NavigationRail;
 import main.java.presentation.controller.custom_nodes.main.rail_destinations.about.AboutPane;
 import main.java.presentation.controller.custom_nodes.main.rail_destinations.decks.destination_controller.DecksDestinationController;
+import main.java.presentation.controller.custom_nodes.screens.UnimplementedScreen;
 import main.java.presentation.controller.utils.FxUtils;
 import main.java.presentation.model.structure.deck.Deck;
 import main.java.service.structure.deck.DeckService;
@@ -105,21 +106,36 @@ public class MainPane extends AnchorPane {
 
     private void initializeNavigationBehavior() {
         // Uses Android-Like navigation.
-        navigationRail.activeDestinationProperty().addListener((obs, oldValue, newValue) -> {
-            // Remove the previous destination pane.
-            contentPane.getChildren().clear();
+        navigationRail.activeDestinationProperty()
+                      .addListener((obs, oldDestination, newDestination)
+                                           -> updateDestinationController(
+                              createNewDestinationController(newDestination)));
+    }
 
-            switch (newValue) {
-                case ABOUT:
-                    final AboutPane ABOUT_PANE = new AboutPane();
-                    updateDestinationController(ABOUT_PANE);
-                    break;
-                case DECKS:
-                    updateDestinationController(new DecksDestinationController(decks));
-                default:
-                    System.out.println("Unimplemented");
-            }
-        });
+    private AnchorPane createNewDestinationController(Destination newDestination) {
+        switch (newDestination) {
+            case DASHBOARD:
+                return new UnimplementedScreen("The 'Dashboard' tab will enable you to see what's "
+                                               + "most important at a glance.");
+            case DECKS:
+                return new DecksDestinationController(decks);
+            case BROWSE:
+                return new UnimplementedScreen("The 'Browse' tab will enable you to view and sort "
+                                               + "your cards and notes from all your decks.");
+            case STATS:
+                return new UnimplementedScreen("The 'Stats' tab will enable you to visualise how "
+                                               + "well you memorise facts.");
+            case SETTINGS:
+                return new UnimplementedScreen("The 'Settings' tab will enable you to customise "
+                                               + "Sona how you feel most comfortable.");
+            case HELP:
+                return new UnimplementedScreen("The 'Help' tab will enable you learn how to work "
+                                               + "with Sona more seamlessly.");
+            case ABOUT:
+                return new AboutPane();
+            default:
+                return null;
+        }
     }
 
     private void updateDestinationController(AnchorPane destinationPane) {
