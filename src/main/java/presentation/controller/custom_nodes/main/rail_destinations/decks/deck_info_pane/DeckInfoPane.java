@@ -29,7 +29,7 @@ import main.java.i18n.ResourceBundleName;
 import main.java.presentation.controller.custom_nodes.main.rail_destinations.decks.deck_info_pane.tabs.DeckInfoTab;
 import main.java.presentation.controller.custom_nodes.main.rail_destinations.decks.deck_info_pane.tabs.overview.DeckInfoOverviewTabPane;
 import main.java.presentation.controller.custom_nodes.main.rail_destinations.decks.destination_controller.DestinationController;
-import main.java.presentation.controller.custom_nodes.screens.UnimplementedScreen;
+import main.java.presentation.controller.custom_nodes.shared_components.UnimplementedScreen;
 import main.java.presentation.controller.custom_nodes.shared_components.BackButton;
 import main.java.presentation.controller.custom_nodes.shared_components.HorizontalDivider;
 import main.java.presentation.controller.custom_nodes.shared_components.tab_bar.TabBar;

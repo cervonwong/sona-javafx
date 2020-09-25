@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package main.java.presentation.controller.custom_nodes.screens;
+package main.java.presentation.controller.custom_nodes.shared_components;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -78,7 +78,8 @@ public class UnimplementedScreen extends AnchorPane {
     // INITIALIZERS (FXML)
 
     private void initializeFxml() {
-        final String RESOURCE_PATH = "/view/fxml/custom_nodes/screens/unimplemented_screen.fxml";
+        final String RESOURCE_PATH = "/view/fxml/custom_nodes/shared_components"
+                                     + "/unimplemented_screen.fxml";
 
         FxUtils.initializeFxml(this, RESOURCE_PATH);
     }

@@ -26,7 +26,7 @@ import main.java.presentation.controller.custom_nodes.main.navigation_rail.Desti
 import main.java.presentation.controller.custom_nodes.main.navigation_rail.NavigationRail;
 import main.java.presentation.controller.custom_nodes.main.rail_destinations.about.AboutPane;
 import main.java.presentation.controller.custom_nodes.main.rail_destinations.decks.destination_controller.DecksDestinationController;
-import main.java.presentation.controller.custom_nodes.screens.UnimplementedScreen;
+import main.java.presentation.controller.custom_nodes.shared_components.UnimplementedScreen;
 import main.java.presentation.controller.utils.FxUtils;
 import main.java.presentation.model.structure.deck.Deck;
 import main.java.service.structure.deck.DeckService;
