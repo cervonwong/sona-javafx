@@ -46,7 +46,7 @@
                   <Insets left="32.0" right="32.0" />
                </VBox.margin></AnchorPane>
             <AnchorPane fx:id="dividerPane" />
-            <AnchorPane fx:id="tabPaneContainer" />
+            <AnchorPane fx:id="tabPaneContainer" VBox.vgrow="ALWAYS" />
          </children>
       </VBox>
    </children>
