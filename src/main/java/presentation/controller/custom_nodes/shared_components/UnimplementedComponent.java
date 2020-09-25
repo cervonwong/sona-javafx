@@ -28,6 +28,7 @@ import main.java.presentation.controller.utils.ControllerUtils;
 import main.java.presentation.controller.utils.FxUtils;
 import main.java.presentation.controller.utils.color.CommonColorBindings;
 
+import java.util.Random;
 import java.util.ResourceBundle;
 
 public class UnimplementedComponent extends AnchorPane {
@@ -37,6 +38,16 @@ public class UnimplementedComponent extends AnchorPane {
     private final ResourceBundle messages;
 
     private final String reason;
+
+
+    // CONSTANTS
+
+    private final char[] icons = {'\uF1E2',
+                                  '\uF188',
+                                  '\uF2F3',
+                                  '\uF7B9',
+                                  '\uF59C',
+                                  '\uF135'};
 
 
     // JAVAFX PROPERTIES (Style (Attributive))
@@ -75,7 +86,7 @@ public class UnimplementedComponent extends AnchorPane {
         this.reason = reason;
 
         initializeFxml();
-        initializeReasonLabelText();
+        initializeTexts();
         initializeI18nText();
 
         initializeAttributiveStyleBindings();
@@ -93,7 +104,20 @@ public class UnimplementedComponent extends AnchorPane {
         FxUtils.initializeFxml(this, RESOURCE_PATH);
     }
 
+
     // INITIALIZERS (Text)
+
+    private void initializeTexts() {
+        initializeIconLabelText();
+        initializeReasonLabelText();
+    }
+
+    private void initializeIconLabelText() {
+        Random random = new Random();
+
+        final char ICON = icons[random.nextInt(icons.length)];
+        iconLabel.setText(String.valueOf(ICON));
+    }
 
     private void initializeReasonLabelText() {
         reasonLabel.setText(reason);
