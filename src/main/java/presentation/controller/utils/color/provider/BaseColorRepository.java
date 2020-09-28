@@ -55,10 +55,15 @@ public class BaseColorRepository {
     final static Color BLUE_050 = Color.rgb(232, 240, 246); // #E8F0F6
     final static Color BLUE_100 = Color.rgb(203, 217, 225); // #CBD9E1
     final static Color BLUE_200 = Color.rgb(173, 192, 203); // #ADC0CB
+    @Deprecated
     final static Color BLUE_300 = Color.rgb(141, 166, 181); // #8DA6B5
+    @Deprecated
     final static Color BLUE_400 = Color.rgb(117, 146, 163); // #7592A3
+    @Deprecated
     final static Color BLUE_500 = Color.rgb(93, 127, 146);  // #5D7F92
+    @Deprecated
     final static Color BLUE_600 = Color.rgb(81, 112, 129);  // #517081
+    @Deprecated
     final static Color BLUE_700 = Color.rgb(66, 92, 106);   // #425C6A
     final static Color BLUE_800 = Color.rgb(52, 73, 85);    // #344955
     final static Color BLUE_900 = Color.rgb(35, 52, 62);    // #23343E
@@ -72,6 +77,7 @@ public class BaseColorRepository {
     final static Color NEARLY_WHITE = Color.rgb(254, 254, 254); // #FEFEFE
     final static Color ALMOST_WHITE = Color.rgb(242, 242, 242); // #F2F2F2
 
+    @Deprecated
     final static Color NEARLY_BLACK = BLUE_900;
 
     final static Color DARKEST_TEXT_COLOR = Color.rgb(23, 38, 42); // #17262A (For headings)
