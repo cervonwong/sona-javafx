@@ -41,6 +41,9 @@ module Sona {
     requires com.fasterxml.jackson.databind;
     requires com.fasterxml.jackson.datatype.jsr310;
 
+    // RichTextFX
+    requires org.fxmisc.richtext;
+
     // Desktop
     requires java.desktop;
 }

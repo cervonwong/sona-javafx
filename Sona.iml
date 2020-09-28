@@ -40,5 +40,6 @@
     <orderEntry type="library" name="com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.11.2" level="project" />
     <orderEntry type="library" name="org.openjfx:javafx-controls:15" level="project" />
     <orderEntry type="library" name="org.openjfx:javafx-fxml:15" level="project" />
+    <orderEntry type="library" name="org.fxmisc.richtext:richtextfx:0.10.5" level="project" />
   </component>
 </module>
