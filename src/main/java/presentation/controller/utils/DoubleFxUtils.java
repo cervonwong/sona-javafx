@@ -40,7 +40,7 @@ public class DoubleFxUtils {
         return VALUE;
     }
 
-    public static Timeline createDoubleTimelineAnimation(DoubleProperty value,
+    private static Timeline createDoubleTimelineAnimation(DoubleProperty value,
                                                           double startValue,
                                                           double endValue,
                                                           Duration duration) {
