@@ -18,9 +18,11 @@
 
 package main.java.presentation.controller.utils;
 
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 
@@ -55,4 +57,16 @@ public class FxUtils {
         AnchorPane.setRightAnchor(node, 0.0);
         AnchorPane.setLeftAnchor(node, 0.0);
     }
+
+    public static void sharpenTextArea(TextArea textArea) {
+        Platform.runLater(() -> {
+            textArea.setCache(false);
+            ScrollPane scrollPane = (ScrollPane) textArea.getChildrenUnmodifiable().get(0);
+            scrollPane.setCache(false);
+            for (Node node : scrollPane.getChildrenUnmodifiable()) {
+                node.setCache(false);
+            }
+        });
+    }
+
 }
