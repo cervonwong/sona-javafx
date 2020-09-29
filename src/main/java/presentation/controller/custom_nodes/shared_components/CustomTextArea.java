@@ -34,9 +34,9 @@ public class CustomTextArea extends TextArea {
 
     // CONSTANTS (Style)
 
-    private final static double ENABLED_ACCENT_HEIGHT = 1.0;
+    private final static double ENABLED_ACCENT_HEIGHT = 2.0;
 
-    private final static double HOVER_ACCENT_HEIGHT = 2.0;
+    private final static double HOVER_ACCENT_HEIGHT = 4.0;
 
 
     // JAVAFX PROPERTIES (Style (Attributive))
@@ -114,11 +114,21 @@ public class CustomTextArea extends TextArea {
 
         hoverProperty()
                 .addListener((obs, oldValue, newValue)
-                                     -> DESIRED_ACCENT_BACKGROUND_COLOR.bind(newValue
+                                     -> DESIRED_ACCENT_BACKGROUND_COLOR.bind((newValue
+                                                                              || isFocused())
                                                                              ?
                                                                              HOVER_ACCENT_BACKGROUND_COLOR
                                                                              :
                                                                              ENABLED_ACCENT_BACKGROUND_COLOR));
+
+        focusedProperty().addListener((obs, oldValue, newValue)
+                                              -> DESIRED_ACCENT_BACKGROUND_COLOR.bind((newValue
+                                                                                       || isHover())
+                                                                                      ?
+                                                                                      HOVER_ACCENT_BACKGROUND_COLOR
+                                                                                      :
+                                                                                      ENABLED_ACCENT_BACKGROUND_COLOR));
+
         DESIRED_ACCENT_BACKGROUND_COLOR.bind(ENABLED_ACCENT_BACKGROUND_COLOR);
 
         return DESIRED_ACCENT_BACKGROUND_COLOR;
@@ -135,8 +145,8 @@ public class CustomTextArea extends TextArea {
 
         final DoubleProperty PARAMETRIC_BACKGROUND_INSET =
                 DoubleFxUtils.createDynamicDoubleProperty(
-                DESIRED_PARAMETRIC_BACKGROUND_INSET,
-                TRANSITION_DURATION);
+                        DESIRED_PARAMETRIC_BACKGROUND_INSET,
+                        TRANSITION_DURATION);
 
         backgroundInsetsStyle.bind(Bindings.concat("-fx-background-insets: 0, 0 0 ",
                                                    PARAMETRIC_BACKGROUND_INSET,
@@ -148,11 +158,22 @@ public class CustomTextArea extends TextArea {
 
         hoverProperty()
                 .addListener((obs, oldValue, newValue)
-                                     -> DESIRED_PARAMETRIC_BACKGROUND_INSET.set(newValue
+                                     -> DESIRED_PARAMETRIC_BACKGROUND_INSET.set((newValue
+                                                                                 || isFocused())
                                                                                 ?
                                                                                 HOVER_ACCENT_HEIGHT
                                                                                 :
                                                                                 ENABLED_ACCENT_HEIGHT));
+
+        focusedProperty()
+                .addListener((obs, oldValue, newValue)
+                                     -> DESIRED_PARAMETRIC_BACKGROUND_INSET.set((newValue
+                                                                                 || isHover())
+                                                                                ?
+                                                                                HOVER_ACCENT_HEIGHT
+                                                                                :
+                                                                                ENABLED_ACCENT_HEIGHT));
+
         DESIRED_PARAMETRIC_BACKGROUND_INSET.set(ENABLED_ACCENT_HEIGHT);
 
         return DESIRED_PARAMETRIC_BACKGROUND_INSET;
