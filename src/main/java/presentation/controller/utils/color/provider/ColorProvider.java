@@ -125,6 +125,15 @@ public class ColorProvider {
     private static final ObjectProperty<Color> tabBarIndicatorColor = new SimpleObjectProperty<>();
 
 
+    // JAVAFX PROPERTIES ([SPECIFIC] TEXT FIELD)
+
+    private static final ObjectProperty<Color> enabledTextFieldAccentColor =
+            new SimpleObjectProperty<>();
+
+    private static final ObjectProperty<Color> hoverTextFieldAccentColor =
+            new SimpleObjectProperty<>();
+
+
     // INITIALIZATION
 
     static {
@@ -190,6 +199,9 @@ public class ColorProvider {
         pressedTabItemBackgroundColor.set(repository.getPressedTabItemBackgroundColor());
         activatedTabItemTextColor.set(repository.getActivatedTabItemTextColor());
         tabBarIndicatorColor.set(repository.getTabBarIndicatorColor());
+
+        enabledTextFieldAccentColor.set(repository.getEnabledTextFieldAccentColor());
+        hoverTextFieldAccentColor.set(repository.getHoverTextFieldAccentColor());
     }
 
 
@@ -306,6 +318,15 @@ public class ColorProvider {
         return tabBarIndicatorColor.get();
     }
 
+    public static Color getEnabledTextFieldAccentColor() {
+        return enabledTextFieldAccentColor.get();
+    }
+
+    public static Color getHoverTextFieldAccentColor() {
+        return hoverTextFieldAccentColor.get();
+    }
+
+
     // PROPERTY ACCESSORS
 
     public static ObjectProperty<Theme> themeProperty() {
@@ -417,6 +438,14 @@ public class ColorProvider {
 
     public static ObjectProperty<Color> tabBarIndicatorColorProperty() {
         return tabBarIndicatorColor;
+    }
+
+    public static ObjectProperty<Color> enabledTextFieldAccentColorProperty() {
+        return enabledTextFieldAccentColor;
+    }
+
+    public static ObjectProperty<Color> hoverTextFieldAccentColorProperty() {
+        return hoverTextFieldAccentColor;
     }
 
 

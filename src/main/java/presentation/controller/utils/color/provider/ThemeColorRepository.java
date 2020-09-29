@@ -93,4 +93,11 @@ public interface ThemeColorRepository {
     Color getActivatedTabItemTextColor();
 
     Color getTabBarIndicatorColor();
+
+
+    // [SPECIFIC] TEXT FIELD
+
+    Color getEnabledTextFieldAccentColor();
+
+    Color getHoverTextFieldAccentColor();
 }

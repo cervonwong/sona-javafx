@@ -155,4 +155,14 @@ public class DarkThemeColorRepository implements ThemeColorRepository {
     public Color getTabBarIndicatorColor() {
         return Color.CADETBLUE;
     }
+
+    @Override
+    public Color getEnabledTextFieldAccentColor() {
+        return Color.RED;
+    }
+
+    @Override
+    public Color getHoverTextFieldAccentColor() {
+        return Color.MINTCREAM;
+    }
 }

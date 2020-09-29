@@ -94,6 +94,14 @@ public class LightThemeColorRepository implements ThemeColorRepository {
 
     private final Color TAB_BAR_INDICATOR_COLOR = BRAND_COLOR;
 
+
+    // [SPECIFIC] TEXT FIELD
+
+    private final Color ENABLED_TEXT_FIELD_ACCENT_COLOR = BaseColorRepository.BLUE_200;
+
+    private final Color HOVER_TEXT_FIELD_ACCENT_COLOR = BRAND_COLOR;
+
+
     // ============================================================================================
     // ACCESSORS
     // ============================================================================================
@@ -247,5 +255,18 @@ public class LightThemeColorRepository implements ThemeColorRepository {
     @Override
     public Color getTabBarIndicatorColor() {
         return TAB_BAR_INDICATOR_COLOR;
+    }
+
+
+    // [SPECIFIC] TEXT FIELD
+
+    @Override
+    public Color getEnabledTextFieldAccentColor() {
+        return ENABLED_TEXT_FIELD_ACCENT_COLOR;
+    }
+
+    @Override
+    public Color getHoverTextFieldAccentColor() {
+        return HOVER_TEXT_FIELD_ACCENT_COLOR;
     }
 }
