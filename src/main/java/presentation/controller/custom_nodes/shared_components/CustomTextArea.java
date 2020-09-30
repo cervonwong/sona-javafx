@@ -58,6 +58,8 @@ public class CustomTextArea extends TextArea {
 
         initializeAttributiveStyleBindings();
         initializeNodalStyleBindings();
+
+        FxUtils.sharpenTextArea(this);
     }
 
 
