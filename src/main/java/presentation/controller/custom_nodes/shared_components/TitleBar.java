@@ -140,7 +140,6 @@ public class TitleBar extends AnchorPane {
     // INITIALIZERS (Style Bindings (Internal - Nodal))
 
     private void initializeTitleLabelStyleBinding() {
-        System.out.println(textFillStyle);
         titleLabelStyle.bind(textFillStyle);
         titleLabel.styleProperty().bind(titleLabelStyle);
     }
