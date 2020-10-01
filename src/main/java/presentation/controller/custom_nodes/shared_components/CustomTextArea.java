@@ -51,6 +51,9 @@ public class CustomTextArea extends TextArea {
     private final StringProperty textFillStyle =
             CommonColorBindings.highEmphasisTextFillStyleProperty();
 
+    private final StringProperty highlightFillStyle = new SimpleStringProperty();
+
+    private final StringProperty highlightTextFillStyle = new SimpleStringProperty();
 
     // JAVAFX PROPERTIES (Style (Nodal))
 
@@ -84,6 +87,8 @@ public class CustomTextArea extends TextArea {
     private void initializeAttributiveStyleBindings() {
         initializeBackgroundColorStyleBindings();
         initializeBackgroundInsetsStyleBindings();
+        initializeHighlightFillStyleBindings();
+        initializeHighlightTextFillStyleBindings();
     }
 
     private void initializeNodalStyleBindings() {
@@ -189,6 +194,29 @@ public class CustomTextArea extends TextArea {
     }
 
 
+    // INITIALIZERS (Style Bindings (Internal - Attributive highlightFillStyle))
+
+    private void initializeHighlightFillStyleBindings() {
+        final StringProperty HIGHLIGHT_COLOR_STRING =
+                ColorFxUtils.createStaticStringProperty(ColorProvider.textFieldHighlightFillColorProperty());
+
+        highlightFillStyle.bind(Bindings.concat("-fx-highlight-fill: ",
+                                                HIGHLIGHT_COLOR_STRING,
+                                                ";"));
+    }
+
+
+    // INITIALIZERS (Style Bindings (Internal - Attributive highlightTextFillStyle))
+
+    private void initializeHighlightTextFillStyleBindings() {
+        final StringProperty HIGHLIGHT_TEXT_COLOR_STRING =
+                ColorFxUtils.createStaticStringProperty(ColorProvider.highEmphasisTextColorProperty());
+
+        highlightTextFillStyle.bind(Bindings.concat("-fx-highlight-text-fill:",
+                                                    HIGHLIGHT_TEXT_COLOR_STRING,
+                                                    ";"));
+    }
+
     // INITIALIZERS (Style Bindings (prefHeightProperty))
 
     private void initializePrefHeightStyleBindings() {
@@ -203,10 +231,15 @@ public class CustomTextArea extends TextArea {
         });
     }
 
+
     // INITIALIZERS (Style Bindings (Internal - Nodal))
 
     private void initializeThisStyleBinding() {
-        thisStyle.bind(Bindings.concat(backgroundColorStyle, backgroundInsetsStyle, textFillStyle));
+        thisStyle.bind(Bindings.concat(backgroundColorStyle,
+                                       backgroundInsetsStyle,
+                                       textFillStyle,
+                                       highlightFillStyle,
+                                       highlightTextFillStyle));
         styleProperty().bind(thisStyle);
     }
 }
