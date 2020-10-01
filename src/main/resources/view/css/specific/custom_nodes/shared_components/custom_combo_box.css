@@ -1,0 +1,14 @@
+.combo-box {
+	-fx-background-radius: 99999;
+}
+
+/*
+.combo-box > .list-cell {
+	-fx-text-fill: red;
+}
+
+.combo-box > .combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell {
+	-fx-text-fill: red;
+}
+*/
+
