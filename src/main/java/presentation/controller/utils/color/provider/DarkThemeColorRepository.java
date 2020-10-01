@@ -107,6 +107,21 @@ public class DarkThemeColorRepository implements ThemeColorRepository {
     }
 
     @Override
+    public Color getEnabledControlBackgroundColor() {
+        return Color.LIGHTGOLDENRODYELLOW;
+    }
+
+    @Override
+    public Color getHoverControlBackgroundColor() {
+        return Color.MEDIUMPURPLE;
+    }
+
+    @Override
+    public Color getPressedControlBackgroundColor() {
+        return Color.PALEVIOLETRED;
+    }
+
+    @Override
     public Color getNavigationRailBaseColor() {
         return Color.PURPLE;
     }
@@ -129,21 +144,6 @@ public class DarkThemeColorRepository implements ThemeColorRepository {
     @Override
     public Color getDividerColor() {
         return Color.ORCHID;
-    }
-
-    @Override
-    public Color getEnabledTabItemBackgroundColor() {
-        return Color.LIGHTGOLDENRODYELLOW;
-    }
-
-    @Override
-    public Color getHoverTabItemBackgroundColor() {
-        return Color.MEDIUMPURPLE;
-    }
-
-    @Override
-    public Color getPressedTabItemBackgroundColor() {
-        return Color.PALEVIOLETRED;
     }
 
     @Override

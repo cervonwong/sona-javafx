@@ -144,13 +144,13 @@ public class TabItem extends Button {
         final ObjectProperty<Color> DESIRED_BACKGROUND_COLOR = new SimpleObjectProperty<>();
 
         final ObjectProperty<Color> ENABLED_BACKGROUND_COLOR =
-                ColorFxUtils.createStaticColorProperty(ColorProvider.enabledTabItemBackgroundColorProperty());
+                ColorFxUtils.createStaticColorProperty(ColorProvider.enabledControlBackgroundColorProperty());
 
         final ObjectProperty<Color> HOVER_BACKGROUND_COLOR =
-                ColorFxUtils.createStaticColorProperty(ColorProvider.hoverTabItemBackgroundColorProperty());
+                ColorFxUtils.createStaticColorProperty(ColorProvider.hoverControlBackgroundColorProperty());
 
         final ObjectProperty<Color> PRESSED_BACKGROUND_COLOR =
-                ColorFxUtils.createStaticColorProperty(ColorProvider.pressedTabItemBackgroundColorProperty());
+                ColorFxUtils.createStaticColorProperty(ColorProvider.pressedControlBackgroundColorProperty());
 
         hoverProperty()
                 .addListener((obs, oldValue, newValue)

@@ -67,6 +67,13 @@ public class LightThemeColorRepository implements ThemeColorRepository {
     private final Color HOVER_ICON_BUTTON_TEXT_COLOR = BRAND_COLOR;
 
 
+    // [SHARED] CONTROL COLORS
+
+    private final Color ENABLED_CONTROL_BACKGROUND_COLOR = Color.TRANSPARENT;
+    private final Color HOVER_CONTROL_BACKGROUND_COLOR = BRAND_COLOR.deriveColor(0, 1, 1, 0.1);
+    private final Color PRESSED_CONTROL_BACKGROUND_COLOR = BRAND_COLOR.deriveColor(0, 1, 1, 0.3);
+
+
     // [SPECIFIC] NAVIGATION RAIL COLORS
 
     private final Color NAVIGATION_RAIL_BASE_COLOR = BaseColorRepository.BLUE_800;
@@ -85,10 +92,6 @@ public class LightThemeColorRepository implements ThemeColorRepository {
 
 
     // [SPECIFIC] TAB BAR
-
-    private final Color ENABLED_TAB_ITEM_BACKGROUND_COLOR = Color.TRANSPARENT;
-    private final Color HOVER_TAB_ITEM_BACKGROUND_COLOR = BRAND_COLOR.deriveColor(0, 1, 1, 0.1);
-    private final Color PRESSED_TAB_ITEM_BACKGROUND_COLOR = BRAND_COLOR.deriveColor(0, 1, 1, 0.3);
 
     private final Color ACTIVATED_TAB_ITEM_TEXT_COLOR = BRAND_COLOR;
 
@@ -196,6 +199,24 @@ public class LightThemeColorRepository implements ThemeColorRepository {
     }
 
 
+    // [SHARED] CONTROL COLORS
+
+    @Override
+    public Color getEnabledControlBackgroundColor() {
+        return ENABLED_CONTROL_BACKGROUND_COLOR;
+    }
+
+    @Override
+    public Color getHoverControlBackgroundColor() {
+        return HOVER_CONTROL_BACKGROUND_COLOR;
+    }
+
+    @Override
+    public Color getPressedControlBackgroundColor() {
+        return PRESSED_CONTROL_BACKGROUND_COLOR;
+    }
+
+
     // [SPECIFIC] NAVIGATION RAIL COLORS
 
     @Override
@@ -231,21 +252,6 @@ public class LightThemeColorRepository implements ThemeColorRepository {
 
 
     // [SPECIFIC] TAB BAR
-
-    @Override
-    public Color getEnabledTabItemBackgroundColor() {
-        return ENABLED_TAB_ITEM_BACKGROUND_COLOR;
-    }
-
-    @Override
-    public Color getHoverTabItemBackgroundColor() {
-        return HOVER_TAB_ITEM_BACKGROUND_COLOR;
-    }
-
-    @Override
-    public Color getPressedTabItemBackgroundColor() {
-        return PRESSED_TAB_ITEM_BACKGROUND_COLOR;
-    }
 
     @Override
     public Color getActivatedTabItemTextColor() {

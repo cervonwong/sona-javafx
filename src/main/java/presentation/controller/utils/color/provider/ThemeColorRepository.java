@@ -63,6 +63,15 @@ public interface ThemeColorRepository {
     Color getHoverIconButtonTextColor();
 
 
+    // [SHARED] CONTROL COLORS
+
+    Color getEnabledControlBackgroundColor();
+
+    Color getHoverControlBackgroundColor();
+
+    Color getPressedControlBackgroundColor();
+
+
     // [SPECIFIC] NAVIGATION RAIL COLORS
 
     Color getNavigationRailBaseColor();
@@ -83,12 +92,6 @@ public interface ThemeColorRepository {
 
 
     // [SPECIFIC] TAB BAR
-
-    Color getEnabledTabItemBackgroundColor();
-
-    Color getHoverTabItemBackgroundColor();
-
-    Color getPressedTabItemBackgroundColor();
 
     Color getActivatedTabItemTextColor();
 

@@ -85,6 +85,18 @@ public class ColorProvider {
             new SimpleObjectProperty<>();
 
 
+    // JAVAFX PROPERTIES ([SHARED] CONTROL COLORS)
+
+    private static final ObjectProperty<Color> enabledControlBackgroundColor =
+            new SimpleObjectProperty<>();
+
+    private static final ObjectProperty<Color> hoverControlBackgroundColor =
+            new SimpleObjectProperty<>();
+
+    private static final ObjectProperty<Color> pressedControlBackgroundColor =
+            new SimpleObjectProperty<>();
+
+
     // JAVAFX PROPERTIES ([SPECIFIC] NAVIGATION RAIL COLORS)
 
     private static final ObjectProperty<Color> navigationRailBaseColor =
@@ -109,15 +121,6 @@ public class ColorProvider {
 
 
     // JAVAFX PROPERTIES ([SPECIFIC] TAB BAR)
-
-    private static final ObjectProperty<Color> enabledTabItemBackgroundColor =
-            new SimpleObjectProperty<>();
-
-    private static final ObjectProperty<Color> hoverTabItemBackgroundColor =
-            new SimpleObjectProperty<>();
-
-    private static final ObjectProperty<Color> pressedTabItemBackgroundColor =
-            new SimpleObjectProperty<>();
 
     private static final ObjectProperty<Color> activatedTabItemTextColor =
             new SimpleObjectProperty<>();
@@ -186,6 +189,10 @@ public class ColorProvider {
         onContainedButtonTextColor.set(repository.getOnContainedButtonTextColor());
         hoverIconButtonTextColor.set(repository.getHoverIconButtonTextColor());
 
+        enabledControlBackgroundColor.set(repository.getEnabledControlBackgroundColor());
+        hoverControlBackgroundColor.set(repository.getHoverControlBackgroundColor());
+        pressedControlBackgroundColor.set(repository.getPressedControlBackgroundColor());
+
         navigationRailBaseColor.set(repository.getNavigationRailBaseColor());
         navigationRailInactiveTextColor.set(repository.getNavigationRailInactiveTextColor());
         navigationRailActivatedTextColor.set(repository.getNavigationRailActivatedTextColor());
@@ -194,9 +201,6 @@ public class ColorProvider {
 
         dividerColor.set(repository.getDividerColor());
 
-        enabledTabItemBackgroundColor.set(repository.getEnabledTabItemBackgroundColor());
-        hoverTabItemBackgroundColor.set(repository.getHoverTabItemBackgroundColor());
-        pressedTabItemBackgroundColor.set(repository.getPressedTabItemBackgroundColor());
         activatedTabItemTextColor.set(repository.getActivatedTabItemTextColor());
         tabBarIndicatorColor.set(repository.getTabBarIndicatorColor());
 
@@ -278,6 +282,18 @@ public class ColorProvider {
         return hoverIconButtonTextColor.get();
     }
 
+    public static Color getEnabledControlBackgroundColor() {
+        return enabledControlBackgroundColor.get();
+    }
+
+    public static Color getHoverControlBackgroundColor() {
+        return hoverControlBackgroundColor.get();
+    }
+
+    public static Color getPressedControlBackgroundColor() {
+        return pressedControlBackgroundColor.get();
+    }
+
     public static Color getNavigationRailBaseColor() {
         return navigationRailBaseColor.get();
     }
@@ -296,18 +312,6 @@ public class ColorProvider {
 
     public static Color getDividerColor() {
         return dividerColor.get();
-    }
-
-    public static Color getEnabledTabItemBackgroundColor() {
-        return enabledTabItemBackgroundColor.get();
-    }
-
-    public static Color getHoverTabItemBackgroundColor() {
-        return hoverTabItemBackgroundColor.get();
-    }
-
-    public static Color getPressedTabItemBackgroundColor() {
-        return pressedTabItemBackgroundColor.get();
     }
 
     public static Color getActivatedTabItemTextColor() {
@@ -400,6 +404,18 @@ public class ColorProvider {
         return hoverIconButtonTextColor;
     }
 
+    public static ObjectProperty<Color> enabledControlBackgroundColorProperty() {
+        return enabledControlBackgroundColor;
+    }
+
+    public static ObjectProperty<Color> hoverControlBackgroundColorProperty() {
+        return hoverControlBackgroundColor;
+    }
+
+    public static ObjectProperty<Color> pressedControlBackgroundColorProperty() {
+        return pressedControlBackgroundColor;
+    }
+
     public static ObjectProperty<Color> navigationRailBaseColorProperty() {
         return navigationRailBaseColor;
     }
@@ -418,18 +434,6 @@ public class ColorProvider {
 
     public static ObjectProperty<Color> dividerColorProperty() {
         return dividerColor;
-    }
-
-    public static ObjectProperty<Color> enabledTabItemBackgroundColorProperty() {
-        return enabledTabItemBackgroundColor;
-    }
-
-    public static ObjectProperty<Color> hoverTabItemBackgroundColorProperty() {
-        return hoverTabItemBackgroundColor;
-    }
-
-    public static ObjectProperty<Color> pressedTabItemBackgroundColorProperty() {
-        return pressedTabItemBackgroundColor;
     }
 
     public static ObjectProperty<Color> activatedTabItemTextColorProperty() {
