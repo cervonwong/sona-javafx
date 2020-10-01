@@ -70,7 +70,7 @@ public class CustomComboBox<T> extends ComboBox<T> {
     }
 
 
-    // initializers (Style Binding (Called in constructor))
+    // initializers (Style Bindings (Called in constructor))
 
     private void initializeAttributiveStyleBindings() {
         initializeBackgroundColorStyleBindings();
@@ -85,7 +85,7 @@ public class CustomComboBox<T> extends ComboBox<T> {
     }
 
 
-    // INITIALIZERS (Style Binding (Internal - Attributive backgroundColorStyle))
+    // INITIALIZERS (Style Bindings (Internal - Attributive backgroundColorStyle))
 
     private void initializeBackgroundColorStyleBindings() {
         final Duration TRANSITION_DURATION = Duration.millis(150);
@@ -134,7 +134,7 @@ public class CustomComboBox<T> extends ComboBox<T> {
     }
 
 
-    // INITIALIZERS (Style Binding (Internal - Attributive arrowButtonBackgroundColorStyle))
+    // INITIALIZERS (Style Bindings (Internal - Attributive arrowButtonBackgroundColorStyle))
 
     private void initializeArrowButtonBackgroundColorStyleBindings() {
         final StringProperty BACKGROUND_COLOR_STRING =
@@ -146,7 +146,7 @@ public class CustomComboBox<T> extends ComboBox<T> {
     }
 
 
-    // INITIALIZERS (Style Binding (Internal - Attributive textFillStyle))
+    // INITIALIZERS (Style Bindings (Internal - Attributive textFillStyle))
 
     private void initializeTextFillStyleBindings() {
         final StringProperty TEXT_FILL_STRING =
