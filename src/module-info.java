@@ -27,6 +27,8 @@ module Sona {
     opens main.java.presentation.controller.custom_nodes.main.rail_destinations.decks.decks_view_pane to javafx.fxml;
     opens main.java.presentation.controller.custom_nodes.shared_components to javafx.fxml;
     opens main.java.presentation.controller.custom_nodes.shared_components.tab_bar to javafx.fxml;
+    opens main.java.presentation.controller.custom_nodes.main.rail_destinations.edit.editing_pane to javafx.fxml;
+
 
     // ============================================================================================
     // DEPENDENCIES
