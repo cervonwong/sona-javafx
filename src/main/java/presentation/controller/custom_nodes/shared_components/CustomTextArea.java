@@ -28,6 +28,7 @@ import javafx.util.Duration;
 import main.java.presentation.controller.utils.DoubleFxUtils;
 import main.java.presentation.controller.utils.FxUtils;
 import main.java.presentation.controller.utils.color.ColorFxUtils;
+import main.java.presentation.controller.utils.color.CommonColorBindings;
 import main.java.presentation.controller.utils.color.provider.ColorProvider;
 
 // TODO: 28/09/2020 INCOMPLETE STYLING!!!!!!!
@@ -47,15 +48,13 @@ public class CustomTextArea extends TextArea {
 
     private final StringProperty backgroundInsetsStyle = new SimpleStringProperty();
 
+    private final StringProperty textFillStyle =
+            CommonColorBindings.highEmphasisTextFillStyleProperty();
+
 
     // JAVAFX PROPERTIES (Style (Nodal))
 
     private final StringProperty thisStyle = new SimpleStringProperty();
-
-
-    // STYLE
-
-    private TextHolder textHolder = new TextHolder();
 
 
     // CONTROLLER
@@ -207,7 +206,7 @@ public class CustomTextArea extends TextArea {
     // INITIALIZERS (Style Bindings (Internal - Nodal))
 
     private void initializeThisStyleBinding() {
-        thisStyle.bind(Bindings.concat(backgroundColorStyle, backgroundInsetsStyle));
+        thisStyle.bind(Bindings.concat(backgroundColorStyle, backgroundInsetsStyle, textFillStyle));
         styleProperty().bind(thisStyle);
     }
 }
