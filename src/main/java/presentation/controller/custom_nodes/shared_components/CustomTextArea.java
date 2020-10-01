@@ -18,11 +18,12 @@
 
 package main.java.presentation.controller.custom_nodes.shared_components;
 
+import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.*;
+import javafx.scene.Node;
 import javafx.scene.control.TextArea;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
 import javafx.util.Duration;
 import main.java.presentation.controller.utils.DoubleFxUtils;
 import main.java.presentation.controller.utils.FxUtils;
@@ -192,18 +193,15 @@ public class CustomTextArea extends TextArea {
     // INITIALIZERS (Style Bindings (prefHeightProperty))
 
     private void initializePrefHeightStyleBindings() {
-        // TODO: 01/10/2020 Remove hard-coding
-        final Text TEXT = textHolder.getText();
+        // FIXME: 01/10/2020 Fix issue when there is on eline of text the textarea is still too
+        //  tall.
+        Platform.runLater(() -> {
+            Node text = this.lookup(".text");
 
-        TEXT.textProperty().bind(this.textProperty());
-        TEXT.wrappingWidthProperty().bind(this.widthProperty().subtract(30));
-
-        TEXT.layoutBoundsProperty().addListener((obs, oldValue, newValue) -> {
-            if (oldValue.getHeight() != newValue.getHeight()) {
-                this.setPrefHeight(newValue.getHeight() * 1.38 + 15);
-            }
+            this.prefHeightProperty()
+                .bind(Bindings.createDoubleBinding(() -> text.getBoundsInLocal().getHeight(),
+                                                   text.boundsInLocalProperty()).add(20));
         });
-        this.setPrefHeight(TEXT.getLayoutBounds().getHeight() * 1.38 + 15);
     }
 
     // INITIALIZERS (Style Bindings (Internal - Nodal))
