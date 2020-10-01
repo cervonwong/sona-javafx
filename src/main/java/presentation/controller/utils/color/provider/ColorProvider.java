@@ -136,6 +136,9 @@ public class ColorProvider {
     private static final ObjectProperty<Color> hoverTextFieldAccentColor =
             new SimpleObjectProperty<>();
 
+    private static final ObjectProperty<Color> textFieldHighlightFillColor =
+            new SimpleObjectProperty<>();
+
 
     // INITIALIZATION
 
@@ -206,6 +209,7 @@ public class ColorProvider {
 
         enabledTextFieldAccentColor.set(repository.getEnabledTextFieldAccentColor());
         hoverTextFieldAccentColor.set(repository.getHoverTextFieldAccentColor());
+        textFieldHighlightFillColor.set(repository.getTextFieldHighlightFillColor());
     }
 
 
@@ -330,6 +334,10 @@ public class ColorProvider {
         return hoverTextFieldAccentColor.get();
     }
 
+    public static Color getTextFieldHighlightFillColor() {
+        return textFieldHighlightFillColor.get();
+    }
+
 
     // PROPERTY ACCESSORS
 
@@ -450,6 +458,10 @@ public class ColorProvider {
 
     public static ObjectProperty<Color> hoverTextFieldAccentColorProperty() {
         return hoverTextFieldAccentColor;
+    }
+
+    public static ObjectProperty<Color> textFieldHighlightFillColorProperty() {
+        return textFieldHighlightFillColor;
     }
 
 

@@ -103,4 +103,6 @@ public interface ThemeColorRepository {
     Color getEnabledTextFieldAccentColor();
 
     Color getHoverTextFieldAccentColor();
+
+    Color getTextFieldHighlightFillColor();
 }

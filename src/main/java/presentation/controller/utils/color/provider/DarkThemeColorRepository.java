@@ -165,4 +165,9 @@ public class DarkThemeColorRepository implements ThemeColorRepository {
     public Color getHoverTextFieldAccentColor() {
         return Color.MINTCREAM;
     }
+
+    @Override
+    public Color getTextFieldHighlightFillColor() {
+        return Color.ORANGE;
+    }
 }

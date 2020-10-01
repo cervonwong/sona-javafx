@@ -101,8 +101,9 @@ public class LightThemeColorRepository implements ThemeColorRepository {
     // [SPECIFIC] TEXT FIELD
 
     private final Color ENABLED_TEXT_FIELD_ACCENT_COLOR = BaseColorRepository.BLUE_200;
-
     private final Color HOVER_TEXT_FIELD_ACCENT_COLOR = BRAND_COLOR;
+
+    private final Color TEXT_FIELD_HIGHLIGHT_FILL_COLOR = BRAND_COLOR.deriveColor(0, 1, 1, 0.3);
 
 
     // ============================================================================================
@@ -274,5 +275,10 @@ public class LightThemeColorRepository implements ThemeColorRepository {
     @Override
     public Color getHoverTextFieldAccentColor() {
         return HOVER_TEXT_FIELD_ACCENT_COLOR;
+    }
+
+    @Override
+    public Color getTextFieldHighlightFillColor() {
+        return TEXT_FIELD_HIGHLIGHT_FILL_COLOR;
     }
 }
