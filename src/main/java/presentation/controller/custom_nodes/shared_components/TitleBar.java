@@ -18,6 +18,8 @@
 
 package main.java.presentation.controller.custom_nodes.shared_components;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -25,6 +27,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import main.java.presentation.controller.utils.FxUtils;
+import main.java.presentation.controller.utils.color.CommonColorBindings;
 
 public class TitleBar extends AnchorPane {
 
@@ -35,6 +38,17 @@ public class TitleBar extends AnchorPane {
     private final boolean showDivider;
 
     private final boolean showBackButton;
+
+
+    // JAVAFX PROPERTIES (Style (Attributive))
+
+    private final StringProperty textFillStyle =
+            CommonColorBindings.highestEmphasisTextFillStyleProperty();
+
+
+    // JAVAFX PROPERTIES (Style (Nodal))
+
+    private final StringProperty titleLabelStyle = new SimpleStringProperty();
 
 
     // FXML NODES
@@ -66,6 +80,9 @@ public class TitleBar extends AnchorPane {
         initializeText();
         addDividerIfNecessary();
         addBackButtonIfNecessary();
+
+        initializeAttributiveStyleBindings();
+        initializeNodalStyleBindings();
     }
 
 
@@ -106,6 +123,26 @@ public class TitleBar extends AnchorPane {
 
         backButtonPane.getChildren().add(backButton);
         FxUtils.initializeAnchorPaneAnchors(backButton);
+    }
+
+
+    // INITIALIZERS (Style Bindings (Internal - (Called in constructor))
+
+    private void initializeAttributiveStyleBindings() {
+
+    }
+
+    private void initializeNodalStyleBindings() {
+        initializeTitleLabelStyleBinding();
+    }
+
+
+    // INITIALIZERS (Style Bindings (Internal - Nodal))
+
+    private void initializeTitleLabelStyleBinding() {
+        System.out.println(textFillStyle);
+        titleLabelStyle.bind(textFillStyle);
+        titleLabel.styleProperty().bind(titleLabelStyle);
     }
 
 
