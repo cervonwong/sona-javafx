@@ -1,5 +1,5 @@
 .text-area {
-	-fx-background-radius: 0;
+	-fx-background-radius: 10 10 0 0;
 }
 
 .text-area .scroll-pane {

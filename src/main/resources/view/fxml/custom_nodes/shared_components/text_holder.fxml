@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.text.Text?>
 
 <!--
   ~ Sona is an educational SRS application written in JavaFX.
@@ -21,10 +22,14 @@
   ~ along with this program.  If not, see <https://www.gnu.org/licenses/>.
   -->
 
-<fx:root styleClass="body-1" type="TextArea" wrapText="true" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+
+<fx:root type="Group" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text fx:id="text" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+   </children>
    <stylesheets>
       <URL value="@../../../css/global/fonts/all_fonts.css" />
       <URL value="@../../../css/global/fonts/type_scale.css" />
-      <URL value="@../../../css/specific/custom_nodes/shared_components/custom_text_area.css" />
+      <URL value="@../../../css/specific/custom_nodes/shared_components/text_holder.css" />
    </stylesheets>
 </fx:root>

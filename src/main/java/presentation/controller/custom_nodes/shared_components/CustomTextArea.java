@@ -22,6 +22,7 @@ import javafx.beans.binding.Bindings;
 import javafx.beans.property.*;
 import javafx.scene.control.TextArea;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 import main.java.presentation.controller.utils.DoubleFxUtils;
 import main.java.presentation.controller.utils.FxUtils;
@@ -51,6 +52,11 @@ public class CustomTextArea extends TextArea {
     private final StringProperty thisStyle = new SimpleStringProperty();
 
 
+    // STYLE
+
+    private TextHolder textHolder = new TextHolder();
+
+
     // CONTROLLER
 
     public CustomTextArea() {
@@ -58,6 +64,7 @@ public class CustomTextArea extends TextArea {
 
         initializeAttributiveStyleBindings();
         initializeNodalStyleBindings();
+        initializePrefHeightStyleBindings();
 
         FxUtils.sharpenTextArea(this);
     }
@@ -90,7 +97,7 @@ public class CustomTextArea extends TextArea {
         final Duration TRANSITION_DURATION = Duration.millis(75);
 
         final StringProperty BASE_BACKGROUND_COLOR_STRING =
-                ColorFxUtils.createStaticStringProperty(ColorProvider.backgroundColorProperty());
+                ColorFxUtils.createStaticStringProperty(ColorProvider.surfaceColorProperty());
         final ObjectProperty<Color> DESIRED_ACCENT_BACKGROUND_COLOR =
                 createDesiredAccentBackgroundColor();
 
@@ -181,6 +188,23 @@ public class CustomTextArea extends TextArea {
         return DESIRED_PARAMETRIC_BACKGROUND_INSET;
     }
 
+
+    // INITIALIZERS (Style Bindings (prefHeightProperty))
+
+    private void initializePrefHeightStyleBindings() {
+        // TODO: 01/10/2020 Remove hard-coding
+        final Text TEXT = textHolder.getText();
+
+        TEXT.textProperty().bind(this.textProperty());
+        TEXT.wrappingWidthProperty().bind(this.widthProperty().subtract(30));
+
+        TEXT.layoutBoundsProperty().addListener((obs, oldValue, newValue) -> {
+            if (oldValue.getHeight() != newValue.getHeight()) {
+                this.setPrefHeight(newValue.getHeight() * 1.38 + 15);
+            }
+        });
+        this.setPrefHeight(TEXT.getLayoutBounds().getHeight() * 1.38 + 15);
+    }
 
     // INITIALIZERS (Style Bindings (Internal - Nodal))
 
