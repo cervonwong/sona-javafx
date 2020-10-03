@@ -41,5 +41,6 @@
     <orderEntry type="library" name="org.openjfx:javafx-controls:15" level="project" />
     <orderEntry type="library" name="org.openjfx:javafx-fxml:15" level="project" />
     <orderEntry type="library" name="org.fxmisc.richtext:richtextfx:0.10.5" level="project" />
+    <orderEntry type="library" name="com.jfoenix:jfoenix:9.0.10" level="project" />
   </component>
 </module>
