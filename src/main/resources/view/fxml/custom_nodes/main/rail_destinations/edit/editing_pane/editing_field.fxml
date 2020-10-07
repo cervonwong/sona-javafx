@@ -27,7 +27,7 @@
    <children>
       <VBox layoutX="200.0" layoutY="14.0" spacing="8.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label fx:id="fieldLabel" styleClass="headline-6" text="FIELD" />
+            <Label fx:id="fieldLabel" styleClass="body-1" text="FIELD" />
             <AnchorPane fx:id="textAreaPane" />
          </children>
       </VBox>
