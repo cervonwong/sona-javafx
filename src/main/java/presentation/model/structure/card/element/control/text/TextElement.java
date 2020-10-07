@@ -30,7 +30,7 @@ public final class TextElement extends AbstractElement implements ControlElement
 
     private final String value;
 
-    private final TextFormat textFormat; // Extracted so that copying formats are easier.
+    private final TextFormat textFormat; // Abstracted so that copying formats are easier.
 
 
     // DEFAULT VALUES
