@@ -26,148 +26,258 @@ public class DarkThemeColorRepository implements ThemeColorRepository {
     // CONSTANTS
     // ============================================================================================
 
+    // [SHARED] BASELINE COLORS
+
+    private final Color BRAND_COLOR = BaseColorRepository.ORANGE_800;
+
+    private final Color BACKGROUND_COLOR = BaseColorRepository.BLUE_900;
+    private final Color SURFACE_COLOR = BaseColorRepository.BLUE_800;
+    private final Color ERROR_COLOR = null;
+
+    // [SHARED] TEXT COLORS
+
+    private final Color HIGHEST_EMPHASIS_TEXT_COLOR =
+            BaseColorRepository.NEARLY_WHITE;
+    private final Color HIGH_EMPHASIS_TEXT_COLOR =
+            BaseColorRepository.ALMOST_WHITE;
+    private final Color MEDIUM_EMPHASIS_TEXT_COLOR =
+            BaseColorRepository.NEARLY_WHITE.deriveColor(0, 1, 1, 0.75);
+    private final Color LOW_EMPHASIS_TEXT_COLOR =
+            BaseColorRepository.NEARLY_WHITE.deriveColor(0, 1, 1, 0.40);
+
+
+    // [SHARED] BUTTON COLORS
+
+    private final Color ENABLED_TEXT_BUTTON_BACKGROUND_COLOR =
+            Color.TRANSPARENT;
+    private final Color HOVER_TEXT_BUTTON_BACKGROUND_COLOR =
+            Color.WHITE.deriveColor(0, 1, 1, 0.06);
+    private final Color PRESSED_TEXT_BUTTON_BACKGROUND_COLOR =
+            Color.WHITE.deriveColor(0, 1, 1, 0.18);
+
+    private final Color ENABLED_CONTAINED_BUTTON_FILL_COLOR =
+            BRAND_COLOR;
+    private final Color HOVER_CONTAINED_BUTTON_FILL_COLOR =
+            BRAND_COLOR.interpolate(Color.WHITE, 0.12);
+    private final Color PRESSED_CONTAINED_BUTTON_FILL_COLOR =
+            BRAND_COLOR.interpolate(Color.WHITE, 0.24);
+    private final Color ON_CONTAINED_BUTTON_TEXT_COLOR = BaseColorRepository.DARKEST_TEXT_COLOR;
+
+    private final Color HOVER_ICON_BUTTON_TEXT_COLOR = BRAND_COLOR;
+
+
+    // [SHARED] CONTROL COLORS
+
+    private final Color ENABLED_CONTROL_BACKGROUND_COLOR = Color.TRANSPARENT;
+    private final Color HOVER_CONTROL_BACKGROUND_COLOR = BRAND_COLOR.deriveColor(0, 1, 1, 0.1);
+    private final Color PRESSED_CONTROL_BACKGROUND_COLOR = BRAND_COLOR.deriveColor(0, 1, 1, 0.3);
+
+
+    // [SPECIFIC] NAVIGATION RAIL COLORS
+
+    private final Color NAVIGATION_RAIL_BASE_COLOR = BaseColorRepository.BLUE_800;
+    private final Color NAVIGATION_RAIL_INACTIVE_TEXT_COLOR = MEDIUM_EMPHASIS_TEXT_COLOR;
+    private final Color NAVIGATION_RAIL_ACTIVATED_TEXT_COLOR = BRAND_COLOR;
+
+
+    // [SPECIFIC] DECKS VIEW CARD
+
+    private final Color DECKS_VIEW_CARD_HOVER_ACCENT_COLOR = BRAND_COLOR;
+
+
+    // [SPECIFIC] DIVIDER
+
+    private final Color DIVIDER_COLOR = BaseColorRepository.BLUE_800;
+
+
+    // [SPECIFIC] TAB BAR
+
+    private final Color ACTIVATED_TAB_ITEM_TEXT_COLOR = BRAND_COLOR;
+
+    private final Color TAB_BAR_INDICATOR_COLOR = BRAND_COLOR;
+
+
+    // [SPECIFIC] TEXT FIELD
+
+    private final Color ENABLED_TEXT_FIELD_ACCENT_COLOR = BaseColorRepository.BLUE_700;
+    private final Color HOVER_TEXT_FIELD_ACCENT_COLOR = BRAND_COLOR;
+
+    private final Color TEXT_FIELD_HIGHLIGHT_FILL_COLOR = BRAND_COLOR.deriveColor(0, 1, 1, 0.3);
+
+
+    // ============================================================================================
+    // ACCESSORS
+    // ============================================================================================
+
+    // [SHARED] BASELINE COLORS
+
     @Override
+
     public Color getBrandColor() {
-        return Color.PURPLE;
+        return BRAND_COLOR;
     }
 
     @Override
     public Color getBackgroundColor() {
-        return Color.PURPLE;
+        return BACKGROUND_COLOR;
     }
 
     @Override
     public Color getSurfaceColor() {
-        return Color.PURPLE;
+        return SURFACE_COLOR;
     }
 
     @Override
     public Color getErrorColor() {
-        return Color.PURPLE;
+        return ERROR_COLOR;
     }
+
+
+    // [SHARED] TEXT COLORS
 
     @Override
     public Color getHighestEmphasisTextColor() {
-        return Color.PURPLE;
+        return HIGHEST_EMPHASIS_TEXT_COLOR;
     }
 
     @Override
     public Color getHighEmphasisTextColor() {
-        return Color.PURPLE;
+        return HIGH_EMPHASIS_TEXT_COLOR;
     }
 
     @Override
     public Color getMediumEmphasisTextColor() {
-        return Color.PURPLE;
+        return MEDIUM_EMPHASIS_TEXT_COLOR;
     }
 
     @Override
     public Color getLowEmphasisTextColor() {
-        return Color.PURPLE;
+        return LOW_EMPHASIS_TEXT_COLOR;
     }
+
+
+    // [SHARED] BUTTON COLORS
 
     @Override
     public Color getEnabledTextButtonBackgroundColor() {
-        return Color.PURPLE;
+        return ENABLED_TEXT_BUTTON_BACKGROUND_COLOR;
     }
 
     @Override
     public Color getHoverTextButtonBackgroundColor() {
-        return Color.PURPLE;
+        return HOVER_TEXT_BUTTON_BACKGROUND_COLOR;
     }
 
     @Override
     public Color getPressedTextButtonBackgroundColor() {
-        return Color.PURPLE;
+        return PRESSED_TEXT_BUTTON_BACKGROUND_COLOR;
     }
 
     @Override
     public Color getEnabledContainedButtonFillColor() {
-        return Color.PURPLE;
+        return ENABLED_CONTAINED_BUTTON_FILL_COLOR;
     }
 
     @Override
     public Color getHoverContainedButtonFillColor() {
-        return Color.PURPLE;
+        return HOVER_CONTAINED_BUTTON_FILL_COLOR;
     }
 
     @Override
     public Color getPressedContainedButtonFillColor() {
-        return Color.PURPLE;
+        return PRESSED_CONTAINED_BUTTON_FILL_COLOR;
     }
 
     @Override
     public Color getOnContainedButtonTextColor() {
-        return Color.WHITE;
+        return ON_CONTAINED_BUTTON_TEXT_COLOR;
     }
 
     @Override
     public Color getHoverIconButtonTextColor() {
-        return Color.RED;
+        return HOVER_ICON_BUTTON_TEXT_COLOR;
     }
+
+
+    // [SHARED] CONTROL COLORS
 
     @Override
     public Color getEnabledControlBackgroundColor() {
-        return Color.LIGHTGOLDENRODYELLOW;
+        return ENABLED_CONTROL_BACKGROUND_COLOR;
     }
 
     @Override
     public Color getHoverControlBackgroundColor() {
-        return Color.MEDIUMPURPLE;
+        return HOVER_CONTROL_BACKGROUND_COLOR;
     }
 
     @Override
     public Color getPressedControlBackgroundColor() {
-        return Color.PALEVIOLETRED;
+        return PRESSED_CONTROL_BACKGROUND_COLOR;
     }
+
+
+    // [SPECIFIC] NAVIGATION RAIL COLORS
 
     @Override
     public Color getNavigationRailBaseColor() {
-        return Color.PURPLE;
+        return NAVIGATION_RAIL_BASE_COLOR;
     }
 
     @Override
     public Color getNavigationRailInactiveTextColor() {
-        return Color.YELLOW;
+        return NAVIGATION_RAIL_INACTIVE_TEXT_COLOR;
     }
 
     @Override
     public Color getNavigationRailActivatedTextColor() {
-        return Color.GREEN;
+        return NAVIGATION_RAIL_ACTIVATED_TEXT_COLOR;
     }
+
+
+    // [SPECIFIC] DECKS VIEW CARD COLORS
 
     @Override
     public Color getDecksViewCardHoverAccentColor() {
-        return Color.BLUE;
+        return DECKS_VIEW_CARD_HOVER_ACCENT_COLOR;
     }
+
+
+    // [SPECIFIC] DIVIDER
 
     @Override
     public Color getDividerColor() {
-        return Color.ORCHID;
+        return DIVIDER_COLOR;
     }
+
+
+    // [SPECIFIC] TAB BAR
 
     @Override
     public Color getActivatedTabItemTextColor() {
-        return Color.DARKORANGE;
+        return ACTIVATED_TAB_ITEM_TEXT_COLOR;
     }
 
     @Override
     public Color getTabBarIndicatorColor() {
-        return Color.CADETBLUE;
+        return TAB_BAR_INDICATOR_COLOR;
     }
+
+
+    // [SPECIFIC] TEXT FIELD
 
     @Override
     public Color getEnabledTextFieldAccentColor() {
-        return Color.RED;
+        return ENABLED_TEXT_FIELD_ACCENT_COLOR;
     }
 
     @Override
     public Color getHoverTextFieldAccentColor() {
-        return Color.MINTCREAM;
+        return HOVER_TEXT_FIELD_ACCENT_COLOR;
     }
 
     @Override
     public Color getTextFieldHighlightFillColor() {
-        return Color.ORANGE;
+        return TEXT_FIELD_HIGHLIGHT_FILL_COLOR;
     }
 }
