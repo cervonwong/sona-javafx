@@ -1,3 +1,5 @@
+### This repository has been archived. Please see the new repository which rewrites this app in Flutter [here](https://github.com/cervonwong/sona-flutter).
+
 # Sona
 
 <p align="center">
